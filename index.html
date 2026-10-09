@@ -21,25 +21,9 @@
     --line:#E3D4B8;
     --good:#3E6B3A;
     --bad:#8C3A2B;
+    --hero-start:#6E1423; --hero-mid:#4E0E19; --hero-end:#1C2340; --hero-text:#FBF3E7;
     padding-top: env(safe-area-inset-top, 0px);
     padding-bottom: env(safe-area-inset-bottom, 0px);
-  }
-  :root:not([data-theme="light"]){ }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --ivory:#1A1510;
-      --ivory-dim:#211A13;
-      --ink:#EDE2D0;
-      --ink-soft:#B8A68C;
-      --line:#3A2E22;
-    }
-  }
-  :root[data-theme="dark"]{
-    --ivory:#1A1510;
-    --ivory-dim:#211A13;
-    --ink:#EDE2D0;
-    --ink-soft:#B8A68C;
-    --line:#3A2E22;
   }
 
   *{box-sizing:border-box;}
@@ -105,21 +89,25 @@
     --ivory:#11152A; --ivory-dim:#171C36; --maroon:#D7A456; --maroon-deep:#B8893F;
     --gold:#8FA3C9; --gold-light:#AEBEDC; --indigo:#05070F;
     --ink:#EDE7D8; --ink-soft:#9C97AE; --line:#2B3050; --good:#6FAE6A; --bad:#D97361;
+    --hero-start:#1B2440; --hero-mid:#11162C; --hero-end:#05070F; --hero-text:#EDE7D8;
   }
   :root[data-theme-name="saffron"]{
     --ivory:#FFF6E9; --ivory-dim:#FDEBD0; --maroon:#C65B12; --maroon-deep:#9C470D;
     --gold:#B8860A; --gold-light:#D9A62A; --indigo:#6B2E12;
     --ink:#3A2412; --ink-soft:#8A6A4A; --line:#EED9B8; --good:#3E6B3A; --bad:#8C3A2B;
+    --hero-start:#C65B12; --hero-mid:#9C470D; --hero-end:#5A2A0D; --hero-text:#FFF6E9;
   }
   :root[data-theme-name="lotus"]{
     --ivory:#FFF3F6; --ivory-dim:#FBE4EA; --maroon:#B2355E; --maroon-deep:#8A2548;
     --gold:#C9924E; --gold-light:#DDB06E; --indigo:#4A1930;
     --ink:#3A1626; --ink-soft:#8C6B78; --line:#F0CBD8; --good:#3E6B3A; --bad:#8C3A2B;
+    --hero-start:#B2355E; --hero-mid:#8A2548; --hero-end:#3D1526; --hero-text:#FFF3F6;
   }
   :root[data-theme-name="forest"]{
     --ivory:#F3F7EE; --ivory-dim:#E6EEDC; --maroon:#2F5D34; --maroon-deep:#244A28;
     --gold:#B8860A; --gold-light:#D9A62A; --indigo:#1B3A26;
     --ink:#1F2B1C; --ink-soft:#6B7A63; --line:#D7E2CC; --good:#4C7A44; --bad:#A63B2B;
+    --hero-start:#2F5D34; --hero-mid:#244A28; --hero-end:#13241A; --hero-text:#F3F7EE;
   }
   .tabs-row{
     display:flex;align-items:center;gap:6px;
@@ -149,8 +137,8 @@
 
   /* ---------- Hero (Today) ---------- */
   .hero{
-    background:linear-gradient(115deg,var(--maroon) 0%, var(--maroon-deep) 46%, var(--indigo) 100%);
-    color:var(--ivory);
+    background:linear-gradient(115deg,var(--hero-start) 0%, var(--hero-mid) 46%, var(--hero-end) 100%);
+    color:var(--hero-text);
     padding:34px 0 30px;
     margin-bottom:28px;
   }
@@ -648,7 +636,7 @@
     <div class="wrap">
       <section class="block" style="margin-top:28px;">
         <h2>Festivals &amp; observances, 2026</h2>
-        <p class="desc">A curated list of major Hindu festivals for the Gregorian year 2026. Regional calendars and local sighting conventions can shift a date by a day — check with a local priest or panchang for exact ritual timing. Masik Shivratri isn't listed below since it recurs every lunar month (on Krishna Paksha Chaturdashi) — it's marked automatically on the Calendar tab wherever it falls.</p>
+        <p class="desc">A curated list of major Hindu festivals — plus the year's solar and lunar eclipses (Surya and Chandra Grahan) — for the Gregorian year 2026. Regional calendars and local sighting conventions can shift a date by a day — check with a local priest or panchang for exact ritual timing. Masik Shivratri isn't listed below since it recurs every lunar month (on Krishna Paksha Chaturdashi) — it's marked automatically on the Calendar tab wherever it falls.</p>
         <hr class="divider">
         <table class="data">
           <tr><th>Date</th><th>Festival</th><th>Note</th></tr>
@@ -780,7 +768,8 @@
     ["2026-01-14","Makar Sankranti","Sun's entry into Capricorn"],
     ["2026-01-23","Vasant Panchami","Goddess Saraswati worship"],
     ["2026-02-15","Maha Shivratri","Great night of Shiva"],
-    ["2026-03-03","Holika Dahan","Bonfire eve of Holi"],
+    ["2026-02-17","Surya Grahan \u2014 Annular Solar Eclipse","Not visible from India"],
+    ["2026-03-03","Holika Dahan \u2022 Chandra Grahan","Bonfire eve of Holi; also a Total Lunar Eclipse, partially visible in India at moonrise (NE states)"],
     ["2026-03-04","Holi","Festival of colours"],
     ["2026-03-19","Chaitra Navratri begins","Nine nights of the Goddess"],
     ["2026-03-19","Ugadi / Gudi Padwa","Lunisolar new year, Deccan \u0026 Maharashtra"],
@@ -790,9 +779,11 @@
     ["2026-04-13","Vaisakhi / Baisakhi","Solar new year \u0026 harvest festival"],
     ["2026-05-01","Buddha Purnima","Birth of the Buddha"],
     ["2026-07-29","Guru Purnima","Honouring teachers"],
+    ["2026-08-12","Surya Grahan \u2014 Total Solar Eclipse","Not visible from India"],
     ["2026-08-15","Hariyali Teej","Monsoon festival for Parvati"],
     ["2026-08-26","Onam","Kerala's harvest festival"],
     ["2026-08-27","Raksha Bandhan","Sibling bond, thread-tying"],
+    ["2026-08-28","Chandra Grahan \u2014 Partial Lunar Eclipse","Not visible from India"],
     ["2026-09-04","Krishna Janmashtami","Birth of Lord Krishna"],
     ["2026-09-14","Ganesh Chaturthi","Birth of Lord Ganesha"],
     ["2026-09-25","Ganesh Visarjan","Anant Chaturdashi \u2014 immersion day"],
@@ -1657,8 +1648,12 @@
     settingsBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
 
-  var savedTheme = 'temple';
-  try { savedTheme = localStorage.getItem('panchang-theme') || 'temple'; } catch(e){}
+  var savedTheme = null;
+  try { savedTheme = localStorage.getItem('panchang-theme'); } catch(e){}
+  if (!savedTheme){
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    savedTheme = prefersDark ? 'midnight' : 'temple';
+  }
   applyTheme(savedTheme, false);
 
   renderAll();
