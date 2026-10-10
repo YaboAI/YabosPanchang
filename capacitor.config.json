@@ -1,0 +1,7 @@
+{
+  "appId": "com.panchang.almanac",
+  "appName": "Panchāng",
+  "webDir": "www",
+  "server": { "androidScheme": "https" },
+  "android": { "backgroundColor": "#6E1423" }
+}

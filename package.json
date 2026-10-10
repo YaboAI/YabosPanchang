@@ -1,0 +1,22 @@
+{
+  "name": "panchang-android",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Panchāng — Daily Hindu Almanac (Android app built with Capacitor)",
+  "scripts": {
+    "build": "node scripts/build-web.js",
+    "icons": "npx capacitor-assets generate --android",
+    "sync": "npm run build && npx cap sync android",
+    "open": "npm run sync && npx cap open android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.0.0",
+    "@capacitor/app": "^8.0.0",
+    "@capacitor/core": "^8.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^8.0.0"
+  },
+  "engines": { "node": ">=22" }
+}
