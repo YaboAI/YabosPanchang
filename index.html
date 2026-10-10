@@ -139,6 +139,12 @@
   @keyframes tabInL{from{transform:translateX(28px);opacity:.2}to{transform:none;opacity:1}}
   @keyframes tabInR{from{transform:translateX(-28px);opacity:.2}to{transform:none;opacity:1}}
   @media (prefers-reduced-motion:reduce){.panel.slide-l,.panel.slide-r{animation:none;}}
+  .subtabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+  .subtab{font:inherit;font-size:.86rem;font-weight:600;padding:8px 16px;min-height:40px;border-radius:999px;border:1px solid var(--line);background:var(--ivory-dim);color:var(--ink-soft);cursor:pointer;}
+  .subtab:hover{border-color:var(--maroon);color:var(--maroon);}
+  .subtab.active{background:var(--maroon);border-color:var(--maroon);color:var(--ivory);}
+  .subpanel{display:none;}
+  .subpanel.active{display:block;}
   /* touch comfort */
   html{-webkit-text-size-adjust:100%;}
   body{overscroll-behavior-x:none;}
@@ -292,6 +298,22 @@
   .sheet-date{font-size:.88rem;color:var(--ink-soft);}
   .sheet p{line-height:1.6;margin:0 0 14px;}
   .fest-row:hover{background:var(--ivory-dim);}
+  .nv-link{display:block;width:100%;margin-top:14px;padding:12px 14px;border-radius:12px;border:1px solid var(--maroon);background:var(--ivory-dim);color:var(--maroon);font:inherit;font-weight:600;cursor:pointer;text-align:left;}
+  .nv-back{border:0;background:none;color:var(--maroon);font:inherit;font-weight:600;padding:4px 0;cursor:pointer;}
+  .sheet h4{font-family:'Fraunces',serif;font-size:1.05rem;margin:22px 0 8px;color:var(--maroon);}
+  .sheet ol{margin:0 0 10px;padding-left:20px;line-height:1.6;font-size:.93rem;}
+  .nv-dates{display:grid;gap:6px;}
+  .nv-drow{display:flex;justify-content:space-between;gap:10px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;font-size:.9rem;}
+  .nv-drow.on{border-color:var(--maroon);background:var(--ivory-dim);}
+  .nv-day{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);}
+  .nv-date{flex:0 0 58px;text-align:center;}
+  .nv-date b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;line-height:1;color:var(--maroon);}
+  .nv-date span{font-size:.7rem;color:var(--ink-soft);}
+  .nv-devi{font-weight:600;}
+  .nv-devi small{font-weight:400;color:var(--ink-soft);margin-left:8px;}
+  .nv-desc{font-size:.85rem;color:var(--ink-soft);margin-top:2px;}
+  .nv-meta{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.82rem;margin-top:6px;}
+  .nv-sw{display:inline-block;width:12px;height:12px;border-radius:50%;border:1px solid rgba(0,0,0,.3);margin-right:5px;vertical-align:-1px;}
   .fest-chip[data-fi]:hover{background:rgba(255,255,255,.3);}
   .up-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px;}
   .up-card{display:flex;align-items:center;gap:14px;text-align:left;font:inherit;color:inherit;background:var(--ivory-dim);border:1px solid var(--line);border-radius:14px;padding:12px 14px;cursor:pointer;}
@@ -447,6 +469,7 @@
       <button data-tab="muhurat">Muhurat</button>
       <button data-tab="festivals">Festivals</button>
       <button data-tab="horoscope">Horoscope</button>
+      <button data-tab="yantrani">Yantrāṇi</button>
       <button data-tab="about">About</button>
     </nav>
     <div class="settings-wrap">
@@ -498,11 +521,7 @@
       </div>
 
       <section class="block" id="upcoming-block">
-        <div id="today-wrap" style="margin-bottom:26px;">
-          <h2 id="today-fest-title">Today's festival</h2>
-          <div id="today-fest"></div>
-        </div>
-        <h2>Upcoming festivals</h2>
+        <h2>Festivals &amp; vrats</h2>
         <div class="up-grid" id="upcoming-list"></div>
       </section>
 
@@ -550,47 +569,6 @@
         </div>
       </section>
 
-      <section class="block">
-        <h2>Vedic time</h2>
-        <p class="desc">A live clock for <span id="vt-loc">—</span> — this keeps ticking with the real current moment, independent of the date picker above.</p>
-        <hr class="divider">
-        <div class="vedic-card">
-          <div class="vedic-grid">
-            <div class="vedic-col">
-              <div class="vedic-sub">Ghati · Pal · Vipal</div>
-              <div class="vedic-big" id="vt-ghati">00:00:00</div>
-              <div class="vedic-rise">
-                <span>Sunrise <strong>00:00:00</strong></span>
-                <span>Sunset <strong>30:00:00</strong></span>
-              </div>
-            </div>
-            <div class="vedic-col">
-              <div class="vedic-sub">Gregorian time</div>
-              <div class="vedic-big" id="vt-greg">00:00:00</div>
-              <div class="vedic-rise">
-                <span>Sunrise <strong id="vt-sunrise">—</strong></span>
-                <span>Sunset <strong id="vt-sunset">—</strong></span>
-              </div>
-            </div>
-          </div>
-          <hr class="vedic-divider">
-          <div class="vedic-sub">Current Prahar</div>
-          <div class="vedic-prahar-now" id="vt-prahar">—</div>
-
-          <button id="vedic-note-toggle" type="button" class="link-toggle" aria-expanded="false" style="margin-top:20px;">Show Vedic clock details ▾</button>
-          <div class="vedic-note" id="vedic-note" hidden>
-            One full day = <b>60 Ghati</b> &nbsp;·&nbsp; 1 Ghati = <b>60 Pal</b> &nbsp;·&nbsp; 1 Pal = <b>60 Vipal</b>.
-            The count starts at 0 on sunrise, reaches 30 right at sunset, and completes 60 at the next sunrise — so each ghati stretches or shrinks slightly with the seasons.
-          </div>
-        </div>
-
-        <button id="prahar-toggle" type="button" class="link-toggle" aria-expanded="false">Show Prahar classification ▾</button>
-        <table class="data" id="prahar-table-wrap" style="margin-top:12px;" hidden>
-          <tr><th>No.</th><th>Prahar</th><th>Classification</th><th>Approximate period</th></tr>
-          <tbody id="prahar-table"></tbody>
-        </table>
-      </section>
-
       <div class="grid2">
         <section class="block">
           <h2>Day markers</h2>
@@ -613,7 +591,7 @@
       <div class="wrap">
         <div class="hero-date">
           <div class="dow" id="c-dow">—</div>
-          <div class="num" id="c-date">—</div>
+          <div class="day-nav"><button type="button" class="day-arrow" id="c-day-prev" aria-label="Previous day">‹</button><div class="num" id="c-date">—</div><button type="button" class="day-arrow" id="c-day-next" aria-label="Next day">›</button></div>
           <div class="sub" id="c-sub">—</div>
         </div>
         <div class="hero-figs">
@@ -651,7 +629,7 @@
             </div>
           </div>
         </div>
-        <p class="desc">Tithi shown is the figure current at sunrise each day. Festival markers (gold) come from the curated list on the Festivals tab.</p>
+        <p class="desc">Tithi shown is the figure current at sunrise each day. Festival markers (gold) come from the Festivals tab.</p>
         <div class="cal-grid" id="cal-grid"></div>
       </section>
     </div>
@@ -697,8 +675,9 @@
   <div class="panel" id="panel-festivals">
     <div class="wrap">
       <section class="block" style="margin-top:28px;">
-        <h2>Festivals &amp; observances, 2026</h2>
-        <p class="desc">Tap any festival to read its story and details. A curated list of major Hindu festivals — plus the year's solar and lunar eclipses (Surya and Chandra Grahan) — for the Gregorian year 2026. Regional calendars and local sighting conventions can shift a date by a day — check with a local priest or panchang for exact ritual timing. Masik Shivratri isn't listed below since it recurs every lunar month (on Krishna Paksha Chaturdashi) — it's marked automatically on the Calendar tab wherever it falls.</p>
+        <h2 id="fest-title">Festivals &amp; observances</h2>
+        <div class="vrat-controls"><select id="fest-year" aria-label="Year"></select><span style="color:var(--ink-soft);font-size:.85rem;">2020 to 2036, calculated for your selected city</span></div>
+        <p class="desc">Tap any festival to read its story and details. Major Hindu festivals for the year you choose, worked out from the lunar calendar and the sun's movement for your selected city. Eclipses (Surya and Chandra Grahan) are listed for 2026 only. Regional calendars and local sighting conventions can shift a date by a day — check with a local priest or panchang for exact ritual timing. Masik Shivratri isn't listed below since it recurs every lunar month (on Krishna Paksha Chaturdashi) — it's marked automatically on the Calendar tab wherever it falls.</p>
         <hr class="divider">
         <table class="data">
           <tr><th>Date</th><th>Festival</th><th>Note</th></tr>
@@ -721,6 +700,62 @@
   </div>
 
   <!-- ABOUT -->
+  <!-- YANTRANI -->
+  <div class="panel" id="panel-yantrani">
+    <div class="wrap">
+      <section class="block" style="margin-top:28px;">
+        <h2>Yantrāṇi</h2>
+        <p class="desc">Instruments and tools for daily practice. Choose one below.</p>
+        <div class="subtabs" id="yantra-tabs" role="tablist">
+          <button type="button" class="subtab active" data-sub="vedic-clock" role="tab" aria-selected="true">Vedic Clock</button>
+        </div>
+      </section>
+
+      <div class="subpanel active" id="sub-vedic-clock">
+      <section class="block">
+        <h2>Vedic time</h2>
+        <p class="desc">A live clock for <span id="vt-loc">—</span> — this keeps ticking with the real current moment, independent of the date you have selected. Change the city on the Home tab.</p>
+        <hr class="divider">
+        <div class="vedic-card">
+          <div class="vedic-grid">
+            <div class="vedic-col">
+              <div class="vedic-sub">Ghati · Pal · Vipal</div>
+              <div class="vedic-big" id="vt-ghati">00:00:00</div>
+              <div class="vedic-rise">
+                <span>Sunrise <strong>00:00:00</strong></span>
+                <span>Sunset <strong>30:00:00</strong></span>
+              </div>
+            </div>
+            <div class="vedic-col">
+              <div class="vedic-sub">Gregorian time</div>
+              <div class="vedic-big" id="vt-greg">00:00:00</div>
+              <div class="vedic-rise">
+                <span>Sunrise <strong id="vt-sunrise">—</strong></span>
+                <span>Sunset <strong id="vt-sunset">—</strong></span>
+              </div>
+            </div>
+          </div>
+          <hr class="vedic-divider">
+          <div class="vedic-sub">Current Prahar</div>
+          <div class="vedic-prahar-now" id="vt-prahar">—</div>
+
+          <button id="vedic-note-toggle" type="button" class="link-toggle" aria-expanded="false" style="margin-top:20px;">Show Vedic clock details ▾</button>
+          <div class="vedic-note" id="vedic-note" hidden>
+            One full day = <b>60 Ghati</b> &nbsp;·&nbsp; 1 Ghati = <b>60 Pal</b> &nbsp;·&nbsp; 1 Pal = <b>60 Vipal</b>.
+            The count starts at 0 on sunrise, reaches 30 right at sunset, and completes 60 at the next sunrise — so each ghati stretches or shrinks slightly with the seasons.
+          </div>
+        </div>
+
+        <button id="prahar-toggle" type="button" class="link-toggle" aria-expanded="false">Show Prahar classification ▾</button>
+        <table class="data" id="prahar-table-wrap" style="margin-top:12px;" hidden>
+          <tr><th>No.</th><th>Prahar</th><th>Classification</th><th>Approximate period</th></tr>
+          <tbody id="prahar-table"></tbody>
+        </table>
+      </section>
+      </div>
+    </div>
+  </div>
+
   <div class="panel" id="panel-about">
     <div class="wrap">
       <section class="block" style="margin-top:28px;">
@@ -825,42 +860,347 @@
     {name:"Sydney, Australia", lat:-33.8688, lon:151.2093, tz:11}
   ];
 
-  var FESTIVALS_2026 = [
-    ["2026-01-13","Lohri","Punjab harvest bonfire"],
-    ["2026-01-14","Makar Sankranti","Sun's entry into Capricorn"],
-    ["2026-01-23","Vasant Panchami","Goddess Saraswati worship"],
-    ["2026-02-15","Maha Shivratri","Great night of Shiva"],
-    ["2026-02-17","Surya Grahan \u2014 Annular Solar Eclipse","Not visible from India"],
-    ["2026-03-03","Holika Dahan \u2022 Chandra Grahan","Bonfire eve of Holi; also a Total Lunar Eclipse, partially visible in India at moonrise (NE states)"],
-    ["2026-03-04","Holi","Festival of colours"],
-    ["2026-03-19","Chaitra Navratri begins","Nine nights of the Goddess"],
-    ["2026-03-19","Ugadi / Gudi Padwa","Lunisolar new year, Deccan \u0026 Maharashtra"],
-    ["2026-03-26","Ram Navami","Birth of Lord Rama"],
-    ["2026-03-31","Mahavir Jayanti","Birth of Lord Mahavira"],
-    ["2026-04-02","Hanuman Jayanti","Birth of Lord Hanuman"],
-    ["2026-04-13","Vaisakhi / Baisakhi","Solar new year \u0026 harvest festival"],
-    ["2026-05-01","Buddha Purnima","Birth of the Buddha"],
-    ["2026-07-29","Guru Purnima","Honouring teachers"],
-    ["2026-08-12","Surya Grahan \u2014 Total Solar Eclipse","Not visible from India"],
-    ["2026-08-15","Hariyali Teej","Monsoon festival for Parvati"],
-    ["2026-08-26","Onam","Kerala's harvest festival"],
-    ["2026-08-27","Raksha Bandhan","Sibling bond, thread-tying"],
-    ["2026-08-28","Chandra Grahan \u2014 Partial Lunar Eclipse","Not visible from India"],
-    ["2026-09-04","Krishna Janmashtami","Birth of Lord Krishna"],
-    ["2026-09-14","Ganesh Chaturthi","Birth of Lord Ganesha"],
-    ["2026-09-25","Ganesh Visarjan","Anant Chaturdashi \u2014 immersion day"],
-    ["2026-10-11","Shardiya Navratri begins","Autumn nine nights"],
-    ["2026-10-20","Vijaya Dashami / Dussehra","Triumph of good over evil"],
-    ["2026-10-29","Karva Chauth","Fasting for a spouse's wellbeing"],
-    ["2026-11-06","Dhanteras","Opens the Diwali festivities"],
-    ["2026-11-07","Narak Chaturdashi","Choti Diwali"],
-    ["2026-11-08","Diwali","Festival of lights"],
-    ["2026-11-10","Govardhan Puja","Krishna lifting Govardhan hill"],
-    ["2026-11-24","Guru Nanak Jayanti","Birth of Guru Nanak"],
-    ["2026-12-19","Gita Jayanti","Day the Bhagavad Gita was spoken"]
+  // eclipses are not computed: only the 2026 ones are listed
+  var FEST_EXTRA = {
+    2026: [
+      ["2026-02-17","Surya Grahan \u2014 Annular Solar Eclipse","Not visible from India"],
+      ["2026-03-03","Chandra Grahan \u2014 Total Lunar Eclipse","Partially visible in India at moonrise (NE states)"],
+      ["2026-08-12","Surya Grahan \u2014 Total Solar Eclipse","Not visible from India"],
+      ["2026-08-28","Chandra Grahan \u2014 Partial Lunar Eclipse","Not visible from India"]
+    ]
+  };
+  /* ===================== FESTIVAL ENGINE (any year, any location) ===================== */
+  var FEST_FIRST_YEAR = 2020, FEST_LAST_YEAR = new Date().getFullYear() + 10;
+  var LM_CACHE = {}, FEST_LOC = '', FEST_ALL = [], FEST_YEARS = {}, FEST_BYDATE = {}, NAV_CACHE = {};
+
+  function jdToDate(jd){ return new Date((jd - 2440587.5) * 864e5); }
+  function elongAt(date){ var p = sunMoonLongitudes(date); return norm360(p.moon - p.sun); }
+  function refineNewMoon(jd){
+    for (var i = 0; i < 6; i++){ var e = elongAt(jdToDate(jd)); if (e > 180) e -= 360; jd -= e / 12.1908; }
+    return jd;
+  }
+  function sunRashiAt(jd){ var d = jdToDate(jd), p = sunMoonLongitudes(d); return Math.floor(norm360(p.sun - ayanamsa(d))/30); }
+  // Amanta lunar month in force at a moment: named for the sign the Sun enters during it; adhika if it enters none
+  function lunarMonthAt(date){
+    var e = elongAt(date), nm0 = refineNewMoon(toJulianDay(date) - e/12.1908), nm1 = refineNewMoon(nm0 + 29.53);
+    var key = Math.round(nm0);
+    if (LM_CACHE[key]) return LM_CACHE[key];
+    var r0 = sunRashiAt(nm0), r1 = sunRashiAt(nm1);
+    return (LM_CACHE[key] = (r0 === r1) ? {name: LUNAR_MONTHS[(r1+1)%12], adhika: true} : {name: LUNAR_MONTHS[r1], adhika: false});
+  }
+
+  // [name, short note, amanta month, tithi 1..30 (16-30 = Krishna), reference moment]
+  var FEST_RULES = [
+    ['Gupt Navratri begins (Magha)','Secret Navratri','Magha',1,'rise'],
+    ['Vasant Panchami','Goddess Saraswati worship','Magha',5,'noon'],
+    ['Maha Shivratri','Great night of Shiva','Magha',29,'night'],
+    ['Holika Dahan','Bonfire eve of Holi','Phalguna',15,'prad'],
+    ['Chaitra Navratri begins','Nine nights of the Goddess','Chaitra',1,'rise'],
+    ['Ugadi / Gudi Padwa','Lunisolar new year, Deccan & Maharashtra','Chaitra',1,'rise'],
+    ['Ram Navami','Birth of Lord Rama','Chaitra',9,'noon'],
+    ['Mahavir Jayanti','Birth of Lord Mahavira','Chaitra',13,'rise'],
+    ['Hanuman Jayanti','Birth of Lord Hanuman','Chaitra',15,'rise'],
+    ['Buddha Purnima','Birth of the Buddha','Vaishakha',15,'rise'],
+    ['Gupt Navratri begins (Ashadha)','Secret Navratri','Ashadha',1,'rise'],
+    ['Guru Purnima','Honouring teachers','Ashadha',15,'rise'],
+    ['Hariyali Teej','Monsoon festival for Parvati','Shravana',3,'rise'],
+    ['Raksha Bandhan','Sibling bond, thread-tying','Shravana',15,'apar'],
+    ['Krishna Janmashtami','Birth of Lord Krishna','Shravana',23,'night'],
+    ['Ganesh Chaturthi','Birth of Lord Ganesha','Bhadrapada',4,'noon'],
+    ['Ganesh Visarjan','Anant Chaturdashi \u2014 immersion day','Bhadrapada',14,'rise'],
+    ['Shardiya Navratri begins','Autumn nine nights','Ashwina',1,'rise'],
+    ['Vijaya Dashami / Dussehra','Triumph of good over evil','Ashwina',10,'apar'],
+    ['Karva Chauth',"Fasting for a spouse's wellbeing",'Ashwina',19,'set'],
+    ['Dhanteras','Opens the Diwali festivities','Ashwina',28,'prad'],
+    ['Narak Chaturdashi','Choti Diwali','Ashwina',29,'rise'],
+    ['Diwali','Festival of lights','Ashwina',30,'prad'],
+    ['Govardhan Puja','Krishna lifting Govardhan hill','Kartika',1,'rise'],
+    ['Guru Nanak Jayanti','Birth of Guru Nanak','Kartika',15,'rise'],
+    ['Gita Jayanti','Day the Bhagavad Gita was spoken','Margashirsha',11,'rise']
   ];
-  var FEST_MAP = {};
-  FESTIVALS_2026.forEach(function(f){ FEST_MAP[f[0]] = f; });
+
+  function dayRecs(y, loc){
+    var recs = [], n = (Date.UTC(y+1,0,1) - Date.UTC(y,0,1))/864e5;
+    for (var i = -1; i <= n; i++){
+      var t = new Date(Date.UTC(y, 0, 1+i)), yy = t.getUTCFullYear(), mm = t.getUTCMonth()+1, dd = t.getUTCDate();
+      recs.push({y:yy, m:mm, d:dd, key:yy+'-'+pad2(mm)+'-'+pad2(dd), loc:loc, T:{}, ss:sunriseSunset(yy, mm, dd, loc.lat, loc.lon, loc.tz)});
+    }
+    return recs;
+  }
+  function refMinutes(r, ref){
+    var a = r.ss.sunriseMin, b = r.ss.sunsetMin;
+    if (ref === 'rise') return a;
+    if (ref === 'set') return b;
+    if (ref === 'noon') return (a+b)/2;
+    if (ref === 'apar') return a + 0.6*(b-a);
+    if (ref === 'p2') return b + 144;
+    if (ref === 'night') return b + (1440 - (b-a))*7/15;   // start of Nishita (8th night muhurta)
+    if (ref === 'mid') return b + (1440 - (b-a))/2;
+    var mr = moonriseLocalMin(r.y, r.m, r.d, r.loc.lat, r.loc.lon, r.loc.tz);
+    return mr === null ? b + 190 : mr;
+  }
+  function refDate(r, ref){ return dateFromLocalMinutes(r.y, r.m, r.d, refMinutes(r, ref), r.loc.tz); }
+  function refT(r, ref){
+    if (r.T[ref] === undefined){
+      if (ref === 'moon'){ var s = refT(r, 'set'); r.T.moon = (s >= 18 && s <= 20) ? tithiNumAt(refDate(r, 'moon')) : 0; }
+      else r.T[ref] = tithiNumAt(refDate(r, ref));
+    }
+    return r.T[ref];
+  }
+  // true on the first day the tithi prevails at the reference moment (or the day it falls between two such moments)
+  function tithiHit(recs, i, T, ref){
+    var f = ref === 'prad' ? 'set' : ref, l = ref === 'prad' ? 'p2' : ref;
+    function has(j){ return refT(recs[j], f) === T || refT(recs[j], l) === T; }
+    if (has(i) && !has(i-1)) return 1;
+    return (!has(i) && refT(recs[i], l) === (T === 1 ? 30 : T-1) && refT(recs[i+1], f) === (T % 30) + 1) ? 2 : 0;
+  }
+  // Moment when the Moon-Sun elongation next rises through `target` degrees after t0 (ms), or null
+  function crossing(t0, target, maxHours){
+    var step = 30*6e4;
+    function f(t){ return ((elongAt(new Date(t)) - target + 540) % 360) - 180; }
+    var a = t0, fa = f(a);
+    for (var t = t0 + step; t <= t0 + maxHours*36e5; t += step){
+      var fb = f(t);
+      if (fa < 0 && fb >= 0){
+        var lo = a, hi = t;
+        for (var i = 0; i < 14; i++){ var mid = (lo+hi)/2; if (f(mid) < 0) lo = mid; else hi = mid; }
+        return (lo+hi)/2;
+      }
+      a = t; fa = fb;
+    }
+    return null;
+  }
+  // Start and end (ms) of tithi T around a moment
+  function tithiSpan(T, date){
+    var st = crossing(date.getTime() - 36*36e5, ((T-1)*12) % 360, 72);
+    return {start: st, end: st === null ? null : crossing(st + 6e4, (T*12) % 360, 30)};
+  }
+  function sankrantiKey(y, rashi, loc){
+    var t0 = Date.UTC(y, rashi === 9 ? 0 : 3, 9), step = 6*36e5, k, lo, hi;
+    function inR(ts){ var d = new Date(ts), p = sunMoonLongitudes(d); return Math.floor(norm360(p.sun - ayanamsa(d))/30) === rashi; }
+    for (k = 1; k < 60; k++){ if (inR(t0 + k*step)) break; }
+    lo = t0 + (k-1)*step; hi = t0 + k*step;
+    for (var i = 0; i < 20; i++){ var mid = (lo+hi)/2; if (inR(mid)) hi = mid; else lo = mid; }
+    var ld = new Date(hi + loc.tz*36e5), mins = ld.getUTCHours()*60 + ld.getUTCMinutes();
+    var yy = ld.getUTCFullYear(), mm = ld.getUTCMonth()+1, dd = ld.getUTCDate();
+    if (mins > sunriseSunset(yy, mm, dd, loc.lat, loc.lon, loc.tz).sunsetMin) ld = new Date(Date.UTC(yy, mm-1, dd+1));
+    else ld = new Date(Date.UTC(yy, mm-1, dd));
+    return ld.getUTCFullYear()+'-'+pad2(ld.getUTCMonth()+1)+'-'+pad2(ld.getUTCDate());
+  }
+  function onamKey(y, loc){
+    var found = null;
+    for (var i = 0; i < 45; i++){
+      var t = new Date(Date.UTC(y, 7, 12+i)), yy = t.getUTCFullYear(), mm = t.getUTCMonth()+1, dd = t.getUTCDate();
+      var sr = dateFromLocalMinutes(yy, mm, dd, sunriseSunset(yy, mm, dd, loc.lat, loc.lon, loc.tz).sunriseMin, loc.tz);
+      var p = sunMoonLongitudes(sr);
+      if (Math.floor(norm360(p.sun - ayanamsa(sr))/30) === 4 && nakIdxAt(sr) === 21) found = yy+'-'+pad2(mm)+'-'+pad2(dd);
+    }
+    return found;
+  }
+  function addDays(key, n){
+    var p = key.split('-'), t = new Date(Date.UTC(+p[0], +p[1]-1, +p[2]+n));
+    return t.getUTCFullYear()+'-'+pad2(t.getUTCMonth()+1)+'-'+pad2(t.getUTCDate());
+  }
+  function buildFestYear(y, loc){
+    var recs = dayRecs(y, loc), out = [];
+    for (var i = 1; i < recs.length-1; i++){
+      var rec = recs[i];
+      if (rec.y !== y) continue;
+      FEST_RULES.forEach(function(r){
+        var hit = tithiHit(recs, i, r[3], r[4]);
+        if (!hit) return;
+        var mo = lunarMonthAt(refDate(hit === 2 ? recs[i+1] : rec, r[4]));
+        if (mo.adhika || mo.name !== r[2]) return;
+        var k = i, T = r[3];
+        if (r[0] === 'Holika Dahan' || r[0] === 'Raksha Bandhan'){
+          // Bhadra (Vishti karana) = first half of Purnima: not used for Holika Dahan / rakhi
+          var w = tithiSpan(15, refDate(rec, 'rise'));
+          var bEnd = w.start === null ? 0 : (w.start + w.end)/2;
+          var local = (bEnd/6e4 + loc.tz*60) - Date.UTC(rec.y, rec.m-1, rec.d)/6e4; // minutes after local midnight of day i
+          if (r[0] === 'Holika Dahan' && local > refMinutes(rec, 'mid') + 90) k = i + 1;
+          if (r[0] === 'Raksha Bandhan' && local > rec.ss.sunsetMin && refT(recs[i+1], 'rise') === 15) k = i + 1;
+        }
+        if (r[0] === 'Krishna Janmashtami' && refT(recs[i+1], 'night') === T) k = i + 1;   // Ashtami at Nishita on both nights: the later one
+        out.push([recs[k].key, r[0], r[1]]);
+        if (r[0] === 'Holika Dahan') out.push([recs[k+1].key, 'Holi', 'Festival of colours']);
+      });
+    }
+    var mk = sankrantiKey(y, 9, loc);
+    out.push([mk, 'Makar Sankranti', "Sun's entry into Capricorn"], [addDays(mk, -1), 'Lohri', 'Punjab harvest bonfire'],
+             [sankrantiKey(y, 0, loc), 'Vaisakhi / Baisakhi', 'Solar new year & harvest festival']);
+    var ok = onamKey(y, loc);
+    if (ok) out.push([ok, 'Onam', "Kerala's harvest festival"]);
+    (FEST_EXTRA[y] || []).forEach(function(f){ out.push(f); });
+    out.sort(function(a, b){ return a[0] < b[0] ? -1 : (a[0] > b[0] ? 1 : 0); });
+    return out;
+  }
+  // festivals of a year for the selected location; every entry gets a registry id (f.id)
+  function festYear(y){
+    var loc = selectedLoc(), lk = loc.lat+','+loc.lon+','+loc.tz;
+    if (lk !== FEST_LOC){ FEST_LOC = lk; FEST_ALL = []; FEST_YEARS = {}; FEST_BYDATE = {}; NAV_CACHE = {}; }
+    if (!FEST_YEARS[y]){
+      var list = (y < FEST_FIRST_YEAR || y > FEST_LAST_YEAR) ? (FEST_EXTRA[y] || []).slice() : buildFestYear(y, loc);
+      list.forEach(function(f){ f.id = FEST_ALL.push(f) - 1; (FEST_BYDATE[f[0]] = FEST_BYDATE[f[0]] || []).push(f); });
+      FEST_YEARS[y] = list;
+    }
+    return FEST_YEARS[y];
+  }
+  function festOnDay(y, m, d){ festYear(y); return FEST_BYDATE[y+'-'+pad2(m)+'-'+pad2(d)] || []; }
+
+  /* ===================== NAVRATRI DETAILS (any year) ===================== */
+  var NAV_KINDS = {
+    Chaitra: {month:'Chaitra', label:'Chaitra Navratri', mahavidya:false},
+    Ashwina: {month:'Ashwina', label:'Shardiya Navratri', mahavidya:false},
+    Magha:   {month:'Magha',   label:'Gupt Navratri (Magha)', mahavidya:true},
+    Ashadha: {month:'Ashadha', label:'Gupt Navratri (Ashadha)', mahavidya:true}
+  };
+  // [Devi, form, bhog (offering), mantra]
+  var NAVADURGA = [
+    ['Shailaputri','Daughter of the Himalaya, seated on a bull with a trident and lotus','Pure ghee','Om Devi Shailaputryai Namah'],
+    ['Brahmacharini','Goddess of penance and devotion, carrying a rosary and kamandalu','Sugar','Om Devi Brahmacharinyai Namah'],
+    ['Chandraghanta','Wears a crescent moon like a bell and rides a tiger; removes fear','Milk or kheer','Om Devi Chandraghantayai Namah'],
+    ['Kushmanda','Creator of the cosmos with her gentle smile; eight-armed, rides a lion','Malpua','Om Devi Kushmandayai Namah'],
+    ['Skandamata','Mother of Kartikeya (Skanda), shown with the child on her lap','Banana','Om Devi Skandamatre Namah'],
+    ['Katyayani','Warrior form born to Sage Katyayana, slayer of Mahishasura','Honey','Om Devi Katyayanyai Namah'],
+    ['Kalaratri','The fierce dark form that destroys fear, ignorance and evil','Jaggery','Om Devi Kalaratryai Namah'],
+    ['Mahagauri','The radiant, serene form that grants purity and peace','Coconut','Om Devi Mahagauryai Namah'],
+    ['Siddhidatri','Bestower of siddhis, spiritual accomplishment','Sesame seeds','Om Devi Siddhidatryai Namah']
+  ];
+  var MAHAVIDYAS = ['Kali','Tara','Tripura Sundari (Shodashi)','Bhuvaneshwari','Chhinnamasta','Tripura Bhairavi','Dhumavati','Bagalamukhi','Matangi & Kamala'];
+  var WEEKCOL = [['Orange','#F28C28'],['White','#F4F4F4'],['Red','#D62828'],['Royal blue','#2748B8'],['Yellow','#F4C20D'],['Green','#2E9E4F'],['Grey','#8A8D91']]; // Sun..Sat
+  var EXTRACOL = [['Purple','#7B3FA0'],['Peacock green','#0F8B8D'],['Pink','#E86A92']];
+  var PLANETS = ['Sun (Surya)','Moon (Chandra)','Mars (Mangal)','Mercury (Budh)','Jupiter (Guru)','Venus (Shukra)','Saturn (Shani)'];
+
+  function navKindOf(name){
+    if (/chaitra navratri/i.test(name)) return 'Chaitra';
+    if (/shardiya/i.test(name)) return 'Ashwina';
+    if (/gupt.*magha/i.test(name)) return 'Magha';
+    if (/gupt.*ashadha/i.test(name)) return 'Ashadha';
+    return null;
+  }
+  function niceKey(key){ var p = key.split('-'); return (+p[2]) + ' ' + MONTHS[+p[1]-1].slice(0,3); }
+  function keyWeekday(key){ var p = key.split('-'); return new Date(Date.UTC(+p[0], +p[1]-1, +p[2])).getUTCDay(); }
+  function fmtMs(ms, loc, baseKey){
+    var ld = new Date(ms + loc.tz*36e5), mins = ld.getUTCHours()*60 + ld.getUTCMinutes();
+    var key = ld.getUTCFullYear()+'-'+pad2(ld.getUTCMonth()+1)+'-'+pad2(ld.getUTCDate());
+    return minToHM(mins) + (key !== baseKey ? ' (' + niceKey(key) + ')' : '');
+  }
+  function navRecs(y){ festYear(y); return NAV_CACHE['r'+y] || (NAV_CACHE['r'+y] = dayRecs(y, selectedLoc())); }
+  // the date on which each of the nine tithis (Pratipada..Navami) falls
+  function navratriDays(kind, y){
+    var ck = kind + y;
+    festYear(y);
+    if (NAV_CACHE[ck]) return NAV_CACHE[ck];
+    var recs = navRecs(y), days = [];
+    for (var T = 1; T <= 9; T++){
+      var key = null, idx = -1;
+      for (var i = 1; i < recs.length-1 && key === null; i++){
+        if (recs[i].y !== y) continue;
+        var ref = T === 1 ? 'rise' : 'noon';   // Ghatasthapana by the sunrise tithi, the other days by the midday tithi
+        var hit = tithiHit(recs, i, T, ref);
+        if (!hit) continue;
+        var mo = lunarMonthAt(refDate(hit === 2 ? recs[i+1] : recs[i], ref));
+        if (!mo.adhika && mo.name === NAV_KINDS[kind].month){ key = recs[i].key; idx = i; }
+      }
+      days.push({T:T, key:key, i:idx});
+    }
+    return (NAV_CACHE[ck] = days);
+  }
+  function navRow(a, b){ return '<tr><td style="color:var(--ink-soft);width:38%;">'+a+'</td><td>'+b+'</td></tr>'; }
+
+  function navratriHTML(kind, y){
+    var loc = selectedLoc(), K = NAV_KINDS[kind], days = navratriDays(kind, y), recs = navRecs(y);
+    var first = days[0], last = days[8];
+    if (!first.key || !last.key) return '<p>The dates of this Navratri could not be worked out for ' + y + '.</p>';
+    var h = '';
+    // 1. dates of every Navratri this year
+    h += '<h4>Navratri dates in ' + y + '</h4><div class="nv-dates">' + ['Magha','Chaitra','Ashadha','Ashwina'].map(function(k){
+      var d = navratriDays(k, y);
+      return '<div class="nv-drow' + (k === kind ? ' on' : '') + '"><span>' + NAV_KINDS[k].label + '</span><b>' +
+        ((d[0].key && d[8].key) ? niceKey(d[0].key) + ' \u2013 ' + niceKey(d[8].key) : '\u2014') + '</b></div>';
+    }).join('') + '</div>';
+    // 2. Ghatasthapana
+    var rec = recs[first.i], a = rec.ss.sunriseMin, L = rec.ss.sunsetMin - a;
+    var pr = tithiSpan(1, refDate(rec, 'noon'));
+    h += '<h4>Ghatasthapana (Kalash Sthapana), ' + niceKey(first.key) + '</h4><table class="data"><tbody>' +
+      navRow('Pratipada tithi', pr.start && pr.end ? fmtMs(pr.start, loc, first.key) + ' to ' + fmtMs(pr.end, loc, first.key) : '\u2014') +
+      navRow('Best time', minToHM(a) + ' to ' + minToHM(a + L/3) + ' (first third of the day, while Pratipada prevails)') +
+      navRow('Abhijit muhurat', minToHM(a + L*7/15) + ' to ' + minToHM(a + L*8/15) + ' (use this if Pratipada ends early)') +
+      '</tbody></table><p class="desc" style="margin-top:8px;">Timings are for ' + loc.name + '.</p>';
+    // 3. day by day
+    var s = keyWeekday(first.key);
+    h += '<h4>Day by day: Devi, planet and colour</h4>';
+    days.forEach(function(dy, k){
+      if (!dy.key) return;
+      var wd = keyWeekday(dy.key), col = k < 7 ? WEEKCOL[(s + k) % 7] : EXTRACOL[((s % 3) + k - 7) % 3];
+      var devi = K.mahavidya ? MAHAVIDYAS[k] : NAVADURGA[k][0];
+      h += '<div class="nv-day"><div class="nv-date"><b>' + (+dy.key.slice(8)) + '</b><span>' + MONTHS[+dy.key.slice(5,7)-1].slice(0,3) + ' \u00b7 ' + WEEKDAYS[wd].slice(0,3) + '</span></div><div class="nv-info">' +
+        '<div class="nv-devi">Day ' + (k+1) + ' \u00b7 ' + devi + '<small>' + TITHI_NAMES[dy.T-1] + '</small></div>' +
+        (K.mahavidya ? '' : '<div class="nv-desc">' + NAVADURGA[k][1] + '</div>') +
+        '<div class="nv-meta"><span><i class="nv-sw" style="background:' + col[1] + '"></i>' + col[0] + '</span><span>Planet: ' + PLANETS[wd] + '</span>' +
+        (K.mahavidya ? '' : '<span>Bhog: ' + NAVADURGA[k][2] + '</span>') + '</div></div></div>';
+    });
+    if (kind === 'Ashwina'){
+      var dd = festYear(y).filter(function(f){ return /dussehra/i.test(f[1]); })[0];
+      if (dd) h += '<div class="nv-day"><div class="nv-date"><b>' + (+dd[0].slice(8)) + '</b><span>' + MONTHS[+dd[0].slice(5,7)-1].slice(0,3) + ' \u00b7 ' + WEEKDAYS[keyWeekday(dd[0])].slice(0,3) + '</span></div><div class="nv-info">' +
+        '<div class="nv-devi">Day 10 \u00b7 Vijaya Dashami<small>Dashami</small></div><div class="nv-desc">Dussehra: Lord Rama\u2019s victory over Ravana and Durga\u2019s victory over Mahishasura</div>' +
+        '<div class="nv-meta"><span>Planet: ' + PLANETS[keyWeekday(dd[0])] + '</span></div></div></div>';
+    }
+    h += '<p class="desc" style="margin-top:10px;">' + (K.mahavidya
+      ? 'Gupt Navratri honours the ten Mahavidyas (Matangi and Kamala share the ninth day). '
+      : '') + 'Colours follow the commonly used weekday pattern (it can differ by region or community), and each day\u2019s planet is the planet ruling that weekday. When a tithi begins and ends between two sunrises, two Devis are worshipped on the same date.</p>';
+    // 4. Sandhi Puja
+    if (!K.mahavidya && days[7].key){
+      var ash = tithiSpan(8, refDate(recs[days[7].i], 'noon'));
+      if (ash.end){
+        h += '<h4>Sandhi Puja (Ashtami\u2013Navami junction)</h4><table class="data"><tbody>' +
+          navRow('Ashtami ends', fmtMs(ash.end, loc, days[7].key)) +
+          navRow('Sandhi Puja', fmtMs(ash.end - 24*6e4, loc, days[7].key) + ' to ' + fmtMs(ash.end + 24*6e4, loc, days[7].key)) + '</tbody></table>' +
+          '<p class="desc" style="margin-top:8px;">The 48 minutes around the moment Ashtami ends: the last 24 minutes of Ashtami and the first 24 of Navami.</p>';
+      }
+    }
+    // 5. Puja vidhi
+    h += '<h4>Puja vidhi</h4><p><b>Day 1: Ghatasthapana</b></p><ol>' +
+      '<li>Wake early, bathe and wear clean clothes. Clean the puja place and set up a raised platform facing east or north-east.</li>' +
+      '<li>Spread clean soil in a clay dish, sow barley (jau) seeds and sprinkle a little water on them.</li>' +
+      '<li>Fill a kalash with water (Ganga jal if you have it) and add a coin, a supari, akshat and durva grass. Place five mango leaves around its mouth.</li>' +
+      '<li>Top the kalash with a coconut wrapped in red cloth and tied with mauli, apply roli tilak, and set it on the dish of jau.</li>' +
+      '<li>Invoke Lord Ganesha first, then install the image or yantra of the Goddess and light a ghee lamp (an akhand jyoti if you can keep it burning).</li>' +
+      '<li>Offer red flowers, a chunri, sindoor, fruit and sweets. Recite the Durga Saptashati or Durga Chalisa and finish with aarti.</li></ol>' +
+      '<p><b>Every day</b></p><ol>' +
+      '<li>Light the lamp morning and evening and sprinkle water on the jau.</li>' +
+      (K.mahavidya ? '<li>Worship that day\u2019s Mahavidya with her mantra and keep the practice quiet and private. Tantric practices are only for those guided by a guru.</li>'
+        : '<li>Worship that day\u2019s Devi with her mantra and favourite offering (bhog), then do the aarti.</li>') +
+      '<li>Keep a simple sattvic diet. Many devotees fast on all nine days, or only on the first and last. Fruit, milk, kuttu or singhara flour, sabudana and rock salt are the usual foods. Avoid grains, onion, garlic, meat and alcohol.</li></ol>';
+    if (!K.mahavidya){
+      h += '<p><b>Ashtami and Navami</b></p><ol>' +
+        '<li>Kanya Pujan: invite nine young girls (and a boy as Batuk Bhairav), wash their feet, apply tilak, serve halwa, puri and black chana, and give small gifts.</li>' +
+        '<li>A havan with ghee and sesame on Navami is customary in many families.</li></ol>' +
+        '<p><b>Concluding</b></p><ol><li>' + (kind === 'Ashwina'
+          ? 'On Dashami (Dussehra), do the concluding puja, give out the sprouted jau as prasad, and immerse or respectfully sprinkle the kalash water, then break the fast.'
+          : 'After Navami, do the concluding puja, give out the sprouted jau as prasad, and break the fast with the parana meal.') + '</li></ol>';
+    }
+    // 6. information
+    h += '<h4>About ' + K.label + '</h4><p>' + ({
+      Ashwina: 'Shardiya Navratri is the most widely observed Navratri, known as Maha Navratri. It falls in the lunar month of Ashwin during Sharad Ritu (autumn). The nine nights honour nine forms of Shakti and end with Dussehra.',
+      Chaitra: 'Chaitra Navratri falls in spring and opens the Hindu new year in many regions. The nine nights honour the nine forms of Durga and end with Ram Navami.',
+      Magha: 'Gupt (secret) Navratri in the month of Magha falls in the bright fortnight of winter. It is dedicated to the ten Mahavidyas, the tantric forms of the Divine Mother, and is kept quietly with mantra japa and sadhana.',
+      Ashadha: 'Gupt (secret) Navratri in the month of Ashadha falls at the start of the monsoon. It is dedicated to the ten Mahavidyas, the tantric forms of the Divine Mother, and is kept quietly with mantra japa and sadhana.'
+    })[kind] + '</p><p class="desc">Dates and timings are calculated for the selected city and can differ by a day from a local panchang. Ask your family priest for the exact muhurat.</p>';
+    return h;
+  }
+
+  function openNavratri(kind, y, backId){
+    var K = NAV_KINDS[kind], days = navratriDays(kind, y);
+    document.getElementById('fs-title').textContent = K.label + ' ' + y;
+    document.getElementById('fs-date').textContent = (days[0].key && days[8].key) ? niceKey(days[0].key) + ' \u2013 ' + niceKey(days[8].key) + ' ' + y : '';
+    document.getElementById('fs-ico').innerHTML = '<svg viewBox="0 0 64 64" aria-hidden="true">' + ICONS.kalash + '</svg>';
+    document.getElementById('fs-text').style.display = 'none';
+    document.getElementById('fs-rows').parentNode.style.display = 'none';
+    document.getElementById('fs-extra').innerHTML = (backId !== '' ? '<button type="button" class="nv-back" data-back="' + backId + '">\u2039 Back to festival</button>' : '') + navratriHTML(kind, y);
+    showSheet();
+  }
+
 
   var RASHIS = [
     {name:"Mesha", eng:"Aries", variants:[
@@ -1082,8 +1422,9 @@
 
     var siderealSun = norm360(sun - ay);
     var rashiIdx = Math.floor(siderealSun/30); // 0=Mesha..11=Meena
-    var amantaMonth = LUNAR_MONTHS[rashiIdx];
-    var purnimantaMonth = (paksha === "Krishna Paksha") ? LUNAR_MONTHS[(rashiIdx+1)%12] : amantaMonth;
+    var lm = lunarMonthAt(utcNoon), adh = lm.adhika ? " (Adhika)" : "";
+    var amantaMonth = lm.name + adh;
+    var purnimantaMonth = (paksha === "Krishna Paksha") ? LUNAR_MONTHS[(LUNAR_MONTHS.indexOf(lm.name)+1)%12] + adh : amantaMonth;
 
     var siderealMoon = norm360(moon - ay);
     var nakSpan = 360/27;
@@ -1496,8 +1837,8 @@
       var isToday = (today.getFullYear()===y && today.getMonth()+1===m && today.getDate()===dd);
       var isSelected = (state.date.getFullYear()===y && state.date.getMonth()+1===m && state.date.getDate()===dd);
       var dateKey = y+'-'+(m<10?'0'+m:m)+'-'+(dd<10?'0'+dd:dd);
-      var fest = FEST_MAP[dateKey];
-      var festLabel = fest ? fest[1] : (p.paksha === 'Krishna Paksha' && p.tithiName === 'Chaturdashi' ? 'Masik Shivratri' : null);
+      var fests = festOnDay(y, m, dd), fest = fests[0];
+      var festLabel = fest ? fests.map(function(f){ return f[1]; }).join(' \u00b7 ') : (p.paksha === 'Krishna Paksha' && p.tithiName === 'Chaturdashi' ? 'Masik Shivratri' : null);
       var inVr = (y >= VRAT_FIRST_YEAR && y <= VRAT_LAST_YEAR);
       var vr = inVr ? vratsOn(y, m, dd, loc) : [];
       var isPur = inVr ? vr.some(function(v){ return v.type === 'Purnima'; }) : p.tithiName === 'Purnima';
@@ -1571,8 +1912,7 @@
   }
   function renderBanner(y, m, d, loc, elId){
     var el = document.getElementById(elId || 'h-fest'), items = [];
-    var f = FEST_MAP[y+'-'+pad2(m)+'-'+pad2(d)];
-    if (f) items.push(['<strong>'+f[1]+'</strong> — '+f[2], FESTIVALS_2026.indexOf(f)]);
+    festOnDay(y, m, d).forEach(function(f){ items.push(['<strong>'+f[1]+'</strong> — '+f[2], f.id]); });
     vratsOn(y, m, d, loc).forEach(function(v){ items.push(['<strong>'+v.label+'</strong>']); });
     el.innerHTML = items.map(function(t){ return '<div class="fest-chip"'+(t[1] >= 0 ? ' data-fi="'+t[1]+'" role="button" style="cursor:pointer;"' : '')+'>'+t[0]+'</div>'; }).join('');
     el.style.display = items.length ? 'flex' : 'none';
@@ -1613,6 +1953,7 @@
     ['surya grahan','eclipse',`A solar eclipse happens when the Moon passes between the Earth and the Sun. Traditionally it is a time for restraint, prayer, mantra chanting and charity, with many temples closed during the eclipse. Whether it can be seen depends on where you are; see the note above.`],
     ['chandra grahan','moon',`A lunar eclipse happens when the Earth's shadow falls on the Moon at Purnima. Tradition marks it with prayer, mantras and charity, and a bath afterwards. Whether it can be seen depends on where you are; see the note above.`],
     ['holi','colors',`The festival of colours welcomes spring and celebrates the triumph of good over evil and the divine love of Radha and Krishna. People play with coloured powders and water, share sweets such as gujiya, and use the day to forgive and renew bonds.`],
+    ['gupt','kalash',`Two lesser-known "secret" Navratris, kept in the bright fortnight of Magha (January–February) and Ashadha (June–July). Devotees quietly worship the ten Mahavidyas, the tantric forms of the Divine Mother, with mantra japa, fasting and sadhana. They run for nine nights, from Pratipada to Navami, and are traditionally observed privately, which gives them their name.`],
     ['navratri','kalash',`Nine nights devoted to the nine forms of Goddess Durga, observed with fasting, prayer, garba and dandiya. Chaitra Navratri (spring) and Shardiya Navratri (autumn) celebrate the triumph of the divine feminine over evil.`],
     ['ugadi','flower',`New year for the Deccan (Ugadi) and Maharashtra (Gudi Padwa), beginning the Chaitra lunar month. Homes are decorated with mango leaves and rangoli, a gudi is raised, and families eat Ugadi pachadi, whose six tastes stand for the joys and sorrows of the year ahead.`],
     ['ram navami','bow',`The birthday of Lord Rama, seventh avatar of Vishnu and the ideal of dharma, on Chaitra Shukla Navami. Devotees fast, read the Ramayana, sing bhajans and visit temples, with grand celebrations in Ayodhya.`],
@@ -1649,7 +1990,7 @@
   }
   var sheetOv = document.createElement('div');
   sheetOv.className = 'sheet-ov'; sheetOv.hidden = true;
-  sheetOv.innerHTML = `<div class='sheet' role='dialog' aria-modal='true' aria-labelledby='fs-title'><button type='button' class='sheet-close' id='fs-close' aria-label='Close'>×</button><div class='sheet-head'><div class='sheet-ico' id='fs-ico'></div><div><div class='sheet-kicker'>Festival</div><h3 id='fs-title'></h3><div class='sheet-date' id='fs-date'></div></div></div><p id='fs-text'></p><table class='data'><tbody id='fs-rows'></tbody></table></div>`;
+  sheetOv.innerHTML = `<div class='sheet' role='dialog' aria-modal='true' aria-labelledby='fs-title'><button type='button' class='sheet-close' id='fs-close' aria-label='Close'>×</button><div class='sheet-head'><div class='sheet-ico' id='fs-ico'></div><div><div class='sheet-kicker'>Festival</div><h3 id='fs-title'></h3><div class='sheet-date' id='fs-date'></div></div></div><p id='fs-text'></p><table class='data'><tbody id='fs-rows'></tbody></table><div id='fs-extra'></div></div>`;
   document.body.appendChild(sheetOv);
   var fsOpen = false, fsPushed = false;
   function hideFest(){ sheetOv.hidden = true; document.body.style.overflow = ''; fsOpen = false; }
@@ -1659,8 +2000,15 @@
     hideFest();
   }
   window.addEventListener('popstate', function(){ if (fsOpen){ fsPushed = false; hideFest(); } });
+  function showSheet(){
+    sheetOv.hidden = false;
+    sheetOv.querySelector('.sheet').scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+    if (!fsOpen){ try { history.pushState({fest:1}, ''); fsPushed = true; } catch(e){ fsPushed = false; } }
+    fsOpen = true;
+  }
   function openFest(i){
-    var f = Array.isArray(i) ? i : FESTIVALS_2026[i];
+    var f = Array.isArray(i) ? i : FEST_ALL[i];
     if (!f) return;
     var info = festInfo(f[1]), loc = selectedLoc();
     var dp = f[0].split('-'), y = +dp[0], m = +dp[1], d = +dp[2];
@@ -1678,11 +2026,11 @@
     document.getElementById('fs-rows').innerHTML = rows.map(function(r){
       return '<tr><td style="color:var(--ink-soft);width:38%;">' + r[0] + '</td><td>' + r[1] + '</td></tr>';
     }).join('');
-    sheetOv.hidden = false;
-    sheetOv.querySelector('.sheet').scrollTop = 0;
-    document.body.style.overflow = 'hidden';
-    if (!fsOpen){ try { history.pushState({fest:1}, ''); fsPushed = true; } catch(e){ fsPushed = false; } }
-    fsOpen = true;
+    document.getElementById('fs-text').style.display = '';
+    document.getElementById('fs-rows').parentNode.style.display = '';
+    var nk = navKindOf(f[1]);
+    document.getElementById('fs-extra').innerHTML = nk ? '<button type="button" class="nv-link" data-nav="' + nk + '|' + y + '|' + (f.id === undefined ? '' : f.id) + '">Navratri ' + y + ': dates, Devi, colours &amp; puja vidhi \u203a</button>' : '';
+    showSheet();
   }
   sheetOv.addEventListener('click', function(e){ if (e.target === sheetOv) closeFest(); });
   document.getElementById('fs-close').addEventListener('click', closeFest);
@@ -1691,9 +2039,11 @@
     else if (e.key === 'Enter' && e.target.classList && e.target.classList.contains('fest-row')) openFest(+e.target.dataset.fi);
   });
   document.addEventListener('click', function(e){
-    var el = e.target.closest ? e.target.closest('[data-fi],[data-vi]') : null;
+    var el = e.target.closest ? e.target.closest('[data-fi],[data-vi],[data-nav],[data-back]') : null;
     if (!el) return;
-    if (el.dataset.vi !== undefined) openFest(VRAT_CARDS[+el.dataset.vi]); else openFest(+el.dataset.fi);
+    if (el.dataset.nav !== undefined){ var q = el.dataset.nav.split('|'); openNavratri(q[0], +q[1], q[2]); }
+    else if (el.dataset.back !== undefined) openFest(+el.dataset.back);
+    else if (el.dataset.vi !== undefined) openFest(VRAT_CARDS[+el.dataset.vi]); else openFest(+el.dataset.fi);
   });
   (function(){ // swipe right or down to go back
     var sheet = sheetOv.querySelector('.sheet'), x0 = 0, y0 = 0, atTop = false;
@@ -1704,55 +2054,59 @@
     }, {passive:true});
   })();
 
-  var VRAT_CARDS = [];
+  var VRAT_CARDS = [], TODAY_CARDS = [];
   var VRAT_NOTE = {'Ekadashi':'Fasting day for Lord Vishnu','Purnima':'Full moon day','Amavasya':'New moon day','Pradosh Vrat':'Evening vrat for Lord Shiva','Sankashti Chaturthi':'Fast for Lord Ganesha, broken at moonrise','Vinayaka Chaturthi':'Monthly vrat for Lord Ganesha'};
   function renderTodayFest(y, m, d, loc){
     var now = new Date(), isToday = (y === now.getFullYear() && m === now.getMonth()+1 && d === now.getDate());
-    var key = y+'-'+pad2(m)+'-'+pad2(d), cards = [];
-    FESTIVALS_2026.forEach(function(f, i){
-      if (f[0] !== key) return;
-      var info = festInfo(f[1]);
-      cards.push('<button type="button" class="up-card up-today" data-fi="'+i+'"><div class="up-ico"><svg viewBox="0 0 64 64" aria-hidden="true">'+ICONS[info ? info[1] : 'diya']+'</svg></div><div><div class="up-name">'+f[1]+'</div><div class="up-date">'+f[2]+'</div><div class="up-more">Tap for details \u203a</div></div></button>');
+    var key = y+'-'+pad2(m)+'-'+pad2(d), cards = [], tag = isToday ? 'Today \u00b7 ' : d + ' ' + MONTHS[m-1].slice(0,3) + ' \u00b7 ';
+    festOnDay(y, m, d).forEach(function(f){
+      var i = f.id, info = festInfo(f[1]);
+      cards.push('<button type="button" class="up-card up-today" data-fi="'+i+'"><div class="up-ico"><svg viewBox="0 0 64 64" aria-hidden="true">'+ICONS[info ? info[1] : 'diya']+'</svg></div><div><div class="up-name">'+f[1]+'</div><div class="up-date">'+f[2]+'</div><div class="up-more">'+tag+'Tap for details \u203a</div></div></button>');
     });
     var nFest = cards.length;
     VRAT_CARDS = [];
     vratsOn(y, m, d, loc).forEach(function(v){
       var info = festInfo(v.label), note = VRAT_NOTE[v.type] || '';
       var vi = VRAT_CARDS.push([key, v.label, note]) - 1;
-      cards.push('<button type="button" class="up-card up-today" data-vi="'+vi+'"><div class="up-ico"><svg viewBox="0 0 64 64" aria-hidden="true">'+ICONS[info ? info[1] : 'lotus']+'</svg></div><div><div class="up-name">'+v.label+'</div><div class="up-date">'+note+'</div><div class="up-more">Tap for details \u203a</div></div></button>');
+      cards.push('<button type="button" class="up-card up-today" data-vi="'+vi+'"><div class="up-ico"><svg viewBox="0 0 64 64" aria-hidden="true">'+ICONS[info ? info[1] : 'lotus']+'</svg></div><div><div class="up-name">'+v.label+'</div><div class="up-date">'+note+'</div><div class="up-more">'+tag+'Tap for details \u203a</div></div></button>');
     });
-    var wrap = document.getElementById('today-wrap');
-    wrap.style.display = cards.length ? '' : 'none'; // nothing on this day: hide the whole block
-    if (!cards.length) return;
-    var nVr = cards.length - nFest, what = (nFest && nVr) ? 'festival & vrat' : (nFest ? 'festival' : 'vrat');
-    document.getElementById('today-fest-title').textContent = isToday ? "Today's " + what : what.charAt(0).toUpperCase() + what.slice(1) + ' on ' + d + ' ' + MONTHS[m-1].slice(0,3);
-    document.getElementById('today-fest').innerHTML = '<div class="up-grid" style="margin-top:12px;">'+cards.join('')+'</div>';
+    TODAY_CARDS = cards;   // shown first, then the upcoming festivals, in one list
   }
 
   function renderUpcoming(){
     var now = new Date(), t0 = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()), out = [], sd = state.date, selIsToday = (sd.getFullYear() === now.getFullYear() && sd.getMonth() === now.getMonth() && sd.getDate() === now.getDate());
-    for (var i = 0; i < FESTIVALS_2026.length && out.length < 3; i++){
-      var f = FESTIVALS_2026[i];
+    var list = [];
+    for (var yy = now.getFullYear(); yy <= now.getFullYear() + 1 && yy <= FEST_LAST_YEAR; yy++) list = list.concat(festYear(yy));
+    for (var i = 0; i < list.length && out.length < 3; i++){
+      var f = list[i];
       if (/^(surya|chandra) grahan/i.test(f[1])) continue; // eclipses are listed in Festivals, not here
       var dp = f[0].split('-'), dt = Date.UTC(+dp[0], +dp[1]-1, +dp[2]);
       if (dt < t0) continue;
       if (dt === t0 && selIsToday) continue; // shown in the Today card instead
       var n = Math.round((dt - t0)/864e5), wd = WEEKDAYS[new Date(dt).getUTCDay()].slice(0,3);
-      out.push('<button type="button" class="up-card" data-fi="'+i+'"><div class="up-days">' +
+      out.push('<button type="button" class="up-card" data-fi="'+f.id+'"><div class="up-days">' +
         (n === 0 ? '<b>Today</b>' : '<b>'+n+'</b><span>'+(n === 1 ? 'day' : 'days')+' left</span>') +
         '</div><div><div class="up-name">'+f[1]+'</div><div class="up-date">'+wd+', '+(+dp[2])+' '+MONTHS[+dp[1]-1].slice(0,3)+' '+dp[0]+'</div></div></button>');
     }
-    document.getElementById('upcoming-list').innerHTML = out.length ? out.join('') :
-      '<p class="desc" style="margin:0;">No more festivals are listed for this year. Dates for the coming year will appear here once added.</p>';
+    var all = TODAY_CARDS.concat(out);
+    document.getElementById('upcoming-list').innerHTML = all.length ? all.join('') :
+      '<p class="desc" style="margin:0;">No upcoming festivals found.</p>';
   }
 
   function renderFestivals(){
-    var rows = FESTIVALS_2026.map(function(f, fi){
+    var sel = document.getElementById('fest-year');
+    if (!sel.options.length){
+      for (var y = FEST_FIRST_YEAR; y <= FEST_LAST_YEAR; y++) sel.add(new Option(y, y));
+      sel.value = Math.min(Math.max(new Date().getFullYear(), FEST_FIRST_YEAR), FEST_LAST_YEAR);
+      sel.onchange = renderFestivals;
+    }
+    var yr = +sel.value;
+    document.getElementById('fest-title').textContent = 'Festivals & observances, ' + yr;
+    document.getElementById('fest-table').innerHTML = festYear(yr).map(function(f){
       var dt = new Date(f[0]+'T00:00:00');
       var label = dt.getDate()+' '+MONTHS[dt.getMonth()].slice(0,3)+' '+dt.getFullYear();
-      return '<tr class="fest-row" data-fi="'+fi+'" tabindex="0" style="cursor:pointer;"><td style="white-space:nowrap;">'+label+'</td><td><strong>'+f[1]+'</strong></td><td style="color:var(--ink-soft);">'+f[2]+'</td></tr>';
+      return '<tr class="fest-row" data-fi="'+f.id+'" tabindex="0" style="cursor:pointer;"><td style="white-space:nowrap;">'+label+'</td><td><strong>'+f[1]+'</strong></td><td style="color:var(--ink-soft);">'+f[2]+'</td></tr>';
     }).join('');
-    document.getElementById('fest-table').innerHTML = rows;
   }
 
   /* ===================== RENDER: HOROSCOPE ===================== */
@@ -1778,6 +2132,16 @@
     renderFestivals();
     renderHoroscope();
   }
+
+  document.getElementById('yantra-tabs').addEventListener('click', function(e){
+    var b = e.target.closest('.subtab');
+    if (!b) return;
+    document.querySelectorAll('#yantra-tabs .subtab').forEach(function(x){
+      x.classList.toggle('active', x === b);
+      x.setAttribute('aria-selected', x === b ? 'true' : 'false');
+    });
+    document.querySelectorAll('.subpanel').forEach(function(p){ p.classList.toggle('active', p.id === 'sub-' + b.dataset.sub); });
+  });
 
   var TAB_KEYS = [].map.call(document.querySelectorAll('nav.tabs button[data-tab]'), function(b){ return b.dataset.tab; });
   function currentTab(){ return document.querySelector('nav.tabs button.active').dataset.tab; }
@@ -1814,7 +2178,7 @@
       target = e.target; sx = t.clientX; sy = t.clientY; st = Date.now();
       // ignore: multi-touch, the screen edges (system back gesture), form fields, open card, theme panel, Home date header (swipes there change the day)
       ok = e.touches.length === 1 && sx > 24 && sx < window.innerWidth - 24 &&
-           !target.closest('input,select,textarea,.sheet-ov,.theme-panel,#panel-today .hero') && !sideways(target);
+           !target.closest('input,select,textarea,.sheet-ov,.theme-panel,#panel-today .hero,#panel-calendar .hero') && !sideways(target);
     }, {passive:true});
     document.addEventListener('touchend', function(e){
       if (!ok) return;
@@ -1878,6 +2242,16 @@
   }
   document.getElementById('day-prev').addEventListener('click', function(){ shiftDay(-1); });
   document.getElementById('day-next').addEventListener('click', function(){ shiftDay(1); });
+  document.getElementById('c-day-prev').addEventListener('click', function(){ shiftDay(-1); });
+  document.getElementById('c-day-next').addEventListener('click', function(){ shiftDay(1); });
+  (function(){ // swipe the Calendar header for the previous/next day, same as Home
+    var h = document.querySelector('#panel-calendar .hero'), sx = 0, sy = 0;
+    h.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, {passive:true});
+    h.addEventListener('touchend', function(e){
+      var t = e.changedTouches[0], dx = t.clientX - sx, dy = t.clientY - sy;
+      if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) shiftDay(dx < 0 ? 1 : -1);
+    }, {passive:true});
+  })();
 
   // swipe left/right on the Home tab = next/previous day
   (function(){
@@ -1902,7 +2276,7 @@
       if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) shiftDay(dx < 0 ? 1 : -1);
     }, {passive:true});
     document.addEventListener('keydown', function(e){
-      if (!panel.classList.contains('active') || e.target.closest('input,select,textarea')) return;
+      if (!(panel.classList.contains('active') || document.getElementById('panel-calendar').classList.contains('active')) || e.target.closest('input,select,textarea')) return;
       if (e.key === 'ArrowLeft') shiftDay(-1);
       else if (e.key === 'ArrowRight') shiftDay(1);
     });
