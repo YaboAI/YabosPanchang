@@ -134,6 +134,21 @@
   main{padding-bottom:60px;}
   .panel{display:none;}
   .panel.active{display:block;}
+  .panel.slide-l{animation:tabInL .22s ease-out;}
+  .panel.slide-r{animation:tabInR .22s ease-out;}
+  @keyframes tabInL{from{transform:translateX(28px);opacity:.2}to{transform:none;opacity:1}}
+  @keyframes tabInR{from{transform:translateX(-28px);opacity:.2}to{transform:none;opacity:1}}
+  @media (prefers-reduced-motion:reduce){.panel.slide-l,.panel.slide-r{animation:none;}}
+  /* touch comfort */
+  html{-webkit-text-size-adjust:100%;}
+  body{overscroll-behavior-x:none;}
+  button,select,input,a,.cal-cell,.fest-row,.up-card,.fest-chip{touch-action:manipulation;-webkit-tap-highlight-color:rgba(110,20,35,.12);}
+  nav.tabs button{min-height:44px;}
+  @media (pointer:coarse){
+    .loc-bar select,.loc-bar input{font-size:16px;min-height:42px;}
+    #go-btn,#cal-today-btn,.cal-arrow,.cal-month-cell{min-height:44px;min-width:44px;}
+    .cal-cell{min-height:72px;}
+  }
 
   /* ---------- Hero (Today) ---------- */
   .hero{
@@ -836,7 +851,7 @@
     ["2026-09-25","Ganesh Visarjan","Anant Chaturdashi \u2014 immersion day"],
     ["2026-10-11","Shardiya Navratri begins","Autumn nine nights"],
     ["2026-10-20","Vijaya Dashami / Dussehra","Triumph of good over evil"],
-    ["2026-10-28","Karva Chauth","Fasting for a spouse's wellbeing"],
+    ["2026-10-29","Karva Chauth","Fasting for a spouse's wellbeing"],
     ["2026-11-06","Dhanteras","Opens the Diwali festivities"],
     ["2026-11-07","Narak Chaturdashi","Choti Diwali"],
     ["2026-11-08","Diwali","Festival of lights"],
@@ -1487,7 +1502,12 @@
       var vr = inVr ? vratsOn(y, m, dd, loc) : [];
       var isPur = inVr ? vr.some(function(v){ return v.type === 'Purnima'; }) : p.tithiName === 'Purnima';
       var isAmv = inVr ? vr.some(function(v){ return v.type === 'Amavasya'; }) : p.tithiName === 'Amavasya';
-      var vrHtml = vr.map(function(v){ var s = vrShort(v); return s === p.tithiName ? '' : '<div class="v">'+s+'</div>'; }).join('');
+      var tithiIsEka = false;
+      var vrHtml = vr.map(function(v){
+        var s = vrShort(v);
+        if (s === p.tithiName){ if (v.type === 'Ekadashi') tithiIsEka = true; return ''; } // Purnima/Amavasya already have the moon badge
+        return '<div class="v">'+s+'</div>';
+      }).join('');
       var moonBadge = '';
       if (isPur){
         moonBadge = '<span class="cal-moon-badge pur" title="Purnima \u2014 Full Moon"><svg width="11" height="11" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#B8860A"/></svg></span>';
@@ -1497,7 +1517,7 @@
       html += '<div class="cal-cell'+(isToday?' today':'')+(isSelected?' selected':'')+'" data-day="'+dd+'">' +
                 moonBadge +
                 '<div class="d">'+dd+'</div>' +
-                '<div class="t">'+p.tithiName+'</div>' +
+                '<div class="t'+(tithiIsEka ? ' v' : '')+'">'+p.tithiName+'</div>' +
                 (festLabel ? '<div class="f">'+festLabel+'</div>' : '') + vrHtml +
               '</div>';
     }
@@ -1614,7 +1634,13 @@
     ['diwali','diya',`The festival of lights, on the new moon of Kartika, celebrates the return of Lord Rama to Ayodhya, the worship of Goddess Lakshmi and the victory of light over darkness. Homes glow with diyas and rangoli, with Lakshmi Puja, sweets, gifts and fireworks.`],
     ['govardhan','flute',`Recalls Krishna lifting the Govardhan hill to shelter villagers from Indra's storm. Devotees prepare Annakut, a mountain of food offered to Krishna, and honour cows and the hill itself.`],
     ['guru nanak','book',`Gurpurab celebrates the birth of Guru Nanak, first Sikh Guru, who taught the oneness of God, equality, honest living and sharing. Marked with Akhand Path, kirtan, Nagar Kirtan processions and community langar in gurdwaras.`],
-    ['gita','book',`Marks the day Krishna spoke the Bhagavad Gita to Arjuna on the battlefield of Kurukshetra, on Shukla Ekadashi of Margashirsha. Devotees read and discuss its teachings on duty, devotion and self-realisation.`]
+    ['gita','book',`Marks the day Krishna spoke the Bhagavad Gita to Arjuna on the battlefield of Kurukshetra, on Shukla Ekadashi of Margashirsha. Devotees read and discuss its teachings on duty, devotion and self-realisation.`],
+    ['ekadashi','lotus',`The eleventh tithi of each lunar fortnight, dedicated to Lord Vishnu. Devotees fast (many avoid grains and beans), pray, read scriptures and stay awake in devotion, then break the fast the next morning after sunrise (parana). Each Ekadashi has its own name and story, and keeping it is believed to bring merit and purification.`],
+    ['purnima','moon',`The full moon day, observed with fasting, charity and worship, often of Lord Vishnu (Satyanarayan Puja) and the Moon. Many people bathe in sacred rivers and give donations. Some Purnimas anchor major festivals such as Guru Purnima and Buddha Purnima.`],
+    ['amavasya','eclipse',`The new moon day, a time for remembering ancestors. Families offer tarpan and charity in memory of their forefathers, and many fast or pray. Mahalaya Amavasya before Navratri and the Diwali Amavasya are especially important.`],
+    ['pradosh','trident',`Observed on the 13th tithi (Trayodashi) of each fortnight in the evening twilight, dedicated to Lord Shiva. Devotees fast and perform Shiva puja during Pradosh Kaal, shortly after sunset. A Pradosh on Monday (Soma), Tuesday (Bhauma) or Saturday (Shani) is considered especially auspicious.`],
+    ['sankashti','ganesha',`A monthly fast for Lord Ganesha on the Chaturthi of the dark fortnight, kept to remove obstacles. Devotees fast through the day and break the fast after sighting the moon at night, with Ganesha puja. On a Tuesday it is called Angarki Sankashti and is considered especially powerful.`],
+    ['vinayaka','ganesha',`Observed on the Chaturthi of the bright fortnight each month to worship Lord Ganesha, the remover of obstacles. Devotees fast, offer durva grass and modaks, and perform puja around midday. The Bhadrapada one is celebrated as Ganesh Chaturthi.`]
   ];
   function festInfo(name){
     var n = name.toLowerCase();
@@ -1634,7 +1660,7 @@
   }
   window.addEventListener('popstate', function(){ if (fsOpen){ fsPushed = false; hideFest(); } });
   function openFest(i){
-    var f = FESTIVALS_2026[i];
+    var f = Array.isArray(i) ? i : FESTIVALS_2026[i];
     if (!f) return;
     var info = festInfo(f[1]), loc = selectedLoc();
     var dp = f[0].split('-'), y = +dp[0], m = +dp[1], d = +dp[2];
@@ -1665,8 +1691,9 @@
     else if (e.key === 'Enter' && e.target.classList && e.target.classList.contains('fest-row')) openFest(+e.target.dataset.fi);
   });
   document.addEventListener('click', function(e){
-    var el = e.target.closest ? e.target.closest('[data-fi]') : null;
-    if (el) openFest(+el.dataset.fi);
+    var el = e.target.closest ? e.target.closest('[data-fi],[data-vi]') : null;
+    if (!el) return;
+    if (el.dataset.vi !== undefined) openFest(VRAT_CARDS[+el.dataset.vi]); else openFest(+el.dataset.fi);
   });
   (function(){ // swipe right or down to go back
     var sheet = sheetOv.querySelector('.sheet'), x0 = 0, y0 = 0, atTop = false;
@@ -1677,6 +1704,8 @@
     }, {passive:true});
   })();
 
+  var VRAT_CARDS = [];
+  var VRAT_NOTE = {'Ekadashi':'Fasting day for Lord Vishnu','Purnima':'Full moon day','Amavasya':'New moon day','Pradosh Vrat':'Evening vrat for Lord Shiva','Sankashti Chaturthi':'Fast for Lord Ganesha, broken at moonrise','Vinayaka Chaturthi':'Monthly vrat for Lord Ganesha'};
   function renderTodayFest(y, m, d, loc){
     var now = new Date(), isToday = (y === now.getFullYear() && m === now.getMonth()+1 && d === now.getDate());
     var key = y+'-'+pad2(m)+'-'+pad2(d), cards = [];
@@ -1685,13 +1714,19 @@
       var info = festInfo(f[1]);
       cards.push('<button type="button" class="up-card up-today" data-fi="'+i+'"><div class="up-ico"><svg viewBox="0 0 64 64" aria-hidden="true">'+ICONS[info ? info[1] : 'diya']+'</svg></div><div><div class="up-name">'+f[1]+'</div><div class="up-date">'+f[2]+'</div><div class="up-more">Tap for details \u203a</div></div></button>');
     });
+    var nFest = cards.length;
+    VRAT_CARDS = [];
+    vratsOn(y, m, d, loc).forEach(function(v){
+      var info = festInfo(v.label), note = VRAT_NOTE[v.type] || '';
+      var vi = VRAT_CARDS.push([key, v.label, note]) - 1;
+      cards.push('<button type="button" class="up-card up-today" data-vi="'+vi+'"><div class="up-ico"><svg viewBox="0 0 64 64" aria-hidden="true">'+ICONS[info ? info[1] : 'lotus']+'</svg></div><div><div class="up-name">'+v.label+'</div><div class="up-date">'+note+'</div><div class="up-more">Tap for details \u203a</div></div></button>');
+    });
     var wrap = document.getElementById('today-wrap');
-    wrap.style.display = cards.length ? '' : 'none'; // no festival on this day: hide the whole block
+    wrap.style.display = cards.length ? '' : 'none'; // nothing on this day: hide the whole block
     if (!cards.length) return;
-    document.getElementById('today-fest-title').textContent = isToday ? "Today's festival" : 'Festival on ' + d + ' ' + MONTHS[m-1].slice(0,3);
-    var vr = vratsOn(y, m, d, loc).map(function(v){ return v.label; });
-    document.getElementById('today-fest').innerHTML = '<div class="up-grid" style="margin-top:12px;">'+cards.join('')+'</div>' +
-      (vr.length ? '<p class="desc" style="margin:10px 0 0;">Also '+(isToday ? 'today' : 'on this day')+': <strong>'+vr.join(', ')+'</strong></p>' : '');
+    var nVr = cards.length - nFest, what = (nFest && nVr) ? 'festival & vrat' : (nFest ? 'festival' : 'vrat');
+    document.getElementById('today-fest-title').textContent = isToday ? "Today's " + what : what.charAt(0).toUpperCase() + what.slice(1) + ' on ' + d + ' ' + MONTHS[m-1].slice(0,3);
+    document.getElementById('today-fest').innerHTML = '<div class="up-grid" style="margin-top:12px;">'+cards.join('')+'</div>';
   }
 
   function renderUpcoming(){
@@ -1744,14 +1779,53 @@
     renderHoroscope();
   }
 
+  var TAB_KEYS = [].map.call(document.querySelectorAll('nav.tabs button[data-tab]'), function(b){ return b.dataset.tab; });
+  function currentTab(){ return document.querySelector('nav.tabs button.active').dataset.tab; }
+  function switchTab(key, dir){
+    var btn = document.querySelector('nav.tabs button[data-tab="'+key+'"]'), panel = document.getElementById('panel-'+key);
+    if (!btn || !panel) return;
+    document.querySelectorAll('nav.tabs button').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active', 'slide-l', 'slide-r'); });
+    panel.classList.add('active');
+    if (dir) panel.classList.add('slide-' + dir);
+    window.scrollTo(0, 0);
+    try { btn.scrollIntoView({inline:'center', block:'nearest', behavior:'smooth'}); } catch(e){}
+    try { if (dir && navigator.vibrate) navigator.vibrate(8); } catch(e){}
+  }
   document.getElementById('tabs').addEventListener('click', function(e){
     var btn = e.target.closest('button[data-tab]');
     if (!btn) return;
-    document.querySelectorAll('nav.tabs button').forEach(function(b){ b.classList.remove('active'); });
-    btn.classList.add('active');
-    document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active'); });
-    document.getElementById('panel-'+btn.dataset.tab).classList.add('active');
+    switchTab(btn.dataset.tab);
   });
+
+  (function(){ // swipe left/right to move between tabs; on the Calendar grid it changes the month
+    var sx = 0, sy = 0, st = 0, ok = false, target = null;
+    function sideways(el){
+      while (el && el !== document.body){
+        var ox = getComputedStyle(el).overflowX;
+        if ((ox === 'auto' || ox === 'scroll') && el.scrollWidth > el.clientWidth + 2) return true;
+        el = el.parentElement;
+      }
+      return false;
+    }
+    document.addEventListener('touchstart', function(e){
+      var t = e.touches[0];
+      target = e.target; sx = t.clientX; sy = t.clientY; st = Date.now();
+      // ignore: multi-touch, the screen edges (system back gesture), form fields, open card, theme panel, Home date header (swipes there change the day)
+      ok = e.touches.length === 1 && sx > 24 && sx < window.innerWidth - 24 &&
+           !target.closest('input,select,textarea,.sheet-ov,.theme-panel,#panel-today .hero') && !sideways(target);
+    }, {passive:true});
+    document.addEventListener('touchend', function(e){
+      if (!ok) return;
+      ok = false;
+      var t = e.changedTouches[0], dx = t.clientX - sx, dy = t.clientY - sy;
+      if (Date.now() - st > 700 || Math.abs(dx) < 70 || Math.abs(dx) < Math.abs(dy) * 1.8) return;
+      if (target.closest('#cal-grid')){ document.getElementById(dx < 0 ? 'cal-next' : 'cal-prev').click(); return; }
+      var next = TAB_KEYS.indexOf(currentTab()) + (dx < 0 ? 1 : -1);
+      if (next >= 0 && next < TAB_KEYS.length) switchTab(TAB_KEYS[next], dx < 0 ? 'l' : 'r');
+    }, {passive:true});
+  })();
 
   /* ===================== CONTROLS ===================== */
   var citySelect = document.getElementById('city-select');
@@ -1807,7 +1881,7 @@
 
   // swipe left/right on the Home tab = next/previous day
   (function(){
-    var panel = document.getElementById('panel-today'), sx = 0, sy = 0, ok = false;
+    var panel = document.getElementById('panel-today'), hero = panel.querySelector('.hero'), sx = 0, sy = 0, ok = false;
     function scrollsSideways(el){
       while (el && el !== panel){
         var ox = getComputedStyle(el).overflowX;
@@ -1816,12 +1890,12 @@
       }
       return false;
     }
-    panel.addEventListener('touchstart', function(e){
+    hero.addEventListener('touchstart', function(e){
       var t = e.touches[0];
       sx = t.clientX; sy = t.clientY;
       ok = e.touches.length === 1 && !scrollsSideways(e.target) && !e.target.closest('input,select,textarea');
     }, {passive:true});
-    panel.addEventListener('touchend', function(e){
+    hero.addEventListener('touchend', function(e){
       if (!ok) return;
       ok = false;
       var t = e.changedTouches[0], dx = t.clientX - sx, dy = t.clientY - sy;
