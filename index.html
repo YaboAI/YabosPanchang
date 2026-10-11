@@ -188,7 +188,10 @@
   .dz .dz-cur td{color:var(--maroon);font-weight:700;}
   .kc-asc-line{stroke:var(--maroon);stroke-width:3;}
   .kd-style-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:0 0 16px;}
-  .kd-style-row>span{font-size:.78rem;color:var(--ink-soft);}
+  .kd-style-row{gap:6px 10px;margin:0 0 12px;}
+  .kd-style-row>span{font-size:.72rem;color:var(--ink-soft);}
+  .kd-style-row .subtabs{gap:4px;}
+  .kd-style-row .subtab{font-size:.72rem;padding:3px 10px;min-height:28px;line-height:1.2;}
   .ms-card{text-align:center;padding:22px 16px;border-radius:16px;background:linear-gradient(115deg,var(--hero-start),var(--hero-mid) 55%,var(--hero-end));color:var(--hero-text);margin-bottom:16px;}
   .ms-k{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#E7C978;}
   .ms-big{font-family:'Fraunces',serif;font-size:2.4rem;line-height:1.1;margin:6px 0 2px;font-weight:600;}
@@ -743,8 +746,8 @@
         <p class="desc">Vedic astrology tools. Choose one below.</p>
         <div class="subtabs" id="jyo-tabs" role="tablist">
           <button type="button" class="subtab active" data-sub="kundali" role="tab" aria-selected="true">Kundali</button>
-          <button type="button" class="subtab" data-sub="moonsign" role="tab" aria-selected="false">Moon Sign</button>
           <button type="button" class="subtab" data-sub="dasha" role="tab" aria-selected="false">Vimshottari Dasha</button>
+          <button type="button" class="subtab" data-sub="moonsign" role="tab" aria-selected="false">Moon Sign</button>
           <button type="button" class="subtab" data-sub="outlook" role="tab" aria-selected="false">Rāshi Outlook</button>
         </div>
       </section>
@@ -765,10 +768,15 @@
         </div>
         <div class="kd-style-row"><span>Chart style</span>
           <div class="subtabs" id="kd-style" role="tablist" style="margin:0;">
-            <button type="button" class="subtab" data-style="north" role="tab">North Indian</button>
-            <button type="button" class="subtab" data-style="south" role="tab">South Indian</button>
-            <button type="button" class="subtab" data-style="east" role="tab">East Indian</button>
-            <button type="button" class="subtab" data-style="west" role="tab">Western</button>
+            <button type="button" class="subtab" data-style="north" role="tab" title="North Indian style">North</button>
+            <button type="button" class="subtab" data-style="south" role="tab" title="South Indian style">South</button>
+            <button type="button" class="subtab" data-style="east" role="tab" title="East Indian style">East</button>
+            <button type="button" class="subtab" data-style="west" role="tab" title="Western style">West</button>
+          </div>
+          <span>Divisional</span>
+          <div class="subtabs" id="kd-div" role="tablist" style="margin:0;">
+            <button type="button" class="subtab active" data-div="1" role="tab" title="Birth chart (D1)">D1</button>
+            <button type="button" class="subtab" data-div="5" role="tab" title="Panchamsa (D5)">D5</button>
           </div>
         </div>
         <div id="kd-out"></div>
@@ -2531,7 +2539,7 @@
   }
   function kcItems(chart){
     var by = [[],[],[],[],[],[],[],[],[],[],[],[]];
-    by[chart.asc.rashi].push('Asc');
+    if (!chart.kind) by[chart.asc.rashi].push('Asc');
     chart.planets.forEach(function(p){ by[p.rashi].push(p.ab + ((p.retro && p.ab !== 'Ra' && p.ab !== 'Ke') ? '(R)' : '')); });
     return by;
   }
@@ -2557,7 +2565,7 @@
       '<line class="kc-line" x1="1" y1="1" x2="100" y2="100"/><line class="kc-line" x1="1" y1="299" x2="100" y2="200"/>' +
       '<line class="kc-line" x1="299" y1="299" x2="200" y2="200"/><line class="kc-line" x1="299" y1="1" x2="200" y2="100"/>';
     for (var h = 0; h < 12; h++){ var sign = slotSign(chart, mode, h); s += kcBlock(EI_C[h][0], EI_C[h][1], sign + 1, by[sign], (h % 3 === 0) ? 3 : 2); }
-    return s + '<text class="kc-asc" x="150" y="150" text-anchor="middle">' + (mode === 'lagna' ? 'Lagna' : 'R\u0101shi') + '</text></svg>';
+    return s + '<text class="kc-asc" x="150" y="150" text-anchor="middle">' + chartLabel(chart) + '</text></svg>';
   }
   function southSVG(chart, mode){
     var by = kcItems(chart), s = '<svg viewBox="0 0 400 400" role="img" aria-label="South Indian chart">';
@@ -2568,7 +2576,7 @@
       lines.forEach(function(l, k){ s += '<text class="kc-txt" x="'+(x+50)+'" y="'+(ty + k*15 + 8)+'" text-anchor="middle">'+l+'</text>'; });
       if (i === chart.asc.rashi) s += '<line class="kc-line" x1="'+(x+2)+'" y1="'+(y+30)+'" x2="'+(x+30)+'" y2="'+(y+2)+'"/>';
     }
-    return s + '<text class="kc-asc" x="200" y="196" text-anchor="middle">' + (mode === 'lagna' ? 'Lagna' : 'R\u0101shi') + '</text><text class="kc-sign" x="200" y="214" text-anchor="middle">Lagna: ' + RASHI_INFO[chart.asc.rashi][0] + '</text></svg>';
+    return s + '<text class="kc-asc" x="200" y="196" text-anchor="middle">' + chartLabel(chart) + '</text><text class="kc-sign" x="200" y="214" text-anchor="middle">' + chartLabel(chart) + ': ' + RASHI_INFO[chart.asc.rashi][0] + '</text></svg>';
   }
   function westSVG(chart, mode){
     var base = mode === 'lagna' ? chart.asc.rashi*30 : 0, cx = 200, cy = 200, i;
@@ -2586,13 +2594,44 @@
       s += '<line class="kc-line" x1="'+t1[0]+'" y1="'+t1[1]+'" x2="'+t2[0]+'" y2="'+t2[1]+'"/><text class="kc-txt" x="'+q[0]+'" y="'+q[1]+'" text-anchor="middle" dominant-baseline="middle">'+p.ab+((p.retro && p.ab !== 'Ra' && p.ab !== 'Ke') ? '(R)' : '')+'</text>';
     });
     var l1 = pt(chart.asc.lon, 190), l2 = pt(chart.asc.lon, 150), lt = pt(chart.asc.lon, 206);
-    s += '<line class="kc-asc-line" x1="'+l1[0]+'" y1="'+l1[1]+'" x2="'+l2[0]+'" y2="'+l2[1]+'"/><text class="kc-asc" x="'+lt[0]+'" y="'+lt[1]+'" text-anchor="middle" dominant-baseline="middle">Asc</text>';
-    return s + '<text class="kc-asc" x="200" y="196" text-anchor="middle">' + (mode === 'lagna' ? 'Lagna' : 'R\u0101shi') + '</text><text class="kc-sign" x="200" y="214" text-anchor="middle">' + RASHI_INFO[chart.asc.rashi][0] + ' rising</text></svg>';
+    if (!chart.kind) s += '<line class="kc-asc-line" x1="'+l1[0]+'" y1="'+l1[1]+'" x2="'+l2[0]+'" y2="'+l2[1]+'"/><text class="kc-asc" x="'+lt[0]+'" y="'+lt[1]+'" text-anchor="middle" dominant-baseline="middle">Asc</text>';
+    return s + '<text class="kc-asc" x="200" y="196" text-anchor="middle">' + chartLabel(chart) + '</text><text class="kc-sign" x="200" y="214" text-anchor="middle">' + RASHI_INFO[chart.asc.rashi][0] + (chart.kind === 'moon' ? ' Moon sign' : ' rising') + '</text></svg>';
   }
   function chartSVG(style, mode, chart){ return ({north: northSVG, south: southSVG, east: eastSVG, west: westSVG})[style](chart, mode); }
-  function chartNote(style, mode){
-    if (mode === 'rashi') return {north:'Signs in fixed places: Mesha (1) at the top, then anticlockwise.', south:'Signs stay in fixed boxes; the Lagna box is marked.', east:'Signs in fixed places, Mesha (1) at the top, then anticlockwise.', west:'Zodiac wheel with Aries at the left; planets at their exact degrees.'}[style];
+  var kdDiv = 1;   // 1 = birth charts, 5 = D5 (Panchamsa)
+  var D5_ODD = [0,10,8,2,6], D5_EVEN = [1,5,11,9,7];   // Parashara: Aries, Aquarius, Sagittarius, Gemini, Libra / Taurus, Virgo, Pisces, Capricorn, Scorpio
+  function d5Lon(lon){
+    var r = Math.floor(lon/30), part = Math.floor((lon - r*30)/6), s = (r % 2 === 0 ? D5_ODD : D5_EVEN)[part];
+    return s*30 + (lon - r*30 - part*6)*5;
+  }
+  function moonChartOf(c){ var m = c.planets[1]; return {kind: 'moon', asc: {lon: m.lon, rashi: m.rashi, deg: m.deg}, planets: c.planets}; }
+  // the same chart in a divisional chart (n = 1: birth chart, n = 5: D5)
+  function divChart(c, n){
+    if (n === 1) return c;
+    var a = d5Lon(c.asc.lon), out = {kind: c.kind, asc: {lon: a, rashi: Math.floor(a/30), deg: a % 30}, planets: []};
+    c.planets.forEach(function(p){
+      var l = d5Lon(p.lon), r = Math.floor(l/30);
+      out.planets.push({ab: p.ab, name: p.name, lon: l, rashi: r, deg: l - r*30, retro: p.retro, d1: p.rashi, house: ((r - out.asc.rashi + 12) % 12) + 1});
+    });
+    return out;
+  }
+  function chartLabel(chart){ return chart.kind === 'moon' ? 'Moon' : 'Lagna'; }
+  function chartNote(style, kind){
+    if (kind === 'moon') return {north:'House 1 is the Moon sign; numbers are signs (1 = Mesha).', south:'Same fixed boxes, house numbers counted from the Moon sign (H1).', east:'House 1 is the Moon sign at the top; numbers are signs.', west:'Wheel turned so the Moon sign (house 1) is at the left.'}[style];
     return {north:'House 1 is the rising sign; numbers are signs (1 = Mesha).', south:'Same fixed boxes, with house numbers (H1 = rising sign).', east:'House 1 is the rising sign at the top; numbers are signs.', west:'Wheel turned so the rising sign (house 1) is at the left.'}[style];
+  }
+  function kundaliCharts(c){
+    var tag = kdDiv === 5 ? ' \u00b7 D5' : '', cm = divChart(moonChartOf(c), kdDiv), cl = divChart(c, kdDiv);
+    return '<div class="kc-grid"><div class="kc-card"><h3>Moon chart (Chandra Lagna)' + tag + '</h3>' + chartSVG(kdStyle, 'lagna', cm) + '<p class="desc" style="margin:6px 0 0;">' + chartNote(kdStyle, 'moon') + '</p></div>' +
+      '<div class="kc-card"><h3>Lagna (ascendant) chart' + tag + '</h3>' + chartSVG(kdStyle, 'lagna', cl) + '<p class="desc" style="margin:6px 0 0;">' + chartNote(kdStyle, 'lagna') + '</p></div></div>' +
+      (kdDiv === 5 ? '<p class="desc" style="margin:10px 0 0;">D5 (Panchamsa) divides every sign into five parts of 6\u00b0. Traditionally it is read for authority, fame and past merit.</p>' : '');
+  }
+  function d5TableHTML(c){
+    if (kdDiv !== 5) return '';
+    var d = divChart(c, 5), h = '<h4 class="jy-h">D5 (Panchamsa) positions</h4><div style="overflow-x:auto;"><table class="data"><tr><th>Graha</th><th>D1 R\u0101shi</th><th>D5 R\u0101shi</th><th>D5 house</th></tr>' +
+      '<tr><td><strong>Lagna</strong></td><td>' + RASHI_INFO[c.asc.rashi][0] + '</td><td>' + RASHI_INFO[d.asc.rashi][0] + '</td><td>1</td></tr>';
+    d.planets.forEach(function(p){ h += '<tr><td><strong>' + p.name + '</strong></td><td>' + RASHI_INFO[p.d1][0] + '</td><td>' + RASHI_INFO[p.rashi][0] + '</td><td>' + p.house + '</td></tr>'; });
+    return h + '</table></div>';
   }
 
   function jyDate(ms, tz){ var t = new Date(ms + tz*36e5); return t.getUTCDate() + ' ' + MONTHS[t.getUTCMonth()].slice(0,3) + ' ' + t.getUTCFullYear(); }
@@ -2652,14 +2691,13 @@
     var h = '<p class="desc" style="margin:0 0 10px;">' + jyWhen(b) + '</p><div class="jy-chips">' +
       '<span class="jy-chip">Lagna <b>' + RASHI_INFO[c.asc.rashi][0] + '</b></span><span class="jy-chip">Moon sign <b>' + RASHI_INFO[moon.rashi][0] + '</b></span>' +
       '<span class="jy-chip">Sun sign <b>' + RASHI_INFO[sun.rashi][0] + '</b></span><span class="jy-chip">Nakshatra <b>' + mn + ' ' + moon.nak.pada + '</b></span></div>' +
-      '<div class="kc-grid"><div class="kc-card"><h3>R\u0101shi chart</h3>' + chartSVG(kdStyle, 'rashi', c) + '<p class="desc" style="margin:6px 0 0;">' + chartNote(kdStyle, 'rashi') + '</p></div>' +
-      '<div class="kc-card"><h3>Lagna (ascendant) chart</h3>' + chartSVG(kdStyle, 'lagna', c) + '<p class="desc" style="margin:6px 0 0;">' + chartNote(kdStyle, 'lagna') + '</p></div></div>' +
+      kundaliCharts(c) +
       '<h4 class="jy-h">Planetary positions</h4><div style="overflow-x:auto;"><table class="data"><tr><th>Graha</th><th>R\u0101shi</th><th>Degree</th><th>Nakshatra</th><th>House</th></tr>' +
       '<tr><td><strong>Lagna</strong></td><td>' + RASHI_INFO[c.asc.rashi][0] + '</td><td>' + jyDM(c.asc.deg) + '</td><td>' + NAKSHATRAS[c.asc.nak.idx] + ' ' + c.asc.nak.pada + '</td><td>1</td></tr>';
     c.planets.forEach(function(p){
       h += '<tr><td><strong>' + p.name + '</strong>' + (p.retro && p.ab !== 'Ra' && p.ab !== 'Ke' ? ' (R)' : '') + '</td><td>' + RASHI_INFO[p.rashi][0] + '</td><td>' + jyDM(p.deg) + '</td><td>' + NAKSHATRAS[p.nak.idx] + ' ' + p.nak.pada + '</td><td>' + p.house + '</td></tr>';
     });
-    out.innerHTML = h + '</table></div><p class="desc" style="margin-top:10px;">Sidereal positions (Lahiri ayanamsa), whole-sign houses, mean Rahu\u2013Ketu. (R) = retrograde. Sun and Moon are accurate to arc-minutes; the planets to a few arc-minutes (Jupiter and Saturn up to about 0.1\u00b0). The time zone is the place\u2019s standard offset: for a birth during daylight saving time choose Custom and enter the offset in force then. Confirm important charts with an astrologer.</p>';
+    out.innerHTML = h + '</table></div>' + d5TableHTML(c) + '<p class="desc" style="margin-top:10px;">Sidereal positions (Lahiri ayanamsa), whole-sign houses, mean Rahu\u2013Ketu. (R) = retrograde. Sun and Moon are accurate to arc-minutes; the planets to a few arc-minutes (Jupiter and Saturn up to about 0.1\u00b0). The time zone is the place\u2019s standard offset: for a birth during daylight saving time choose Custom and enter the offset in force then. Confirm important charts with an astrologer.</p>';
   }
 
   // ---- Moon sign ----
@@ -2694,6 +2732,11 @@
     out.innerHTML = '<p class="desc" style="margin:0 0 10px;">' + jyWhen(b) + '</p>' + dashaHTML(c, b);
   }
 
+  var JY_TWIN = {kd: 'ds', ds: 'kd'};   // Kundali and Vimshottari Dasha always show the same birth details
+  function jyCopy(p, q){
+    ['date','time','city','lat','lon','tz'].forEach(function(f){ jyEl(q+'-'+f).value = jyEl(p+'-'+f).value; });
+    jyEl(q+'-custom').hidden = (jyEl(q+'-city').value !== 'custom');
+  }
   function jyInit(){
     document.getElementById('jyo-tabs').addEventListener('click', function(e){
       var b = e.target.closest('.subtab');
@@ -2711,13 +2754,24 @@
         jyEl(p+'-'+f).addEventListener('change', function(){
           if (f === 'city') jyEl(p+'-custom').hidden = (sel.value !== 'custom');
           draw();
+          if (JY_TWIN[p]){ jyCopy(p, JY_TWIN[p]); (JY_TWIN[p] === 'kd' ? renderKundali : renderDasha)(); }
         });
       });
-      jyEl(p+'-now').addEventListener('click', function(){ jyNow(p); draw(); });
+      jyEl(p+'-now').addEventListener('click', function(){
+        jyNow(p); draw();
+        if (JY_TWIN[p]){ jyCopy(p, JY_TWIN[p]); (JY_TWIN[p] === 'kd' ? renderKundali : renderDasha)(); }
+      });
     });
     function syncStyle(){
       document.querySelectorAll('#kd-style .subtab').forEach(function(x){ var on = x.dataset.style === kdStyle; x.classList.toggle('active', on); x.setAttribute('aria-selected', on ? 'true' : 'false'); });
     }
+    jyEl('kd-div').addEventListener('click', function(e){
+      var b = e.target.closest('.subtab');
+      if (!b || (b.dataset.div !== '1' && b.dataset.div !== '5')) return;
+      kdDiv = +b.dataset.div;
+      document.querySelectorAll('#kd-div .subtab').forEach(function(x){ var on = +x.dataset.div === kdDiv; x.classList.toggle('active', on); x.setAttribute('aria-selected', on ? 'true' : 'false'); });
+      renderKundali();
+    });
     jyEl('kd-style').addEventListener('click', function(e){
       var b = e.target.closest('.subtab');
       if (!b || KD_STYLES.indexOf(b.dataset.style) < 0) return;
@@ -2734,6 +2788,7 @@
       if (d.dataset.pd !== undefined) body.innerHTML = sdTableHTML(+d.dataset.md, +d.dataset.ad, +d.dataset.pd);
       else if (d.dataset.ad !== undefined) body.innerHTML = pdListHTML(+d.dataset.md, +d.dataset.ad);
     }, true);
+    jyCopy('kd', 'ds');
     renderKundali(); renderMoonSign(); renderDasha();
   }
 
