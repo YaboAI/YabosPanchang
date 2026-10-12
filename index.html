@@ -148,7 +148,7 @@
   .subtab.active{background:var(--maroon);border-color:var(--maroon);color:var(--ivory);}
   .subpanel{display:none;}
   .subpanel.active{display:block;}
-  /* Jyotiṣam */
+  /* Jyotisham */
   .kd-banner{display:flex;align-items:center;gap:14px;padding:12px 18px;border-radius:14px;background:linear-gradient(115deg,var(--hero-start),var(--hero-mid) 55%,var(--hero-end));color:var(--hero-text);margin-bottom:16px;}
   .kd-banner svg{width:44px;height:44px;flex:0 0 auto;}
   .kd-banner b{display:block;font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600;}
@@ -172,6 +172,46 @@
   .kc-txt{fill:var(--ink);font-size:13px;font-weight:600;}
   .kc-sign{fill:var(--ink-soft);font-size:10px;}
   .kc-asc{fill:var(--maroon);font-size:12px;font-weight:700;}
+  .gc-more{margin-top:8px;}
+  .fl-month{display:flex;align-items:center;gap:10px;margin:22px 0 6px;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
+  .fl-month::after{content:'';flex:1;height:1px;background:var(--line);}
+  .fl-row{display:flex;align-items:center;gap:14px;padding:10px 12px;border-radius:12px;border:1px solid transparent;cursor:pointer;}
+  .fl-row.past{opacity:.55;}
+  .fl-row.next{border-color:var(--maroon);background:var(--ivory-dim);}
+  .fl-date{flex:0 0 46px;text-align:center;}
+  .fl-date b{display:block;font-family:'Fraunces',serif;font-size:1.35rem;line-height:1;color:var(--maroon);font-weight:600;}
+  .fl-date span{font-size:.66rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);}
+  .fl-main{flex:1;min-width:0;}
+  .fl-name{font-weight:600;line-height:1.25;}
+  .fl-note{font-size:.82rem;color:var(--ink-soft);margin-top:2px;}
+  .fl-chip{display:inline-block;margin-left:8px;padding:1px 9px;border-radius:999px;background:var(--maroon);color:var(--ivory);font-size:.66rem;font-weight:600;letter-spacing:.02em;vertical-align:2px;}
+  .fl-go{color:var(--ink-soft);font-size:1.3rem;line-height:1;}
+  .gc-sec{border:1px solid var(--line);border-radius:14px;padding:14px 16px 16px;margin:0 0 16px;background:var(--ivory-dim);}
+  .gc-sec .jy-h{margin:0 0 10px;padding-bottom:8px;border-bottom:1px solid var(--line);}
+  .gc-sec table.data{background:var(--ivory);}
+  .gc-sub{margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);}
+  .kv-primary{font:inherit;font-weight:600;padding:9px 18px;min-height:40px;border-radius:999px;border:1px solid var(--maroon);background:var(--maroon);color:var(--ivory);cursor:pointer;}
+  .kv-field{display:flex;flex-direction:column;gap:4px;margin:0 0 12px;flex:1;min-width:130px;}
+  .kv-field label{font-size:.78rem;color:var(--ink-soft);}
+  .kv-field input,.kv-field select{font:inherit;font-size:.95rem;padding:9px 10px;border-radius:8px;border:1px solid var(--line);background:var(--ivory);color:var(--ink);min-height:42px;width:100%;}
+  .kv-row{display:flex;gap:10px;flex-wrap:wrap;}
+  .kv-row[hidden]{display:none;}
+  .kv-err{color:var(--bad);font-size:.82rem;margin:0 0 8px;}
+  .kv-err[hidden]{display:none;}
+  .kv-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:6px;}
+  .kv-btn{font:inherit;font-weight:600;padding:9px 20px;min-height:42px;border-radius:999px;border:1px solid var(--maroon);background:var(--ivory-dim);color:var(--maroon);cursor:pointer;}
+  .kv-btn.primary{background:var(--maroon);color:var(--ivory);}
+  .kv-btn.danger{background:var(--bad);border-color:var(--bad);color:#fff;}
+  .kv-card{display:flex;gap:12px;justify-content:space-between;align-items:center;flex-wrap:wrap;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--ivory-dim);margin-bottom:10px;}
+  .kv-name{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600;color:var(--maroon);}
+  .kv-meta{font-size:.88rem;}
+  .kv-meta.small{font-size:.78rem;color:var(--ink-soft);}
+  .kv-btns{display:flex;gap:6px;}
+  .kv-mini{font:inherit;font-size:.82rem;font-weight:600;padding:6px 14px;min-height:34px;border-radius:999px;border:1px solid var(--maroon);background:var(--ivory);color:var(--maroon);cursor:pointer;}
+  .kv-mini.del{border-color:var(--bad);color:var(--bad);}
+  .kv-empty{text-align:center;padding:28px 16px;border:1px dashed var(--line);border-radius:14px;}
+  .kv-toast{position:fixed;left:50%;bottom:calc(24px + var(--sab));transform:translateX(-50%);background:var(--maroon);color:var(--ivory);padding:10px 18px;border-radius:999px;font-size:.9rem;z-index:1200;box-shadow:0 6px 18px rgba(0,0,0,.3);max-width:90%;}
+  .kv-toast[hidden]{display:none;}
   .dz{border:1px solid var(--line);border-radius:10px;margin-bottom:8px;background:var(--ivory-dim);}
   .dz.now{border-color:var(--maroon);}
   .dz summary{padding:10px 14px;cursor:pointer;}
@@ -191,6 +231,7 @@
   .kd-style-row{gap:6px 10px;margin:0 0 12px;}
   .kd-style-row>span{font-size:.72rem;color:var(--ink-soft);}
   .kd-style-row .subtabs{gap:4px;}
+  .kd-mini .subtab{font-size:.78rem;padding:5px 12px;min-height:32px;}
   .kd-style-row .subtab{font-size:.72rem;padding:3px 10px;min-height:28px;line-height:1.2;}
   .ms-card{text-align:center;padding:22px 16px;border-radius:16px;background:linear-gradient(115deg,var(--hero-start),var(--hero-mid) 55%,var(--hero-end));color:var(--hero-text);margin-bottom:16px;}
   .ms-k{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#E7C978;}
@@ -383,13 +424,6 @@
   .cal-cell.selected .v{color:#E7C978;}
   .cal-moon-badge{position:absolute;top:4px;right:4px;display:flex;cursor:default;}
 
-  /* Horoscope cards */
-  .rashi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;}
-  .rashi-card{border:1px solid var(--line);padding:16px 18px;}
-  .rashi-card .name{font-family:'Fraunces',serif;font-size:1.05rem;margin-bottom:2px;}
-  .rashi-card .eng{font-size:.74rem;color:var(--ink-soft);margin-bottom:10px;}
-  .rashi-card p{font-size:.86rem;margin:0;color:var(--ink);}
-
   footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-soft);font-size:.82rem;}
   footer .wrap{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-between;align-items:center;}
 
@@ -519,7 +553,7 @@
       <button data-tab="calendar">Calendar</button>
       <button data-tab="muhurat">Muhurat</button>
       <button data-tab="festivals">Festivals</button>
-      <button data-tab="horoscope">Jyotiṣam</button>
+      <button data-tab="horoscope">Jyotisham</button>
       <button data-tab="yantrani">Yantrāṇi</button>
       <button data-tab="about">About</button>
     </nav>
@@ -728,12 +762,9 @@
       <section class="block" style="margin-top:28px;">
         <h2 id="fest-title">Festivals &amp; observances</h2>
         <div class="vrat-controls"><select id="fest-year" aria-label="Year"></select><span style="color:var(--ink-soft);font-size:.85rem;">2020 to 2036, calculated for your selected city</span></div>
-        <p class="desc">Tap any festival to read its story and details. Major Hindu festivals for the year you choose, worked out from the lunar calendar and the sun's movement for your selected city. Eclipses (Surya and Chandra Grahan) are listed for 2026 only. Regional calendars and local sighting conventions can shift a date by a day — check with a local priest or panchang for exact ritual timing. Masik Shivratri isn't listed below since it recurs every lunar month (on Krishna Paksha Chaturdashi) — it's marked automatically on the Calendar tab wherever it falls.</p>
-        <hr class="divider">
-        <table class="data">
-          <tr><th>Date</th><th>Festival</th><th>Note</th></tr>
-          <tbody id="fest-table"></tbody>
-        </table>
+        <p class="desc" style="margin:4px 0 6px;">Tap a festival to read its story and details.</p>
+        <div id="fest-list"></div>
+        <p class="desc" style="margin-top:18px;">Dates are worked out from the lunar calendar and the sun’s movement for your selected city. Eclipses (Surya and Chandra Grahan) are listed for 2026 only. Regional calendars and local sighting conventions can shift a date by a day, so check with a local priest or panchang for exact ritual timing. Masik Shivratri is not listed here because it recurs every lunar month (on Krishna Paksha Chaturdashi); it is marked automatically on the Calendar tab wherever it falls.</p>
       </section>
     </div>
   </div>
@@ -742,13 +773,13 @@
   <div class="panel" id="panel-horoscope">
     <div class="wrap">
       <section class="block" style="margin-top:28px;">
-        <h2>Jyotiṣam</h2>
+        <h2>Jyotisham</h2>
         <p class="desc">Vedic astrology tools. Choose one below.</p>
         <div class="subtabs" id="jyo-tabs" role="tablist">
           <button type="button" class="subtab active" data-sub="kundali" role="tab" aria-selected="true">Kundali</button>
           <button type="button" class="subtab" data-sub="dasha" role="tab" aria-selected="false">Vimshottari Dasha</button>
-          <button type="button" class="subtab" data-sub="moonsign" role="tab" aria-selected="false">Moon Sign</button>
-          <button type="button" class="subtab" data-sub="outlook" role="tab" aria-selected="false">Rāshi Outlook</button>
+          <button type="button" class="subtab" data-sub="gochar" role="tab" aria-selected="false">Gochar</button>
+          <button type="button" class="subtab" data-sub="saved" role="tab" aria-selected="false">My Kundalis<span id="kv-badge"></span></button>
         </div>
       </section>
 
@@ -765,6 +796,7 @@
             <label>UTC offset <input type="number" id="kd-tz" step="0.25" placeholder="e.g. 5.5"></label>
           </span>
           <button type="button" class="jy-now" id="kd-now">Now</button>
+          <button type="button" class="kv-primary" id="kv-open">Save Kundali</button>
         </div>
         <div class="kd-style-row"><span>Chart style</span>
           <div class="subtabs" id="kd-style" role="tablist" style="margin:0;">
@@ -777,58 +809,30 @@
           <div class="subtabs" id="kd-div" role="tablist" style="margin:0;">
             <button type="button" class="subtab active" data-div="1" role="tab" title="Birth chart (D1)">D1</button>
             <button type="button" class="subtab" data-div="5" role="tab" title="Panchamsa (D5)">D5</button>
+            <button type="button" class="subtab" data-div="9" role="tab" title="Navamsa (D9)">D9</button>
           </div>
         </div>
         <div id="kd-out"></div>
       </section>
       </div>
 
-      <div class="subpanel" id="sub-moonsign">
+      <div class="subpanel" id="sub-gochar">
       <section class="block">
-        <h2>Moon Sign</h2>
-        <p class="desc">The Janma Rāshi, the sign the Moon was in at birth, for the Yajman (the person for whom the puja or reading is done).</p>
-        <div class="jy-form">
-          <label>Date <input type="date" id="ms-date"></label>
-          <label>Time <input type="time" id="ms-time"></label>
-          <label>Place <select id="ms-city"></select></label>
-          <span class="jy-custom" id="ms-custom" hidden>
-            <label>Latitude <input type="number" id="ms-lat" step="0.01" placeholder="e.g. 28.61"></label>
-            <label>Longitude <input type="number" id="ms-lon" step="0.01" placeholder="e.g. 77.21"></label>
-            <label>UTC offset <input type="number" id="ms-tz" step="0.25" placeholder="e.g. 5.5"></label>
-          </span>
-          <button type="button" class="jy-now" id="ms-now">Now</button>
-        </div>
-        <div id="ms-out"></div>
+        <h2>Gochar · Planetary Transits</h2>
+        <p class="desc">Where the planets are and when they change sign or turn retrograde. Pick any date.</p>
+        <div class="jy-form"><label>Date <input type="date" id="gc-date"></label><button type="button" class="jy-now" id="gc-now">Today</button></div>
+        <div id="gc-out"></div>
       </section>
       </div>
 
-      <div class="subpanel" id="sub-dasha">
+      <div class="subpanel" id="sub-saved">
       <section class="block">
-        <h2>Vimshottari Dasha</h2>
-        <p class="desc">The 120-year planetary period system, worked out from the Moon’s nakshatra at birth: Mahadasha, Antardasha and Pratyantar.</p>
-        <div class="jy-form">
-          <label>Date <input type="date" id="ds-date"></label>
-          <label>Time <input type="time" id="ds-time"></label>
-          <label>Place <select id="ds-city"></select></label>
-          <span class="jy-custom" id="ds-custom" hidden>
-            <label>Latitude <input type="number" id="ds-lat" step="0.01" placeholder="e.g. 28.61"></label>
-            <label>Longitude <input type="number" id="ds-lon" step="0.01" placeholder="e.g. 77.21"></label>
-            <label>UTC offset <input type="number" id="ds-tz" step="0.25" placeholder="e.g. 5.5"></label>
-          </span>
-          <button type="button" class="jy-now" id="ds-now">Now</button>
-        </div>
-        <div id="ds-out"></div>
+        <h2>My Saved Kundalis</h2>
+        <p class="desc">Birth charts you saved on this device. Open one to see its charts, dashas and Moon sign again.</p>
+        <div id="kv-list"></div>
       </section>
       </div>
 
-      <div class="subpanel" id="sub-outlook">
-      <section class="block" style="margin-top:28px;">
-        <h2>Rāshi outlook</h2>
-        <p class="desc">Illustrative, sign-general reflections that rotate daily — written for inspiration and reflection, not as individual prediction. For a reading based on your own birth chart, consult an astrologer.</p>
-        <hr class="divider">
-        <div class="rashi-grid" id="rashi-grid"></div>
-      </section>
-      </div>
     </div>
   </div>
 
@@ -841,6 +845,7 @@
         <p class="desc">Instruments and tools for daily practice. Choose one below.</p>
         <div class="subtabs" id="yantra-tabs" role="tablist">
           <button type="button" class="subtab active" data-sub="vedic-clock" role="tab" aria-selected="true">Vedic Clock</button>
+          <button type="button" class="subtab" data-sub="moonsign" role="tab" aria-selected="false">Moon Sign</button>
         </div>
       </section>
 
@@ -886,6 +891,44 @@
         </table>
       </section>
       </div>
+
+      <div class="subpanel" id="sub-moonsign">
+      <section class="block">
+        <h2>Moon Sign</h2>
+        <p class="desc">The Janma Rāshi, the sign the Moon was in at birth, for the Yajman (the person for whom the puja or reading is done).</p>
+        <div class="jy-form">
+          <label>Date <input type="date" id="ms-date"></label>
+          <label>Time <input type="time" id="ms-time"></label>
+          <label>Place <select id="ms-city"></select></label>
+          <span class="jy-custom" id="ms-custom" hidden>
+            <label>Latitude <input type="number" id="ms-lat" step="0.01" placeholder="e.g. 28.61"></label>
+            <label>Longitude <input type="number" id="ms-lon" step="0.01" placeholder="e.g. 77.21"></label>
+            <label>UTC offset <input type="number" id="ms-tz" step="0.25" placeholder="e.g. 5.5"></label>
+          </span>
+          <button type="button" class="jy-now" id="ms-now">Now</button>
+        </div>
+        <div id="ms-out"></div>
+      </section>
+      </div>
+
+      <div class="subpanel" id="sub-dasha">
+      <section class="block">
+        <h2>Vimshottari Dasha</h2>
+        <p class="desc">The 120-year planetary period system, worked out from the Moon’s nakshatra at birth: Mahadasha, Antardasha and Pratyantar.</p>
+        <div class="jy-form">
+          <label>Date <input type="date" id="ds-date"></label>
+          <label>Time <input type="time" id="ds-time"></label>
+          <label>Place <select id="ds-city"></select></label>
+          <span class="jy-custom" id="ds-custom" hidden>
+            <label>Latitude <input type="number" id="ds-lat" step="0.01" placeholder="e.g. 28.61"></label>
+            <label>Longitude <input type="number" id="ds-lon" step="0.01" placeholder="e.g. 77.21"></label>
+            <label>UTC offset <input type="number" id="ds-tz" step="0.25" placeholder="e.g. 5.5"></label>
+          </span>
+          <button type="button" class="jy-now" id="ds-now">Now</button>
+        </div>
+        <div id="ds-out"></div>
+      </section>
+      </div>
     </div>
   </div>
 
@@ -900,8 +943,6 @@
           <p>Rahu Kalam, Yamaganda and Gulika Kalam divide the sunrise-to-sunset period into eight parts and apply the commonly used weekday assignment. Choghadiya follows the standard weekday-keyed sequence for day and night periods.</p>
           <h3>Where it's weaker</h3>
           <p>Right at a tithi, nakshatra or karana boundary — when the transition happens within a few minutes of the moment you're checking — this simplified model can land on the wrong side of the line. For anything time-critical (a wedding muhurat, a ritual start time), cross-check against a full-precision panchang or a knowledgeable priest.</p>
-          <h3>Rāshi outlook content</h3>
-          <p>The daily rashi outlook is general, sign-level reflection text, not a computed astrological prediction — it rotates through a small set of original passages rather than being drawn from any live chart.</p>
         </div>
       </section>
     </div>
@@ -986,6 +1027,289 @@
     {name:"Chennai, India", lat:13.0827, lon:80.2707, tz:5.5},
     {name:"Kolkata, India", lat:22.5726, lon:88.3639, tz:5.5},
     {name:"Bengaluru, India", lat:12.9716, lon:77.5946, tz:5.5},
+    {name:"Abohar, Punjab", lat:30.14, lon:74.20, tz:5.5},
+    {name:"Agartala, Tripura", lat:23.83, lon:91.28, tz:5.5},
+    {name:"Agra, Uttar Pradesh", lat:27.18, lon:78.01, tz:5.5},
+    {name:"Ahmedabad, Gujarat", lat:23.02, lon:72.57, tz:5.5},
+    {name:"Ahmednagar, Maharashtra", lat:19.09, lon:74.74, tz:5.5},
+    {name:"Aizawl, Mizoram", lat:23.73, lon:92.72, tz:5.5},
+    {name:"Ajmer, Rajasthan", lat:26.45, lon:74.64, tz:5.5},
+    {name:"Akola, Maharashtra", lat:20.71, lon:77.00, tz:5.5},
+    {name:"Alappuzha, Kerala", lat:9.49, lon:76.34, tz:5.5},
+    {name:"Aligarh, Uttar Pradesh", lat:27.88, lon:78.08, tz:5.5},
+    {name:"Almora, Uttarakhand", lat:29.60, lon:79.66, tz:5.5},
+    {name:"Alwar, Rajasthan", lat:27.55, lon:76.63, tz:5.5},
+    {name:"Ambala, Haryana", lat:30.38, lon:76.78, tz:5.5},
+    {name:"Amravati, Maharashtra", lat:20.93, lon:77.75, tz:5.5},
+    {name:"Amritsar, Punjab", lat:31.63, lon:74.87, tz:5.5},
+    {name:"Anand, Gujarat", lat:22.56, lon:72.95, tz:5.5},
+    {name:"Anantapur, Andhra Pradesh", lat:14.68, lon:77.60, tz:5.5},
+    {name:"Anantnag, Jammu and Kashmir", lat:33.73, lon:75.15, tz:5.5},
+    {name:"Arrah, Bihar", lat:25.56, lon:84.67, tz:5.5},
+    {name:"Asansol, West Bengal", lat:23.68, lon:86.98, tz:5.5},
+    {name:"Aurangabad, Maharashtra", lat:19.88, lon:75.34, tz:5.5},
+    {name:"Ayodhya, Uttar Pradesh", lat:26.80, lon:82.20, tz:5.5},
+    {name:"Azamgarh, Uttar Pradesh", lat:26.07, lon:83.19, tz:5.5},
+    {name:"Baddi, Himachal Pradesh", lat:30.96, lon:76.79, tz:5.5},
+    {name:"Balasore, Odisha", lat:21.49, lon:86.93, tz:5.5},
+    {name:"Ballari, Karnataka", lat:15.14, lon:76.92, tz:5.5},
+    {name:"Baramulla, Jammu and Kashmir", lat:34.20, lon:74.34, tz:5.5},
+    {name:"Bardhaman, West Bengal", lat:23.23, lon:87.86, tz:5.5},
+    {name:"Bareilly, Uttar Pradesh", lat:28.35, lon:79.42, tz:5.5},
+    {name:"Barnala, Punjab", lat:30.38, lon:75.55, tz:5.5},
+    {name:"Batala, Punjab", lat:31.82, lon:75.20, tz:5.5},
+    {name:"Bathinda, Punjab", lat:30.21, lon:74.95, tz:5.5},
+    {name:"Begusarai, Bihar", lat:25.42, lon:86.13, tz:5.5},
+    {name:"Belagavi, Karnataka", lat:15.85, lon:74.50, tz:5.5},
+    {name:"Berhampur, Odisha", lat:19.31, lon:84.79, tz:5.5},
+    {name:"Bhagalpur, Bihar", lat:25.24, lon:86.97, tz:5.5},
+    {name:"Bharatpur, Rajasthan", lat:27.22, lon:77.49, tz:5.5},
+    {name:"Bhavnagar, Gujarat", lat:21.76, lon:72.15, tz:5.5},
+    {name:"Bhilai, Chhattisgarh", lat:21.21, lon:81.38, tz:5.5},
+    {name:"Bhilwara, Rajasthan", lat:25.35, lon:74.63, tz:5.5},
+    {name:"Bhiwani, Haryana", lat:28.79, lon:76.13, tz:5.5},
+    {name:"Bhopal, Madhya Pradesh", lat:23.26, lon:77.41, tz:5.5},
+    {name:"Bhubaneswar, Odisha", lat:20.30, lon:85.82, tz:5.5},
+    {name:"Bhuj, Gujarat", lat:23.25, lon:69.67, tz:5.5},
+    {name:"Bikaner, Rajasthan", lat:28.02, lon:73.31, tz:5.5},
+    {name:"Bilaspur, Chhattisgarh", lat:22.08, lon:82.15, tz:5.5},
+    {name:"Bilaspur, Himachal Pradesh", lat:31.34, lon:76.76, tz:5.5},
+    {name:"Bokaro, Jharkhand", lat:23.67, lon:86.15, tz:5.5},
+    {name:"Bulandshahr, Uttar Pradesh", lat:28.41, lon:77.85, tz:5.5},
+    {name:"Chamba, Himachal Pradesh", lat:32.55, lon:76.13, tz:5.5},
+    {name:"Chandigarh", lat:30.73, lon:76.78, tz:5.5},
+    {name:"Chhindwara, Madhya Pradesh", lat:22.06, lon:78.94, tz:5.5},
+    {name:"Chidambaram, Tamil Nadu", lat:11.40, lon:79.69, tz:5.5},
+    {name:"Chittorgarh, Rajasthan", lat:24.88, lon:74.63, tz:5.5},
+    {name:"Coimbatore, Tamil Nadu", lat:11.02, lon:76.96, tz:5.5},
+    {name:"Cuttack, Odisha", lat:20.46, lon:85.88, tz:5.5},
+    {name:"Dalhousie, Himachal Pradesh", lat:32.54, lon:75.97, tz:5.5},
+    {name:"Daman, Dadra and Nagar Haveli and Daman and Diu", lat:20.41, lon:72.83, tz:5.5},
+    {name:"Darbhanga, Bihar", lat:26.15, lon:85.90, tz:5.5},
+    {name:"Darjeeling, West Bengal", lat:27.04, lon:88.26, tz:5.5},
+    {name:"Davanagere, Karnataka", lat:14.47, lon:75.92, tz:5.5},
+    {name:"Dehradun, Uttarakhand", lat:30.32, lon:78.03, tz:5.5},
+    {name:"Deoghar, Jharkhand", lat:24.49, lon:86.70, tz:5.5},
+    {name:"Dewas, Madhya Pradesh", lat:22.97, lon:76.05, tz:5.5},
+    {name:"Dhanbad, Jharkhand", lat:23.80, lon:86.43, tz:5.5},
+    {name:"Dharamshala, Himachal Pradesh", lat:32.22, lon:76.32, tz:5.5},
+    {name:"Dharwad, Karnataka", lat:15.46, lon:75.01, tz:5.5},
+    {name:"Dibrugarh, Assam", lat:27.47, lon:94.91, tz:5.5},
+    {name:"Dimapur, Nagaland", lat:25.91, lon:93.73, tz:5.5},
+    {name:"Dindigul, Tamil Nadu", lat:10.37, lon:77.98, tz:5.5},
+    {name:"Durg, Chhattisgarh", lat:21.19, lon:81.28, tz:5.5},
+    {name:"Durgapur, West Bengal", lat:23.55, lon:87.32, tz:5.5},
+    {name:"Dwarka, Gujarat", lat:22.24, lon:68.97, tz:5.5},
+    {name:"Eluru, Andhra Pradesh", lat:16.71, lon:81.10, tz:5.5},
+    {name:"Erode, Tamil Nadu", lat:11.34, lon:77.72, tz:5.5},
+    {name:"Etawah, Uttar Pradesh", lat:26.78, lon:79.02, tz:5.5},
+    {name:"Faridabad, Haryana", lat:28.41, lon:77.31, tz:5.5},
+    {name:"Faridkot, Punjab", lat:30.67, lon:74.76, tz:5.5},
+    {name:"Fazilka, Punjab", lat:30.40, lon:74.03, tz:5.5},
+    {name:"Ferozepur, Punjab", lat:30.93, lon:74.61, tz:5.5},
+    {name:"Firozabad, Uttar Pradesh", lat:27.15, lon:78.39, tz:5.5},
+    {name:"Gandhinagar, Gujarat", lat:23.22, lon:72.65, tz:5.5},
+    {name:"Gangtok, Sikkim", lat:27.33, lon:88.61, tz:5.5},
+    {name:"Gaya, Bihar", lat:24.80, lon:85.00, tz:5.5},
+    {name:"Ghaziabad, Uttar Pradesh", lat:28.67, lon:77.44, tz:5.5},
+    {name:"Gorakhpur, Uttar Pradesh", lat:26.76, lon:83.37, tz:5.5},
+    {name:"Guntur, Andhra Pradesh", lat:16.31, lon:80.44, tz:5.5},
+    {name:"Gurdaspur, Punjab", lat:32.04, lon:75.40, tz:5.5},
+    {name:"Gurugram, Haryana", lat:28.46, lon:77.03, tz:5.5},
+    {name:"Guruvayur, Kerala", lat:10.59, lon:76.04, tz:5.5},
+    {name:"Guwahati, Assam", lat:26.14, lon:91.74, tz:5.5},
+    {name:"Gwalior, Madhya Pradesh", lat:26.22, lon:78.18, tz:5.5},
+    {name:"Haldia, West Bengal", lat:22.03, lon:88.06, tz:5.5},
+    {name:"Haldwani, Uttarakhand", lat:29.22, lon:79.51, tz:5.5},
+    {name:"Hamirpur, Himachal Pradesh", lat:31.69, lon:76.52, tz:5.5},
+    {name:"Hanumangarh, Rajasthan", lat:29.58, lon:74.32, tz:5.5},
+    {name:"Hapur, Uttar Pradesh", lat:28.73, lon:77.78, tz:5.5},
+    {name:"Haridwar, Uttarakhand", lat:29.95, lon:78.16, tz:5.5},
+    {name:"Hassan, Karnataka", lat:13.00, lon:76.10, tz:5.5},
+    {name:"Hazaribagh, Jharkhand", lat:23.99, lon:85.36, tz:5.5},
+    {name:"Hisar, Haryana", lat:29.15, lon:75.72, tz:5.5},
+    {name:"Hoshiarpur, Punjab", lat:31.53, lon:75.91, tz:5.5},
+    {name:"Hosur, Tamil Nadu", lat:12.74, lon:77.83, tz:5.5},
+    {name:"Howrah, West Bengal", lat:22.59, lon:88.31, tz:5.5},
+    {name:"Hubballi, Karnataka", lat:15.36, lon:75.12, tz:5.5},
+    {name:"Hyderabad, Telangana", lat:17.39, lon:78.49, tz:5.5},
+    {name:"Imphal, Manipur", lat:24.82, lon:93.94, tz:5.5},
+    {name:"Indore, Madhya Pradesh", lat:22.72, lon:75.86, tz:5.5},
+    {name:"Itanagar, Arunachal Pradesh", lat:27.08, lon:93.62, tz:5.5},
+    {name:"Jabalpur, Madhya Pradesh", lat:23.18, lon:79.95, tz:5.5},
+    {name:"Jaipur, Rajasthan", lat:26.91, lon:75.79, tz:5.5},
+    {name:"Jaisalmer, Rajasthan", lat:26.92, lon:70.91, tz:5.5},
+    {name:"Jalandhar, Punjab", lat:31.33, lon:75.58, tz:5.5},
+    {name:"Jalgaon, Maharashtra", lat:21.01, lon:75.57, tz:5.5},
+    {name:"Jammu, Jammu and Kashmir", lat:32.73, lon:74.86, tz:5.5},
+    {name:"Jamnagar, Gujarat", lat:22.47, lon:70.07, tz:5.5},
+    {name:"Jamshedpur, Jharkhand", lat:22.80, lon:86.20, tz:5.5},
+    {name:"Jhansi, Uttar Pradesh", lat:25.45, lon:78.57, tz:5.5},
+    {name:"Jhunjhunu, Rajasthan", lat:28.13, lon:75.40, tz:5.5},
+    {name:"Jodhpur, Rajasthan", lat:26.24, lon:73.02, tz:5.5},
+    {name:"Jorhat, Assam", lat:26.76, lon:94.20, tz:5.5},
+    {name:"Junagadh, Gujarat", lat:21.52, lon:70.46, tz:5.5},
+    {name:"Kadapa, Andhra Pradesh", lat:14.47, lon:78.82, tz:5.5},
+    {name:"Kakinada, Andhra Pradesh", lat:16.99, lon:82.25, tz:5.5},
+    {name:"Kalaburagi, Karnataka", lat:17.33, lon:76.83, tz:5.5},
+    {name:"Kanchipuram, Tamil Nadu", lat:12.83, lon:79.70, tz:5.5},
+    {name:"Kangra, Himachal Pradesh", lat:32.10, lon:76.27, tz:5.5},
+    {name:"Kannur, Kerala", lat:11.87, lon:75.37, tz:5.5},
+    {name:"Kanpur, Uttar Pradesh", lat:26.45, lon:80.33, tz:5.5},
+    {name:"Kanyakumari, Tamil Nadu", lat:8.08, lon:77.54, tz:5.5},
+    {name:"Kapurthala, Punjab", lat:31.38, lon:75.38, tz:5.5},
+    {name:"Karimnagar, Telangana", lat:18.44, lon:79.13, tz:5.5},
+    {name:"Karnal, Haryana", lat:29.69, lon:76.99, tz:5.5},
+    {name:"Kasauli, Himachal Pradesh", lat:30.90, lon:76.97, tz:5.5},
+    {name:"Kashipur, Uttarakhand", lat:29.21, lon:78.96, tz:5.5},
+    {name:"Kathua, Jammu and Kashmir", lat:32.39, lon:75.52, tz:5.5},
+    {name:"Katra, Jammu and Kashmir", lat:32.99, lon:74.93, tz:5.5},
+    {name:"Kavaratti, Lakshadweep", lat:10.57, lon:72.64, tz:5.5},
+    {name:"Khammam, Telangana", lat:17.25, lon:80.15, tz:5.5},
+    {name:"Khanna, Punjab", lat:30.70, lon:76.22, tz:5.5},
+    {name:"Kharagpur, West Bengal", lat:22.35, lon:87.32, tz:5.5},
+    {name:"Kochi, Kerala", lat:9.93, lon:76.27, tz:5.5},
+    {name:"Kohima, Nagaland", lat:25.67, lon:94.11, tz:5.5},
+    {name:"Kolhapur, Maharashtra", lat:16.70, lon:74.24, tz:5.5},
+    {name:"Kollam, Kerala", lat:8.89, lon:76.61, tz:5.5},
+    {name:"Korba, Chhattisgarh", lat:22.36, lon:82.75, tz:5.5},
+    {name:"Kota, Rajasthan", lat:25.21, lon:75.86, tz:5.5},
+    {name:"Kottayam, Kerala", lat:9.59, lon:76.52, tz:5.5},
+    {name:"Kozhikode, Kerala", lat:11.26, lon:75.78, tz:5.5},
+    {name:"Krishnanagar, West Bengal", lat:23.40, lon:88.50, tz:5.5},
+    {name:"Kullu, Himachal Pradesh", lat:31.96, lon:77.11, tz:5.5},
+    {name:"Kumbakonam, Tamil Nadu", lat:10.96, lon:79.38, tz:5.5},
+    {name:"Kurnool, Andhra Pradesh", lat:15.83, lon:78.04, tz:5.5},
+    {name:"Kurukshetra, Haryana", lat:29.97, lon:76.88, tz:5.5},
+    {name:"Latur, Maharashtra", lat:18.40, lon:76.58, tz:5.5},
+    {name:"Leh, Ladakh", lat:34.16, lon:77.58, tz:5.5},
+    {name:"Lucknow, Uttar Pradesh", lat:26.85, lon:80.95, tz:5.5},
+    {name:"Ludhiana, Punjab", lat:30.90, lon:75.86, tz:5.5},
+    {name:"Machilipatnam, Andhra Pradesh", lat:16.19, lon:81.14, tz:5.5},
+    {name:"Madurai, Tamil Nadu", lat:9.93, lon:78.12, tz:5.5},
+    {name:"Malappuram, Kerala", lat:11.07, lon:76.07, tz:5.5},
+    {name:"Malda, West Bengal", lat:25.01, lon:88.14, tz:5.5},
+    {name:"Malerkotla, Punjab", lat:30.53, lon:75.88, tz:5.5},
+    {name:"Manali, Himachal Pradesh", lat:32.24, lon:77.19, tz:5.5},
+    {name:"Mandi, Himachal Pradesh", lat:31.71, lon:76.93, tz:5.5},
+    {name:"Mangaluru, Karnataka", lat:12.91, lon:74.86, tz:5.5},
+    {name:"Margao, Goa", lat:15.27, lon:73.96, tz:5.5},
+    {name:"Mathura, Uttar Pradesh", lat:27.49, lon:77.67, tz:5.5},
+    {name:"Meerut, Uttar Pradesh", lat:28.98, lon:77.71, tz:5.5},
+    {name:"Mehsana, Gujarat", lat:23.60, lon:72.38, tz:5.5},
+    {name:"Mirzapur, Uttar Pradesh", lat:25.15, lon:82.57, tz:5.5},
+    {name:"Moga, Punjab", lat:30.82, lon:75.17, tz:5.5},
+    {name:"Mohali, Punjab", lat:30.70, lon:76.72, tz:5.5},
+    {name:"Moradabad, Uttar Pradesh", lat:28.84, lon:78.78, tz:5.5},
+    {name:"Mount Abu, Rajasthan", lat:24.59, lon:72.71, tz:5.5},
+    {name:"Muktsar, Punjab", lat:30.47, lon:74.52, tz:5.5},
+    {name:"Mussoorie, Uttarakhand", lat:30.46, lon:78.07, tz:5.5},
+    {name:"Muzaffarnagar, Uttar Pradesh", lat:29.47, lon:77.70, tz:5.5},
+    {name:"Muzaffarpur, Bihar", lat:26.12, lon:85.39, tz:5.5},
+    {name:"Mysuru, Karnataka", lat:12.30, lon:76.64, tz:5.5},
+    {name:"Nadiad, Gujarat", lat:22.69, lon:72.86, tz:5.5},
+    {name:"Nagaon, Assam", lat:26.35, lon:92.68, tz:5.5},
+    {name:"Nagpur, Maharashtra", lat:21.15, lon:79.09, tz:5.5},
+    {name:"Nahan, Himachal Pradesh", lat:30.56, lon:77.30, tz:5.5},
+    {name:"Nainital, Uttarakhand", lat:29.38, lon:79.46, tz:5.5},
+    {name:"Nanded, Maharashtra", lat:19.15, lon:77.32, tz:5.5},
+    {name:"Nashik, Maharashtra", lat:19.99, lon:73.79, tz:5.5},
+    {name:"Nathdwara, Rajasthan", lat:24.93, lon:73.82, tz:5.5},
+    {name:"Navi Mumbai, Maharashtra", lat:19.03, lon:73.03, tz:5.5},
+    {name:"Nawanshahr, Punjab", lat:31.12, lon:76.12, tz:5.5},
+    {name:"Nellore, Andhra Pradesh", lat:14.44, lon:79.99, tz:5.5},
+    {name:"Nizamabad, Telangana", lat:18.67, lon:78.09, tz:5.5},
+    {name:"Noida, Uttar Pradesh", lat:28.54, lon:77.39, tz:5.5},
+    {name:"Ongole, Andhra Pradesh", lat:15.50, lon:80.05, tz:5.5},
+    {name:"Palakkad, Kerala", lat:10.78, lon:76.65, tz:5.5},
+    {name:"Palampur, Himachal Pradesh", lat:32.11, lon:76.54, tz:5.5},
+    {name:"Panaji, Goa", lat:15.50, lon:73.83, tz:5.5},
+    {name:"Panchkula, Haryana", lat:30.69, lon:76.85, tz:5.5},
+    {name:"Pandharpur, Maharashtra", lat:17.68, lon:75.33, tz:5.5},
+    {name:"Panipat, Haryana", lat:29.39, lon:76.97, tz:5.5},
+    {name:"Paonta Sahib, Himachal Pradesh", lat:30.44, lon:77.62, tz:5.5},
+    {name:"Pathankot, Punjab", lat:32.27, lon:75.65, tz:5.5},
+    {name:"Patiala, Punjab", lat:30.34, lon:76.39, tz:5.5},
+    {name:"Patna, Bihar", lat:25.59, lon:85.14, tz:5.5},
+    {name:"Phagwara, Punjab", lat:31.22, lon:75.77, tz:5.5},
+    {name:"Port Blair, Andaman and Nicobar Islands", lat:11.62, lon:92.73, tz:5.5},
+    {name:"Prayagraj, Uttar Pradesh", lat:25.44, lon:81.85, tz:5.5},
+    {name:"Puducherry", lat:11.93, lon:79.83, tz:5.5},
+    {name:"Pune, Maharashtra", lat:18.52, lon:73.86, tz:5.5},
+    {name:"Puri, Odisha", lat:19.81, lon:85.83, tz:5.5},
+    {name:"Purnia, Bihar", lat:25.78, lon:87.47, tz:5.5},
+    {name:"Pushkar, Rajasthan", lat:26.49, lon:74.55, tz:5.5},
+    {name:"Puttaparthi, Andhra Pradesh", lat:14.17, lon:77.81, tz:5.5},
+    {name:"Raipur, Chhattisgarh", lat:21.25, lon:81.63, tz:5.5},
+    {name:"Rajahmundry, Andhra Pradesh", lat:17.00, lon:81.80, tz:5.5},
+    {name:"Rajkot, Gujarat", lat:22.30, lon:70.80, tz:5.5},
+    {name:"Rajpura, Punjab", lat:30.48, lon:76.59, tz:5.5},
+    {name:"Rameswaram, Tamil Nadu", lat:9.29, lon:79.31, tz:5.5},
+    {name:"Rampur Bushahr, Himachal Pradesh", lat:31.45, lon:77.63, tz:5.5},
+    {name:"Rampur, Uttar Pradesh", lat:28.80, lon:79.03, tz:5.5},
+    {name:"Ranchi, Jharkhand", lat:23.34, lon:85.31, tz:5.5},
+    {name:"Ratlam, Madhya Pradesh", lat:23.33, lon:75.04, tz:5.5},
+    {name:"Rewa, Madhya Pradesh", lat:24.53, lon:81.30, tz:5.5},
+    {name:"Rewari, Haryana", lat:28.20, lon:76.62, tz:5.5},
+    {name:"Rishikesh, Uttarakhand", lat:30.09, lon:78.27, tz:5.5},
+    {name:"Rohtak, Haryana", lat:28.89, lon:76.61, tz:5.5},
+    {name:"Roorkee, Uttarakhand", lat:29.85, lon:77.89, tz:5.5},
+    {name:"Rourkela, Odisha", lat:22.26, lon:84.85, tz:5.5},
+    {name:"Rudrapur, Uttarakhand", lat:28.98, lon:79.40, tz:5.5},
+    {name:"Rupnagar, Punjab", lat:30.97, lon:76.53, tz:5.5},
+    {name:"Sagar, Madhya Pradesh", lat:23.84, lon:78.74, tz:5.5},
+    {name:"Saharanpur, Uttar Pradesh", lat:29.96, lon:77.55, tz:5.5},
+    {name:"Salem, Tamil Nadu", lat:11.66, lon:78.15, tz:5.5},
+    {name:"Sambalpur, Odisha", lat:21.47, lon:83.97, tz:5.5},
+    {name:"Sangli, Maharashtra", lat:16.85, lon:74.57, tz:5.5},
+    {name:"Sangrur, Punjab", lat:30.25, lon:75.84, tz:5.5},
+    {name:"Satara, Maharashtra", lat:17.68, lon:74.00, tz:5.5},
+    {name:"Satna, Madhya Pradesh", lat:24.60, lon:80.83, tz:5.5},
+    {name:"Secunderabad, Telangana", lat:17.44, lon:78.50, tz:5.5},
+    {name:"Shahjahanpur, Uttar Pradesh", lat:27.88, lon:79.91, tz:5.5},
+    {name:"Shillong, Meghalaya", lat:25.57, lon:91.88, tz:5.5},
+    {name:"Shimla, Himachal Pradesh", lat:31.10, lon:77.17, tz:5.5},
+    {name:"Shirdi, Maharashtra", lat:19.77, lon:74.48, tz:5.5},
+    {name:"Shivamogga, Karnataka", lat:13.93, lon:75.57, tz:5.5},
+    {name:"Sikar, Rajasthan", lat:27.61, lon:75.14, tz:5.5},
+    {name:"Silchar, Assam", lat:24.83, lon:92.78, tz:5.5},
+    {name:"Siliguri, West Bengal", lat:26.73, lon:88.40, tz:5.5},
+    {name:"Silvassa, Dadra and Nagar Haveli and Daman and Diu", lat:20.27, lon:73.01, tz:5.5},
+    {name:"Sirsa, Haryana", lat:29.53, lon:75.03, tz:5.5},
+    {name:"Solan, Himachal Pradesh", lat:30.91, lon:77.10, tz:5.5},
+    {name:"Solapur, Maharashtra", lat:17.66, lon:75.91, tz:5.5},
+    {name:"Somnath, Gujarat", lat:20.89, lon:70.40, tz:5.5},
+    {name:"Sonipat, Haryana", lat:28.99, lon:77.02, tz:5.5},
+    {name:"Sri Ganganagar, Rajasthan", lat:29.92, lon:73.88, tz:5.5},
+    {name:"Srinagar, Jammu and Kashmir", lat:34.08, lon:74.80, tz:5.5},
+    {name:"Sultanpur, Uttar Pradesh", lat:26.26, lon:82.07, tz:5.5},
+    {name:"Sundernagar, Himachal Pradesh", lat:31.53, lon:76.90, tz:5.5},
+    {name:"Surat, Gujarat", lat:21.17, lon:72.83, tz:5.5},
+    {name:"Tezpur, Assam", lat:26.65, lon:92.79, tz:5.5},
+    {name:"Thane, Maharashtra", lat:19.22, lon:72.98, tz:5.5},
+    {name:"Thanjavur, Tamil Nadu", lat:10.79, lon:79.14, tz:5.5},
+    {name:"Thiruvananthapuram, Kerala", lat:8.52, lon:76.94, tz:5.5},
+    {name:"Thoothukudi, Tamil Nadu", lat:8.76, lon:78.13, tz:5.5},
+    {name:"Thrissur, Kerala", lat:10.53, lon:76.21, tz:5.5},
+    {name:"Tiruchirappalli, Tamil Nadu", lat:10.79, lon:78.70, tz:5.5},
+    {name:"Tirunelveli, Tamil Nadu", lat:8.73, lon:77.70, tz:5.5},
+    {name:"Tirupati, Andhra Pradesh", lat:13.63, lon:79.42, tz:5.5},
+    {name:"Tiruppur, Tamil Nadu", lat:11.11, lon:77.34, tz:5.5},
+    {name:"Tumakuru, Karnataka", lat:13.34, lon:77.10, tz:5.5},
+    {name:"Udaipur, Rajasthan", lat:24.58, lon:73.71, tz:5.5},
+    {name:"Udhampur, Jammu and Kashmir", lat:32.92, lon:75.14, tz:5.5},
+    {name:"Udupi, Karnataka", lat:13.34, lon:74.75, tz:5.5},
+    {name:"Ujjain, Madhya Pradesh", lat:23.18, lon:75.78, tz:5.5},
+    {name:"Una, Himachal Pradesh", lat:31.46, lon:76.27, tz:5.5},
+    {name:"Vadodara, Gujarat", lat:22.31, lon:73.18, tz:5.5},
+    {name:"Varanasi, Uttar Pradesh", lat:25.32, lon:83.01, tz:5.5},
+    {name:"Vellore, Tamil Nadu", lat:12.92, lon:79.13, tz:5.5},
+    {name:"Vijayawada, Andhra Pradesh", lat:16.51, lon:80.65, tz:5.5},
+    {name:"Visakhapatnam, Andhra Pradesh", lat:17.69, lon:83.22, tz:5.5},
+    {name:"Vrindavan, Uttar Pradesh", lat:27.58, lon:77.70, tz:5.5},
+    {name:"Warangal, Telangana", lat:17.97, lon:79.60, tz:5.5},
+    {name:"Yamunanagar, Haryana", lat:30.13, lon:77.27, tz:5.5},
+    {name:"Zirakpur, Punjab", lat:30.64, lon:76.82, tz:5.5},
     {name:"New York, USA", lat:40.7128, lon:-74.0060, tz:-5},
     {name:"Houston, USA", lat:29.7604, lon:-95.3698, tz:-6},
     {name:"London, UK", lat:51.5074, lon:-0.1278, tz:0},
@@ -1334,69 +1658,6 @@
     showSheet();
   }
 
-
-  var RASHIS = [
-    {name:"Mesha", eng:"Aries", variants:[
-      "A restless energy pushes you to start rather than plan today — channel it into one clear first step.",
-      "Something you've been circling finally asks for a decision. Trust the quick instinct over the slow deliberation.",
-      "Patience with a collaborator pays off better than pushing ahead alone.",
-      "Physical energy is high; use it before the day gets crowded with talk."]},
-    {name:"Vrishabha", eng:"Taurus", variants:[
-      "Steadiness is your advantage today — resist the urge to match someone else's pace.",
-      "A financial matter benefits from a second look before you commit.",
-      "Comfort and routine serve you well; keep plans simple.",
-      "A conversation with family carries more weight than it first seems to."]},
-    {name:"Mithuna", eng:"Gemini", variants:[
-      "Your words land further than usual — choose them with a little more care.",
-      "Curiosity pulls you toward something unrelated to the task at hand; a short detour is fine.",
-      "Two options compete for your attention; write down the trade-offs rather than deciding on the fly.",
-      "A short trip or errand turns out more useful than expected."]},
-    {name:"Karka", eng:"Cancer", variants:[
-      "Home matters ask for a little attention before anything else will feel settled.",
-      "An old memory resurfaces with something useful in it — don't brush it aside.",
-      "Protecting your energy today is wiser than spending it on everyone who asks.",
-      "A quiet evening does more for you than a busy one."]},
-    {name:"Simha", eng:"Leo", variants:[
-      "Recognition comes your way, but it lands better if you share credit generously.",
-      "A creative idea deserves more than a passing thought — give it an hour.",
-      "Leadership is asked of you in a small way; take it seriously even if it feels minor.",
-      "Warmth toward a younger person in your life is noticed more than you realise."]},
-    {name:"Kanya", eng:"Virgo", variants:[
-      "A plan benefits from one more round of checking before you let it go.",
-      "Small frustrations add up — address the cause rather than the symptom.",
-      "Your attention to detail saves someone else today; it may go unacknowledged, and that's fine.",
-      "Health routines deserve a small course-correction."]},
-    {name:"Tula", eng:"Libra", variants:[
-      "Balance returns to a relationship that's felt slightly uneven lately.",
-      "A decision goes more smoothly once you stop trying to please everyone involved.",
-      "Aesthetic choices — a space, an outfit, a plan — matter more to your mood than usual.",
-      "Diplomacy serves you well in a disagreement that isn't really about you."]},
-    {name:"Vrishchika", eng:"Scorpio", variants:[
-      "Something hidden comes closer to the surface; let it, rather than pushing it back down.",
-      "Intensity at work pays off if it's aimed at one thing instead of several.",
-      "A loyalty is tested in a small way and holds.",
-      "Trust your read on a person's motives today."]},
-    {name:"Dhanu", eng:"Sagittarius", variants:[
-      "A bigger-picture question distracts you from the task in front of you — give it a scheduled time instead.",
-      "Travel plans, even small ones, bring good news.",
-      "Optimism helps, but check the details before you commit out loud.",
-      "A teacher or mentor's advice is worth revisiting."]},
-    {name:"Makara", eng:"Capricorn", variants:[
-      "Discipline pays off today in a way that's easy to overlook in the moment.",
-      "A long-term goal moves one practical step closer.",
-      "Someone senior notices your consistency, even without saying so.",
-      "Rest is productive today, not a distraction from it."]},
-    {name:"Kumbha", eng:"Aquarius", variants:[
-      "An unconventional idea deserves a fair hearing before it's dismissed.",
-      "Community or group plans move forward more easily than solo ones today.",
-      "A friendship offers useful perspective on a problem you've been solving alone.",
-      "Detach a little from outcomes and the day flows easier."]},
-    {name:"Meena", eng:"Pisces", variants:[
-      "Intuition is sharper than logic for you today — follow the quieter signal.",
-      "A creative or spiritual practice restores something that's been running low.",
-      "Compassion toward yourself matters as much as it does toward others today.",
-      "A boundary you've been avoiding is easier to set than you expect."]}
-  ];
 
   /* ===================== ASTRONOMY ===================== */
   function toJulianDay(date){
@@ -2235,26 +2496,22 @@
     }
     var yr = +sel.value;
     document.getElementById('fest-title').textContent = 'Festivals & observances, ' + yr;
-    document.getElementById('fest-table').innerHTML = festYear(yr).map(function(f){
-      var dt = new Date(f[0]+'T00:00:00');
-      var label = dt.getDate()+' '+MONTHS[dt.getMonth()].slice(0,3)+' '+dt.getFullYear();
-      return '<tr class="fest-row" data-fi="'+f.id+'" tabindex="0" style="cursor:pointer;"><td style="white-space:nowrap;">'+label+'</td><td><strong>'+f[1]+'</strong></td><td style="color:var(--ink-soft);">'+f[2]+'</td></tr>';
-    }).join('');
-  }
-
-  /* ===================== RENDER: HOROSCOPE ===================== */
-  function dayOfYearNum(d){
-    var start = new Date(d.getFullYear(),0,0);
-    var diff = d - start;
-    return Math.floor(diff/86400000);
-  }
-  function renderHoroscope(){
-    var doy = dayOfYearNum(state.date);
-    var html = RASHIS.map(function(r){
-      var text = r.variants[doy % r.variants.length];
-      return '<div class="rashi-card"><div class="name">'+r.name+'</div><div class="eng">'+r.eng+'</div><p>'+text+'</p></div>';
-    }).join('');
-    document.getElementById('rashi-grid').innerHTML = html;
+    var list = festYear(yr), now = new Date(), isCur = (yr === now.getFullYear());
+    var todayKey = now.getFullYear() + '-' + pad2(now.getMonth()+1) + '-' + pad2(now.getDate()), today0 = new Date(now.getFullYear(), now.getMonth(), now.getDate()), nextId = null;
+    if (isCur){
+      for (var i = 0; i < list.length; i++){ if (list[i][0] >= todayKey && !/^(surya|chandra) grahan/i.test(list[i][1])){ nextId = list[i].id; break; } }
+    }
+    var html = '', lastM = -1;
+    list.forEach(function(f){
+      var dt = new Date(f[0] + 'T00:00:00'), m = dt.getMonth();
+      if (m !== lastM){ html += '<div class="fl-month">' + MONTHS[m] + ' ' + yr + '</div>'; lastM = m; }
+      var past = isCur && f[0] < todayKey, nxt = (f.id === nextId), days = Math.round((dt - today0)/864e5);
+      html += '<div class="fest-row fl-row' + (past ? ' past' : '') + (nxt ? ' next' : '') + '" data-fi="' + f.id + '" tabindex="0" role="button">' +
+        '<div class="fl-date"><b>' + dt.getDate() + '</b><span>' + WEEKDAYS[dt.getDay()].slice(0, 3) + '</span></div>' +
+        '<div class="fl-main"><div class="fl-name">' + f[1] + (nxt ? '<span class="fl-chip">' + (days === 0 ? 'Today' : 'Next \u00b7 in ' + days + ' day' + (days === 1 ? '' : 's')) + '</span>' : '') + '</div><div class="fl-note">' + f[2] + '</div></div>' +
+        '<div class="fl-go" aria-hidden="true">\u203a</div></div>';
+    });
+    document.getElementById('fest-list').innerHTML = html;
   }
 
   /* ===================== TABS ===================== */
@@ -2263,7 +2520,6 @@
     renderMuhurat();
     renderCalendar();
     renderFestivals();
-    renderHoroscope();
   }
 
   document.getElementById('yantra-tabs').addEventListener('click', function(e){
@@ -2301,6 +2557,7 @@
     var cap = window.Capacitor, app = cap && cap.Plugins && cap.Plugins.App;
     if (!app || !app.addListener) return;
     app.addListener('backButton', function(){
+      if (typeof jyModalOpen !== 'undefined' && jyModalOpen){ jyCloseModal(); return; }
       if (fsOpen){ closeFest(); return; }
       if (currentTab() !== TAB_KEYS[0]){ switchTab(TAB_KEYS[0]); return; }
       app.exitApp();
@@ -2449,6 +2706,72 @@
       return null;
     }
     return {start: find(-1), end: find(1)};
+  }
+
+  /* ===================== GOCHAR (TRANSITS) ===================== */
+  var GC_PLANETS = ['Sun','Moon','Mars','Mercury','Jupiter','Venus','Saturn','Rahu','Ketu'];
+  function gcLon(name, ms){   // sidereal longitude of a planet at a moment (ms)
+    var d = new Date(ms);
+    if (name === 'Sun' || name === 'Moon'){ var sm = sunMoonLongitudes(d); return norm360((name === 'Sun' ? sm.sun : sm.moon) - ayanamsa(d)); }
+    if (name === 'Rahu' || name === 'Ketu') return norm360(meanNodeTrop(toJulianDay(d)) - ayanamsa(d) + (name === 'Ketu' ? 180 : 0));
+    return planetSidLon(name, toJulianDay(d));
+  }
+  function gcDir(name, ms){   // -1 retrograde, +1 direct
+    if (name === 'Rahu' || name === 'Ketu') return -1;
+    var d = gcLon(name, ms + 12*36e5) - gcLon(name, ms - 12*36e5);
+    if (d > 180) d -= 360; if (d < -180) d += 360;
+    return d < 0 ? -1 : 1;
+  }
+  // sign changes and retrograde/direct stations of some planets in the next `days` days
+  function gcEvents(fromMs, days, names){
+    var out = [], DAY = 864e5;
+    names.forEach(function(n){
+      var prevS = Math.floor(gcLon(n, fromMs)/30), prevD = gcDir(n, fromMs);
+      for (var i = 1; i <= days; i++){
+        var t = fromMs + i*DAY, L = gcLon(n, t), s = Math.floor(L/30), lo, hi, k;
+        if (s !== prevS){
+          lo = t - DAY; hi = t;
+          for (k = 0; k < 22; k++){ var mid = (lo + hi)/2; if (Math.floor(gcLon(n, mid)/30) === prevS) lo = mid; else hi = mid; }
+          out.push({t: hi, planet: n, type: 'ingress', from: prevS, to: s}); prevS = s;
+        }
+        var dr = gcDir(n, t);
+        if (dr !== prevD){
+          lo = t - DAY; hi = t;
+          for (k = 0; k < 20; k++){ var m2 = (lo + hi)/2; if (gcDir(n, m2) === prevD) lo = m2; else hi = m2; }
+          out.push({t: hi, planet: n, type: dr < 0 ? 'retrograde' : 'direct', sign: Math.floor(gcLon(n, hi)/30), deg: gcLon(n, hi) % 30}); prevD = dr;
+        }
+      }
+    });
+    return out.sort(function(a, b){ return a.t - b.t; });
+  }
+  // nakshatra changes of some planets in the next `days` days
+  function gcNakEvents(fromMs, days, names){
+    var out = [], DAY = 864e5, U = 40/3;
+    names.forEach(function(n){
+      var prev = Math.floor(gcLon(n, fromMs)/U);
+      for (var i = 1; i <= days; i++){
+        var t = fromMs + i*DAY, k = Math.floor(gcLon(n, t)/U);
+        if (k === prev) continue;
+        var lo = t - DAY, hi = t;
+        for (var j = 0; j < 22; j++){ var mid = (lo + hi)/2; if (Math.floor(gcLon(n, mid)/U) === prev) lo = mid; else hi = mid; }
+        out.push({t: hi, planet: n, type: 'nak', from: prev % 27, to: k % 27, sign: Math.floor(gcLon(n, hi)/30)});
+        prev = k;
+      }
+    });
+    return out.sort(function(a, b){ return a.t - b.t; });
+  }
+  // when a planet entered the nakshatra it is in
+  function gcNakSince(n, ms){
+    var DAY = 864e5, U = 40/3, k = Math.floor(gcLon(n, ms)/U);
+    for (var i = 1; i <= 1500; i++){
+      var t = ms - i*DAY;
+      if (Math.floor(gcLon(n, t)/U) !== k){
+        var lo = t, hi = t + DAY;
+        for (var j = 0; j < 22; j++){ var mid = (lo + hi)/2; if (Math.floor(gcLon(n, mid)/U) === k) hi = mid; else lo = mid; }
+        return hi;
+      }
+    }
+    return null;
   }
 
   /* ===================== VIMSHOTTARI DASHA ===================== */
@@ -2604,13 +2927,18 @@
     var r = Math.floor(lon/30), part = Math.floor((lon - r*30)/6), s = (r % 2 === 0 ? D5_ODD : D5_EVEN)[part];
     return s*30 + (lon - r*30 - part*6)*5;
   }
+  // D9 (Navamsa): nine parts of 3°20' per sign; fire signs count from Aries, earth from Capricorn, air from Libra, water from Cancer
+  function d9Lon(lon){
+    var r = Math.floor(lon/30), part = Math.floor((lon - r*30)/(10/3)), start = [0, 9, 6, 3][r % 4];
+    return ((start + part) % 12)*30 + (lon - r*30 - part*10/3)*9;
+  }
   function moonChartOf(c){ var m = c.planets[1]; return {kind: 'moon', asc: {lon: m.lon, rashi: m.rashi, deg: m.deg}, planets: c.planets}; }
   // the same chart in a divisional chart (n = 1: birth chart, n = 5: D5)
   function divChart(c, n){
     if (n === 1) return c;
-    var a = d5Lon(c.asc.lon), out = {kind: c.kind, asc: {lon: a, rashi: Math.floor(a/30), deg: a % 30}, planets: []};
+    var f = n === 9 ? d9Lon : d5Lon, a = f(c.asc.lon), out = {kind: c.kind, asc: {lon: a, rashi: Math.floor(a/30), deg: a % 30}, planets: []};
     c.planets.forEach(function(p){
-      var l = d5Lon(p.lon), r = Math.floor(l/30);
+      var l = f(p.lon), r = Math.floor(l/30);
       out.planets.push({ab: p.ab, name: p.name, lon: l, rashi: r, deg: l - r*30, retro: p.retro, d1: p.rashi, house: ((r - out.asc.rashi + 12) % 12) + 1});
     });
     return out;
@@ -2621,16 +2949,22 @@
     return {north:'House 1 is the rising sign; numbers are signs (1 = Mesha).', south:'Same fixed boxes, with house numbers (H1 = rising sign).', east:'House 1 is the rising sign at the top; numbers are signs.', west:'Wheel turned so the rising sign (house 1) is at the left.'}[style];
   }
   function kundaliCharts(c){
-    var tag = kdDiv === 5 ? ' \u00b7 D5' : '', cm = divChart(moonChartOf(c), kdDiv), cl = divChart(c, kdDiv);
+    var tag = kdDiv > 1 ? ' \u00b7 D' + kdDiv : '', cm = divChart(moonChartOf(c), kdDiv), cl = divChart(c, kdDiv);
     return '<div class="kc-grid"><div class="kc-card"><h3>Moon chart (Chandra Lagna)' + tag + '</h3>' + chartSVG(kdStyle, 'lagna', cm) + '<p class="desc" style="margin:6px 0 0;">' + chartNote(kdStyle, 'moon') + '</p></div>' +
       '<div class="kc-card"><h3>Lagna (ascendant) chart' + tag + '</h3>' + chartSVG(kdStyle, 'lagna', cl) + '<p class="desc" style="margin:6px 0 0;">' + chartNote(kdStyle, 'lagna') + '</p></div></div>' +
-      (kdDiv === 5 ? '<p class="desc" style="margin:10px 0 0;">D5 (Panchamsa) divides every sign into five parts of 6\u00b0. Traditionally it is read for authority, fame and past merit.</p>' : '');
+      divNote();
   }
-  function d5TableHTML(c){
-    if (kdDiv !== 5) return '';
-    var d = divChart(c, 5), h = '<h4 class="jy-h">D5 (Panchamsa) positions</h4><div style="overflow-x:auto;"><table class="data"><tr><th>Graha</th><th>D1 R\u0101shi</th><th>D5 R\u0101shi</th><th>D5 house</th></tr>' +
-      '<tr><td><strong>Lagna</strong></td><td>' + RASHI_INFO[c.asc.rashi][0] + '</td><td>' + RASHI_INFO[d.asc.rashi][0] + '</td><td>1</td></tr>';
-    d.planets.forEach(function(p){ h += '<tr><td><strong>' + p.name + '</strong></td><td>' + RASHI_INFO[p.d1][0] + '</td><td>' + RASHI_INFO[p.rashi][0] + '</td><td>' + p.house + '</td></tr>'; });
+  function divNote(){
+    if (kdDiv === 5) return '<p class="desc" style="margin:10px 0 0;">D5 (Panchamsa) divides every sign into five parts of 6\u00b0. Traditionally it is read for authority, fame and past merit.</p>';
+    if (kdDiv === 9) return '<p class="desc" style="margin:10px 0 0;">D9 (Navamsa) divides every sign into nine parts of 3\u00b020\u2032. It is read for marriage and dharma, and for the true strength of the planets. A planet in the same sign in D1 and D9 is <b>vargottama</b>.</p>';
+    return '';
+  }
+  function d5TableHTML(c){      // positions in the chosen divisional chart (D5 or D9)
+    if (kdDiv === 1) return '';
+    var d = divChart(c, kdDiv), nm = kdDiv === 9 ? 'D9 (Navamsa)' : 'D5 (Panchamsa)', col = 'D' + kdDiv;
+    var h = '<h4 class="jy-h">' + nm + ' positions</h4><div style="overflow-x:auto;"><table class="data"><tr><th>Graha</th><th>D1 R\u0101shi</th><th>' + col + ' R\u0101shi</th><th>' + col + ' house</th><th></th></tr>' +
+      '<tr><td><strong>Lagna</strong></td><td>' + RASHI_INFO[c.asc.rashi][0] + '</td><td>' + RASHI_INFO[d.asc.rashi][0] + '</td><td>1</td><td>' + (c.asc.rashi === d.asc.rashi ? 'Vargottama' : '') + '</td></tr>';
+    d.planets.forEach(function(p){ h += '<tr><td><strong>' + p.name + '</strong></td><td>' + RASHI_INFO[p.d1][0] + '</td><td>' + RASHI_INFO[p.rashi][0] + '</td><td>' + p.house + '</td><td>' + (p.d1 === p.rashi ? 'Vargottama' : '') + '</td></tr>'; });
     return h + '</table></div>';
   }
 
@@ -2688,7 +3022,8 @@
     if (!b){ out.innerHTML = jyMsg('Choose a date, time and place (for a custom place enter latitude, longitude and UTC offset).'); return; }
     if (b.y < 1800 || b.y > 2050){ out.innerHTML = jyMsg('Charts are available for the years 1800 to 2050.'); return; }
     var c = computeChart(b.utcMs, b.loc.lat, b.loc.lon), sun = c.planets[0], moon = c.planets[1], mn = NAKSHATRAS[moon.nak.idx];
-    var h = '<p class="desc" style="margin:0 0 10px;">' + jyWhen(b) + '</p><div class="jy-chips">' +
+    var act = JY_ACTIVE ? kvFind(JY_ACTIVE) : null;
+    var h = '<p class="desc" style="margin:0 0 10px;">' + jyWhen(b) + '</p><div class="jy-chips">' + (act ? '<span class="jy-chip">Saved: <b>' + kvEsc(act.name) + '</b></span>' : '') +
       '<span class="jy-chip">Lagna <b>' + RASHI_INFO[c.asc.rashi][0] + '</b></span><span class="jy-chip">Moon sign <b>' + RASHI_INFO[moon.rashi][0] + '</b></span>' +
       '<span class="jy-chip">Sun sign <b>' + RASHI_INFO[sun.rashi][0] + '</b></span><span class="jy-chip">Nakshatra <b>' + mn + ' ' + moon.nak.pada + '</b></span></div>' +
       kundaliCharts(c) +
@@ -2732,6 +3067,271 @@
     out.innerHTML = '<p class="desc" style="margin:0 0 10px;">' + jyWhen(b) + '</p>' + dashaHTML(c, b);
   }
 
+  /* ===================== SAVED KUNDALIS ===================== */
+  var KV_KEY = 'panchangSavedKundalis', KV_MEM = [], JY_ACTIVE = null, jyModalOpen = false, jyModalEl = null, kvToastEl = null, kvToastTimer = null;
+  function kvEsc(s){ return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  function kvLoad(){
+    try { var s = localStorage.getItem(KV_KEY), a = s ? JSON.parse(s) : []; return Array.isArray(a) ? a : []; } catch(e){ return KV_MEM; }
+  }
+  function kvStore(list){ KV_MEM = list; try { localStorage.setItem(KV_KEY, JSON.stringify(list)); return true; } catch(e){ return false; } }
+  function kvId(){
+    try { if (window.crypto && window.crypto.randomUUID) return window.crypto.randomUUID(); } catch(e){}
+    return 'k' + Date.now().toString(36) + Math.random().toString(36).slice(2, 10);
+  }
+  // identity of a profile: same name and the same birth moment and place
+  function kvSig(r){
+    var p = r.birth.place;
+    return r.name.trim().toLowerCase() + '|' + r.birth.date + '|' + r.birth.time + '|' + (+p.lat).toFixed(3) + ',' + (+p.lon).toFixed(3) + ',' + p.tz;
+  }
+  function kvDate(ts){ var d = new Date(ts); return d.getDate() + ' ' + MONTHS[d.getMonth()].slice(0, 3) + ' ' + d.getFullYear(); }
+  function kvBirthText(r){
+    var d = r.birth.date.split('-');
+    return (+d[2]) + ' ' + MONTHS[+d[1] - 1].slice(0, 3) + ' ' + d[0] + ', ' + r.birth.time;
+  }
+  function kvFind(id){ return kvLoad().filter(function(r){ return r.id === id; })[0] || null; }
+  function jyToast(msg){
+    if (!kvToastEl){ kvToastEl = document.createElement('div'); kvToastEl.className = 'kv-toast'; document.body.appendChild(kvToastEl); }
+    kvToastEl.textContent = msg; kvToastEl.hidden = false;
+    clearTimeout(kvToastTimer); kvToastTimer = setTimeout(function(){ kvToastEl.hidden = true; }, 2800);
+  }
+  function jyCloseModal(){
+    if (jyModalEl){ jyModalEl.hidden = true; jyModalEl.innerHTML = ''; }
+    jyModalOpen = false;
+    if (!fsOpen) document.body.style.overflow = '';
+  }
+  function jyOpenModal(html){
+    if (!jyModalEl){
+      jyModalEl = document.createElement('div'); jyModalEl.className = 'sheet-ov'; jyModalEl.style.zIndex = '1100';
+      document.body.appendChild(jyModalEl);
+      jyModalEl.addEventListener('click', function(e){ if (e.target === jyModalEl) jyCloseModal(); });
+    }
+    jyModalEl.innerHTML = '<div class="sheet kv-modal" role="dialog" aria-modal="true">' + html + '</div>';
+    jyModalEl.hidden = false; jyModalOpen = true; document.body.style.overflow = 'hidden';
+  }
+  function kvPlaceIndex(p){
+    var idx = -1;
+    CITIES.forEach(function(c, i){ if (idx < 0 && c.name === p.name && Math.abs(c.lat - p.lat) < 1e-6 && Math.abs(c.lon - p.lon) < 1e-6 && c.tz === p.tz) idx = i; });
+    return idx;
+  }
+  // the Save / Edit dialog. init = {name, date, time, place:{name,lat,lon,tz}, style, div}
+  function kvModal(editId, init){
+    var opts = CITIES.map(function(c, i){ return '<option value="' + i + '">' + kvEsc(c.name) + '</option>'; }).join('') + '<option value="custom">Custom (lat/lon)</option>';
+    var styleOpts = [['north','North Indian'],['south','South Indian'],['east','East Indian'],['west','Western']].map(function(s){ return '<option value="' + s[0] + '">' + s[1] + '</option>'; }).join('');
+    jyOpenModal('<button type="button" class="sheet-close" id="kvm-x" aria-label="Close">\u00d7</button>' +
+      '<h3 style="margin:0 40px 10px 0;">' + (editId ? 'Edit Kundali' : 'Save Kundali') + '</h3>' +
+      '<div class="kv-field"><label for="kvm-name">Name (required)</label><input type="text" id="kvm-name" maxlength="60" placeholder="Person\u2019s or Kundali name" autocomplete="off"><div class="kv-err" id="kvm-name-err" hidden>Please enter a name.</div></div>' +
+      '<div class="kv-row"><div class="kv-field"><label for="kvm-date">Date of birth</label><input type="date" id="kvm-date"></div><div class="kv-field"><label for="kvm-time">Time of birth</label><input type="time" id="kvm-time"></div></div>' +
+      '<div class="kv-field"><label for="kvm-city">Birthplace</label><select id="kvm-city">' + opts + '</select></div>' +
+      '<div class="kv-row" id="kvm-custom" hidden><div class="kv-field"><label>Latitude</label><input type="number" id="kvm-lat" step="0.01"></div><div class="kv-field"><label>Longitude</label><input type="number" id="kvm-lon" step="0.01"></div><div class="kv-field"><label>UTC offset</label><input type="number" id="kvm-tz" step="0.25"></div></div>' +
+      '<div class="kv-row"><div class="kv-field"><label for="kvm-style">Chart style</label><select id="kvm-style">' + styleOpts + '</select></div>' +
+      '<div class="kv-field"><label for="kvm-div">Divisional chart</label><select id="kvm-div"><option value="1">D1 (birth chart)</option><option value="5">D5 (Panchamsa)</option><option value="9">D9 (Navamsa)</option></select></div></div>' +
+      '<p class="desc" style="margin:0 0 10px;">Calculation: Lahiri ayanamsa, whole-sign houses, mean Rahu\u2013Ketu. Saved on this device only.</p>' +
+      '<div class="kv-err" id="kvm-form-err" hidden></div>' +
+      '<div class="kv-actions"><button type="button" class="kv-btn" id="kvm-cancel">Cancel</button><button type="button" class="kv-btn primary" id="kvm-save">' + (editId ? 'Save changes' : 'Save') + '</button></div>');
+    var idx = kvPlaceIndex(init.place);
+    jyEl('kvm-name').value = init.name; jyEl('kvm-date').value = init.date; jyEl('kvm-time').value = init.time;
+    jyEl('kvm-city').value = idx >= 0 ? String(idx) : 'custom';
+    jyEl('kvm-custom').hidden = idx >= 0;
+    if (idx < 0){ jyEl('kvm-lat').value = init.place.lat; jyEl('kvm-lon').value = init.place.lon; jyEl('kvm-tz').value = init.place.tz; }
+    jyEl('kvm-style').value = init.style; jyEl('kvm-div').value = String(init.div);
+    jyEl('kvm-city').addEventListener('change', function(){ jyEl('kvm-custom').hidden = (jyEl('kvm-city').value !== 'custom'); });
+    jyEl('kvm-x').addEventListener('click', jyCloseModal); jyEl('kvm-cancel').addEventListener('click', jyCloseModal);
+    jyEl('kvm-name').addEventListener('keydown', function(e){ if (e.key === 'Enter') jyEl('kvm-save').click(); });
+    jyEl('kvm-save').addEventListener('click', function(){ kvSubmit(editId); });
+    try { jyEl('kvm-name').focus(); } catch(e){}
+  }
+  function kvSubmit(editId){
+    var name = jyEl('kvm-name').value.trim(), date = jyEl('kvm-date').value, time = jyEl('kvm-time').value, cv = jyEl('kvm-city').value, place, err = '';
+    jyEl('kvm-name-err').hidden = !!name;
+    if (cv === 'custom'){
+      var la = parseFloat(jyEl('kvm-lat').value), lo = parseFloat(jyEl('kvm-lon').value), tz = parseFloat(jyEl('kvm-tz').value);
+      if (isNaN(la) || isNaN(lo) || isNaN(tz)) err = 'Enter the latitude, longitude and UTC offset of the birthplace.';
+      else place = {name: 'Custom place', lat: la, lon: lo, tz: tz};
+    } else { var c = CITIES[parseInt(cv, 10)] || CITIES[0]; place = {name: c.name, lat: c.lat, lon: c.lon, tz: c.tz}; }
+    if (!err && (!date || !time)) err = 'Enter the date and time of birth.';
+    if (!err && (+date.slice(0, 4) < 1800 || +date.slice(0, 4) > 2050)) err = 'Charts are available for the years 1800 to 2050.';
+    if (!name || err){ jyEl('kvm-form-err').textContent = err; jyEl('kvm-form-err').hidden = !err; return; }
+    var now = Date.now(), style = jyEl('kvm-style').value, dv = ({'5': 5, '9': 9})[jyEl('kvm-div').value] || 1;
+    var rec = {id: kvId(), name: name, createdAt: now, updatedAt: now, birth: {date: date, time: time, place: place},
+               settings: {ayanamsa: 'lahiri', houses: 'whole-sign', node: 'mean', style: KD_STYLES.indexOf(style) > -1 ? style : 'north', div: dv}};
+    var res = kvCommit(rec, editId);
+    if (res.error){ jyEl('kvm-form-err').textContent = res.error; jyEl('kvm-form-err').hidden = false; return; }
+    jyCloseModal(); renderSaved(); jyToast(res.msg);
+  }
+  // add or update a profile without creating accidental duplicates
+  function kvCommit(rec, editId){
+    var list = kvLoad(), sig = kvSig(rec), dup = list.filter(function(r){ return r.id !== editId && kvSig(r) === sig; })[0];
+    if (editId){
+      if (dup) return {error: 'Another saved Kundali has the same name and birth details.'};
+      var cur = list.filter(function(r){ return r.id === editId; })[0];
+      if (!cur) return {error: 'This Kundali no longer exists.'};
+      cur.name = rec.name; cur.birth = rec.birth; cur.settings = rec.settings; cur.updatedAt = rec.updatedAt;
+      var ok = kvStore(list); return {msg: ok ? 'Changes saved.' : 'Saved for this session only.'};
+    }
+    if (dup){ dup.settings = rec.settings; dup.updatedAt = rec.updatedAt; kvStore(list); return {msg: 'Already saved. Its settings were updated.'}; }
+    list.push(rec);
+    return {msg: kvStore(list) ? 'Kundali saved.' : 'Saved for this session only.'};
+  }
+  function kvOpenSave(){
+    var b = jyRead('kd');
+    if (!b){ jyToast('Choose a date, time and place first.'); return; }
+    var active = JY_ACTIVE ? kvFind(JY_ACTIVE) : null;
+    kvModal(null, {name: active ? active.name : '', date: jyEl('kd-date').value, time: jyEl('kd-time').value, place: {name: b.loc.name, lat: b.loc.lat, lon: b.loc.lon, tz: b.loc.tz}, style: kdStyle, div: kdDiv});
+  }
+  function jySwitchSub(key){
+    document.querySelectorAll('#jyo-tabs .subtab').forEach(function(x){ x.classList.toggle('active', x.dataset.sub === key); x.setAttribute('aria-selected', x.dataset.sub === key ? 'true' : 'false'); });
+    document.querySelectorAll('#panel-horoscope .subpanel').forEach(function(p){ p.classList.toggle('active', p.id === 'sub-' + key); });
+  }
+  function jySyncKdButtons(){
+    document.querySelectorAll('#kd-style .subtab').forEach(function(x){ var on = x.dataset.style === kdStyle; x.classList.toggle('active', on); x.setAttribute('aria-selected', on ? 'true' : 'false'); });
+    document.querySelectorAll('#kd-div .subtab').forEach(function(x){ var on = +x.dataset.div === kdDiv; x.classList.toggle('active', on); x.setAttribute('aria-selected', on ? 'true' : 'false'); });
+  }
+  // load a saved profile back into the Kundali and Dasha forms
+  function kvOpenProfile(id){
+    var r = kvFind(id);
+    if (!r) return;
+    var p = r.birth.place, idx = kvPlaceIndex(p);
+    jyEl('kd-date').value = r.birth.date; jyEl('kd-time').value = r.birth.time;
+    jyEl('kd-city').value = idx >= 0 ? String(idx) : 'custom';
+    jyEl('kd-custom').hidden = idx >= 0;
+    if (idx < 0){ jyEl('kd-lat').value = p.lat; jyEl('kd-lon').value = p.lon; jyEl('kd-tz').value = p.tz; }
+    if (KD_STYLES.indexOf(r.settings.style) > -1) kdStyle = r.settings.style;
+    kdDiv = [1, 5, 9].indexOf(r.settings.div) > -1 ? r.settings.div : 1;
+    try { localStorage.setItem('kdStyle', kdStyle); } catch(e){}
+    jySyncKdButtons();
+    jyCopy('kd', 'ds');
+    JY_ACTIVE = id;
+    renderKundali(); renderDasha();
+    jySwitchSub('kundali');
+    try { window.scrollTo(0, 0); } catch(e){}
+  }
+  function kvEditProfile(id){
+    var r = kvFind(id);
+    if (r) kvModal(id, {name: r.name, date: r.birth.date, time: r.birth.time, place: r.birth.place, style: r.settings.style, div: r.settings.div});
+  }
+  function kvDeleteProfile(id){
+    var r = kvFind(id);
+    if (!r) return;
+    jyOpenModal('<h3 style="margin:0 0 10px;">Delete Kundali?</h3><p style="margin:0 0 14px;">\u201c' + kvEsc(r.name) + '\u201d will be removed from this device. This cannot be undone.</p>' +
+      '<div class="kv-actions"><button type="button" class="kv-btn" id="kvm-cancel">Cancel</button><button type="button" class="kv-btn danger" id="kvm-del">Delete</button></div>');
+    jyEl('kvm-cancel').addEventListener('click', jyCloseModal);
+    jyEl('kvm-del').addEventListener('click', function(){
+      kvStore(kvLoad().filter(function(x){ return x.id !== id; }));
+      if (JY_ACTIVE === id) JY_ACTIVE = null;
+      jyCloseModal(); renderSaved(); renderKundali(); jyToast('Deleted.');
+    });
+  }
+  function renderSaved(){
+    var list = kvLoad().slice().sort(function(a, b){ return b.updatedAt - a.updatedAt; }), el = jyEl('kv-list');
+    jyEl('kv-badge').textContent = list.length ? ' (' + list.length + ')' : '';
+    if (!list.length){
+      el.innerHTML = '<div class="kv-empty"><div class="kv-name" style="margin-bottom:6px;">No saved Kundalis yet</div><p class="desc" style="margin:0 0 14px;">Make a chart in the Kundali tab and tap <b>Save Kundali</b> to keep it here. Saved profiles stay on this device.</p><button type="button" class="jy-now" data-act="goto">Go to Kundali</button></div>';
+      return;
+    }
+    el.innerHTML = list.map(function(r){
+      return '<div class="kv-card"><div class="kv-main"><div class="kv-name">' + kvEsc(r.name) + '</div><div class="kv-meta">' + kvBirthText(r) + '</div>' +
+        '<div class="kv-meta">' + kvEsc(r.birth.place.name) + '</div><div class="kv-meta small">' + (r.updatedAt > r.createdAt ? 'Updated ' : 'Saved ') + kvDate(r.updatedAt) + '</div></div>' +
+        '<div class="kv-btns"><button type="button" class="kv-mini" data-act="open" data-id="' + r.id + '">Open</button><button type="button" class="kv-mini" data-act="edit" data-id="' + r.id + '">Edit</button><button type="button" class="kv-mini del" data-act="del" data-id="' + r.id + '">Delete</button></div></div>';
+    }).join('');
+  }
+  function kvInit(){
+    jyEl('kv-open').addEventListener('click', kvOpenSave);
+    jyEl('kv-list').addEventListener('click', function(e){
+      var b = e.target.closest('[data-act]');
+      if (!b) return;
+      var a = b.dataset.act, id = b.dataset.id;
+      if (a === 'open') kvOpenProfile(id); else if (a === 'edit') kvEditProfile(id); else if (a === 'del') kvDeleteProfile(id); else if (a === 'goto') jySwitchSub('kundali');
+    });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && jyModalOpen) jyCloseModal(); });
+    renderSaved();
+  }
+
+  function gcMove(e){
+    var P = RASHI_INFO;
+    if (e.type === 'nak') return 'enters <b>' + NAKSHATRAS[e.to] + '</b> (from ' + NAKSHATRAS[e.from] + ') in ' + P[e.sign][0];
+    if (e.type === 'ingress') return 'enters <b>' + P[e.to][0] + '</b> (from ' + P[e.from][0] + ')';
+    return (e.type === 'retrograde' ? 'turns <b>retrograde</b>' : 'turns <b>direct</b>') + ' in ' + P[e.sign][0] + ' at ' + jyDM(e.deg);
+  }
+  var GC_CTX = {tz: 5.5, lists: {}};   // the movement lists last drawn, so the details dialog can show them in full
+  var GC_GROUPS = {all: null, Jupiter: ['Jupiter'], Saturn: ['Saturn'], nodes: ['Rahu','Ketu']};
+  function gcWhen(e, tz){ return (e.type === 'retrograde' || e.type === 'direct') ? jyDate(e.t, tz) : jyDT(e.t, tz); }
+  // a movement table showing the first five rows, with a button that opens the full details
+  function gcList(key, evs, tz){
+    GC_CTX.tz = tz; GC_CTX.lists[key] = evs;
+    var h = '<div style="overflow-x:auto;"><table class="data"><tr><th>Date</th><th>Graha</th><th>Movement</th></tr>' +
+      evs.slice(0, 5).map(function(e){ return '<tr><td style="white-space:nowrap;">' + gcWhen(e, tz) + '</td><td><strong>' + e.planet + '</strong></td><td>' + gcMove(e) + '</td></tr>'; }).join('') + '</table></div>';
+    if (evs.length > 5) h += '<button type="button" class="jy-now gc-more" data-gcview="' + key + '">View full details (' + evs.length + ') \u203a</button>';
+    return h;
+  }
+  function gcDetailRows(key, filter){
+    var evs = GC_CTX.lists[key] || [], g = GC_GROUPS[filter] || null, tz = GC_CTX.tz;
+    if (g) evs = evs.filter(function(e){ return g.indexOf(e.planet) > -1; });
+    if (!evs.length) return '<tr><td colspan="4">No movements.</td></tr>';
+    return evs.map(function(e){
+      var nk = nakOf(gcLon(e.planet, e.t)), extra = (key === 'nak')
+        ? NAK_LORDS[e.to % 9] + ' \u00b7 enters pada ' + nk.pada
+        : NAKSHATRAS[nk.idx] + ' pada ' + nk.pada + ' (' + NAK_LORDS[nk.idx % 9] + ')';
+      return '<tr><td style="white-space:nowrap;">' + gcWhen(e, tz) + '</td><td><strong>' + e.planet + '</strong></td><td>' + gcMove(e) + '</td><td>' + extra + '</td></tr>';
+    }).join('');
+  }
+  function openGcDetails(key){
+    var info = {major: ['Pramukh Gochar', 'Every sign change and retrograde or direct turn of Jupiter, Saturn, Rahu and Ketu over the next five years, with the nakshatra each planet is in at that time.'],
+                nak: ['Nakshatra Gochar', 'Every nakshatra change of Rahu, Ketu, Jupiter (Guru) and Saturn (Shani) over the next five years, with the nakshatra lord and the pada it enters.'],
+                soon: ['Coming up in the next 60 days', 'Sign changes and turns of all planets except the Moon, with the nakshatra each planet is in at that time.']}[key];
+    if (!info || !GC_CTX.lists[key]) return;
+    var chips = (key === 'soon') ? '' : '<div class="subtabs kd-mini" id="gcm-filters" style="margin:0 0 10px;">' +
+      [['all','All'],['Jupiter','Jupiter'],['Saturn','Saturn'],['nodes','Rahu\u2013Ketu']].map(function(f, i){ return '<button type="button" class="subtab' + (i === 0 ? ' active' : '') + '" data-gcmf="' + f[0] + '">' + f[1] + '</button>'; }).join('') + '</div>';
+    jyOpenModal('<button type="button" class="sheet-close" id="gcm-x" aria-label="Close">\u00d7</button><h3 style="margin:0 40px 6px 0;">' + info[0] + '</h3><p class="desc" style="margin:0 0 10px;">' + info[1] + '</p>' + chips +
+      '<div style="overflow-x:auto;"><table class="data"><tr><th>Date</th><th>Graha</th><th>Movement</th><th>' + (key === 'nak' ? 'Nakshatra lord' : 'Nakshatra then') + '</th></tr><tbody id="gcm-body"></tbody></table></div>' +
+      '<div class="kv-actions"><button type="button" class="kv-btn" id="gcm-close">Close</button></div>');
+    jyEl('gcm-body').innerHTML = gcDetailRows(key, 'all');
+    jyEl('gcm-x').addEventListener('click', jyCloseModal); jyEl('gcm-close').addEventListener('click', jyCloseModal);
+    if (chips) jyEl('gcm-filters').addEventListener('click', function(e){
+      var b = e.target.closest('[data-gcmf]');
+      if (!b) return;
+      document.querySelectorAll('#gcm-filters .subtab').forEach(function(x){ x.classList.toggle('active', x === b); });
+      jyEl('gcm-body').innerHTML = gcDetailRows(key, b.dataset.gcmf);
+    });
+  }
+  function renderGochar(){
+    var out = jyEl('gc-out'), ds = jyEl('gc-date').value, tz = selectedLoc().tz;
+    if (!ds){ out.innerHTML = jyMsg('Choose a date.'); return; }
+    var p = ds.split('-'), y = +p[0];
+    if (y < 1800 || y > 2049){ out.innerHTML = jyMsg('Transits are available for the years 1800 to 2049.'); return; }
+    // 12:00 in the chosen time zone on that date
+    var ms = Date.UTC(y, +p[1] - 1, +p[2], 12, 0) - tz*36e5, h = '', left = Math.max(0, Math.floor((Date.UTC(2050, 11, 31) - ms)/864e5));
+    h += '<div class="gc-sec"><h4 class="jy-h">Planets on ' + (+p[2]) + ' ' + MONTHS[+p[1]-1].slice(0,3) + ' ' + y + '</h4><div style="overflow-x:auto;"><table class="data"><tr><th>Graha</th><th>R\u0101shi</th><th>Degree</th><th>Nakshatra</th><th>Motion</th><th>Next sign change</th></tr>';
+    GC_PLANETS.forEach(function(n){
+      var l = gcLon(n, ms), r = Math.floor(l/30), nk = nakOf(l), dr = gcDir(n, ms), nxt = null;
+      var ev = (n === 'Moon') ? [] : gcEvents(ms, Math.min(left, (n === 'Saturn' || n === 'Jupiter' || n === 'Rahu' || n === 'Ketu') ? 1200 : 400), [n]).filter(function(e){ return e.type === 'ingress'; });
+      if (ev.length) nxt = ev[0];
+      h += '<tr><td><strong>' + n + '</strong></td><td>' + RASHI_INFO[r][0] + '</td><td>' + jyDM(l - r*30) + '</td><td>' + NAKSHATRAS[nk.idx] + ' ' + nk.pada + '</td><td>' + (n === 'Rahu' || n === 'Ketu' ? 'Retrograde (mean node)' : (dr < 0 ? '<b>Retrograde</b>' : 'Direct')) + '</td><td>' +
+        (n === 'Moon' ? 'about every 2\u00bc days' : (nxt ? RASHI_INFO[nxt.to][0] + ', ' + jyDT(nxt.t, tz) : '\u2014')) + '</td></tr>';
+    });
+    h += '</table></div></div>';
+    // Pramukh Gochar: the slow planets over the next five years
+    var ev5 = gcEvents(ms, Math.min(5*366, left), ['Jupiter','Saturn','Rahu','Ketu']);
+    h += '<div class="gc-sec"><h4 class="jy-h">Pramukh Gochar</h4><p class="desc" style="margin:0 0 8px;">Sign changes and retrograde or direct turns of Jupiter, Saturn, Rahu and Ketu over the next five years.</p>' + (ev5.length ? gcList('major', ev5, tz) : jyMsg('No movements in this range.')) + '</div>';
+    // Nakshatra Gochar: Rahu, Ketu, Guru and Shani
+    var nakN = ['Rahu','Ketu','Jupiter','Saturn'], label = {Rahu: 'Rahu', Ketu: 'Ketu', Jupiter: 'Jupiter (Guru)', Saturn: 'Saturn (Shani)'};
+    h += '<div class="gc-sec"><h4 class="jy-h">Nakshatra Gochar</h4><div style="overflow-x:auto;"><table class="data"><tr><th>Graha</th><th>Nakshatra now</th><th>In it since</th><th>Moves to</th></tr>';
+    nakN.forEach(function(n){
+      var l = gcLon(n, ms), nk = nakOf(l), since = gcNakSince(n, ms), nx = gcNakEvents(ms, Math.min(1200, left), [n])[0];
+      h += '<tr><td><strong>' + label[n] + '</strong></td><td>' + NAKSHATRAS[nk.idx] + ', pada ' + nk.pada + ' <span style="color:var(--ink-soft);">(' + RASHI_INFO[Math.floor(l/30)][0] + ')</span></td><td>' + (since ? jyDate(since, tz) : '\u2014') + '</td><td>' + (nx ? NAKSHATRAS[nx.to] + ', ' + jyDT(nx.t, tz) : '\u2014') + '</td></tr>';
+    });
+    h += '</table></div><div class="gc-sub"><p class="desc" style="margin:0 0 8px;">Upcoming nakshatra changes over the next five years. Rahu and Ketu move backwards through the nakshatras, and Jupiter and Saturn can step back when retrograde.</p>';
+    var evN = gcNakEvents(ms, Math.min(5*366, left), nakN);
+    h += (evN.length ? gcList('nak', evN, tz) : jyMsg('No nakshatra changes in this range.')) + '</div></div>';
+    // the next two months, all planets except the Moon
+    var ev60 = gcEvents(ms, Math.min(60, left), ['Sun','Mars','Mercury','Jupiter','Venus','Saturn','Rahu','Ketu']);
+    h += '<div class="gc-sec"><h4 class="jy-h">Coming up in the next 60 days</h4>' + (ev60.length ? gcList('soon', ev60, tz) : jyMsg('No sign changes or stations.')) + '</div>';
+    out.innerHTML = h + '<p class="desc" style="margin-top:10px;">Sidereal positions (Lahiri ayanamsa), mean Rahu\u2013Ketu. Times are in ' + selectedLoc().name + ' time. Dates are approximate: the Sun, Moon, Mercury, Venus and Mars are good to within hours; Jupiter to about a day; Saturn and the turns of the slow planets to a few days.</p>';
+  }
+  function gcToday(){
+    var tz = selectedLoc().tz, t = new Date(Date.now() + tz*36e5);
+    jyEl('gc-date').value = t.getUTCFullYear() + '-' + pad2(t.getUTCMonth()+1) + '-' + pad2(t.getUTCDate());
+  }
+
   var JY_TWIN = {kd: 'ds', ds: 'kd'};   // Kundali and Vimshottari Dasha always show the same birth details
   function jyCopy(p, q){
     ['date','time','city','lat','lon','tz'].forEach(function(f){ jyEl(q+'-'+f).value = jyEl(p+'-'+f).value; });
@@ -2753,6 +3353,7 @@
       ['date','time','city','lat','lon','tz'].forEach(function(f){
         jyEl(p+'-'+f).addEventListener('change', function(){
           if (f === 'city') jyEl(p+'-custom').hidden = (sel.value !== 'custom');
+          JY_ACTIVE = null;
           draw();
           if (JY_TWIN[p]){ jyCopy(p, JY_TWIN[p]); (JY_TWIN[p] === 'kd' ? renderKundali : renderDasha)(); }
         });
@@ -2767,7 +3368,7 @@
     }
     jyEl('kd-div').addEventListener('click', function(e){
       var b = e.target.closest('.subtab');
-      if (!b || (b.dataset.div !== '1' && b.dataset.div !== '5')) return;
+      if (!b || ['1', '5', '9'].indexOf(b.dataset.div) < 0) return;
       kdDiv = +b.dataset.div;
       document.querySelectorAll('#kd-div .subtab').forEach(function(x){ var on = +x.dataset.div === kdDiv; x.classList.toggle('active', on); x.setAttribute('aria-selected', on ? 'true' : 'false'); });
       renderKundali();
@@ -2790,6 +3391,15 @@
     }, true);
     jyCopy('kd', 'ds');
     renderKundali(); renderMoonSign(); renderDasha();
+    jyEl('gc-out').addEventListener('click', function(e){   // open the full details of a movement list
+      var b = e.target.closest('[data-gcview]');
+      if (b) openGcDetails(b.dataset.gcview);
+    });
+    gcToday();
+    jyEl('gc-date').addEventListener('change', renderGochar);
+    jyEl('gc-now').addEventListener('click', function(){ gcToday(); renderGochar(); });
+    renderGochar();
+    kvInit();
   }
 
   jyInit();
