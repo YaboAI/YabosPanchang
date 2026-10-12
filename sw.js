@@ -1,4 +1,4 @@
-const CACHE = 'panchang-v1';
+const CACHE = 'panchang-v2';
 const CORE = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
 
 self.addEventListener('install', (event) => {

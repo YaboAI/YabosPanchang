@@ -816,6 +816,25 @@
       </section>
       </div>
 
+      <div class="subpanel" id="sub-dasha">
+      <section class="block">
+        <h2>Vimshottari Dasha</h2>
+        <p class="desc">The 120-year planetary period system, worked out from the Moon’s nakshatra at birth: Mahadasha, Antardasha and Pratyantar.</p>
+        <div class="jy-form">
+          <label>Date <input type="date" id="ds-date"></label>
+          <label>Time <input type="time" id="ds-time"></label>
+          <label>Place <select id="ds-city"></select></label>
+          <span class="jy-custom" id="ds-custom" hidden>
+            <label>Latitude <input type="number" id="ds-lat" step="0.01" placeholder="e.g. 28.61"></label>
+            <label>Longitude <input type="number" id="ds-lon" step="0.01" placeholder="e.g. 77.21"></label>
+            <label>UTC offset <input type="number" id="ds-tz" step="0.25" placeholder="e.g. 5.5"></label>
+          </span>
+          <button type="button" class="jy-now" id="ds-now">Now</button>
+        </div>
+        <div id="ds-out"></div>
+      </section>
+      </div>
+
       <div class="subpanel" id="sub-gochar">
       <section class="block">
         <h2>Gochar · Planetary Transits</h2>
@@ -911,24 +930,6 @@
       </section>
       </div>
 
-      <div class="subpanel" id="sub-dasha">
-      <section class="block">
-        <h2>Vimshottari Dasha</h2>
-        <p class="desc">The 120-year planetary period system, worked out from the Moon’s nakshatra at birth: Mahadasha, Antardasha and Pratyantar.</p>
-        <div class="jy-form">
-          <label>Date <input type="date" id="ds-date"></label>
-          <label>Time <input type="time" id="ds-time"></label>
-          <label>Place <select id="ds-city"></select></label>
-          <span class="jy-custom" id="ds-custom" hidden>
-            <label>Latitude <input type="number" id="ds-lat" step="0.01" placeholder="e.g. 28.61"></label>
-            <label>Longitude <input type="number" id="ds-lon" step="0.01" placeholder="e.g. 77.21"></label>
-            <label>UTC offset <input type="number" id="ds-tz" step="0.25" placeholder="e.g. 5.5"></label>
-          </span>
-          <button type="button" class="jy-now" id="ds-now">Now</button>
-        </div>
-        <div id="ds-out"></div>
-      </section>
-      </div>
     </div>
   </div>
 
