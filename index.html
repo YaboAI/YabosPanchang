@@ -1374,7 +1374,41 @@
     ['Diwali','Festival of lights','Ashwina',30,'prad'],
     ['Govardhan Puja','Krishna lifting Govardhan hill','Kartika',1,'rise'],
     ['Guru Nanak Jayanti','Birth of Guru Nanak','Kartika',15,'rise'],
-    ['Gita Jayanti','Day the Bhagavad Gita was spoken','Margashirsha',11,'rise']
+    ['Gita Jayanti','Day the Bhagavad Gita was spoken','Margashirsha',11,'rise'],
+    ['Guru Gobind Singh Jayanti','Sikh Gurpurab, 10th Guru','Pausha',7,'rise'],
+    ['Mauni Amavasya','Silent new moon, holy dip (Prayagraj)','Pausha',30,'rise'],
+    ['Ratha Saptami','Sun worship, Magha Shukla Saptami','Magha',7,'rise'],
+    ['Thaipusam','Tamil festival of Lord Murugan','Magha',15,'rise'],
+    ['Panguni Uthiram','Tamil divine-wedding festival','Phalguna',15,'rise'],
+    ['Rang Panchami','Colours for the gods, Maharashtra & MP','Phalguna',20,'rise'],
+    ['Cheti Chand','Sindhi new year, Jhulelal Jayanti','Chaitra',2,'rise'],
+    ['Gangaur','Rajasthan, worship of Gauri','Chaitra',3,'rise'],
+    ['Akshaya Tritiya','Day of endless prosperity','Vaishakha',3,'rise'],
+    ['Sita Navami','Birth of Mata Sita','Vaishakha',9,'noon'],
+    ['Narasimha Jayanti','Vishnu as Narasimha','Vaishakha',14,'prad'],
+    ['Ganga Dussehra','Descent of the Ganga','Jyeshtha',10,'rise'],
+    ['Vat Savitri Vrat','Wives fast for their husbands','Jyeshtha',30,'rise'],
+    ['Jagannath Rath Yatra','Odisha, chariot festival of Puri','Ashadha',2,'rise'],
+    ['Nag Panchami','Worship of serpent deities','Shravana',5,'rise'],
+    ['Hartalika Teej','Fast for Shiva-Parvati union','Bhadrapada',3,'rise'],
+    ['Rishi Panchami','Honouring the Saptarishis','Bhadrapada',5,'noon'],
+    ['Radha Ashtami','Birth of Shri Radha','Bhadrapada',8,'noon'],
+    ['Pitru Paksha begins','Fortnight of ancestor rites','Bhadrapada',16,'apar'],
+    ['Mahalaya Amavasya','Sarva Pitru Amavasya, Bengal Mahalaya','Bhadrapada',30,'rise'],
+    ['Durga Puja \u2014 Maha Saptami','Bengal, Assam & Odisha, Durga Puja begins','Ashwina',7,'rise'],
+    ['Durga Ashtami','Maha Ashtami and Sandhi Puja','Ashwina',8,'noon'],
+    ['Maha Navami / Ayudha Puja','Worship of tools and learning, South India','Ashwina',9,'noon'],
+    ['Sharad Purnima','Kojagari Lakshmi Puja, harvest moon','Ashwina',15,'mid'],
+    ['Ahoi Ashtami','Mothers fast for their children','Ashwina',23,'prad'],
+    ['Bhai Dooj','Brother-sister bond after Diwali','Kartika',2,'apar'],
+    ['Chhath Puja','Sun worship, Bihar & Jharkhand','Kartika',6,'set'],
+    ['Gopashtami','Honouring Krishna and cows','Kartika',8,'rise'],
+    ['Jagaddhatri Puja','Bengal, worship of Jagaddhatri','Kartika',9,'rise'],
+    ['Tulsi Vivah','Marriage of Tulsi and Vishnu','Kartika',12,'rise'],
+    ['Dev Deepawali','Kartik Purnima, lamps on the Varanasi ghats','Kartika',15,'prad'],
+    ['Kalabhairav Jayanti','Kalashtami, Bhairava appearance','Kartika',23,'prad'],
+    ['Vivah Panchami','Wedding of Rama and Sita','Margashirsha',5,'rise'],
+    ['Datta Jayanti','Birth of Lord Dattatreya','Margashirsha',15,'prad']
   ];
 
   function dayRecs(y, loc){
@@ -1480,7 +1514,8 @@
         }
         if (r[0] === 'Krishna Janmashtami' && refT(recs[i+1], 'night') === T) k = i + 1;   // Ashtami at Nishita on both nights: the later one
         out.push([recs[k].key, r[0], r[1]]);
-        if (r[0] === 'Holika Dahan') out.push([recs[k+1].key, 'Holi', 'Festival of colours']);
+        if (r[0] === 'Holika Dahan'){ out.push([recs[k+1].key, 'Holi', 'Festival of colours'], [recs[k+2].key, 'Hola Mohalla', 'Sikh martial festival, Anandpur Sahib']); }
+        if (r[0] === 'Krishna Janmashtami') out.push([addDays(recs[k].key, 1), 'Dahi Handi', 'Human pyramids, Maharashtra & Gujarat']);
       });
     }
     var mk = sankrantiKey(y, 9, loc);
@@ -1488,6 +1523,12 @@
              [sankrantiKey(y, 0, loc), 'Vaisakhi / Baisakhi', 'Solar new year & harvest festival']);
     var ok = onamKey(y, loc);
     if (ok) out.push([ok, 'Onam', "Kerala's harvest festival"]);
+    var vk = sankrantiKey(y, 0, loc);
+    out.push([addDays(mk, -1), 'Bhogi / Bhogali Bihu', 'Andhra, Tamil Nadu & Assam, old things burnt'],
+             [mk, 'Pongal / Magh Bihu / Uttarayan', 'Tamil Nadu, Assam & Gujarat harvest festivals'],
+             [addDays(mk, 1), 'Mattu Pongal', 'Tamil Nadu cattle festival'],
+             [vk, 'Vishu / Puthandu / Rongali Bihu', 'New year in Kerala, Tamil Nadu & Assam'],
+             [addDays(vk, 1), 'Pohela Boishakh', 'Bengali new year']);
     (FEST_EXTRA[y] || []).forEach(function(f){ out.push(f); });
     out.sort(function(a, b){ return a[0] < b[0] ? -1 : (a[0] > b[0] ? 1 : 0); });
     return out;
@@ -2340,6 +2381,46 @@
   };
   // [name keyword (lower-case, first match wins), icon, significance]
   var FEST_INFO = [
+    ['bhogi','flame',`The first day of the Pongal harvest festivals in Andhra Pradesh and Tamil Nadu, and the eve of Magh Bihu (Bhogali Bihu) in Assam. Old belongings are burnt in a bonfire to welcome new beginnings, with community feasts in Assam.`],
+    ['pongal','sun',`The harvest festival of Tamil Nadu, celebrated as Magh Bihu in Assam and Uttarayan in Gujarat. Rice is boiled over to thank the Sun, with feasts, kolam designs, kite flying and bonfires. Mattu Pongal honours cattle.`],
+    ['vishu','flower',`New year in Kerala (Vishu), Tamil Nadu (Puthandu) and Assam (Rongali Bihu), at the Sun's entry into Mesha. Families see the Vishukkani arrangement first thing, give gifts and eat festive meals.`],
+    ['pohela','flower',`Pohela Boishakh is the Bengali new year. People wear new clothes, visit temples, open new account books at shops and enjoy festive Bengali food.`],
+    ['hola mohalla','wheel',`A Sikh festival held the day after Holi at Anandpur Sahib, with martial arts displays, mock battles, music and poetry, begun by Guru Gobind Singh.`],
+    ['dahi handi','flute',`The day after Janmashtami, teams form human pyramids to break a pot of curd hung high, recalling young Krishna's love of butter. Celebrated in Maharashtra and Gujarat.`],
+    ['guru gobind','book',`Marks the birth of Guru Gobind Singh, the tenth Sikh Guru, who founded the Khalsa. Observed with kirtan, processions and langar.`],
+    ['thaipusam','bow',`A Tamil festival honouring Murugan, who received the vel (spear) from Parvati. Devotees carry milk pots or kavadi, especially at Palani, and in Malaysia and Singapore.`],
+    ['mauni','moon',`The new moon of Magha, observed in silence (mauna). Pilgrims take holy dips at the Ganga and Sangam, especially in Prayagraj during Magh Mela.`],
+    ['ratha saptami','sun',`Celebrated on Magha Shukla Saptami as the day Surya turned his chariot northward. Devotees bathe at dawn, offer arghya to the Sun and draw a chariot in rangoli.`],
+    ['panguni','kalash',`A Tamil festival on the full moon of Panguni, when the divine weddings of Shiva-Parvati, Rama-Sita and Murugan-Deivanai are celebrated, especially at Madurai and Palani.`],
+    ['rang panchami','colours',`Observed on the fifth day after Holi, mainly in Maharashtra and Madhya Pradesh. Colours thrown in the air are said to purify the atmosphere and please the gods.`],
+    ['cheti','moon',`Sindhi new year and birth anniversary of Jhulelal, the patron deity of Sindhis, kept on Chaitra Shukla Dwitiya with processions, prayers and community meals.`],
+    ['gangaur','flower',`Rajasthan's festival of Gauri (Parvati). Women decorate clay idols, sing folk songs and pray for marital happiness, ending with a procession on the third day of Chaitra Shukla.`],
+    ['akshaya','kalash',`Said to bring never-ending good fortune. People buy gold, begin ventures, give charity and perform Vishnu and Lakshmi puja. Traditionally linked with Parashurama's birth.`],
+    ['sita navami','lotus',`Marks the birth of Mata Sita on Vaishakha Shukla Navami. Married women fast for their families and recite Sita and Rama stories.`],
+    ['narasimha','trident',`Celebrates Vishnu's avatar Narasimha, who appeared at dusk to protect Prahlada from Hiranyakashipu. Devotees fast and worship in the evening.`],
+    ['ganga dussehra','lotus',`Marks the descent of the Ganga to earth on Jyeshtha Shukla Dashami. Devotees bathe in the river and offer lamps and charity, especially at Haridwar, Varanasi and Prayagraj.`],
+    ['vat savitri','flower',`Married women fast and tie threads around a banyan tree, remembering Savitri, who won back her husband Satyavan from Yama.`],
+    ['rath yatra','wheel',`The grand chariot festival of Puri, where Lord Jagannath, Balabhadra and Subhadra ride to the Gundicha Temple. Millions pull the giant chariots; Ahmedabad and other cities hold their own.`],
+    ['nag panchami','trident',`Serpents are worshipped with milk, flowers and sweets, seeking protection and blessings. Observed on Shravana Shukla Panchami, with local variations in Maharashtra, Karnataka and Bengal.`],
+    ['hartalika','lotus',`Women fast without water for a good marriage, recalling how Parvati's friends took her away so she could win Shiva by penance. Observed especially in Bihar, UP, Maharashtra and Karnataka.`],
+    ['rishi panchami','book',`A day to honour the Saptarishis and atone for lapses in purity. Women fast and bathe in rivers, mainly in Maharashtra, Gujarat and Karnataka.`],
+    ['radha ashtami','lotus',`Celebrates the birth of Shri Radha, Krishna's eternal beloved, two weeks after Janmashtami. Observed with fasting and kirtan, especially at Barsana and Vrindavan.`],
+    ['pitru paksha','moon',`The sixteen-day period for remembering ancestors with shraddha, tarpan and food offerings. Weddings and new ventures are generally avoided.`],
+    ['mahalaya','moon',`The last day of Pitru Paksha, when offerings are made for all ancestors. In Bengal it also announces Devi Paksha, with the dawn chant of Mahishasuramardini.`],
+    ['durga puja','kalash',`The great festival of Bengal, Assam, Odisha and Tripura. Maha Saptami begins the main days of Devi worship, with pandals, dhak drums, anjali and bhog.`],
+    ['durga ashtami','trident',`Maha Ashtami is the day Durga slew Mahishasura. Kanya Pujan and the Sandhi Puja at the meeting of Ashtami and Navami are performed.`],
+    ['maha navami','mace',`The ninth day of Navratri. Ayudha Puja honours tools, books and vehicles in South India, and Saraswati is worshipped; Durga Puja rituals conclude in the east.`],
+    ['sharad purnima','moon',`The harvest-moon night of Ashwina. Kheer is kept in moonlight, believed to be nectar-charged. Kojagari Lakshmi Puja is observed in Bengal and Odisha, and Krishna's Raas Leela is recalled.`],
+    ['ahoi','kalash',`Mothers fast from dawn to the sighting of stars, praying for the long life of their children and worshipping Ahoi Mata. Observed in North India.`],
+    ['bhai dooj','rakhi',`The last day of Diwali, when sisters apply tilak to their brothers and pray for their wellbeing. Known as Bhau Beej in Maharashtra and Bhai Phota in Bengal.`],
+    ['chhath','sun',`A four-day Sun worship, mainly in Bihar, Jharkhand, eastern UP and Nepal. Devotees fast and offer arghya to the setting and rising Sun while standing in water.`],
+    ['gopashtami','flute',`Honours Krishna and cows on Kartika Shukla Ashtami, marking when he became a gopala (cowherd). Cows are bathed, decorated and fed.`],
+    ['jagaddhatri','lotus',`Worship of Jagaddhatri, the sustainer of the world, an aspect of Durga, with grand celebrations in Chandannagar and Krishnanagar in Bengal.`],
+    ['tulsi vivah','lotus',`The ceremonial wedding of the Tulsi plant with Vishnu (Shaligram), marking the start of the wedding season after Prabodhini Ekadashi.`],
+    ['dev deepawali','diya',`The Diwali of the gods, on Kartik Purnima. Millions of lamps light the ghats of Varanasi and devotees bathe in the Ganga. Also the Guru Nanak birthday date.`],
+    ['kalabhairav','trident',`Observed on Kartika Krishna Ashtami (Kalashtami), the day Shiva appeared as Kalabhairava, the guardian of time. Devotees fast and worship Bhairava.`],
+    ['vivah panchami','lotus',`Commemorates the wedding of Rama and Sita on Margashirsha Shukla Panchami, observed with Ramayana recitals, especially in Janakpur and Ayodhya.`],
+    ['datta jayanti','trident',`Celebrates Dattatreya, the combined form of Brahma, Vishnu and Shiva, on the full moon of Margashirsha. Widely observed in Maharashtra, Karnataka, Gujarat and Andhra Pradesh.`],
     ['lohri','flame',`A winter harvest festival of Punjab, marked by a bonfire at dusk. People offer sesame, jaggery, peanuts and popcorn to the fire, sing and dance, thanking the Sun and the fire for the harvest and for the days growing longer.`],
     ['sankranti','sun',`Marks the Sun's entry into Makara (Capricorn) and the start of Uttarayana, its northward journey, long seen as auspicious. Celebrated as Pongal, Uttarayan and Magh Bihu with holy dips, charity, sesame-jaggery sweets and kite flying.`],
     ['vasant','lotus',`Welcomes spring and honours Saraswati, goddess of knowledge, music and the arts. Devotees wear yellow, offer yellow flowers and sweets, and place books and instruments before the goddess; many children begin learning to write on this day.`],
