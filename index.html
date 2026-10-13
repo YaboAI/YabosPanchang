@@ -365,7 +365,7 @@
   }
   .cal-month-cell:hover{border-color:var(--maroon);color:var(--maroon);}
   .cal-month-cell.active{background:var(--maroon);border-color:var(--maroon);color:var(--ivory);}
-  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);}
   .cal-dow{background:var(--ivory-dim);text-align:center;font-size:.7rem;padding:6px 0;color:var(--ink-soft);font-weight:600;text-transform:uppercase;letter-spacing:.04em;}
   .cal-cell{background:var(--ivory);min-height:68px;padding:5px 6px;position:relative;cursor:pointer;}
   .cal-cell.empty{background:var(--ivory-dim);cursor:default;}
@@ -543,8 +543,8 @@
 .app-mode .tabs-row{position:absolute;top:calc(var(--sat) + 16px);right:0;left:auto;width:auto;max-width:none;margin:0;padding:0;border:0;}
 .app-mode body{padding-bottom:64px;}
 .app-mode #appnav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:900;background:var(--ivory);border-top:1px solid var(--line);padding:6px 4px calc(6px + var(--sab));box-shadow:0 -2px 12px rgba(43,27,18,.10);}
-#appnav button{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:0;color:var(--ink-soft);font:inherit;font-size:.68rem;min-height:52px;cursor:pointer;}
-#appnav .an-ico{display:flex;padding:3px 18px;border-radius:14px;transition:background .15s;}
+#appnav button{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:0;color:var(--ink-soft);font:inherit;font-size:.68rem;min-height:52px;cursor:pointer;}
+#appnav .an-ico{display:flex;padding:3px 14px;border-radius:14px;transition:background .15s;}
 #appnav svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
 #appnav button.on{color:var(--maroon);font-weight:600;}
 #appnav button.on .an-ico{background:color-mix(in srgb,var(--maroon) 14%,transparent);}
@@ -575,13 +575,34 @@
 .mg-actions{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 14px;}
 .mg-edit{margin-top:10px;font-size:.9rem;display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
 .mg-edit[hidden]{display:none;}
+/* never let the page scroll sideways on a phone */
+html{overflow-x:hidden;}
+body{overflow-x:clip;max-width:100%;}
+.loc-bar label{min-width:0;max-width:100%;}
+.loc-bar select{min-width:0;max-width:100%;flex:1 1 0;}
+.jy-form label,.kv-field,.mg-card{min-width:0;max-width:100%;}
+.jy-form select,.jy-form input,.kv-field select,.kv-field input{min-width:0;max-width:100%;}
+.cal-cell{min-width:0;overflow:hidden;}
+.cal-cell .d,.cal-cell .t,.cal-cell .f,.cal-cell .v{overflow-wrap:break-word;}
+@media (max-width:420px){.cal-cell{padding:4px 2px 4px 3px;}.cal-cell .t,.cal-cell .f,.cal-cell .v{font-size:.53rem;letter-spacing:-.01em;}}
+.hm-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px;}
+@media (min-width:760px){.hm-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}}
+.hm-card{display:flex;flex-direction:column;align-items:flex-start;gap:6px;text-align:left;padding:14px;min-height:122px;border:1px solid var(--line);border-radius:14px;background:var(--ivory-dim);color:var(--ink);font:inherit;cursor:pointer;min-width:0;transition:transform .12s,box-shadow .12s;}
+.hm-card:hover{box-shadow:0 4px 14px rgba(43,27,18,.12);}
+.hm-card:active{transform:scale(.98);}
+.hm-card:last-child:nth-child(odd){grid-column:1 / -1;}
+@media (min-width:760px){.hm-card:last-child:nth-child(odd){grid-column:auto;}}
+.hm-ico{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:12px;background:color-mix(in srgb,var(--maroon) 12%,transparent);color:var(--maroon);margin-bottom:2px;}
+.hm-ico svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.hm-name{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--maroon);line-height:1.2;}
+.hm-sub{font-size:.8rem;color:var(--ink-soft);line-height:1.35;overflow-wrap:break-word;}
 </style>
 </head>
 <body>
-<nav id="appnav" aria-label="Main"><button data-go="today"><span class="an-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span>Panchang</button><button data-go="calendar"><span class="an-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>Calendar</button><button data-go="festivals"><span class="an-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.4 5.6 6 .6-4.5 4 1.4 6-5.3-3.2-5.3 3.2 1.4-6-4.5-4 6-.6z"/></svg></span>Festivals</button><button data-go="horoscope"><span class="an-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></span>Jyotisham</button><button data-go="more"><span class="an-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span>More</button></nav>
-<div id="appmore"><button data-go="muhurat">Muhurat</button><button data-go="yantrani">Yantrāṇi</button><button data-go="about">About</button></div>
+<nav id="appnav" aria-label="Main"><button data-go="home"><span class="an-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span>Home</button><button data-go="today"><span class="an-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>Panchang</button><button data-go="calendar"><span class="an-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>Calendar</button><button data-go="festivals"><span class="an-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.4 5.6 6 .6-4.5 4 1.4 6-5.3-3.2-5.3 3.2 1.4-6-4.5-4 6-.6z"/></svg></span>Festivals</button><button data-go="more"><span class="an-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span>More</button></nav>
+<div id="appmore"><button data-go="muhurat">Muhurat</button><button data-go="horoscope">Jyotisham</button><button data-go="yantrani">Yantrāṇi</button><button data-go="about">About</button></div>
 <div id="appdrawer-ov"></div>
-<aside id="appdrawer" aria-label="Menu"><div class="dr-head"><div class="dr-brand">Panch<em>ā</em>ng</div><div class="dr-tag">daily almanac · sun, moon &amp; muhurat</div></div><button data-go="today"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Panchang</button><button data-go="calendar"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendar</button><button data-go="muhurat"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Muhurat</button><button data-go="festivals"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.4 5.6 6 .6-4.5 4 1.4 6-5.3-3.2-5.3 3.2 1.4-6-4.5-4 6-.6z"/></svg>Festivals</button><button data-go="horoscope"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>Jyotisham</button><button data-go="yantrani"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>Yantrāṇi</button><button data-go="about"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></svg>About</button><div class="dr-sep"></div><button data-go="theme"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg>Theme</button></aside>
+<aside id="appdrawer" aria-label="Menu"><div class="dr-head"><div class="dr-brand">Panch<em>ā</em>ng</div><div class="dr-tag">daily almanac · sun, moon &amp; muhurat</div></div><button data-go="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Home</button><button data-go="today"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>Panchang</button><button data-go="calendar"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendar</button><button data-go="muhurat"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Muhurat</button><button data-go="festivals"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.4 5.6 6 .6-4.5 4 1.4 6-5.3-3.2-5.3 3.2 1.4-6-4.5-4 6-.6z"/></svg>Festivals</button><button data-go="horoscope"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>Jyotisham</button><button data-go="yantrani"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>Yantrāṇi</button><button data-go="about"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></svg>About</button><div class="dr-sep"></div><button data-go="theme"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg>Theme</button></aside>
 
 <header class="site">
   <div class="wrap">
@@ -595,7 +616,8 @@
   </div>
   <div class="tabs-row wrap">
     <nav class="tabs" id="tabs">
-      <button data-tab="today" class="active">Panchang</button>
+      <button data-tab="home" class="active">Home</button>
+      <button data-tab="today">Panchang</button>
       <button data-tab="calendar">Calendar</button>
       <button data-tab="muhurat">Muhurat</button>
       <button data-tab="festivals">Festivals</button>
@@ -618,7 +640,28 @@
 <main class="wrap" style="padding-left:0;padding-right:0;">
 
   <!-- TODAY -->
-  <div class="panel active" id="panel-today">
+  <!-- HOME -->
+  <div class="panel active" id="panel-home">
+    <div class="wrap">
+      <section class="block" style="margin-top:28px;">
+        <h2>Home</h2>
+        <p class="desc">Everything in Panch&#257;ng in one place. Tap a card to open it.</p>
+        <div class="hm-grid" id="hm-grid">
+    <button type="button" class="hm-card" data-tab="today"><span class="hm-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span><span class="hm-name">Dainik Panchang</span><span class="hm-sub">Today&rsquo;s tithi, nakshatra, yoga, karana and sunrise</span></button>
+    <button type="button" class="hm-card" data-tab="calendar"><span class="hm-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><span class="hm-name">Calendar</span><span class="hm-sub">Month view with tithi, festivals and vrat dates</span></button>
+    <button type="button" class="hm-card" data-tab="festivals"><span class="hm-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.4 5.6 6 .6-4.5 4 1.4 6-5.3-3.2-5.3 3.2 1.4-6-4.5-4 6-.6z"/></svg></span><span class="hm-name">Festivals</span><span class="hm-sub">Hindu festivals and observances across India</span></button>
+    <button type="button" class="hm-card" data-tab="horoscope" data-sub="kundali"><span class="hm-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v6M12 15v6M3 12h6M15 12h6M5.6 5.6l4.2 4.2M14.2 14.2l4.2 4.2M18.4 5.6l-4.2 4.2M9.8 14.2l-4.2 4.2"/></svg></span><span class="hm-name">Jyotisham</span><span class="hm-sub">Vedic astrology tools in one place</span></button>
+    <button type="button" class="hm-card" data-tab="horoscope" data-sub="kundali"><span class="hm-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><path d="M3 3l18 18M21 3L3 21M12 3l9 9-9 9-9-9z"/></svg></span><span class="hm-name">Kundali</span><span class="hm-sub">Birth charts: Lagna, Moon and divisional charts</span></button>
+    <button type="button" class="hm-card" data-tab="horoscope" data-sub="gochar"><span class="hm-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-30 12 12)"/><circle cx="19" cy="8" r="1.2"/></svg></span><span class="hm-name">Gochar</span><span class="hm-sub">Planetary transits and upcoming sign changes</span></button>
+    <button type="button" class="hm-card" data-tab="yantrani" data-sub="vedic-clock"><span class="hm-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span class="hm-name">Vedic Clock</span><span class="hm-sub">A live clock of the Vedic day and its praharas</span></button>
+    <button type="button" class="hm-card" data-tab="yantrani" data-sub="match"><span class="hm-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="12" r="5.5"/><circle cx="15" cy="12" r="5.5"/></svg></span><span class="hm-name">Kundali Match</span><span class="hm-sub">Ashtakoota Guna Milan for two Kundalis</span></button>
+    <button type="button" class="hm-card" data-tab="yantrani" data-sub="moonsign"><span class="hm-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></span><span class="hm-name">Moon Sign</span><span class="hm-sub">Find your Janma Rashi and nakshatra</span></button>
+    </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="panel" id="panel-today">
     <div class="hero">
       <div class="wrap">
         <div class="hero-date">
@@ -760,7 +803,7 @@
             </div>
           </div>
         </div>
-        <p class="desc">Tithi shown is the figure current at sunrise each day. Festival markers (gold) come from the Festivals tab.</p>
+        <p class="desc">Tithi shown is the figure current at sunrise each day. Festival markers (gold) come from the Festivals tab. Tap a date to select it, and tap the selected date again to open that day&rsquo;s Panchang.</p>
         <div class="cal-grid" id="cal-grid"></div>
       </section>
     </div>
@@ -2702,7 +2745,7 @@
   (function(){ // app mode: bottom navigation
     var nav = document.getElementById('appnav'), more = document.getElementById('appmore');
     if (!nav || !more) return;
-    var MORE = ['muhurat', 'yantrani', 'about'];
+    var MORE = ['muhurat', 'horoscope', 'yantrani', 'about'];
     window.syncAppNav = function(key){
       var inMore = MORE.indexOf(key) >= 0;
       [].forEach.call(document.querySelectorAll('#appdrawer button[data-go]'), function(b){ b.classList.toggle('on', b.dataset.go === key); });
@@ -4041,13 +4084,25 @@
     renderAll();
   });
 
+  document.getElementById('hm-grid').addEventListener('click', function(e){   // Home cards open a tab, and a sub tab when the card names one
+    var c = e.target.closest('.hm-card');
+    if (!c) return;
+    switchTab(c.dataset.tab);
+    if (c.dataset.sub){
+      var host = c.dataset.tab === 'horoscope' ? '#jyo-tabs' : '#yantra-tabs', sb = document.querySelector(host + ' .subtab[data-sub="' + c.dataset.sub + '"]');
+      if (sb) sb.click();
+    }
+    window.scrollTo(0, 0);
+  });
+
   document.getElementById('cal-grid').addEventListener('click', function(e){
     var cell = e.target.closest('.cal-cell:not(.empty)');
     if (!cell) return;
-    var dd = parseInt(cell.dataset.day, 10);
+    var dd = parseInt(cell.dataset.day, 10), wasSelected = cell.classList.contains('selected');
     state.date = new Date(calCursor.year, calCursor.month-1, dd);
     dateInput.value = fmtDateInput(state.date);
     renderAll();
+    if (wasSelected){ switchTab('today'); window.scrollTo(0, 0); }   // tapping the already selected date opens that day's Panchang
   });
 
   document.getElementById('cal-prev').addEventListener('click', function(){
