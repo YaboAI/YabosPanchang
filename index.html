@@ -596,6 +596,34 @@ body{overflow-x:clip;max-width:100%;}
 .hm-ico svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
 .hm-name{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--maroon);line-height:1.2;}
 .hm-sub{font-size:.8rem;color:var(--ink-soft);line-height:1.35;overflow-wrap:break-word;}
+.hm-bless{display:flex;align-items:center;gap:14px;margin:16px 0 4px;padding:10px 14px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(90deg,color-mix(in srgb,var(--gold) 16%,transparent),transparent 85%);}
+.hm-gan{width:68px;height:68px;flex:0 0 auto;}
+.hm-bless b{display:block;font-family:'Fraunces',serif;font-size:1.05rem;color:var(--maroon);}
+.hm-bless span{display:block;font-size:.84rem;color:var(--ink-soft);line-height:1.4;margin-top:1px;}
+.hm-bless span[lang]{color:var(--gold);font-weight:600;letter-spacing:.02em;}
+.fs-note{font-size:.8rem;color:var(--ink-soft);margin:4px 0 0 !important;line-height:1.5;}
+.app-only{display:none !important;}
+.app-mode .app-only{display:inline-block !important;}
+.cp-wrap{display:flex;flex-direction:column;align-items:center;margin-top:8px;}
+.cp-read{text-align:center;}
+.cp-deg{font-family:'Fraunces',serif;font-size:2.2rem;font-weight:600;color:var(--maroon);line-height:1.1;}
+.cp-name{font-size:1.2rem;font-weight:600;color:var(--ink);}
+.cp-name span{font-size:1rem;font-weight:500;color:var(--ink-soft);margin-left:4px;}
+.cp-sub{font-size:.9rem;color:var(--ink-soft);margin-top:2px;}
+.cp-stage{width:min(78vw,300px);margin:4px 0 4px;}
+#cp-dial{width:100%;height:auto;display:block;}
+.cp-ring{fill:var(--ivory-dim);stroke:var(--maroon);stroke-width:2;}
+.cp-t1{stroke:var(--maroon);stroke-width:2;}
+.cp-t2{stroke:var(--ink-soft);stroke-width:1;}
+.cp-north{fill:#C62828;}
+.cp-mark{fill:var(--maroon);}
+.cp-pin{fill:var(--maroon);}
+.cp-l1{font-size:15px;font-weight:700;fill:var(--ink);text-anchor:middle;dominant-baseline:central;}
+.cp-l2{font-size:9.5px;font-weight:600;fill:var(--ink-soft);text-anchor:middle;dominant-baseline:central;}
+.cp-en{font-size:9px;font-weight:700;fill:var(--maroon);text-anchor:middle;dominant-baseline:central;}
+.cp-hint{font-size:.82rem;color:var(--ink-soft);text-align:center;max-width:34em;margin:4px 0 0;}
+.cp-about{margin-top:18px;border:1px solid var(--line);border-radius:12px;background:var(--ivory-dim);padding:2px 14px 12px;}
+.cp-about summary{cursor:pointer;font-weight:600;color:var(--maroon);padding:12px 0;min-height:44px;box-sizing:border-box;}
 </style>
 </head>
 <body>
@@ -646,6 +674,7 @@ body{overflow-x:clip;max-width:100%;}
       <section class="block" style="margin-top:28px;">
         <h2>Home</h2>
         <p class="desc">Everything in Panch&#257;ng in one place. Tap a card to open it.</p>
+        <div class="hm-bless"><svg class="hm-gan" viewBox="0 0 120 120" role="img" aria-label="Lord Ganesha"><defs><radialGradient id="gg" cx="50%" cy="45%" r="60%"><stop offset="0" stop-color="#FFE3A3" stop-opacity=".9"/><stop offset="1" stop-color="#FFE3A3" stop-opacity="0"/></radialGradient><linearGradient id="gk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7D774"/><stop offset="1" stop-color="#C9961A"/></linearGradient></defs><circle cx="60" cy="60" r="58" fill="url(#gg)"/><ellipse cx="60" cy="112" rx="34" ry="18" fill="#F59A3C" stroke="#B85F12" stroke-width="2"/><path d="M30 100 Q60 124 90 100" fill="none" stroke="url(#gk)" stroke-width="5" stroke-linecap="round"/><ellipse cx="25" cy="58" rx="20" ry="27" fill="#F2A04A" stroke="#B85F12" stroke-width="2"/><ellipse cx="27" cy="58" rx="11" ry="18" fill="#F7B8A0"/><ellipse cx="95" cy="58" rx="20" ry="27" fill="#F2A04A" stroke="#B85F12" stroke-width="2"/><ellipse cx="93" cy="58" rx="11" ry="18" fill="#F7B8A0"/><ellipse cx="60" cy="58" rx="29" ry="31" fill="#F59A3C" stroke="#B85F12" stroke-width="2"/><path d="M38 36 L44 12 L53 22 L60 8 L67 22 L76 12 L82 36 Q60 28 38 36Z" fill="url(#gk)" stroke="#9A6F0C" stroke-width="2" stroke-linejoin="round"/><circle cx="60" cy="22" r="3.4" fill="#C62828"/><circle cx="46" cy="24" r="2" fill="#2E7D32"/><circle cx="74" cy="24" r="2" fill="#2E7D32"/><path d="M60 36 L60 46" stroke="#8B1A2B" stroke-width="3.5" stroke-linecap="round"/><circle cx="60" cy="49" r="1.8" fill="#8B1A2B"/><ellipse cx="49" cy="55" rx="3.6" ry="4.2" fill="#2B1B12"/><ellipse cx="71" cy="55" rx="3.6" ry="4.2" fill="#2B1B12"/><circle cx="50.2" cy="53.6" r="1.1" fill="#fff"/><circle cx="72.2" cy="53.6" r="1.1" fill="#fff"/><path d="M60 62 C61 80 58 92 50 99 C44 104 36 99 40 92" fill="none" stroke="#B85F12" stroke-width="17" stroke-linecap="round"/><path d="M60 62 C61 80 58 92 50 99 C44 104 36 99 40 92" fill="none" stroke="#F59A3C" stroke-width="13" stroke-linecap="round"/><path d="M60 68 C60 80 58 90 52 96" fill="none" stroke="#FFC27A" stroke-width="3" stroke-linecap="round" opacity=".7"/><path d="M72 74 C81 80 83 90 76 97" fill="none" stroke="#FFF3DC" stroke-width="6" stroke-linecap="round"/><path d="M72 74 C81 80 83 90 76 97" fill="none" stroke="#D9C9A8" stroke-width="1.2" stroke-linecap="round" transform="translate(1.6 0)"/></svg><div><b>Shri Ganeshaya Namah</b><span lang="hi">श्री गणेशाय नमः</span><span>May every day bring you good luck and prosperity.</span></div></div>
         <div class="hm-grid" id="hm-grid">
     <button type="button" class="hm-card" data-tab="today"><span class="hm-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span><span class="hm-name">Dainik Panchang</span><span class="hm-sub">Today&rsquo;s tithi, nakshatra, yoga, karana and sunrise</span></button>
     <button type="button" class="hm-card" data-tab="calendar"><span class="hm-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><span class="hm-name">Calendar</span><span class="hm-sub">Month view with tithi, festivals and vrat dates</span></button>
@@ -850,7 +879,7 @@ body{overflow-x:clip;max-width:100%;}
     <div class="wrap">
       <section class="block" style="margin-top:28px;">
         <h2 id="fest-title">Festivals &amp; observances</h2>
-        <div class="vrat-controls"><select id="fest-year" aria-label="Year"></select><span style="color:var(--ink-soft);font-size:.85rem;">2020 to 2036, calculated for your selected city</span></div>
+        <div class="vrat-controls"><select id="fest-year" aria-label="Year"></select><button type="button" class="kv-mini" id="fest-today">Today</button><span style="color:var(--ink-soft);font-size:.85rem;">2020 to 2036, calculated for your selected city</span></div>
         <p class="desc" style="margin:4px 0 6px;">Tap a festival to read its story and details.</p>
         <div id="fest-list"></div>
         <p class="desc" style="margin-top:18px;">Dates are worked out from the lunar calendar and the sun’s movement for your selected city. Eclipses (Surya and Chandra Grahan) are listed for 2026 only. Regional calendars and local sighting conventions can shift a date by a day, so check with a local priest or panchang for exact ritual timing. Masik Shivratri is not listed here because it recurs every lunar month (on Krishna Paksha Chaturdashi); it is marked automatically on the Calendar tab wherever it falls.</p>
@@ -959,6 +988,7 @@ body{overflow-x:clip;max-width:100%;}
           <button type="button" class="subtab active" data-sub="vedic-clock" role="tab" aria-selected="true">Vedic Clock</button>
           <button type="button" class="subtab" data-sub="moonsign" role="tab" aria-selected="false">Moon Sign</button>
           <button type="button" class="subtab" data-sub="match" role="tab" aria-selected="false">Kundali Match</button>
+          <button type="button" class="subtab app-only" data-sub="compass" role="tab" aria-selected="false">Compass</button>
         </div>
       </section>
 
@@ -1034,6 +1064,24 @@ body{overflow-x:clip;max-width:100%;}
         <div id="mg-out"></div>
         <h4 class="jy-h" style="margin-top:22px;">Saved matches</h4>
         <div id="mg-list"></div>
+      </section>
+      </div>
+
+      <div class="subpanel" id="sub-compass">
+      <section class="block">
+        <h2>Compass</h2>
+        <p class="desc">Hold your phone flat. The arrow at the top shows the direction your phone is headed.</p>
+        <div class="cp-wrap">
+          <div class="cp-read"><div class="cp-deg" id="cp-deg">&ndash;&deg;</div><div class="cp-name" id="cp-name">Looking for the compass&hellip;</div><div class="cp-sub" id="cp-sub">&nbsp;</div></div>
+          <div class="cp-stage"><svg id="cp-dial" viewBox="-124 -124 248 248" aria-label="Compass dial"><g id="cp-g"></g><path d="M0 -120 L10 -103 L-10 -103Z" class="cp-mark"/><circle r="4" class="cp-pin"/></svg></div>
+          <p class="cp-hint" id="cp-hint">Waiting for the phone's compass sensor&hellip;</p>
+        </div>
+        <details class="cp-about">
+          <summary>About this compass</summary>
+          <p>In Sanskrit a compass is called <b>&#2342;&#2367;&#2327;&#2381;&#2342;&#2352;&#2381;&#2358;&#2325;&#2351;&#2306;&#2340;&#2381;&#2352;&#2350;&#2381;</b> (<b>Digdarshakayantram</b>, the instrument that shows directions) or <b>&#2342;&#2367;&#2327;&#2381;&#2328;&#2335;&#2368;</b> (<b>Digghati</b>). <i>Dik</i> (&#2342;&#2367;&#2325;&#2381;) means direction. Directions are named below in Sanskrit and English, with the guardian (Dikpala) of each.</p>
+          <div style="overflow-x:auto;"><table class="data" id="cp-dirs"></table></div>
+          <p class="desc" style="margin-top:10px;">This is a magnetic compass, so it points to magnetic north, which differs from true north by only a degree or two across most of India. Keep the phone away from magnets, speakers and metal for the best reading.</p>
+        </details>
       </section>
       </div>
 
@@ -1802,6 +1850,7 @@ body{overflow-x:clip;max-width:100%;}
     document.getElementById('fs-date').textContent = (days[0].key && days[8].key) ? niceKey(days[0].key) + ' \u2013 ' + niceKey(days[8].key) + ' ' + y : '';
     document.getElementById('fs-ico').innerHTML = '<svg viewBox="0 0 64 64" aria-hidden="true">' + ICONS.kalash + '</svg>';
     document.getElementById('fs-text').style.display = 'none';
+    document.getElementById('fs-more').innerHTML = '';
     document.getElementById('fs-rows').parentNode.style.display = 'none';
     document.getElementById('fs-extra').innerHTML = (backId !== '' ? '<button type="button" class="nv-back" data-back="' + backId + '">\u2039 Back to festival</button>' : '') + navratriHTML(kind, y);
     showSheet();
@@ -2566,6 +2615,190 @@ body{overflow-x:clip;max-width:100%;}
     ['sankashti','ganesha',`A monthly fast for Lord Ganesha on the Chaturthi of the dark fortnight, kept to remove obstacles. Devotees fast through the day and break the fast after sighting the moon at night, with Ganesha puja. On a Tuesday it is called Angarki Sankashti and is considered especially powerful.`],
     ['vinayaka','ganesha',`Observed on the Chaturthi of the bright fortnight each month to worship Lord Ganesha, the remover of obstacles. Devotees fast, offer durva grass and modaks, and perform puja around midday. The Bhadrapada one is celebrated as Ganesh Chaturthi.`]
   ];
+  /* Extra description, puja vidhi and vrat vidhi for the festival card. Keys match the keywords in FEST_INFO.
+     s = more about the festival, p = puja steps (ph = heading), v = vrat steps (vh = heading). Customs vary by region and family. */
+  var FEST_VIDHI = {
+    'ekadashi': {s:"Each Ekadashi has its own name and katha, and the scriptures say that keeping it with devotion cleanses past faults and supports spiritual growth. There are 24 Ekadashis in a year (26 in a year with an Adhik Maas), and the fast is dedicated to Lord Vishnu.",
+      p:["Wake early, bathe and wear clean clothes.","Place an image of Lord Vishnu (or Lakshmi-Narayan), and light a ghee lamp and incense.","Offer tulsi leaves, yellow flowers, fruit and panchamrit.","Chant “Om Namo Bhagavate Vasudevaya” or read the Vishnu Sahasranama and the day's katha.","Perform aarti and, if you can, stay awake with bhajans.","On Dwadashi morning, offer food or dakshina to others, then break the fast."],
+      v:["Dashami (the day before): take one light meal and avoid grains after sunset.","Ekadashi: keep a nirjala (no water), phalahar (fruit and milk) or single-meal fast, as your health permits.","Avoid rice, wheat, pulses, onion and garlic.","Break the fast (paran) on Dwadashi after sunrise, within the paran time of that day."]},
+    'purnima': {s:"The full moon is considered a day of fullness and blessings for Lord Vishnu, Lakshmi and the Moon. Many Purnimas carry their own name and festival, such as Guru Purnima, Sharad Purnima and Kartik Purnima, and the Satyanarayan Katha is commonly held on this day.",
+      p:["Bathe at dawn, in a holy river if possible, and light a lamp.","Worship Lord Satyanarayan (Vishnu) with tulsi, fruit, panchamrit and sheera prasad.","Read or listen to the Satyanarayan Katha.","After moonrise, offer arghya (water or milk) to the Moon.","Give food, clothes or dakshina to those in need."],
+      v:["Keep a fast through the day, or take fruit and milk only.","Break it after the Moon puja at night, or the next morning, as your family does."]},
+    'amavasya': {s:"Amavasya, the new moon, is the day of the Pitrs (ancestors). Offerings made with sincerity on this day are believed to bring their blessings and peace to the family.",
+      ph:"Tarpan and puja vidhi",
+      p:["Bathe early, in a river if possible, or add a little Ganga jal to your bath water.","Offer tarpan: water with black sesame seeds, facing south, remembering your ancestors by name.","Light a lamp under a peepal tree or at a south-facing corner of the house.","Feed a Brahmin, a cow, a dog and crows; donate grains, sesame or clothes.","Avoid starting new ventures; spend the time in prayer and charity."],
+      v:["Many keep a simple satvik fast, avoiding onion, garlic, meat and alcohol."]},
+    'pradosh': {s:"Pradosh Kaal is the twilight window when Lord Shiva is said to dance in joy on Kailash while the gods gather to worship him. Pradosh falling on a Monday (Soma Pradosh) or Saturday (Shani Pradosh) is especially revered.",
+      p:["Bathe, and prepare for puja about 45 minutes before sunset.","Perform abhishek of the Shivling with water, milk, curd, honey and ghee.","Offer bilva leaves, white flowers, sandalwood paste and akshat.","Chant “Om Namah Shivaya” and read the Pradosh Vrat Katha or Shiv Chalisa.","Offer bhog, perform aarti and share prasad."],
+      v:["Fast from sunrise (many take only fruit and water).","Break the fast after the evening puja with a light satvik meal."]},
+    'sankashti': {s:"Sankashti means “deliverance from trouble”. The fast of the dark-fortnight Chaturthi is dedicated to Ganesha as Vighnaharta, the remover of obstacles. When it falls on a Tuesday it is called Angaraki Sankashti and is considered especially powerful.",
+      p:["Bathe, place an image of Ganesha and light a ghee lamp.","Offer 21 blades of durva grass, red flowers, modak or laddu, and coconut.","In the evening, read the Sankashti Chaturthi Vrat Katha and chant “Om Gam Ganapataye Namah” or the Ganesh Atharvashirsha.","After moonrise, offer arghya (water, milk and flowers) to the Moon.","Perform aarti and take prasad."],
+      v:["Fast through the day, taking fruit, milk, sabudana or peanuts if needed.","Break the fast only after seeing the Moon and offering arghya."]},
+    'vinayaka': {s:"Vinayaka (Shukla) Chaturthi is the monthly Ganesha fast of the bright fortnight, with the main puja done around midday. The Bhadrapada one is celebrated as Ganesh Chaturthi.",
+      p:["Bathe, set up Ganesha on a clean seat and light a lamp.","Take the sankalpa (resolve) and offer durva, red hibiscus, modak and coconut.","Chant “Om Gam Ganapataye Namah” 108 times or read the Atharvashirsha.","Perform aarti around midday and distribute prasad."],
+      v:["Fast until the midday puja, then eat satvik food."]},
+    'shivratri': {s:"Maha Shivratri, the “great night of Shiva”, marks the night of Shiva's cosmic dance and, in many traditions, his marriage to Parvati. The night-long vigil symbolises awareness over inertia and is observed across India.",
+      p:["Bathe and wear clean, preferably white, clothes.","Perform abhishek of the Shivling with water, milk, curd, honey, ghee and sugar, ideally in each of the four prahars of the night.","Offer three-leaved bilva leaves, white flowers, ber and sandalwood.","Chant “Om Namah Shivaya”, the Mahamrityunjaya mantra or the Shiv Chalisa.","Light a lamp, perform aarti and keep a night vigil (jagaran) with bhajans."],
+      v:["Fast through the day (many keep a nirjala or fruit-and-milk fast).","Break the fast the next morning after puja and charity."]},
+    'ganesh chaturthi': {s:"Ganesh Chaturthi celebrates the birth of Ganesha, son of Shiva and Parvati. Clay idols are installed at home or in pandals for 1½, 3, 5, 7 or 10 days and immersed on or before Anant Chaturdashi. It grew into a grand public festival in Maharashtra and now spans India.",
+      p:["Install a clay Ganesha idol on a clean raised seat over a red or yellow cloth.","Perform Pranapratishtha (invoking life into the idol) and the sankalpa.","Offer 21 durva blades, red flowers, 21 modaks, coconut, fruit and incense (shodashopachara puja).","Chant the Ganapati Atharvashirsha or “Om Gam Ganapataye Namah” and do aarti morning and evening.","Offer naivedya daily until Visarjan, then immerse the idol with prayers."],
+      v:["Many fast until the main puja and eat satvik food after it.","By tradition, avoid looking at the Moon on the evening of Chaturthi (from the Syamantaka story)."]},
+    'visarjan': {s:"Visarjan is the farewell to Ganesha on Anant Chaturdashi, with the belief that he returns to Kailash carrying devotees' troubles. Eco-friendly clay idols are encouraged.",
+      p:["Perform a final puja and aarti, and offer modak and flowers.","Chant “Ganapati Bappa Morya, Pudhchya Varshi Laukar Ya” during the procession.","Immerse the idol in a pond, tank or home bucket with prayers, and share the prasad."]},
+    'navratri': {s:"Navratri is nine nights devoted to the nine forms of Goddess Durga (Navadurga): Shailaputri, Brahmacharini, Chandraghanta, Kushmanda, Skandamata, Katyayani, Kalaratri, Mahagauri and Siddhidatri. Shardiya Navratri in autumn is the most widely observed, and Chaitra Navratri in spring is also celebrated.",
+      p:["On day one, sow barley in a clay pot and set up the kalash (Ghatasthapana) at the auspicious muhurat.","Worship the day's form of Devi with red flowers, kumkum, coconut and fruit.","Recite the Durga Saptashati or Durga Chalisa daily and keep a lamp burning.","On Ashtami or Navami, perform havan and Kanya Pujan (feeding and honouring young girls).","Conclude the puja on Dashami and immerse or distribute the sprouted barley."],
+      v:["Fast for nine days or on the first and last days, with fruit, buckwheat (kuttu), sabudana and rock salt.","Avoid grains, onion, garlic and non-vegetarian food."]},
+    'gupt': {s:"Gupt (secret) Navratri falls in Magha and Ashadha. It is observed mainly for the Dasha Mahavidyas, the ten wisdom goddesses, with quiet, private sadhana.",
+      p:["Set up the kalash (Ghatasthapana) on Pratipada.","Worship the Dasha Mahavidyas (Kali, Tara, Tripura Sundari, Bhuvaneshwari, Bhairavi, Chhinnamasta, Dhumavati, Bagalamukhi, Matangi, Kamala) as your tradition guides.","Chant mantras quietly and keep the practice private.","Perform havan and conclude on Navami or Dashami."],
+      v:["Keep a simple satvik fast, avoiding grains, onion and garlic."]},
+    'durga puja': {s:"Durga Puja, the great festival of Bengal, Assam, Odisha and Tripura, welcomes the Goddess home for five days, from Shashthi to Dashami. Maha Saptami begins with Nabapatrika Snan, the bathing of the nine-plant bundle that represents the Goddess.",
+      p:["At dawn, perform Nabapatrika Snan and install the Nabapatrika beside Ganesha.","Complete Pran Pratishtha of the Goddess.","Offer Pushpanjali (flowers, bilva leaves and mantras).","Offer bhog such as khichuri, labra, payesh and fruit.","Join the evening aarti with dhak drums and dhunuchi dance."],
+      v:["Many fast until Pushpanjali and eat the bhog as prasad."]},
+    'durga ashtami': {s:"Maha Ashtami is the day Goddess Durga is believed to have slain Mahishasura, and the peak of Navratri worship. The Sandhi Puja, at the junction of Ashtami and Navami, is considered especially auspicious.",
+      p:["Bathe, clean the puja space and worship Maha Gauri, the eighth form.","Offer red flowers, chunri, kumkum, coconut and sweets.","Perform Sandhi Puja at the Ashtami-Navami junction, with 108 lamps where tradition allows.","Recite the Durga Saptashati or Argala Stotram and do aarti.","Perform Kanya Pujan: wash the feet of nine girls, offer halwa, chana and puri, and give small gifts."],
+      v:["Observe the Navratri fast, and break it after Kanya Pujan with the prasad meal."]},
+    'maha navami': {s:"Maha Navami closes Navratri worship and honours Siddhidatri. In South India it is Ayudha Puja, when tools, books and vehicles are worshipped as expressions of the Goddess's power. In the East the Durga Puja rituals reach a climax with the Maha Aarti.",
+      p:["Worship Siddhidatri with flowers, fruit and bhog.","Perform the Navami havan and the final aarti.","For Ayudha Puja, clean tools, books, instruments or vehicles, mark them with sandalwood and kumkum and offer flowers.","Hold Kanya Pujan if it was not done on Ashtami.","Distribute prasad, and rest tools for the day as the custom prescribes."],
+      v:["Break the Navratri fast after the puja and Kanya Pujan."]},
+    'dussehra': {s:"Vijayadashami marks Rama's victory over Ravana and Durga's victory over Mahishasura. It is considered an auspicious day for beginnings such as Vidyarambha (starting learning), new business and buying a vehicle. The Shami tree is worshipped in many regions.",
+      p:["Worship Lord Rama or Goddess Aparajita with flowers, kumkum and fruit.","Perform Shami puja, and exchange Shami or Apta leaves as symbolic “gold” in Maharashtra and Karnataka.","Do Shastra and Ayudha Puja if not done on Navami.","Begin new learning or a new venture.","In the evening, see the Ravana Dahan; in Bengal, Sindoor Khela and Visarjan."]},
+    'diwali': {s:"Diwali (Deepavali) falls on the new moon of Kartika, and Lakshmi Puja in the Pradosh evening is the main ritual. It celebrates Rama's return to Ayodhya, the blessings of Lakshmi and the victory of light over darkness. For Jains it marks Mahavira's nirvana, and for Sikhs it is Bandi Chhor Divas.",
+      p:["Clean and decorate the house, make rangoli and light diyas at dusk.","Place Lakshmi and Ganesha on a raised platform with a kalash and coins (traders also place new account books for Chopda Pujan).","Worship Ganesha first, then Lakshmi, with lotus or red flowers, kumkum, rice, sweets and coins.","Chant the Shri Suktam, Lakshmi Ashtakam or “Om Shreem Mahalakshmyai Namah” and perform aarti.","Light lamps at the door, balcony and courtyard, and share sweets with family and neighbours."]},
+    'dhanteras': {s:"Dhanteras (Dhantrayodashi) honours Dhanvantari, who rose from the ocean churning with the pot of nectar, and also Lakshmi and Kubera, for health and wealth. Buying something in metal (gold, silver or brass) is considered auspicious.",
+      p:["Clean the house and decorate the entrance with rangoli.","In the Pradosh evening, worship Dhanvantari, Lakshmi and Kubera with flowers, sweets and coins.","Light a diya at the main door facing south (Yama Deepam).","Buy a small item of gold, silver, brass or utensils and worship it.","Chant “Om Dhanvantaraye Namah” and perform aarti."]},
+    'narak': {s:"Narak Chaturdashi (Choti Diwali) recalls Krishna and Satyabhama defeating Narakasura. An oil massage and bath before sunrise (Abhyanga Snan) is said to remove sins and bring health.",
+      p:["Rise before sunrise, apply sesame oil and ubtan and take the Abhyanga bath.","Worship Krishna and Yama.","In the evening, light lamps, including one on the south side of the house for Yama."]},
+    'govardhan': {s:"Govardhan Puja (Annakut) marks the day Krishna lifted Govardhan hill to shelter Vrindavan from Indra's storm, teaching humility and gratitude to nature.",
+      p:["Make a small Govardhan hill from cow dung or clay in the courtyard and decorate it with flowers.","Offer Annakut, a mountain of cooked rice, vegetables and sweets, to Krishna.","Perform puja and parikrama of the hill, and worship cows.","Share the Annakut as prasad."]},
+    'bhai dooj': {s:"Bhai Dooj (Yama Dwitiya) follows the story of Yama visiting his sister Yamuna, who welcomed him with a tilak and a meal. He blessed that brothers who receive tilak from their sisters on this day would be protected. It is Bhau Beej in Maharashtra and Bhai Phota in Bengal.",
+      p:["Prepare a thali with roli (kumkum), rice, a diya, sweets and coconut.","The sister applies tilak on her brother's forehead, performs aarti and ties a sacred thread if customary.","She offers sweets and a meal.","The brother gives a gift and promises protection."]},
+    'karva': {s:"Karva Chauth falls on the Krishna Chaturthi after Sharad Purnima. Married women, and some unmarried women, fast for their husband's long life. The karva (clay pot) symbolises the offering of water and prosperity.",
+      p:["Eat sargi (the pre-dawn meal sent by the mother-in-law) before sunrise.","In the evening, dress in bridal finery and gather for the Karva Chauth katha.","Worship Shiva, Parvati, Ganesha, Kartikeya and the karva with an aarti thali.","After moonrise, see the Moon through a sieve, offer arghya, then look at your husband.","The husband offers water and the first morsel to break the fast."],
+      v:["Fast from sunrise to moonrise, without food or water in the strict form.","Break the fast only after the Moon puja."]},
+    'ahoi': {s:"Ahoi Ashtami is observed by mothers for the wellbeing and long life of their children, and is worshipped in the name of Ahoi Mata, usually drawn on a wall with her cubs.",
+      p:["Draw or place an image of Ahoi Mata with cubs on a wall.","Offer water, milk, rice, sweets and flowers.","Read the Ahoi Ashtami katha and do aarti."],
+      v:["Fast from dawn until stars (or the Moon) are seen.","Break the fast after sighting the stars and offering arghya."]},
+    'chhath': {s:"Chhath is a four-day festival of the Sun god Surya and Chhathi Maiya, observed mainly in Bihar, Jharkhand, eastern UP and Nepal. Its four days are Nahay-Khay, Kharna, Sandhya Arghya and Usha Arghya.",
+      ph:"Four-day vidhi",
+      p:["Day 1 (Nahay-Khay): bathe and eat a simple satvik meal of lauki (bottle gourd), rice and dal.","Day 2 (Kharna): fast all day and break it after sunset with kheer and roti, then begin the 36-hour fast.","Day 3 (Sandhya Arghya): offer arghya to the setting Sun, standing in water, with fruits and thekua in a bamboo supa.","Day 4 (Usha Arghya): offer arghya to the rising Sun, then break the fast."],
+      v:["The main fast is a strict 36-hour nirjala fast after Kharna."]},
+    'tulsi vivah': {s:"Tulsi Vivah is the ceremonial wedding of the Tulsi plant with Vishnu (as Shaligram) after Prabodhini Ekadashi. It marks the start of the wedding season in many regions.",
+      p:["Decorate the Tulsi plant with a red chunri, bangles, flowers and a small mandap (often of sugarcane).","In the evening, place a Shaligram or Vishnu idol beside Tulsi.","Perform the wedding rituals: offer haldi and kumkum, tie the thread and circle seven times with chants.","Offer sweets and distribute prasad."]},
+    'dev deepawali': {s:"Dev Deepawali, the Diwali of the gods, falls on Kartik Purnima. According to tradition the gods descend to bathe in the Ganga, and Varanasi's ghats glow with lakhs of lamps.",
+      p:["Take a holy dip (Kartik snan) at dawn.","Light lamps at the riverbank, temples and home, especially at dusk.","Worship Lord Shiva and Vishnu and offer Ganga aarti where possible.","Donate food, lamps or clothes."]},
+    'janmashtami': {s:"Janmashtami celebrates the birth of Krishna at midnight in the prison of Mathura, on the Ashtami of the dark fortnight, traditionally with the Rohini nakshatra. Temples, particularly in Mathura, Vrindavan and Dwarka, hold midnight celebrations.",
+      p:["Decorate a cradle (jhula) for Laddu Gopal and set it up with fresh clothes.","At midnight, perform abhishek with milk, curd, honey, ghee and Ganga jal, then dress the idol.","Offer butter, makhan-mishri, panjiri, tulsi and flowers; sing bhajans and perform aarti.","Rock the cradle and distribute prasad."],
+      v:["Fast until midnight (fruit and milk are allowed).","Break the fast after the midnight aarti."]},
+    'ram navami': {s:"Rama Navami celebrates the birth of Lord Rama, the seventh avatar of Vishnu, at midday on Chaitra Shukla Navami in Ayodhya, and is the culmination of Chaitra Navratri.",
+      p:["Bathe and set up an image of Rama, Sita, Lakshmana and Hanuman.","Offer tulsi leaves, flowers, panakam (jaggery drink) and fruit.","Read the Ramcharitmanas, Sundara Kanda or Ram Raksha Stotra and chant “Shri Ram Jai Ram Jai Jai Ram”.","Perform aarti at noon, the hour of Rama's birth, and distribute prasad."],
+      v:["Fast until the noon aarti, or all day, eating fruit and satvik food."]},
+    'hanuman': {s:"Hanuman Jayanti celebrates the birth of Hanuman, the embodiment of devotion, strength and fearless service to Rama. Hanuman is worshipped for protection and courage.",
+      p:["Bathe and worship Hanuman with sindoor mixed in oil, red flowers and a marigold garland.","Recite the Hanuman Chalisa, Sundara Kanda or Bajrang Baan.","Offer boondi laddu, banana or jaggery and chana.","Light a lamp with sesame or mustard oil and perform aarti."],
+      v:["Many fast until the evening puja and keep the day satvik, avoiding meat and alcohol."]},
+    'raksha': {s:"Raksha Bandhan celebrates the protective bond between siblings. It falls on Shravana Purnima, ideally after Bhadra ends, since tying the rakhi during Bhadra is traditionally avoided.",
+      p:["The sister prepares a thali with a rakhi, roli, rice, a diya and sweets.","She applies tilak and akshat to her brother's forehead and ties the rakhi on his right wrist.","She performs aarti and offers sweets.","The brother gives a gift and promises protection."]},
+    'holika': {s:"Holika Dahan, on the eve of Holi, recalls how Prahlada survived the fire that consumed Holika, symbolising the victory of devotion over arrogance. The fire is lit after sunset on Phalguna Purnima, when Bhadra is not present.",
+      p:["Gather wood and cow-dung cakes at the chosen spot, with figures of Prahlada and Holika.","At the muhurat after sunset, worship with roli, rice, flowers, raw cotton thread, turmeric, coconut and sweets.","Walk around the pyre three or seven times, winding the thread.","Light the fire, offer ears of wheat or gram, and pray.","Collect a little ash as prasad after it cools."]},
+    'sankranti': {s:"Makar Sankranti marks the Sun's entry into Capricorn and the start of Uttarayana, the Sun's northward journey, considered auspicious. It is celebrated as Pongal, Lohri, Magh Bihu and Uttarayan in different regions, and Bhishma chose this period to leave his body.",
+      p:["Bathe at dawn, ideally in a river, and offer arghya to the Sun with water, red flowers and sesame.","Worship Surya and chant the Gayatri mantra or Aditya Hridayam.","Donate khichdi, sesame, jaggery, blankets and clothes.","Eat til-gud, khichdi or tilkut as prasad."]},
+    'pongal': {s:"Thai Pongal is the four-day harvest festival of Tamil Nadu (Bhogi, Pongal, Mattu Pongal, Kaanum Pongal), thanking the Sun and cattle for the harvest. It is celebrated as Magh Bihu in Assam and Uttarayan in Gujarat.",
+      ph:"How it is celebrated",
+      p:["Clean the house, draw kolam and decorate with mango leaves and sugarcane.","Boil fresh rice with milk and jaggery in a new pot outdoors until it overflows, calling “Pongalo Pongal!”.","Offer the pongal to Surya with sugarcane, turmeric and banana.","Share the dish with family; Mattu Pongal honours cattle."]},
+    'lohri': {s:"Lohri marks the end of winter and the harvest of rabi crops, celebrated mainly in Punjab, Haryana and Delhi on the night before Makar Sankranti.",
+      ph:"How it is celebrated",
+      p:["At dusk, light a bonfire in the courtyard.","Offer sesame, jaggery, popcorn and peanuts into the fire and walk around it.","Sing Lohri songs and dance bhangra or gidda.","Share rewri, gajak, peanuts and popcorn."]},
+    'vasant': {s:"Vasant Panchami welcomes spring and honours Goddess Saraswati, the goddess of knowledge, music and arts. Yellow, the colour of mustard blossom, is worn and offered, and children are often introduced to writing (Vidyarambha).",
+      p:["Bathe early and wear yellow.","Place Saraswati's image with books and instruments on a white or yellow cloth.","Offer yellow flowers, haldi, kumkum and sweet yellow rice or laddu.","Chant the Saraswati Vandana or “Om Aim Saraswatyai Namah”.","Place books and pens near the image for blessings."]},
+    'akshaya': {s:"Akshaya Tritiya, on Vaishakha Shukla Tritiya, is believed to give “never-diminishing” results to anything started or given on this day. Tradition links it with Parashurama's birth, the start of Treta Yuga and the Ganga's descent.",
+      p:["Bathe early and worship Vishnu and Lakshmi with yellow flowers, tulsi and sandalwood.","Offer barley, rice, fruit, sattu and cucumber.","Give charity: water pots, food, grains or clothes.","Begin new ventures, or buy gold, as per tradition."],
+      v:["Many fast until the puja is done."]},
+    'guru purnima': {s:"Guru Purnima honours Veda Vyasa, who compiled the Vedas, and every teacher and guide. It falls on Ashadha Purnima, the start of the four-month Chaturmas period.",
+      p:["Bathe and place a picture of your guru or Veda Vyasa on a clean seat.","Offer flowers, fruit, sweets and dakshina, and touch your guru's feet.","Chant your guru mantra or read the Guru Gita.","Donate food or books and express gratitude to your teachers."]},
+    'hartalika': {s:"Hartalika Teej recalls Parvati's penance, aided by her friends who took her to a forest (“harit” = carried away, “aalika” = friend), to win Shiva as her husband. Women pray for a happy marriage.",
+      p:["Make Shiva, Parvati and Ganesha idols from sand or clay and place them on a decorated mandap.","Offer 16 shringar items to Parvati, and bilva leaves and flowers to Shiva.","Read the Hartalika Teej katha and keep a night vigil with bhajans.","Immerse the idols the next morning."],
+      v:["Women fast from sunrise until the next morning, in the strict form without water; keep a lighter fast if health requires."]},
+    'teej': {s:"Hariyali Teej, in the monsoon month of Shravana, celebrates the reunion of Shiva and Parvati and the greenery of the rains. Women wear green, apply mehendi and enjoy swings.",
+      p:["Dress in green, apply mehendi and decorate swings.","Worship Shiva-Parvati with flowers, fruit and sweets such as ghewar.","Sing Teej songs and enjoy the swing."],
+      v:["Many keep a fast until the evening puja and break it with a satvik meal."]},
+    'vat savitri': {s:"Vat Savitri remembers Savitri, who persuaded Yama to return her husband Satyavan's life. Married women worship the banyan (vat) tree, a symbol of long life.",
+      p:["Bathe, dress as for a wedding and prepare a puja thali.","Worship the banyan tree, tie a sacred thread around it seven or 108 times and water its roots.","Offer fruit, flowers and soaked gram, and read the Savitri-Satyavan katha.","Take the blessings of elders."],
+      v:["Fast through the day and break it after the puja or the next day, as per family tradition."]},
+    'nag panchami': {s:"Nag Panchami is the day serpents (Nag devta) are worshipped for protection from snakebite and for the safety of crops and homes. Shesha and Vasuki hold special importance.",
+      p:["Draw or place an image of a Nag on the wall, or visit a Nag shrine.","Offer milk, rice, flowers, turmeric and kumkum.","Chant Nag mantras and read the Nag Panchami katha.","By custom, avoid digging or cutting the earth that day."]},
+    'rath yatra': {s:"The Rath Yatra of Puri carries Jagannath, Balabhadra and Subhadra in three giant chariots to the Gundicha Temple, and is among the oldest chariot festivals in the world. Pulling the chariot ropes is considered highly meritorious.",
+      ph:"How to observe",
+      p:["Attend or watch the Pahandi and Chhera Pahanra rituals, or pull the ropes if you can attend.","Offer prayers to Jagannath, Balabhadra and Subhadra, and eat mahaprasad.","At home, light a lamp and recite the Jagannath Ashtakam."]},
+    'sharad purnima': {s:"Sharad Purnima, the harvest-moon night of Ashwina, is said to be the one night the Moon shines with all sixteen kalas. Krishna's Raas Leela is recalled, and in Bengal and Odisha it is Kojagara Lakshmi Puja.",
+      p:["Prepare kheer (rice cooked in milk with dry fruits).","Keep it in the open under moonlight through the night.","Worship Lakshmi and the Moon, and offer arghya to the Moon.","Eat the kheer as prasad after the night puja or the next morning."],
+      v:["Many keep a Kojagara fast, staying awake with prayers to Lakshmi."]},
+    'pitru paksha': {s:"Pitru Paksha is a fortnight dedicated to remembering ancestors, from the day after Bhadrapada Purnima to the Amavasya. Food offered with faith is believed to reach the Pitrs.",
+      ph:"Shraddha vidhi",
+      p:["Perform shraddha on the tithi of your ancestor's passing; use Sarva Pitru Amavasya for all ancestors or unknown tithis.","Offer pind (rice balls with sesame and barley) and tarpan (water with sesame).","Feed a Brahmin and offer food to a cow, dog and crow.","Donate clothes, grains or money; avoid new purchases and celebrations."]},
+    'mahalaya': {s:"Mahalaya is the last day of Pitru Paksha, when offerings are made for all ancestors. In Bengal it marks the start of Devi Paksha, with the dawn chanting of Mahishasuramardini on the radio.",
+      ph:"Shraddha vidhi",
+      p:["Bathe and perform tarpan with water, sesame and barley for all ancestors.","Offer pind and food, and feed a Brahmin, cow, dog and crow.","Donate clothes, grains or sesame.","In Bengal, listen to the Mahishasuramardini and prepare for Durga Puja."]},
+    'radha ashtami': {s:"Radha Ashtami celebrates the birth of Shri Radha, Krishna's eternal beloved and the embodiment of devotion, on Bhadrapada Shukla Ashtami. It is celebrated grandly at Barsana and Vrindavan.",
+      p:["Bathe and worship Radha-Krishna with flowers, tulsi and sweets.","Offer 16 shringar items, a yellow dress and a garland.","Read the Radha Chalisa, chant “Om Radhikayai Namah”, and perform aarti."],
+      v:["Fast until the puja, then break with fruit and sweets."]},
+    'gita': {s:"Gita Jayanti marks the day Krishna spoke the Bhagavad Gita on the Kurukshetra battlefield, on Shukla Ekadashi of Margashirsha, which is also Mokshada Ekadashi.",
+      p:["Read or recite the Bhagavad Gita, at least one chapter (the 12th and 15th are popular).","Offer flowers, tulsi and a lamp to Krishna and the Gita.","Donate Gita books or share its teachings."],
+      v:["It coincides with Mokshada Ekadashi, so many keep the Ekadashi fast."]},
+    'datta jayanti': {s:"Datta Jayanti celebrates Dattatreya, the combined form of Brahma, Vishnu and Shiva, regarded as the first guru and the teacher of twenty-four lessons from nature.",
+      p:["Place an image of Dattatreya and light a lamp.","Offer flowers, sandalwood, fruit and incense, and chant “Om Dram Dattatreyaya Namah”.","Read the Guru Charitra, as is customary in Maharashtra, and perform aarti in the evening."]},
+    'kalabhairav': {s:"Kalabhairav Jayanti, or Kalashtami, marks Shiva's fierce form as Kalabhairava, the guardian of time and protector of devotees from fear. The Kashi Kotwal shrine in Varanasi is the main centre.",
+      p:["Visit a Bhairav temple or worship at home with a mustard-oil lamp.","Offer black sesame, urad dal, jalebi and flowers.","Chant “Om Kalabhairavaya Namah” or the Kalabhairava Ashtakam.","Feed a black dog, a common devotional offering."],
+      v:["Fast until the evening puja."]},
+    'ugadi': {s:"Ugadi (Yugadi) and Gudi Padwa mark the new year of the Deccan and Maharashtra, on Chaitra Shukla Pratipada. By tradition it is the day Brahma began creation.",
+      ph:"How it is celebrated",
+      p:["Take an oil bath and wear new clothes.","Decorate the house with mango leaves (toranam) and rangoli, or raise the Gudi in Maharashtra.","Eat Ugadi Pachadi with six tastes (sweet, sour, bitter, salty, spicy and tangy), a reminder of life's experiences.","Hear the Panchanga Sravanam, the reading of the new year's almanac, and worship the deity."]},
+    'onam': {s:"Onam welcomes the legendary King Mahabali back to Kerala for ten days, and its peak, Thiruvonam, falls under the Shravana nakshatra in the month of Chingam. It is Kerala's biggest harvest festival.",
+      ph:"How it is celebrated",
+      p:["Make a Pookalam (floral carpet) each morning for ten days.","On Thiruvonam, bathe, wear kasavu clothes and offer prayers.","Prepare the Onasadya, a feast of 20 or more dishes served on a banana leaf.","Join the games, boat races and Kathakali, Pulikali and Thiruvathira dances."]},
+    'vishu': {s:"Vishu is the new year of Kerala, at the Sun's entry into Mesha, celebrated as Puthandu in Tamil Nadu and Rongali Bihu in Assam. The first thing seen on Vishu morning is believed to shape the year.",
+      ph:"How it is celebrated",
+      p:["The night before, arrange the Vishukkani: rice, golden cucumber, fruit, flowers, a mirror, gold, coins and a Krishna idol.","See the Kani first thing in the morning, with your eyes closed until then.","Receive Vishukkaineettam (gift money) from elders.","Enjoy the Vishu feast (Sadya)."]},
+    'thaipusam': {s:"Thaipusam celebrates Parvati giving the vel (spear) to Murugan to defeat the demon Surapadman. It is celebrated on the full moon of the Tamil month Thai, with huge gatherings in Tamil Nadu, Malaysia and Singapore.",
+      p:["Fast and keep the mind pure for the days before.","Carry milk pots (paal kudam) or kavadi to the Murugan temple.","Offer milk, flowers and lemons to Murugan and the vel.","Chant “Om Saravana Bhava” or the Kanda Sashti Kavacham."]},
+    'sita navami': {s:"Sita Navami, also called Janaki Navami, marks the appearance of Sita from the earth, found by King Janaka in a furrow. Married women pray for their family's wellbeing.",
+      p:["Bathe and worship Sita with Rama, offering red or yellow flowers and sindoor.","Offer fruit and sweets, and read the Sita Chalisa or passages from the Ramayana.","Perform aarti and distribute prasad."],
+      v:["Many keep a fast until the midday puja."]},
+    'narasimha': {s:"Narasimha Jayanti celebrates the half-man, half-lion avatar of Vishnu, who emerged from a pillar at twilight to protect Prahlada from Hiranyakashipu. He is worshipped for protection from fear.",
+      p:["In the evening, the time of his appearance, worship Narasimha with flowers, tulsi and panakam.","Chant the Narasimha Kavacha or “Om Namo Narasimhaya”.","Perform aarti and distribute prasad."],
+      v:["Fast until the evening puja and break it after the puja."]},
+    'ganga dussehra': {s:"Ganga Dussehra celebrates the descent of the Ganga from heaven to earth, brought by Bhagiratha's penance and held in Shiva's locks. A bath in the Ganga on this day is said to cleanse ten kinds of sin.",
+      p:["Bathe in the Ganga, or add Ganga jal to your bath water.","Offer flowers, lamps and sweets to the river and recite the Ganga Stotra.","Donate water pots, fruit, sattu and food."]},
+    'rishi panchami': {s:"Rishi Panchami honours the Saptarishis (Kashyapa, Atri, Bharadvaja, Vishvamitra, Gautama, Jamadagni, Vasishtha), and is observed to seek forgiveness for lapses in purity.",
+      p:["Bathe, with apamarga leaves, in a river or at home.","Worship the Saptarishis with flowers and fruit.","Read the Rishi Panchami katha."],
+      v:["Women fast and eat only foods grown without ploughing, such as samak rice."]},
+    'mauni': {s:"Mauni Amavasya is the new moon of Magha (Pausha in the Amanta calendar), observed in silence (mauna). A dawn bath in the Ganga or Sangam at Prayagraj during Magh Mela is considered especially meritorious.",
+      p:["Observe silence from waking, and bathe in a holy river before sunrise.","Light a lamp, worship Vishnu and chant mentally.","Donate sesame, clothes, blankets and food.","Break the silence after the morning puja."]},
+    'ratha saptami': {s:"Ratha Saptami celebrates the day Surya turned his seven-horse chariot northward. It is observed for health, and is a great day in Tirumala, where Venkateswara is taken out on seven vahanas.",
+      p:["Bathe at sunrise with a few arka leaves placed on the head and shoulders.","Offer arghya to the rising Sun and draw a chariot in rangoli.","In many South Indian homes, cook sweet pongal on a fire in the open and offer it to Surya."]},
+    'gangaur': {s:"Gangaur honours Gauri (Parvati) and Isar (Shiva), and is the biggest festival for women in Rajasthan. It begins the day after Holi and lasts 16 to 18 days, ending on Chaitra Shukla Tritiya.",
+      p:["Make or place clay idols of Gauri and Isar.","Offer flowers, haldi, mehendi, sindoor and sweets.","Sing Gangaur songs and carry the idols in procession to a pond or step-well for visarjan."],
+      v:["Many fast during the festival, taking one meal a day."]},
+    'gopashtami': {s:"Gopashtami marks the day Krishna became a gopala, a cowherd, and began tending the cows. It honours the cow, which is revered as Gau Mata.",
+      p:["Bathe cows and decorate them with garlands and tilak.","Worship the cow and Krishna, feed green fodder and jaggery, and walk around the cow.","Donate to a goshala."]},
+    'jagaddhatri': {s:"Jagaddhatri Puja, strongest in Chandannagar and Krishnanagar, honours the Goddess as the sustainer of the world, shown with four arms on a lion above an elephant demon.",
+      p:["Worship Jagaddhatri on Saptami, Ashtami and Navami with flowers and bhog.","Perform the Sandhi Puja and offer a lamp.","Immerse the idol on Dashami."]},
+    'vivah panchami': {s:"Vivah Panchami commemorates the wedding of Rama and Sita on Margashirsha Shukla Panchami, celebrated in Janakpur, Nepal, and Ayodhya. In some regions, weddings are avoided on this day.",
+      p:["Worship Rama and Sita and offer a garland.","Read the wedding passages of the Ramayana and sing bhajans.","Perform a symbolic wedding ritual, as temples do."]},
+    'guru nanak': {s:"Guru Nanak Gurpurab celebrates the birth of the first Sikh Guru, who taught Ik Onkar (one God), honest work (kirat karni), sharing (vand chhakna) and remembrance of God (naam japna).",
+      ph:"How it is observed",
+      p:["Read or recite Gurbani; an Akhand Path (48-hour reading of the Guru Granth Sahib) usually ends on the day.","Take part in the early morning Prabhat Pheri and the Nagar Kirtan.","Attend the diwan at the gurdwara and share the langar."]},
+    'buddha': {s:"Buddha Purnima marks the birth, enlightenment and passing away of Gautama Buddha, all traditionally on the full moon of Vaishakha.",
+      ph:"How it is observed",
+      p:["Visit a vihara or temple and offer flowers, incense, lamps and water to a Buddha image.","Meditate and chant the Three Refuges and Five Precepts.","Practise dana (charity) and kindness; many avoid meat and alcohol."]},
+    'mahavir': {s:"Mahavir Jayanti celebrates the birth of the 24th Tirthankara, who taught ahimsa (non-violence), satya, aparigraha and anekantavada.",
+      ph:"How it is observed",
+      p:["Visit a Jain temple, perform abhishek of Mahavira's image and chant the Navkar Mantra.","Listen to discourses on ahimsa and aparigraha.","Practise charity and, if you can, fast or eat simply."]},
+    'surya grahan': {s:"A solar eclipse occurs on Amavasya when the Moon passes between the Earth and the Sun. Tradition treats the period as inauspicious (Sutak) and spiritually potent for mantra practice.",
+      ph:"What to do",
+      p:["The Sutak begins about 12 hours before a solar eclipse and ends when it ends; it applies only if the eclipse is visible where you live.","Avoid cooking, eating and starting new work during the eclipse (children, the elderly and the unwell are usually exempt).","Chant mantras or meditate; never look at the Sun without proper eclipse glasses.","After the eclipse, bathe, clean the house, pray and donate food, grains or clothes."]},
+    'chandra grahan': {s:"A lunar eclipse occurs on Purnima when the Earth's shadow falls on the Moon. Tradition treats the period as inauspicious (Sutak) and suitable for mantra practice.",
+      ph:"What to do",
+      p:["The Sutak begins about 9 hours before a lunar eclipse and ends when it ends; it applies only if the eclipse is visible where you live.","Avoid cooking, eating and starting new work during the eclipse (children, the elderly and the unwell are usually exempt).","Chant mantras or meditate; a lunar eclipse is safe to watch with the naked eye.","After the eclipse, bathe, clean the house, pray and donate food, grains or clothes."]}
+  };
   function festInfo(name){
     var n = name.toLowerCase();
     for (var i = 0; i < FEST_INFO.length; i++){ if (n.indexOf(FEST_INFO[i][0]) > -1) return FEST_INFO[i]; }
@@ -2573,7 +2806,7 @@ body{overflow-x:clip;max-width:100%;}
   }
   var sheetOv = document.createElement('div');
   sheetOv.className = 'sheet-ov'; sheetOv.hidden = true;
-  sheetOv.innerHTML = `<div class='sheet' role='dialog' aria-modal='true' aria-labelledby='fs-title'><button type='button' class='sheet-close' id='fs-close' aria-label='Close'>×</button><div class='sheet-head'><div class='sheet-ico' id='fs-ico'></div><div><div class='sheet-kicker'>Festival</div><h3 id='fs-title'></h3><div class='sheet-date' id='fs-date'></div></div></div><p id='fs-text'></p><table class='data'><tbody id='fs-rows'></tbody></table><div id='fs-extra'></div></div>`;
+  sheetOv.innerHTML = `<div class='sheet' role='dialog' aria-modal='true' aria-labelledby='fs-title'><button type='button' class='sheet-close' id='fs-close' aria-label='Close'>×</button><div class='sheet-head'><div class='sheet-ico' id='fs-ico'></div><div><div class='sheet-kicker'>Festival</div><h3 id='fs-title'></h3><div class='sheet-date' id='fs-date'></div></div></div><p id='fs-text'></p><div id='fs-more'></div><table class='data'><tbody id='fs-rows'></tbody></table><div id='fs-extra'></div></div>`;
   document.body.appendChild(sheetOv);
   var fsOpen = false, fsPushed = false;
   function hideFest(){ sheetOv.hidden = true; document.body.style.overflow = ''; fsOpen = false; }
@@ -2603,9 +2836,17 @@ body{overflow-x:clip;max-width:100%;}
     document.getElementById('fs-date').textContent = WEEKDAYS[dt.getUTCDay()] + ', ' + d + ' ' + MONTHS[m-1] + ' ' + y + ' · ' + when;
     document.getElementById('fs-ico').innerHTML = `<svg viewBox='0 0 64 64' aria-hidden='true'>` + (ICONS[info ? info[1] : 'diya']) + `</svg>`;
     document.getElementById('fs-text').textContent = info ? info[2] : f[2];
-    var rows = [['About', f[2]], ['Tithi (at sunrise)', p.pakshaTithiNum + ' — ' + p.tithiName + ' (' + p.paksha + ')'],
-      ['Nakshatra', p.nakshatra], ['Hindu month', p.purnimantaMonth + ' (Purnimanta) · ' + p.amantaMonth + ' (Amanta)'],
-      ['Sunrise / Sunset', minToHM(p.sunriseMin) + ' / ' + minToHM(p.sunsetMin) + ' · ' + loc.name]];
+    var vd = info ? FEST_VIDHI[info[0]] : null, mh = '';
+    function li(a){ return '<ol>' + a.map(function(x){ return '<li>' + x + '</li>'; }).join('') + '</ol>'; }
+    if (vd){
+      if (vd.s) mh += '<h4>More about this festival</h4><p>' + vd.s + '</p>';
+      if (vd.p) mh += '<h4>' + (vd.ph || 'Puja vidhi') + '</h4>' + li(vd.p);
+      if (vd.v) mh += '<h4>' + (vd.vh || 'Vrat vidhi') + '</h4>' + li(vd.v);
+      mh += '<p class="fs-note">Customs differ by region and family tradition, so follow what your family or priest advises.' + (vd.v ? ' Fasting is optional: if you are unwell, pregnant, elderly or on medication, keep a lighter fast or ask your doctor.' : '') + '</p>';
+    }
+    document.getElementById('fs-more').innerHTML = mh + '<h4>Panchang details</h4>';
+    var rows = [['Tithi (at sunrise)', p.pakshaTithiNum + ' \u2014 ' + p.tithiName + ' (' + p.paksha + ')'], ['Nakshatra', p.nakshatra],
+      ['Hindu month', p.purnimantaMonth + ' (Purnimanta) \u00b7 ' + p.amantaMonth + ' (Amanta)']];
     document.getElementById('fs-rows').innerHTML = rows.map(function(r){
       return '<tr><td style="color:var(--ink-soft);width:38%;">' + r[0] + '</td><td>' + r[1] + '</td></tr>';
     }).join('');
@@ -2676,12 +2917,26 @@ body{overflow-x:clip;max-width:100%;}
       '<p class="desc" style="margin:0;">No upcoming festivals found.</p>';
   }
 
+  function centerFest(smooth){   // scroll so today's (or the next) festival sits in the middle of the visible area
+    var el = document.querySelector('#fest-list .fl-row.next');
+    if (!el) return;
+    var hd = document.querySelector('header.site'), nb = document.getElementById('appnav'), r = el.getBoundingClientRect();
+    var top = hd ? hd.getBoundingClientRect().bottom : 0, bot = (nb && getComputedStyle(nb).display !== 'none') ? nb.getBoundingClientRect().top : window.innerHeight;
+    var y = window.scrollY + r.top + r.height/2 - (top + bot)/2;
+    window.scrollTo({top: Math.max(0, y), behavior: smooth ? 'smooth' : 'auto'});
+  }
+  document.getElementById('fest-today').addEventListener('click', function(){
+    var sel = document.getElementById('fest-year'), cy = new Date().getFullYear();
+    if (+sel.value !== cy && cy >= FEST_FIRST_YEAR && cy <= FEST_LAST_YEAR){ sel.value = cy; renderFestivals(); }
+    centerFest(true);
+  });
+
   function renderFestivals(){
     var sel = document.getElementById('fest-year');
     if (!sel.options.length){
       for (var y = FEST_FIRST_YEAR; y <= FEST_LAST_YEAR; y++) sel.add(new Option(y, y));
       sel.value = Math.min(Math.max(new Date().getFullYear(), FEST_FIRST_YEAR), FEST_LAST_YEAR);
-      sel.onchange = renderFestivals;
+      sel.onchange = function(){ renderFestivals(); centerFest(false); };
     }
     var yr = +sel.value;
     document.getElementById('fest-title').textContent = 'Festivals & observances, ' + yr;
@@ -2729,10 +2984,12 @@ body{overflow-x:clip;max-width:100%;}
     document.querySelectorAll('nav.tabs button').forEach(function(b){ b.classList.remove('active'); });
     btn.classList.add('active');
     if (window.syncAppNav) syncAppNav(key);
+    if (window.compassCheck) compassCheck();
     document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active', 'slide-l', 'slide-r'); });
     panel.classList.add('active');
     if (dir) panel.classList.add('slide-' + dir);
     window.scrollTo(0, 0);
+    if (key === 'festivals') requestAnimationFrame(function(){ centerFest(false); });
     try { btn.scrollIntoView({inline:'center', block:'nearest', behavior:'smooth'}); } catch(e){}
     try { if (dir && navigator.vibrate) navigator.vibrate(8); } catch(e){}
   }
@@ -3811,6 +4068,75 @@ body{overflow-x:clip;max-width:100%;}
     mgRefreshSaved(); mgRenderList(); mgRender();
   }
 
+  /* ===================== COMPASS (Android app only) ===================== */
+  var CP_DIRS = [['\u0909\u0924\u094d\u0924\u0930','Uttara','North','Kubera'],['\u0908\u0936\u093e\u0928\u094d\u092f','Ishanya','North-East','Ishana'],['\u092a\u0942\u0930\u094d\u0935','Purva','East','Indra'],['\u0906\u0917\u094d\u0928\u0947\u092f','Agneya','South-East','Agni'],
+                 ['\u0926\u0915\u094d\u0937\u093f\u0923','Dakshina','South','Yama'],['\u0928\u0948\u0930\u094d\u090b\u0924\u094d\u092f','Nairritya','South-West','Nirriti'],['\u092a\u0936\u094d\u091a\u093f\u092e','Pashchima','West','Varuna'],['\u0935\u093e\u092f\u0935\u094d\u092f','Vayavya','North-West','Vayu']];
+  var CP_EN = ['N','NE','E','SE','S','SW','W','NW'];
+  var cpOn = false, cpH = null, cpAbs = false, cpGot = false, cpRaf = 0, cpTimer = 0, cpLabels = [];
+  function cpHeadingFrom(e){   // compass heading from the device orientation angles, with tilt taken into account
+    var a = e.alpha*Math.PI/180, b = e.beta*Math.PI/180, g = e.gamma*Math.PI/180;
+    var cA = Math.cos(a), sA = Math.sin(a), cB = Math.cos(b), sB = Math.sin(b), cG = Math.cos(g), sG = Math.sin(g);
+    var topE = -cB*sA, topN = cA*cB;                                          // where the phone's top edge points
+    var bkE = -cA*sG - sA*sB*cG, bkN = -sA*sG + cA*sB*cG, bkU = -cB*cG;       // where its back points (bkU = upward part)
+    var east = bkU < -0.7 ? topE : bkE, north = bkU < -0.7 ? topN : bkN;      // lying flat: top edge; held upright: the back (camera side)
+    return (Math.atan2(east, north)*180/Math.PI + 360) % 360;
+  }
+  function cpDraw(){
+    if (cpH === null) return;
+    var h = cpH, i = Math.round(h/45) % 8, d = CP_DIRS[i];
+    document.getElementById('cp-deg').textContent = (Math.round(h) % 360) + '\u00b0';
+    document.getElementById('cp-name').innerHTML = d[0] + ' <span>' + d[1] + '</span>';
+    document.getElementById('cp-sub').textContent = d[2] + ' (' + CP_EN[i] + ')';
+    document.getElementById('cp-g').setAttribute('transform', 'rotate(' + (-h).toFixed(1) + ')');
+    cpLabels.forEach(function(l){ l.el.setAttribute('transform', 'rotate(' + h.toFixed(1) + ' ' + l.x + ' ' + l.y + ')'); });   // keep the labels upright
+  }
+  function cpOnEvent(e){
+    var h;
+    if (e.type === 'deviceorientationabsolute') cpAbs = true;
+    else if (cpAbs || !(e.absolute || typeof e.webkitCompassHeading === 'number')) return;
+    if (typeof e.webkitCompassHeading === 'number') h = e.webkitCompassHeading;
+    else if (e.alpha == null || e.beta == null || e.gamma == null) return;
+    else h = cpHeadingFrom(e);
+    if (!cpGot){ cpGot = true; clearTimeout(cpTimer); document.getElementById('cp-hint').textContent = 'Hold the phone flat and away from magnets and metal. If the reading looks wrong, move the phone in a figure of eight to calibrate.'; }
+    if (cpH === null) cpH = h; else { var df = ((h - cpH + 540) % 360) - 180; cpH = (cpH + df*0.3 + 360) % 360; }   // smooth the needle
+    if (!cpRaf) cpRaf = requestAnimationFrame(function(){ cpRaf = 0; cpDraw(); });
+  }
+  function cpStart(){
+    if (cpOn) return;
+    cpOn = true; cpGot = false;
+    window.addEventListener('deviceorientationabsolute', cpOnEvent, true);
+    window.addEventListener('deviceorientation', cpOnEvent, true);
+    cpTimer = setTimeout(function(){ if (!cpGot) document.getElementById('cp-hint').textContent = 'No compass data is coming from this phone. It may not have a magnetic sensor, or the sensor is blocked.'; }, 2500);
+  }
+  function cpStop(){
+    if (!cpOn) return;
+    cpOn = false; clearTimeout(cpTimer);
+    window.removeEventListener('deviceorientationabsolute', cpOnEvent, true);
+    window.removeEventListener('deviceorientation', cpOnEvent, true);
+  }
+  window.compassCheck = function(){   // run the sensor only while the compass is on screen
+    var sp = document.getElementById('sub-compass'), pp = document.getElementById('panel-yantrani');
+    if (sp && pp && sp.classList.contains('active') && pp.classList.contains('active') && !document.hidden) cpStart(); else cpStop();
+  };
+  function cpInit(){
+    var s = '<circle r="104" class="cp-ring"/>', i, d, a, x, y;
+    for (d = 0; d < 360; d += 5){ var major = d % 45 === 0, len = major ? 13 : (d % 15 === 0 ? 8 : 4); s += '<line x1="0" y1="-100" x2="0" y2="' + (-100 + len) + '" transform="rotate(' + d + ')" class="' + (major ? 'cp-t1' : 'cp-t2') + '"/>'; }
+    s += '<path d="M0 -118 L7 -105 L-7 -105Z" class="cp-north" transform="translate(0 0)"/>';
+    var lab = '';
+    for (i = 0; i < 8; i++){
+      a = i*Math.PI/4; var card = i % 2 === 0, r = card ? 70 : 72; x = +(r*Math.sin(a)).toFixed(1); y = +(-r*Math.cos(a)).toFixed(1);
+      lab += '<text id="cpl' + i + '" x="' + x + '" y="' + y + '" class="' + (card ? 'cp-l1' : 'cp-l2') + '">' + CP_DIRS[i][0] + '</text>';
+      if (card){ var ex = +(50*Math.sin(a)).toFixed(1), ey = +(-50*Math.cos(a)).toFixed(1); lab += '<text id="cpe' + i + '" x="' + ex + '" y="' + ey + '" class="cp-en">' + CP_EN[i] + '</text>'; }
+    }
+    document.getElementById('cp-g').innerHTML = s + lab;
+    for (i = 0; i < 8; i++){ var el = document.getElementById('cpl' + i); cpLabels.push({el: el, x: +el.getAttribute('x'), y: +el.getAttribute('y')}); if (i % 2 === 0){ var ee = document.getElementById('cpe' + i); cpLabels.push({el: ee, x: +ee.getAttribute('x'), y: +ee.getAttribute('y')}); } }
+    document.getElementById('cp-dirs').innerHTML = '<tr><th>Direction</th><th>English</th><th>Guardian (Dikpala)</th></tr>' + CP_DIRS.map(function(r){ return '<tr><td><strong>' + r[0] + '</strong> ' + r[1] + '</td><td>' + r[2] + '</td><td>' + r[3] + '</td></tr>'; }).join('') +
+      '<tr><td><strong>\u090a\u0930\u094d\u0927\u094d\u0935</strong> Urdhva</td><td>Up (zenith)</td><td>Brahma</td></tr><tr><td><strong>\u0905\u0927\u0903</strong> Adhah</td><td>Down (nadir)</td><td>Ananta (Shesha)</td></tr>';
+    jyEl('yantra-tabs').addEventListener('click', function(){ setTimeout(window.compassCheck, 0); });
+    document.addEventListener('visibilitychange', window.compassCheck);
+    cpDraw();
+  }
+
   function gcMove(e){
     var P = RASHI_INFO;
     if (e.type === 'nak') return 'enters <b>' + NAKSHATRAS[e.to] + '</b> (from ' + NAKSHATRAS[e.from] + ') in ' + P[e.sign][0];
@@ -3966,6 +4292,7 @@ body{overflow-x:clip;max-width:100%;}
     renderGochar();
     kvInit();
     mgInit();
+    if (document.documentElement.classList.contains('app-mode')) cpInit();
   }
 
   jyInit();
