@@ -172,6 +172,67 @@
   .jy-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
   .jy-chip{padding:6px 12px;border-radius:999px;background:var(--ivory-dim);border:1px solid var(--line);font-size:.85rem;}
   .jy-chip b{color:var(--maroon);}
+  .sk-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:16px 0 14px;}
+  .sk-form label{display:flex;flex-direction:column;gap:4px;font-size:.82rem;color:var(--ink-soft);min-width:0;}
+  .sk-form input{font:inherit;font-size:.92rem;padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:var(--ivory);color:var(--ink);min-height:40px;min-width:0;max-width:100%;}
+  .sk-when{margin:6px 0 10px;}
+  .sk-chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px;}
+  .sk-chip{font-size:.8rem;padding:5px 10px;border-radius:999px;border:1px solid var(--line);background:var(--ivory-dim);color:var(--ink);}
+  .sk-chip i{font-style:normal;color:var(--ink-soft);margin-right:6px;}
+  .sk-card{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--ivory-dim);margin-bottom:12px;}
+  .sk-lab{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--maroon);font-weight:700;margin-bottom:6px;}
+  .sk-dv{font-size:1.12rem;line-height:1.85;color:var(--ink);overflow-wrap:anywhere;}
+  .sk-en{font-size:.92rem;line-height:1.65;color:var(--ink);overflow-wrap:anywhere;}
+  /* ---- Kundali Match: love & marriage theme + saved cards ---- */
+  .mg-banner{position:relative;background:linear-gradient(135deg,var(--maroon) 0%,#7a1d2e 55%,#4a0e1a 100%);color:var(--ivory);border-radius:16px;padding:16px 16px 14px;margin:16px 0 20px;overflow:hidden;}
+  .mg-banner::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 30%,rgba(240,200,90,.14),transparent 42%),radial-gradient(circle at 80% 65%,rgba(240,180,180,.08),transparent 50%);pointer-events:none;}
+  .mg-banner-row{position:relative;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;}
+  .mg-banner-side{display:flex;flex-direction:column;align-items:center;gap:2px;min-width:70px;}
+  .mg-banner-side .tag{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:#f0c85a;font-weight:700;}
+  .mg-banner-side .nm{font-family:'Fraunces','Fraunces Local',Georgia,serif;font-style:italic;font-size:1.3rem;font-weight:500;color:var(--ivory);}
+  .mg-banner-mid svg{width:120px;height:70px;filter:drop-shadow(0 1px 3px rgba(0,0,0,.3));}
+  .mg-banner-caption{position:relative;text-align:center;color:#fbeac0;font-size:.78rem;letter-spacing:.14em;margin-top:6px;}
+  .mg-card{position:relative;}
+  .mg-card::before{content:"";position:absolute;top:-1px;left:-1px;right:-1px;height:3px;border-radius:12px 12px 0 0;background:linear-gradient(90deg,var(--gold),var(--maroon));}
+  .mg-card-g::before{background:linear-gradient(90deg,#d9a62a,#b8860a);}
+  .mg-card-b::before{background:linear-gradient(90deg,#c93b5a,#8c2a3a);}
+  .mg-saved-head-row{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;flex-wrap:wrap;margin-top:0;}
+  .mg-sort-wrap{display:flex;align-items:center;gap:6px;}
+  .mg-sort{font:inherit;font-size:.82rem;padding:5px 8px;border-radius:8px;border:1px solid var(--line);background:var(--ivory);color:var(--ink);min-height:32px;}
+  .mg-saved-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:10px;}
+  .mg-saved{position:relative;border:1px solid var(--line);border-radius:14px;padding:14px 16px 12px;background:var(--ivory-dim);display:flex;flex-direction:column;gap:9px;overflow:hidden;transition:box-shadow .14s,transform .14s;}
+  .mg-saved::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),#c93b5a,var(--gold));}
+  .mg-saved:hover{box-shadow:0 4px 14px rgba(43,27,18,.1);}
+  .mg-saved-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;}
+  .mg-saved-title{font-family:'Fraunces','Fraunces Local',Georgia,serif;font-size:1.02rem;font-weight:600;color:var(--maroon);line-height:1.3;flex:1;min-width:0;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
+  .mg-saved-score{display:flex;flex-direction:column;align-items:center;gap:0;min-width:58px;line-height:1;}
+  .mg-saved-score .n{font-family:'Fraunces','Fraunces Local',Georgia,serif;font-size:1.55rem;font-weight:700;}
+  .mg-saved-score .m{font-size:.66rem;letter-spacing:.08em;color:var(--ink-soft);margin-top:2px;}
+  .mg-saved-bar{height:5px;border-radius:3px;background:rgba(0,0,0,.08);overflow:hidden;}
+  .mg-saved-bar>i{display:block;height:100%;border-radius:3px;transition:width .3s;}
+  .mg-couple{display:flex;align-items:center;gap:10px;}
+  .mg-couple .nm{flex:1;min-width:0;}
+  .mg-couple .nm.r{text-align:right;}
+  .mg-couple .nm .l{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;}
+  .mg-couple .nm .v{font-size:.94rem;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:1px;}
+  .mg-couple-join{color:#c93b5a;font-size:1.1rem;flex-shrink:0;}
+  .mg-saved-foot{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-top:2px;}
+  .mg-saved-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .mg-saved-badge{display:inline-flex;align-items:center;font-size:.7rem;font-weight:600;padding:3px 9px;border-radius:999px;letter-spacing:.03em;}
+  .mg-saved-badge.good{background:rgba(62,107,58,.14);color:var(--good);}
+  .mg-saved-badge.mid{background:rgba(184,134,10,.16);color:var(--gold);}
+  .mg-saved-badge.low{background:rgba(140,58,43,.14);color:var(--bad);}
+  .mg-saved-date{font-size:.72rem;color:var(--ink-soft);}
+  .mg-saved-btns{display:flex;gap:4px;flex-wrap:wrap;}
+  .mg-saved-btns .mg-mini{font:inherit;font-size:.76rem;font-weight:600;padding:5px 10px;min-height:30px;border-radius:999px;border:1px solid var(--line);background:var(--ivory);color:var(--ink-soft);cursor:pointer;}
+  .mg-saved-btns .mg-mini.pri{border-color:var(--maroon);color:var(--maroon);}
+  .mg-saved-btns .mg-mini.danger{color:var(--bad);border-color:rgba(140,58,43,.3);}
+  @media (max-width:480px){
+    .mg-banner-side .nm{font-size:1.15rem;}
+    .mg-banner-mid svg{width:96px;height:56px;}
+    .mg-saved-score .n{font-size:1.4rem;}
+    .mg-saved-btns .mg-mini{padding:4px 9px;font-size:.74rem;}
+  }
   .jy-h{font-family:'Fraunces','Fraunces Local',Georgia,serif;font-size:1.05rem;margin:22px 0 8px;color:var(--maroon);}
   .kc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;}
   .kc-card{background:var(--ivory-dim);border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center;}
@@ -741,12 +802,14 @@ body{overflow-x:clip;max-width:100%;}
     <button type="button" class="hm-card" data-tab="today"><span class="hm-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span><span class="hm-name">Dainik Panchang</span><span class="hm-sub">Today&rsquo;s tithi, nakshatra, yoga, karana and sunrise</span></button>
     <button type="button" class="hm-card" data-tab="calendar"><span class="hm-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><span class="hm-name">Calendar</span><span class="hm-sub">Month view with tithi, festivals and vrat dates</span></button>
     <button type="button" class="hm-card" data-tab="festivals"><span class="hm-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.4 5.6 6 .6-4.5 4 1.4 6-5.3-3.2-5.3 3.2 1.4-6-4.5-4 6-.6z"/></svg></span><span class="hm-name">Festivals</span><span class="hm-sub">Hindu festivals and observances across India</span></button>
+    <button type="button" class="hm-card" data-tab="muhurat"><span class="hm-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10M7 21h10M8 3c0 5 8 5 8 9s-8 4-8 9M16 3c0 5-8 5-8 9s8 4 8 9"/></svg></span><span class="hm-name">Muhuratam</span><span class="hm-sub">Rahu Kalam, Choghadiya and auspicious times</span></button>
     <button type="button" class="hm-card" data-tab="horoscope" data-sub="kundali"><span class="hm-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v6M12 15v6M3 12h6M15 12h6M5.6 5.6l4.2 4.2M14.2 14.2l4.2 4.2M18.4 5.6l-4.2 4.2M9.8 14.2l-4.2 4.2"/></svg></span><span class="hm-name">Jyotisham</span><span class="hm-sub">Vedic astrology tools in one place</span></button>
     <button type="button" class="hm-card" data-tab="horoscope" data-sub="kundali"><span class="hm-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><path d="M3 3l18 18M21 3L3 21M12 3l9 9-9 9-9-9z"/></svg></span><span class="hm-name">Kundali</span><span class="hm-sub">Birth charts: Lagna, Moon and divisional charts</span></button>
     <button type="button" class="hm-card" data-tab="horoscope" data-sub="gochar"><span class="hm-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-30 12 12)"/><circle cx="19" cy="8" r="1.2"/></svg></span><span class="hm-name">Gochar</span><span class="hm-sub">Planetary transits and upcoming sign changes</span></button>
     <button type="button" class="hm-card" data-tab="yantrani" data-sub="vedic-clock"><span class="hm-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span class="hm-name">Vedic Clock</span><span class="hm-sub">A live clock of the Vedic day and its praharas</span></button>
     <button type="button" class="hm-card" data-tab="yantrani" data-sub="match"><span class="hm-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="12" r="5.5"/><circle cx="15" cy="12" r="5.5"/></svg></span><span class="hm-name">Kundali Match</span><span class="hm-sub">Ashtakoota Guna Milan for two Kundalis</span></button>
     <button type="button" class="hm-card" data-tab="yantrani" data-sub="moonsign"><span class="hm-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></span><span class="hm-name">Moon Sign</span><span class="hm-sub">Find your Janma Rashi and nakshatra</span></button>
+    <button type="button" class="hm-card" data-tab="yantrani" data-sub="sankalp"><span class="hm-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c2 3 3.5 5 3.5 7.5a3.5 3.5 0 0 1-7 0C8.5 8 10 6 12 3z"/><path d="M5 15h14l-1.5 5h-11z"/></svg></span><span class="hm-name">Sankalp Mantr</span><span class="hm-sub">Laghu and Maha sankalp for today, with tithi and place</span></button>
     </div>
       </section>
     </div>
@@ -1052,6 +1115,7 @@ body{overflow-x:clip;max-width:100%;}
           <button type="button" class="subtab active" data-sub="vedic-clock" role="tab" aria-selected="true">Vedic Clock</button>
           <button type="button" class="subtab" data-sub="moonsign" role="tab" aria-selected="false">Moon Sign</button>
           <button type="button" class="subtab" data-sub="match" role="tab" aria-selected="false">Kundali Match</button>
+          <button type="button" class="subtab" data-sub="sankalp" role="tab" aria-selected="false">Sankalp Mantr</button>
           <button type="button" class="subtab app-only" data-sub="compass" role="tab" aria-selected="false">Compass</button>
         </div>
       </section>
@@ -1118,15 +1182,50 @@ body{overflow-x:clip;max-width:100%;}
       </section>
       </div>
 
+      <div class="subpanel" id="sub-sankalp">
+      <section class="block">
+        <h2>Sankalp Mantr</h2>
+        <p class="desc">The vow said before any puja or vrat, with the year, month, tithi, nakshatra and place filled in for you. Laghu is the short form and Maha is the full form.</p>
+        <div class="subtabs" id="sk-mode" role="tablist"><button type="button" class="subtab" data-mode="laghu" role="tab" aria-selected="true">Laghu</button><button type="button" class="subtab" data-mode="maha" role="tab" aria-selected="false">Maha</button></div>
+        <div class="subtabs" id="sk-trad" role="tablist"><button type="button" class="subtab" data-trad="north" role="tab" aria-selected="true">North &middot; Vikram Samvat</button><button type="button" class="subtab" data-trad="south" role="tab" aria-selected="false">South &middot; Shaka</button></div>
+        <div class="sk-form"><label>Your name<input id="sk-name" type="text" autocomplete="off" placeholder="Optional"></label><label>Gotra<input id="sk-gotra" type="text" autocomplete="off" placeholder="Optional"></label><label>Puja or vrat<input id="sk-karma" type="text" autocomplete="off" placeholder="Optional"></label></div>
+        <div id="sk-out"></div>
+        <div class="mg-actions"><button type="button" class="kv-primary" id="sk-copy">Copy</button><button type="button" class="kv-btn" id="sk-share">Share</button><button type="button" class="kv-btn" id="sk-refresh">Refresh</button></div>
+        <p class="desc" style="margin-top:14px;">Wording follows the common form. Families and traditions differ a little, so please confirm with your family priest. The year name follows the Vikram Samvat (North) or Shaka (South) count and changes at Chaitra Shukla Pratipada.</p>
+      </section>
+      </div>
+
       <div class="subpanel" id="sub-match">
       <section class="block">
         <h2>Kundali Match</h2>
         <p class="desc">Ashtakoota Guna Milan (36 points) from the Moon sign and nakshatra of two Kundalis, with a Manglik check. Choose a saved Kundali or enter birth details for each.</p>
-        <div class="mg-grid"><div class="mg-card" id="mg-pg"></div><div class="mg-card" id="mg-pb"></div></div>
+        <div class="mg-banner">
+          <div class="mg-banner-row">
+            <div class="mg-banner-side"><span class="tag">Vara</span><span class="nm">Groom</span></div>
+            <div class="mg-banner-mid" aria-hidden="true">
+              <svg viewBox="0 0 120 70" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="mgGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbe6a8"/><stop offset="1" stop-color="#d9a62a"/></linearGradient>
+                </defs>
+                <circle cx="46" cy="40" r="18" fill="none" stroke="url(#mgGold)" stroke-width="2.5"/>
+                <circle cx="74" cy="40" r="18" fill="none" stroke="url(#mgGold)" stroke-width="2.5"/>
+                <g fill="url(#mgGold)">
+                  <path d="M60 8 Q52 24 60 42 Q68 24 60 8 Z"/>
+                  <path d="M60 14 Q46 28 60 42 Q74 28 60 14 Z" opacity=".7"/>
+                  <path d="M60 20 Q38 32 60 42 Q82 32 60 20 Z" opacity=".45"/>
+                  <ellipse cx="60" cy="42" rx="6" ry="2.4" opacity=".85"/>
+                </g>
+              </svg>
+            </div>
+            <div class="mg-banner-side"><span class="tag">Kanya</span><span class="nm">Bride</span></div>
+          </div>
+          <div class="mg-banner-caption">Vivaha Yoga &middot; Ashtakoota Guna Milan</div>
+        </div>
+        <div class="mg-grid"><div class="mg-card mg-card-g" id="mg-pg"></div><div class="mg-card mg-card-b" id="mg-pb"></div></div>
         <div class="mg-edit" id="mg-edit" hidden>Editing <b id="mg-edit-t"></b> <button type="button" class="kv-mini" id="mg-edit-x">Stop editing</button></div>
         <div class="mg-actions"><button type="button" class="kv-primary" id="mg-save">Save match</button><button type="button" class="kv-btn" id="mg-saveas" hidden>Save as new</button><button type="button" class="kv-btn" id="mg-pdf">Download PDF</button></div>
         <div id="mg-out"></div>
-        <h4 class="jy-h" style="margin-top:22px;">Saved matches</h4>
+        <div class="mg-saved-head-row"><h4 class="jy-h" style="margin:22px 0 0;">Saved matches</h4><div class="mg-sort-wrap"><label for="mg-sort" class="desc" style="font-size:.78rem;margin:0;">Sort</label><select id="mg-sort" class="mg-sort"><option value="recent">Most recent</option><option value="score">Highest score</option><option value="name">By name</option></select></div></div>
         <div id="mg-list"></div>
       </section>
       </div>
@@ -3090,6 +3189,7 @@ body{overflow-x:clip;max-width:100%;}
     renderMuhurat();
     renderCalendar();
     renderFestivals();
+    if (window.skRender) { try { window.skRender(); } catch(e){} }
   }
 
   document.getElementById('yantra-tabs').addEventListener('click', function(e){
@@ -3945,6 +4045,130 @@ body{overflow-x:clip;max-width:100%;}
     renderSaved();
   }
 
+  /* ===================== SANKALP MANTR ===================== */
+  var SK = (function(){
+    var SAM_EN = ["Prabhava","Vibhava","Shukla","Pramoda","Prajapati","Angirasa","Shrimukha","Bhava","Yuva","Dhatri","Ishvara","Bahudhanya","Pramathi","Vikrama","Vrisha","Chitrabhanu","Subhanu","Tarana","Parthiva","Vyaya","Sarvajit","Sarvadhari","Virodhi","Vikriti","Khara","Nandana","Vijaya","Jaya","Manmatha","Durmukha","Hemalambi","Vilambi","Vikari","Sharvari","Plava","Shubhakrit","Shobhakrit","Krodhi","Vishvavasu","Parabhava","Plavanga","Kilaka","Saumya","Sadharana","Virodhakrit","Paridhavi","Pramadi","Ananda","Rakshasa","Nala","Pingala","Kalayukti","Siddharthi","Raudra","Durmati","Dundubhi","Rudhirodgari","Raktakshi","Krodhana","Akshaya"];
+    var SAM_DV = ["प्रभव","विभव","शुक्ल","प्रमोद","प्रजापति","अङ्गिरा","श्रीमुख","भाव","युवा","धाता","ईश्वर","बहुधान्य","प्रमाथी","विक्रम","वृष","चित्रभानु","सुभानु","तारण","पार्थिव","व्यय","सर्वजित्","सर्वधारी","विरोधी","विकृति","खर","नन्दन","विजय","जय","मन्मथ","दुर्मुख","हेमलम्बी","विलम्बी","विकारी","शार्वरी","प्लव","शुभकृत्","शोभकृत्","क्रोधी","विश्वावसु","पराभव","प्लवङ्ग","कीलक","सौम्य","साधारण","विरोधकृत्","परिधावी","प्रमादी","आनन्द","राक्षस","नल","पिङ्गल","कालयुक्ति","सिद्धार्थी","रौद्र","दुर्मति","दुन्दुभि","रुधिरोद्गारी","रक्ताक्षी","क्रोधन","अक्षय"];
+    var MASA_DV = {Chaitra:"चैत्र",Vaishakha:"वैशाख",Jyeshtha:"ज्येष्ठ",Ashadha:"आषाढ",Shravana:"श्रावण",Bhadrapada:"भाद्रपद",Ashwina:"आश्विन",Kartika:"कार्तिक",Margashirsha:"मार्गशीर्ष",Pausha:"पौष",Magha:"माघ",Phalguna:"फाल्गुन"};
+    var TITHI_DV = ["प्रतिपदायां","द्वितीयायां","तृतीयायां","चतुर्थ्यां","पञ्चम्यां","षष्ठ्यां","सप्तम्यां","अष्टम्यां","नवम्यां","दशम्यां","एकादश्यां","द्वादश्यां","त्रयोदश्यां","चतुर्दश्यां"];
+    var VARA_DV = ["भानु","इन्दु","भौम","सौम्य","गुरु","भृगु","स्थिर"];
+    var VARA_EN = ["Bhanu","Indu","Bhauma","Saumya","Guru","Bhrigu","Sthira"];
+    var NAK_DV = ["अश्विनी","भरणी","कृत्तिका","रोहिणी","मृगशिरा","आर्द्रा","पुनर्वसु","पुष्य","आश्लेषा","मघा","पूर्वफल्गुनी","उत्तरफल्गुनी","हस्त","चित्रा","स्वाति","विशाखा","अनुराधा","ज्येष्ठा","मूल","पूर्वाषाढा","उत्तराषाढा","श्रवण","धनिष्ठा","शतभिषक्","पूर्वभाद्रपदा","उत्तरभाद्रपदा","रेवती"];
+    var YOGA_DV = ["विष्कम्भ","प्रीति","आयुष्मान्","सौभाग्य","शोभन","अतिगण्ड","सुकर्मा","धृति","शूल","गण्ड","वृद्धि","ध्रुव","व्याघात","हर्षण","वज्र","सिद्धि","व्यतीपात","वरीयान्","परिघ","शिव","सिद्ध","साध्य","शुभ","शुक्ल","ब्रह्म","इन्द्र","वैधृति"];
+    var KAR_DV = {Bava:"बव",Balava:"बालव",Kaulava:"कौलव",Taitila:"तैतिल",Gara:"गर",Vanija:"वणिज",Vishti:"विष्टि",Shakuni:"शकुनि",Chatushpada:"चतुष्पाद",Naga:"नाग",Kimstughna:"किंस्तुघ्न"};
+    var CITY_DV = {Delhi:"दिल्ली",Mumbai:"मुम्बई",Chennai:"चेन्नई",Kolkata:"कोलकाता",Bengaluru:"बेंगलूरु",Ahmedabad:"अहमदाबाद",Agra:"आगरा",Ayodhya:"अयोध्या",Amritsar:"अमृतसर",Ajmer:"अजमेर",Jaipur:"जयपुर",Lucknow:"लखनऊ",Pune:"पुणे",Hyderabad:"हैदराबाद",Varanasi:"वाराणसी",Shimla:"शिमला",Chandigarh:"चण्डीगढ़",Ujjain:"उज्जैन",Patna:"पटना",Bhopal:"भोपाल"};
+    var TITHI_EN_LOC = ["Pratipadayam","Dwitiyayam","Tritiyayam","Chaturthyam","Panchamyam","Shashthyam","Saptamyam","Ashtamyam","Navamyam","Dashamyam","Ekadashyam","Dwadashyam","Trayodashyam","Chaturdashyam"];
+
+    var mode = 'laghu', trad = 'north';
+    try { var m0 = localStorage.getItem('skMode'), t0 = localStorage.getItem('skTrad'); if (m0 === 'maha' || m0 === 'laghu') mode = m0; if (t0 === 'south' || t0 === 'north') trad = t0; } catch(e){}
+
+    // Samvatsara from the lunar month and civil date, so it rolls over by itself at Chaitra Shukla Pratipada
+    function samvatsara(civYear, civMonth, lunarIdx, adhika){
+      var oldYear = ((lunarIdx >= 9 || (lunarIdx === 0 && adhika)) && civMonth <= 4);
+      var vs = civYear + (oldYear ? 56 : 57), shaka = vs - 135;
+      var iN = ((vs + 10) % 60 + 60) % 60, iS = ((shaka + 11) % 60 + 60) % 60;
+      return { vs: vs, shaka: shaka, north: iN, south: iS };
+    }
+
+    function calc(){
+      var loc = selectedLoc(), now = new Date(), sd = state.date;
+      var isToday = sd.getFullYear() === now.getFullYear() && sd.getMonth() === now.getMonth() && sd.getDate() === now.getDate();
+      var Y, M, D, inst;
+      if (isToday){
+        var L = new Date(now.getTime() + loc.tz * 3600000);
+        Y = L.getUTCFullYear(); M = L.getUTCMonth() + 1; D = L.getUTCDate(); inst = now;
+      } else {
+        Y = sd.getFullYear(); M = sd.getMonth() + 1; D = sd.getDate();
+        var ss = sunriseSunset(Y, M, D, loc.lat, loc.lon, loc.tz);
+        inst = dateFromLocalMinutes(Y, M, D, ss.sunriseMin, loc.tz);
+      }
+      var pos = sunMoonLongitudes(inst), ay = ayanamsa(inst), sun = pos.sun, moon = pos.moon;
+      var tithiDiff = norm360(moon - sun), tn = Math.floor(tithiDiff / 12) + 1;
+      var paksha = tn <= 15 ? 'Shukla' : 'Krishna', ti = (tn - 1) % 15;
+      var nak = Math.floor(norm360(moon - ay) / (360 / 27));
+      var yoga = Math.floor(norm360(sun + moon - 2 * ay) / (360 / 27)) % 27;
+      var half = Math.floor(tithiDiff / 6) + 1, kar;
+      if (half === 1) kar = 'Kimstughna'; else if (half >= 58) kar = KARANA_FIXED_END[half - 58]; else kar = KARANA_MOVABLE[(half - 2) % 7];
+      var lm = lunarMonthAt(inst), li = LUNAR_MONTHS.indexOf(lm.name);
+      var sam = samvatsara(Y, M, li, lm.adhika);
+      var wd = new Date(Date.UTC(Y, M - 1, D)).getUTCDay();
+      var ritu = ['Vasanta','Vasanta','Grishma','Grishma','Varsha','Varsha','Sharad','Sharad','Hemanta','Hemanta','Shishira','Shishira'][li];
+      var rituDv = {Vasanta:'वसन्त',Grishma:'ग्रीष्म',Varsha:'वर्षा',Sharad:'शरद्',Hemanta:'हेमन्त',Shishira:'शिशिर'}[ritu];
+      var sidSun = norm360(sun - ay), uttar = (sidSun >= 270 || sidSun < 90);   // Makara to Mithuna = Uttarayana
+      return { loc: loc, inst: inst, isToday: isToday, Y: Y, M: M, D: D, sam: sam, li: li, masa: lm.name, adhika: lm.adhika, paksha: paksha, ti: ti, tn: tn,
+               tithiName: ti === 14 ? (tn === 15 ? 'Purnima' : 'Amavasya') : TITHI_NAMES[ti], wd: wd, nak: nak, yoga: yoga, kar: kar, ritu: ritu, rituDv: rituDv, uttar: uttar };
+    }
+
+    function text(c, kind, who){
+      var cityEn = c.loc.name.split(',')[0].trim(), cityDv = CITY_DV[cityEn] || cityEn;
+      var idx = trad === 'north' ? c.sam.north : c.sam.south, samEn = SAM_EN[idx], samDv = SAM_DV[idx];
+      var masaDv = (c.adhika ? 'अधिक ' : '') + MASA_DV[c.masa], masaEn = (c.adhika ? 'Adhika ' : '') + c.masa;
+      var pakDv = c.paksha === 'Shukla' ? 'शुक्ल' : 'कृष्ण';
+      var tithiDv = c.ti === 14 ? (c.tn === 15 ? 'पौर्णमास्यां' : 'अमावास्यायां') : TITHI_DV[c.ti];
+      var tithiEn = c.ti === 14 ? (c.tn === 15 ? 'Paurnamasyam' : 'Amavasyayam') : TITHI_EN_LOC[c.ti];
+      var ayDv = c.uttar ? 'उत्तरायणे' : 'दक्षिणायने', ayEn = c.uttar ? 'Uttarayane' : 'Dakshinayane';
+      var karma = who.karma || '………………', nm = who.name || '………………', gt = who.gotra || '………………';
+      var nakDv = NAK_DV[c.nak], yDv = YOGA_DV[c.yoga], kDv = KAR_DV[c.kar];
+      var dv, en;
+      if (kind === 'laghu'){
+        dv = 'ॐ विष्णुर्विष्णुर्विष्णुः। श्रीमद्भगवतो महापुरुषस्य विष्णोराज्ञया प्रवर्तमानस्य अद्य ' + cityDv + ' क्षेत्रे, ' + masaDv + ' मासे, ' + pakDv + ' पक्षे, ' + tithiDv + ' तिथौ, ' + VARA_DV[c.wd] + 'वासरे, ' + nakDv + ' नक्षत्रे, ममोपात्तदुरितक्षयद्वारा श्रीपरमेश्वरप्रीत्यर्थं ' + karma + ' करिष्ये।';
+        en = 'Om Vishnur Vishnur Vishnuh. Shrimad-bhagavato mahapurushasya Vishnor-ajnaya pravartamanasya adya ' + cityEn + ' kshetre, ' + masaEn + ' mase, ' + c.paksha + ' pakshe, ' + tithiEn + ' tithau, ' + VARA_EN[c.wd] + 'vasare, ' + c.nakshatraEn + ' nakshatre, mamopatta-durita-kshaya-dvara Shri-Parameshwara-pritya-artham ' + karma + ' karishye.';
+      } else {
+        dv = 'ॐ विष्णुर्विष्णुर्विष्णुः। श्रीमद्भगवतो महापुरुषस्य विष्णोराज्ञया प्रवर्तमानस्य अद्य ब्रह्मणो द्वितीयपरार्धे श्वेतवाराहकल्पे वैवस्वतमन्वन्तरे अष्टाविंशतितमे कलियुगे कलिप्रथमचरणे जम्बूद्वीपे भरतवर्षे भरतखण्डे आर्यावर्तैकदेशे ' + cityDv + ' क्षेत्रे, ' + samDv + ' नाम संवत्सरे, ' + ayDv + ', ' + c.rituDv + ' ऋतौ, ' + masaDv + ' मासे, ' + pakDv + ' पक्षे, ' + tithiDv + ' तिथौ, ' + VARA_DV[c.wd] + 'वासरे, ' + nakDv + ' नक्षत्रे, ' + yDv + ' योगे, ' + kDv + ' करणे, एवंगुणविशेषणविशिष्टायां शुभपुण्यतिथौ, ' + gt + ' गोत्रोत्पन्नः ' + nm + ' शर्माऽहं, मम आत्मनः श्रुतिस्मृतिपुराणोक्तफलप्राप्त्यर्थं, ममोपात्तसमस्तदुरितक्षयद्वारा श्रीपरमेश्वरप्रीत्यर्थं ' + karma + ' करिष्ये।';
+        en = 'Om Vishnur Vishnur Vishnuh. Shrimad-bhagavato mahapurushasya Vishnor-ajnaya pravartamanasya adya Brahmano dvitiya-parardhe Shveta-Varaha-kalpe Vaivasvata-manvantare ashtavimshatitame Kali-yuge Kali-prathama-charane Jambudvipe Bharata-varshe Bharata-khande Aryavartaika-deshe ' + cityEn + ' kshetre, ' + samEn + ' nama samvatsare, ' + ayEn + ', ' + c.ritu + ' ritau, ' + masaEn + ' mase, ' + c.paksha + ' pakshe, ' + tithiEn + ' tithau, ' + VARA_EN[c.wd] + 'vasare, ' + c.nakshatraEn + ' nakshatre, ' + YOGAS[c.yoga] + ' yoge, ' + c.kar + ' karane, evam-guna-visheshana-vishishtayam shubha-punya-tithau, ' + gt + ' gotrotpannah ' + nm + ' sharma-aham, mama atmanah shruti-smriti-purana-ukta-phala-prapty-artham, mamopatta-samasta-durita-kshaya-dvara Shri-Parameshwara-pritya-artham ' + karma + ' karishye.';
+      }
+      return { dv: dv, en: en, samEn: samEn, samDv: samDv };
+    }
+
+    function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+    var last = null;
+    function render(){
+      var host = document.getElementById('sk-out'); if (!host) return;
+      var c = calc(); c.nakshatraEn = NAKSHATRAS[c.nak];
+      var who = { name: document.getElementById('sk-name').value.trim(), gotra: document.getElementById('sk-gotra').value.trim(), karma: document.getElementById('sk-karma').value.trim() };
+      var t = text(c, mode, who); last = t;
+      var when = c.inst.toLocaleString('en-IN', { timeZone: 'UTC', hour12: true, day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: '2-digit' });
+      var lt = new Date(c.inst.getTime() + c.loc.tz * 3600000);
+      var whenTxt = c.isToday ? lt.toLocaleString('en-IN', { timeZone: 'UTC', day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true }) + ' (now)' : lt.toLocaleString('en-IN', { timeZone: 'UTC', day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true }) + ' (sunrise of the selected date)';
+      var chips = [['Samvatsara', t.samEn + ' · ' + t.samDv], [trad === 'north' ? 'Vikram Samvat' : 'Shaka Samvat', trad === 'north' ? c.sam.vs : c.sam.shaka], ['Ayana', c.uttar ? 'Uttarayana' : 'Dakshinayana'], ['Ritu', c.ritu], ['Masa', (c.adhika ? 'Adhika ' : '') + c.masa], ['Paksha', c.paksha], ['Tithi', c.tithiName], ['Vara', WEEKDAYS[c.wd]], ['Nakshatra', NAKSHATRAS[c.nak]], ['Yoga', YOGAS[c.yoga]], ['Karana', c.kar]];
+      host.innerHTML = '<p class="desc sk-when">Calculated for <b>' + esc(c.loc.name) + '</b>, ' + esc(whenTxt) + '. Change the city or date from the Panchang page.</p>' +
+        '<div class="sk-chips">' + chips.map(function(x){ return '<span class="sk-chip"><i>' + x[0] + '</i>' + esc(x[1]) + '</span>'; }).join('') + '</div>' +
+        '<div class="sk-card"><div class="sk-lab">Devanagari</div><div class="sk-dv" lang="sa">' + esc(t.dv) + '</div></div>' +
+        '<div class="sk-card"><div class="sk-lab">Transliteration</div><div class="sk-en">' + esc(t.en) + '</div></div>';
+    }
+    function setActive(boxId, attr, val){
+      document.querySelectorAll('#' + boxId + ' .subtab').forEach(function(b){ var on = b.dataset[attr] === val; b.classList.toggle('active', on); b.setAttribute('aria-selected', on ? 'true' : 'false'); });
+    }
+    function init(){
+      var panel = document.getElementById('sub-sankalp'); if (!panel) return;
+      try { ['name','gotra','karma'].forEach(function(k){ var v = localStorage.getItem('sk_' + k); if (v) document.getElementById('sk-' + k).value = v; }); } catch(e){}
+      setActive('sk-mode', 'mode', mode); setActive('sk-trad', 'trad', trad);
+      document.getElementById('sk-mode').addEventListener('click', function(e){ var b = e.target.closest('.subtab'); if (!b) return; mode = b.dataset.mode; try { localStorage.setItem('skMode', mode); } catch(err){} setActive('sk-mode', 'mode', mode); render(); });
+      document.getElementById('sk-trad').addEventListener('click', function(e){ var b = e.target.closest('.subtab'); if (!b) return; trad = b.dataset.trad; try { localStorage.setItem('skTrad', trad); } catch(err){} setActive('sk-trad', 'trad', trad); render(); });
+      ['name','gotra','karma'].forEach(function(k){ document.getElementById('sk-' + k).addEventListener('input', function(){ try { localStorage.setItem('sk_' + k, this.value); } catch(err){} render(); }); });
+      document.getElementById('sk-refresh').addEventListener('click', function(){ render(); });
+      function flash(btn, msg){ var o = btn.textContent; btn.textContent = msg; setTimeout(function(){ btn.textContent = o; }, 1400); }
+      function full(){ return last ? last.dv + '\n\n' + last.en : ''; }
+      document.getElementById('sk-copy').addEventListener('click', function(){
+        var btn = this, s = full(); if (!s) return;
+        function fallback(){ var ta = document.createElement('textarea'); ta.value = s; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); flash(btn, 'Copied'); } catch(err){ flash(btn, 'Copy failed'); } document.body.removeChild(ta); }
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(s).then(function(){ flash(btn, 'Copied'); }, fallback); else fallback();
+      });
+      document.getElementById('sk-share').addEventListener('click', function(){
+        var s = full(); if (!s) return;
+        var P = window.Capacitor && window.Capacitor.Plugins;
+        if (P && P.Share) P.Share.share({ title: 'Sankalp Mantr', text: s, dialogTitle: 'Share Sankalp' });
+        else if (navigator.share) navigator.share({ title: 'Sankalp Mantr', text: s }).catch(function(){});
+        else document.getElementById('sk-copy').click();
+      });
+      document.getElementById('yantra-tabs').addEventListener('click', function(e){ var b = e.target.closest('.subtab'); if (b && b.dataset.sub === 'sankalp') render(); });
+      render();
+    }
+    return { init: init, render: render, calc: calc, samvatsara: samvatsara, SAM_EN: SAM_EN };
+  })();
+  window.skRender = SK.render; window.SK_DEBUG = SK;
+  SK.init();
+
   /* ===================== KUNDALI MATCH (Ashtakoota Guna Milan) ===================== */
   var MG_KEY = 'panchangSavedMatches', MG_MEM = [], MG_ACTIVE = null, MG_LAST = null;
   var MG_PL = ['Sun','Moon','Mars','Mercury','Jupiter','Venus','Saturn'];
@@ -4107,14 +4331,43 @@ body{overflow-x:clip;max-width:100%;}
     });
     try { jyEl('mgm-title').focus(); jyEl('mgm-title').select(); } catch(e){}
   }
+  var MG_SORT = (function(){ try { return localStorage.getItem('mgSort') || 'recent'; } catch(e){ return 'recent'; } })();
+  function mgSortList(list){
+    var o = list.slice();
+    if (MG_SORT === 'score'){ o.sort(function(a, b){ var sa = mgScoreOf(a), sb = mgScoreOf(b); if (sa === null) sa = -1; if (sb === null) sb = -1; return sb - sa || b.updatedAt - a.updatedAt; }); }
+    else if (MG_SORT === 'name'){ o.sort(function(a, b){ return a.title.localeCompare(b.title); }); }
+    else { o.sort(function(a, b){ return b.updatedAt - a.updatedAt; }); }
+    return o;
+  }
   function mgRenderList(){
-    var list = mgLoadAll().slice().sort(function(a, b){ return b.updatedAt - a.updatedAt; }), el = jyEl('mg-list');
-    if (!list.length){ el.innerHTML = '<div class="kv-empty"><div class="kv-name" style="margin-bottom:6px;">No saved matches yet</div><p class="desc" style="margin:0;">Match two Kundalis above and tap <b>Save match</b>. Saved matches stay on this device.</p></div>'; return; }
+    var list = mgSortList(mgLoadAll()), el = jyEl('mg-list'), head = document.querySelector('.mg-saved-head-row');
+    if (head) head.style.display = list.length ? 'flex' : 'none';
+    if (!list.length){ el.classList.remove('mg-saved-grid'); el.innerHTML = '<div class="kv-empty"><div class="kv-name" style="margin-bottom:6px;">No saved matches yet</div><p class="desc" style="margin:0;">Match two Kundalis above and tap <b>Save match</b>. Saved matches stay on this device.</p></div>'; return; }
+    el.classList.add('mg-saved-grid');
     el.innerHTML = list.map(function(r){
-      var sc = mgScoreOf(r);
-      return '<div class="kv-card"><div class="kv-main"><div class="kv-name">' + kvEsc(r.title) + '</div><div class="kv-meta">' + kvEsc(r.g.name || 'Groom') + ' &amp; ' + kvEsc(r.b.name || 'Bride') + (sc !== null ? ' \u00b7 <strong>' + mgPts(sc) + ' / 36</strong>' : '') + '</div>' +
-        '<div class="kv-meta small">' + (r.updatedAt > r.createdAt ? 'Updated ' : 'Saved ') + kvDate(r.updatedAt) + '</div></div>' +
-        '<div class="kv-btns"><button type="button" class="kv-mini" data-mgact="open" data-id="' + r.id + '">Open</button><button type="button" class="kv-mini" data-mgact="edit" data-id="' + r.id + '">Edit</button><button type="button" class="kv-mini del" data-mgact="del" data-id="' + r.id + '">Delete</button></div></div>';
+      var sc = mgScoreOf(r), has = sc !== null, pct = has ? Math.round(sc/36*100) : 0;
+      var cls = !has ? 'mid' : (sc >= 25 ? 'good' : (sc >= 18 ? 'mid' : 'low'));
+      var col = cls === 'good' ? 'var(--good)' : (cls === 'low' ? 'var(--bad)' : 'var(--gold)');
+      var verd = !has ? 'Score unavailable' : (sc >= 33 ? 'Excellent match' : (sc >= 25 ? 'Good match' : (sc >= 18 ? 'Acceptable' : 'Not recommended')));
+      return '<div class="mg-saved">' +
+        '<div class="mg-saved-head"><div class="mg-saved-title">' + kvEsc(r.title) + '</div>' +
+          (has ? '<div class="mg-saved-score" style="color:' + col + ';"><div class="n">' + mgPts(sc) + '</div><div class="m">of 36</div></div>' : '') +
+        '</div>' +
+        (has ? '<div class="mg-saved-bar"><i style="width:' + pct + '%;background:' + col + ';"></i></div>' : '') +
+        '<div class="mg-couple">' +
+          '<div class="nm"><div class="l">Vara</div><div class="v">' + kvEsc(r.g.name || 'Groom') + '</div></div>' +
+          '<span class="mg-couple-join" aria-hidden="true">\u2766</span>' +
+          '<div class="nm r"><div class="l">Kanya</div><div class="v">' + kvEsc(r.b.name || 'Bride') + '</div></div>' +
+        '</div>' +
+        '<div class="mg-saved-foot">' +
+          '<div class="mg-saved-meta"><span class="mg-saved-badge ' + cls + '">' + verd + '</span><span class="mg-saved-date">' + (r.updatedAt > r.createdAt ? 'Updated ' : 'Saved ') + kvDate(r.updatedAt) + '</span></div>' +
+          '<div class="mg-saved-btns">' +
+            '<button type="button" class="mg-mini pri" data-mgact="open" data-id="' + r.id + '">Open</button>' +
+            '<button type="button" class="mg-mini" data-mgact="edit" data-id="' + r.id + '">Edit</button>' +
+            '<button type="button" class="mg-mini danger" data-mgact="del" data-id="' + r.id + '">Delete</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
     }).join('');
   }
   function mgLoadMatch(id, edit){
@@ -4237,6 +4490,8 @@ body{overflow-x:clip;max-width:100%;}
     jyEl('mg-saveas').addEventListener('click', function(){ mgOpenSave(true); });
     jyEl('mg-pdf').addEventListener('click', mgPdf);
     jyEl('mg-edit-x').addEventListener('click', function(){ MG_ACTIVE = null; mgRender(); });
+    var mgSortEl = document.getElementById('mg-sort');
+    if (mgSortEl){ mgSortEl.value = MG_SORT; mgSortEl.addEventListener('change', function(){ MG_SORT = this.value; try { localStorage.setItem('mgSort', MG_SORT); } catch(e){} mgRenderList(); }); }
     jyEl('mg-list').addEventListener('click', function(e){
       var b = e.target.closest('[data-mgact]'); if (!b) return;
       var a = b.dataset.mgact, id = b.dataset.id;
