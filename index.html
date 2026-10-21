@@ -172,17 +172,22 @@
   .jy-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
   .jy-chip{padding:6px 12px;border-radius:999px;background:var(--ivory-dim);border:1px solid var(--line);font-size:.85rem;}
   .jy-chip b{color:var(--maroon);}
-  .sk-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:16px 0 14px;}
-  .sk-form label{display:flex;flex-direction:column;gap:4px;font-size:.82rem;color:var(--ink-soft);min-width:0;}
-  .sk-form input{font:inherit;font-size:.92rem;padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:var(--ivory);color:var(--ink);min-height:40px;min-width:0;max-width:100%;}
-  .sk-when{margin:6px 0 10px;}
-  .sk-chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px;}
+  .sk-info-row{display:flex;justify-content:flex-end;margin:14px 0 6px;}
+  .sk-info-btn{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:.82rem;font-weight:600;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--ivory-dim);color:var(--ink-soft);cursor:pointer;}
+  .sk-info-btn[aria-expanded="true"]{color:var(--maroon);border-color:var(--maroon);background:var(--ivory);}
+  .sk-info-btn svg{width:14px;height:14px;}
+  .sk-info-panel{border:1px dashed var(--line);border-radius:12px;padding:12px 14px 14px;background:var(--ivory-dim);margin-bottom:14px;}
+  .sk-info-panel[hidden]{display:none !important;}
+  .sk-when{margin:0 0 10px;}
+  .sk-chips{display:flex;flex-wrap:wrap;gap:6px;margin:0;}
   .sk-chip{font-size:.8rem;padding:5px 10px;border-radius:999px;border:1px solid var(--line);background:var(--ivory-dim);color:var(--ink);}
   .sk-chip i{font-style:normal;color:var(--ink-soft);margin-right:6px;}
   .sk-card{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--ivory-dim);margin-bottom:12px;}
   .sk-lab{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--maroon);font-weight:700;margin-bottom:6px;}
   .sk-dv{font-size:1.12rem;line-height:1.85;color:var(--ink);overflow-wrap:anywhere;}
   .sk-en{font-size:.92rem;line-height:1.65;color:var(--ink);overflow-wrap:anywhere;}
+  .sk-ph{font-weight:700;color:var(--maroon);white-space:nowrap;}
+  .sk-foot{font-size:.72rem;color:var(--ink-soft);text-align:right;margin-top:10px;font-style:italic;}
   /* ---- Kundali Match: love & marriage theme + saved cards ---- */
   .mg-banner{position:relative;background:linear-gradient(135deg,var(--maroon) 0%,#7a1d2e 55%,#4a0e1a 100%);color:var(--ivory);border-radius:16px;padding:16px 16px 14px;margin:16px 0 20px;overflow:hidden;}
   .mg-banner::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 30%,rgba(240,200,90,.14),transparent 42%),radial-gradient(circle at 80% 65%,rgba(240,180,180,.08),transparent 50%);pointer-events:none;}
@@ -1188,7 +1193,6 @@ body{overflow-x:clip;max-width:100%;}
         <p class="desc">The vow said before any puja or vrat, with the year, month, tithi, nakshatra and place filled in for you. Laghu is the short form and Maha is the full form.</p>
         <div class="subtabs" id="sk-mode" role="tablist"><button type="button" class="subtab" data-mode="laghu" role="tab" aria-selected="true">Laghu</button><button type="button" class="subtab" data-mode="maha" role="tab" aria-selected="false">Maha</button></div>
         <div class="subtabs" id="sk-trad" role="tablist"><button type="button" class="subtab" data-trad="north" role="tab" aria-selected="true">North &middot; Vikram Samvat</button><button type="button" class="subtab" data-trad="south" role="tab" aria-selected="false">South &middot; Shaka</button></div>
-        <div class="sk-form"><label>Your name<input id="sk-name" type="text" autocomplete="off" placeholder="Optional"></label><label>Gotra<input id="sk-gotra" type="text" autocomplete="off" placeholder="Optional"></label><label>Puja or vrat<input id="sk-karma" type="text" autocomplete="off" placeholder="Optional"></label></div>
         <div id="sk-out"></div>
         <div class="mg-actions"><button type="button" class="kv-primary" id="sk-copy">Copy</button><button type="button" class="kv-btn" id="sk-share">Share</button><button type="button" class="kv-btn" id="sk-refresh">Refresh</button></div>
         <p class="desc" style="margin-top:14px;">Wording follows the common form. Families and traditions differ a little, so please confirm with your family priest. The year name follows the Vikram Samvat (North) or Shaka (South) count and changes at Chaitra Shukla Pratipada.</p>
@@ -4099,7 +4103,8 @@ body{overflow-x:clip;max-width:100%;}
                tithiName: ti === 14 ? (tn === 15 ? 'Purnima' : 'Amavasya') : TITHI_NAMES[ti], wd: wd, nak: nak, yoga: yoga, kar: kar, ritu: ritu, rituDv: rituDv, uttar: uttar };
     }
 
-    function text(c, kind, who){
+    // Each part is either a plain string or a placeholder marker: {ph: '[…]'}
+    function text(c, kind){
       var cityEn = c.loc.name.split(',')[0].trim(), cityDv = CITY_DV[cityEn] || cityEn;
       var idx = trad === 'north' ? c.sam.north : c.sam.south, samEn = SAM_EN[idx], samDv = SAM_DV[idx];
       var masaDv = (c.adhika ? 'अधिक ' : '') + MASA_DV[c.masa], masaEn = (c.adhika ? 'Adhika ' : '') + c.masa;
@@ -4107,48 +4112,66 @@ body{overflow-x:clip;max-width:100%;}
       var tithiDv = c.ti === 14 ? (c.tn === 15 ? 'पौर्णमास्यां' : 'अमावास्यायां') : TITHI_DV[c.ti];
       var tithiEn = c.ti === 14 ? (c.tn === 15 ? 'Paurnamasyam' : 'Amavasyayam') : TITHI_EN_LOC[c.ti];
       var ayDv = c.uttar ? 'उत्तरायणे' : 'दक्षिणायने', ayEn = c.uttar ? 'Uttarayane' : 'Dakshinayane';
-      var karma = who.karma || '………………', nm = who.name || '………………', gt = who.gotra || '………………';
       var nakDv = NAK_DV[c.nak], yDv = YOGA_DV[c.yoga], kDv = KAR_DV[c.kar];
-      var dv, en;
+      var PH_KARMA_DV = {ph: '[पूजा / व्रत / कर्म का नाम]'}, PH_KARMA_EN = {ph: '[puja / vrat / karma name]'};
+      var PH_NAME_DV = {ph: '[नाम]'}, PH_NAME_EN = {ph: '[name]'};
+      var PH_GOTRA_DV = {ph: '[गोत्र]'}, PH_GOTRA_EN = {ph: '[gotra]'};
+      var dvP, enP;
       if (kind === 'laghu'){
-        dv = 'ॐ विष्णुर्विष्णुर्विष्णुः। श्रीमद्भगवतो महापुरुषस्य विष्णोराज्ञया प्रवर्तमानस्य अद्य ' + cityDv + ' क्षेत्रे, ' + masaDv + ' मासे, ' + pakDv + ' पक्षे, ' + tithiDv + ' तिथौ, ' + VARA_DV[c.wd] + 'वासरे, ' + nakDv + ' नक्षत्रे, ममोपात्तदुरितक्षयद्वारा श्रीपरमेश्वरप्रीत्यर्थं ' + karma + ' करिष्ये।';
-        en = 'Om Vishnur Vishnur Vishnuh. Shrimad-bhagavato mahapurushasya Vishnor-ajnaya pravartamanasya adya ' + cityEn + ' kshetre, ' + masaEn + ' mase, ' + c.paksha + ' pakshe, ' + tithiEn + ' tithau, ' + VARA_EN[c.wd] + 'vasare, ' + c.nakshatraEn + ' nakshatre, mamopatta-durita-kshaya-dvara Shri-Parameshwara-pritya-artham ' + karma + ' karishye.';
+        dvP = ['ॐ विष्णुर्विष्णुर्विष्णुः। श्रीमद्भगवतो महापुरुषस्य विष्णोराज्ञया प्रवर्तमानस्य अद्य ' + cityDv + ' क्षेत्रे, ' + masaDv + ' मासे, ' + pakDv + ' पक्षे, ' + tithiDv + ' तिथौ, ' + VARA_DV[c.wd] + 'वासरे, ' + nakDv + ' नक्षत्रे, ममोपात्तदुरितक्षयद्वारा श्रीपरमेश्वरप्रीत्यर्थं ', PH_KARMA_DV, ' करिष्ये।'];
+        enP = ['Om Vishnur Vishnur Vishnuh. Shrimad-bhagavato mahapurushasya Vishnor-ajnaya pravartamanasya adya ' + cityEn + ' kshetre, ' + masaEn + ' mase, ' + c.paksha + ' pakshe, ' + tithiEn + ' tithau, ' + VARA_EN[c.wd] + 'vasare, ' + c.nakshatraEn + ' nakshatre, mamopatta-durita-kshaya-dvara Shri-Parameshwara-pritya-artham ', PH_KARMA_EN, ' karishye.'];
       } else {
-        dv = 'ॐ विष्णुर्विष्णुर्विष्णुः। श्रीमद्भगवतो महापुरुषस्य विष्णोराज्ञया प्रवर्तमानस्य अद्य ब्रह्मणो द्वितीयपरार्धे श्वेतवाराहकल्पे वैवस्वतमन्वन्तरे अष्टाविंशतितमे कलियुगे कलिप्रथमचरणे जम्बूद्वीपे भरतवर्षे भरतखण्डे आर्यावर्तैकदेशे ' + cityDv + ' क्षेत्रे, ' + samDv + ' नाम संवत्सरे, ' + ayDv + ', ' + c.rituDv + ' ऋतौ, ' + masaDv + ' मासे, ' + pakDv + ' पक्षे, ' + tithiDv + ' तिथौ, ' + VARA_DV[c.wd] + 'वासरे, ' + nakDv + ' नक्षत्रे, ' + yDv + ' योगे, ' + kDv + ' करणे, एवंगुणविशेषणविशिष्टायां शुभपुण्यतिथौ, ' + gt + ' गोत्रोत्पन्नः ' + nm + ' शर्माऽहं, मम आत्मनः श्रुतिस्मृतिपुराणोक्तफलप्राप्त्यर्थं, ममोपात्तसमस्तदुरितक्षयद्वारा श्रीपरमेश्वरप्रीत्यर्थं ' + karma + ' करिष्ये।';
-        en = 'Om Vishnur Vishnur Vishnuh. Shrimad-bhagavato mahapurushasya Vishnor-ajnaya pravartamanasya adya Brahmano dvitiya-parardhe Shveta-Varaha-kalpe Vaivasvata-manvantare ashtavimshatitame Kali-yuge Kali-prathama-charane Jambudvipe Bharata-varshe Bharata-khande Aryavartaika-deshe ' + cityEn + ' kshetre, ' + samEn + ' nama samvatsare, ' + ayEn + ', ' + c.ritu + ' ritau, ' + masaEn + ' mase, ' + c.paksha + ' pakshe, ' + tithiEn + ' tithau, ' + VARA_EN[c.wd] + 'vasare, ' + c.nakshatraEn + ' nakshatre, ' + YOGAS[c.yoga] + ' yoge, ' + c.kar + ' karane, evam-guna-visheshana-vishishtayam shubha-punya-tithau, ' + gt + ' gotrotpannah ' + nm + ' sharma-aham, mama atmanah shruti-smriti-purana-ukta-phala-prapty-artham, mamopatta-samasta-durita-kshaya-dvara Shri-Parameshwara-pritya-artham ' + karma + ' karishye.';
+        dvP = ['ॐ विष्णुर्विष्णुर्विष्णुः। श्रीमद्भगवतो महापुरुषस्य विष्णोराज्ञया प्रवर्तमानस्य अद्य ब्रह्मणो द्वितीयपरार्धे श्वेतवाराहकल्पे वैवस्वतमन्वन्तरे अष्टाविंशतितमे कलियुगे कलिप्रथमचरणे जम्बूद्वीपे भरतवर्षे भरतखण्डे आर्यावर्तैकदेशे ' + cityDv + ' क्षेत्रे, ' + samDv + ' नाम संवत्सरे, ' + ayDv + ', ' + c.rituDv + ' ऋतौ, ' + masaDv + ' मासे, ' + pakDv + ' पक्षे, ' + tithiDv + ' तिथौ, ' + VARA_DV[c.wd] + 'वासरे, ' + nakDv + ' नक्षत्रे, ' + yDv + ' योगे, ' + kDv + ' करणे, एवंगुणविशेषणविशिष्टायां शुभपुण्यतिथौ, ', PH_GOTRA_DV, ' गोत्रोत्पन्नः ', PH_NAME_DV, ' शर्माऽहं, मम आत्मनः श्रुतिस्मृतिपुराणोक्तफलप्राप्त्यर्थं, ममोपात्तसमस्तदुरितक्षयद्वारा श्रीपरमेश्वरप्रीत्यर्थं ', PH_KARMA_DV, ' करिष्ये।'];
+        enP = ['Om Vishnur Vishnur Vishnuh. Shrimad-bhagavato mahapurushasya Vishnor-ajnaya pravartamanasya adya Brahmano dvitiya-parardhe Shveta-Varaha-kalpe Vaivasvata-manvantare ashtavimshatitame Kali-yuge Kali-prathama-charane Jambudvipe Bharata-varshe Bharata-khande Aryavartaika-deshe ' + cityEn + ' kshetre, ' + samEn + ' nama samvatsare, ' + ayEn + ', ' + c.ritu + ' ritau, ' + masaEn + ' mase, ' + c.paksha + ' pakshe, ' + tithiEn + ' tithau, ' + VARA_EN[c.wd] + 'vasare, ' + c.nakshatraEn + ' nakshatre, ' + YOGAS[c.yoga] + ' yoge, ' + c.kar + ' karane, evam-guna-visheshana-vishishtayam shubha-punya-tithau, ', PH_GOTRA_EN, ' gotrotpannah ', PH_NAME_EN, ' sharma-aham, mama atmanah shruti-smriti-purana-ukta-phala-prapty-artham, mamopatta-samasta-durita-kshaya-dvara Shri-Parameshwara-pritya-artham ', PH_KARMA_EN, ' karishye.'];
       }
-      return { dv: dv, en: en, samEn: samEn, samDv: samDv };
+      return { dvP: dvP, enP: enP, samEn: samEn, samDv: samDv };
     }
 
     function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+    function partsToHtml(parts){ return parts.map(function(p){ return typeof p === 'string' ? esc(p) : '<b class="sk-ph">' + esc(p.ph) + '</b>'; }).join(''); }
+    function partsToText(parts){ return parts.map(function(p){ return typeof p === 'string' ? p : p.ph; }).join(''); }
+
+    var showInfo = false;
+    try { showInfo = localStorage.getItem('skInfo') === 'on'; } catch(e){}
     var last = null;
+    var SHARE_FOOTER = '— Calculated and shared from Panchāng (Vedic Panchang) app';
+
     function render(){
       var host = document.getElementById('sk-out'); if (!host) return;
       var c = calc(); c.nakshatraEn = NAKSHATRAS[c.nak];
-      var who = { name: document.getElementById('sk-name').value.trim(), gotra: document.getElementById('sk-gotra').value.trim(), karma: document.getElementById('sk-karma').value.trim() };
-      var t = text(c, mode, who); last = t;
-      var when = c.inst.toLocaleString('en-IN', { timeZone: 'UTC', hour12: true, day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: '2-digit' });
+      var t = text(c, mode); last = { dv: partsToText(t.dvP), en: partsToText(t.enP) };
       var lt = new Date(c.inst.getTime() + c.loc.tz * 3600000);
       var whenTxt = c.isToday ? lt.toLocaleString('en-IN', { timeZone: 'UTC', day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true }) + ' (now)' : lt.toLocaleString('en-IN', { timeZone: 'UTC', day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true }) + ' (sunrise of the selected date)';
       var chips = [['Samvatsara', t.samEn + ' · ' + t.samDv], [trad === 'north' ? 'Vikram Samvat' : 'Shaka Samvat', trad === 'north' ? c.sam.vs : c.sam.shaka], ['Ayana', c.uttar ? 'Uttarayana' : 'Dakshinayana'], ['Ritu', c.ritu], ['Masa', (c.adhika ? 'Adhika ' : '') + c.masa], ['Paksha', c.paksha], ['Tithi', c.tithiName], ['Vara', WEEKDAYS[c.wd]], ['Nakshatra', NAKSHATRAS[c.nak]], ['Yoga', YOGAS[c.yoga]], ['Karana', c.kar]];
-      host.innerHTML = '<p class="desc sk-when">Calculated for <b>' + esc(c.loc.name) + '</b>, ' + esc(whenTxt) + '. Change the city or date from the Panchang page.</p>' +
-        '<div class="sk-chips">' + chips.map(function(x){ return '<span class="sk-chip"><i>' + x[0] + '</i>' + esc(x[1]) + '</span>'; }).join('') + '</div>' +
-        '<div class="sk-card"><div class="sk-lab">Devanagari</div><div class="sk-dv" lang="sa">' + esc(t.dv) + '</div></div>' +
-        '<div class="sk-card"><div class="sk-lab">Transliteration</div><div class="sk-en">' + esc(t.en) + '</div></div>';
+      var infoSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></svg>';
+      host.innerHTML = '<div class="sk-info-row"><button type="button" class="sk-info-btn" id="sk-info-btn" aria-expanded="' + (showInfo ? 'true' : 'false') + '">' + infoSvg + '<span>' + (showInfo ? 'Hide details' : 'Show details') + '</span></button></div>' +
+        '<div class="sk-info-panel" id="sk-info-panel"' + (showInfo ? '' : ' hidden') + '>' +
+          '<p class="desc sk-when">Calculated for <b>' + esc(c.loc.name) + '</b>, ' + esc(whenTxt) + '. Change the city or date from the Panchang page.</p>' +
+          '<div class="sk-chips">' + chips.map(function(x){ return '<span class="sk-chip"><i>' + x[0] + '</i>' + esc(x[1]) + '</span>'; }).join('') + '</div>' +
+        '</div>' +
+        '<div class="sk-card"><div class="sk-lab">Devanagari</div><div class="sk-dv" lang="sa">' + partsToHtml(t.dvP) + '</div></div>' +
+        '<div class="sk-card"><div class="sk-lab">Transliteration</div><div class="sk-en">' + partsToHtml(t.enP) + '</div></div>';
+      var btn = document.getElementById('sk-info-btn');
+      if (btn) btn.addEventListener('click', function(){
+        showInfo = !showInfo;
+        try { localStorage.setItem('skInfo', showInfo ? 'on' : 'off'); } catch(e){}
+        var panel = document.getElementById('sk-info-panel');
+        if (panel) panel.hidden = !showInfo;
+        this.setAttribute('aria-expanded', showInfo ? 'true' : 'false');
+        this.querySelector('span').textContent = showInfo ? 'Hide details' : 'Show details';
+      });
     }
     function setActive(boxId, attr, val){
       document.querySelectorAll('#' + boxId + ' .subtab').forEach(function(b){ var on = b.dataset[attr] === val; b.classList.toggle('active', on); b.setAttribute('aria-selected', on ? 'true' : 'false'); });
     }
     function init(){
       var panel = document.getElementById('sub-sankalp'); if (!panel) return;
-      try { ['name','gotra','karma'].forEach(function(k){ var v = localStorage.getItem('sk_' + k); if (v) document.getElementById('sk-' + k).value = v; }); } catch(e){}
       setActive('sk-mode', 'mode', mode); setActive('sk-trad', 'trad', trad);
       document.getElementById('sk-mode').addEventListener('click', function(e){ var b = e.target.closest('.subtab'); if (!b) return; mode = b.dataset.mode; try { localStorage.setItem('skMode', mode); } catch(err){} setActive('sk-mode', 'mode', mode); render(); });
       document.getElementById('sk-trad').addEventListener('click', function(e){ var b = e.target.closest('.subtab'); if (!b) return; trad = b.dataset.trad; try { localStorage.setItem('skTrad', trad); } catch(err){} setActive('sk-trad', 'trad', trad); render(); });
-      ['name','gotra','karma'].forEach(function(k){ document.getElementById('sk-' + k).addEventListener('input', function(){ try { localStorage.setItem('sk_' + k, this.value); } catch(err){} render(); }); });
       document.getElementById('sk-refresh').addEventListener('click', function(){ render(); });
       function flash(btn, msg){ var o = btn.textContent; btn.textContent = msg; setTimeout(function(){ btn.textContent = o; }, 1400); }
-      function full(){ return last ? last.dv + '\n\n' + last.en : ''; }
+      function full(){ return last ? last.dv + '\n\n' + last.en + '\n\n' + SHARE_FOOTER : ''; }
       document.getElementById('sk-copy').addEventListener('click', function(){
         var btn = this, s = full(); if (!s) return;
         function fallback(){ var ta = document.createElement('textarea'); ta.value = s; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); flash(btn, 'Copied'); } catch(err){ flash(btn, 'Copy failed'); } document.body.removeChild(ta); }
