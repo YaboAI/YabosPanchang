@@ -121,6 +121,18 @@
     --ink:#1F2B1C; --ink-soft:#6B7A63; --line:#D7E2CC; --good:#4C7A44; --bad:#A63B2B;
     --hero-start:#2F5D34; --hero-mid:#244A28; --hero-end:#13241A; --hero-text:#F3F7EE;
   }
+  :root[data-theme-name="twilight"]{
+    --ivory:#F3ECF8; --ivory-dim:#E6D8F0; --maroon:#5A2A6C; --maroon-deep:#431F50;
+    --gold:#B8860A; --gold-light:#D9A62A; --indigo:#2E1540;
+    --ink:#2A1735; --ink-soft:#7A6887; --line:#D7C4E0; --good:#4A6B32; --bad:#A64A26;
+    --hero-start:#5A2A6C; --hero-mid:#431F50; --hero-end:#2E1540; --hero-text:#F3ECF8;
+  }
+  :root[data-theme-name="peacock"]{
+    --ivory:#EEF6F7; --ivory-dim:#DAE9EB; --maroon:#0E6B6E; --maroon-deep:#0A4F52;
+    --gold:#C98B2B; --gold-light:#E6AF4A; --indigo:#07363A;
+    --ink:#102E30; --ink-soft:#5A7A7D; --line:#BFD9DB; --good:#2E7A4A; --bad:#B04A3A;
+    --hero-start:#0E6B6E; --hero-mid:#0A4F52; --hero-end:#06292C; --hero-text:#EEF6F7;
+  }
   .tabs-row{
     display:flex;align-items:center;gap:6px;
     border-top:1px solid var(--line);
@@ -5013,11 +5025,13 @@ body{overflow-x:clip;max-width:100%;}
 
   /* ===================== THEMES ===================== */
   var THEMES = [
-    { key:'temple',   name:'Temple',   bg:'#FBF3E7', accent:'#6E1423' },
-    { key:'midnight', name:'Midnight', bg:'#11152A', accent:'#D7A456' },
-    { key:'saffron',  name:'Saffron',  bg:'#FFF6E9', accent:'#C65B12' },
-    { key:'lotus',    name:'Lotus',    bg:'#FFF3F6', accent:'#B2355E' },
-    { key:'forest',   name:'Forest',   bg:'#F3F7EE', accent:'#2F5D34' }
+    { key:'temple',     name:'Temple',     bg:'#FBF3E7', accent:'#6E1423' },
+    { key:'midnight',   name:'Midnight',   bg:'#11152A', accent:'#D7A456' },
+    { key:'saffron',    name:'Saffron',    bg:'#FFF6E9', accent:'#C65B12' },
+    { key:'lotus',      name:'Lotus',      bg:'#FFF3F6', accent:'#B2355E' },
+    { key:'forest',     name:'Forest',     bg:'#F3F7EE', accent:'#2F5D34' },
+    { key:'twilight',   name:'Twilight',   bg:'#F3ECF8', accent:'#5A2A6C' },
+    { key:'peacock',    name:'Peacock',    bg:'#EEF6F7', accent:'#0E6B6E' }
   ];
 
   var settingsBtn = document.getElementById('settings-btn');
