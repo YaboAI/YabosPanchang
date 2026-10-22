@@ -813,6 +813,15 @@ body{overflow-x:clip;max-width:100%;}
 .rm-sw:checked{background:var(--maroon);}
 .rm-sw:checked::after{transform:translateX(18px);}
 .rm-box .kv-mini{margin-top:10px;}
+.rm-sum{margin-top:6px;font-size:.76rem;line-height:1.4;color:var(--ink-soft);}
+.rs-ov{position:fixed;inset:0;z-index:1200;background:rgba(20,10,8,.5);display:flex;align-items:flex-end;justify-content:center;}
+.rs-sheet{background:var(--ivory);color:var(--ink);width:100%;max-width:520px;max-height:88vh;overflow-y:auto;border-radius:18px 18px 0 0;padding:18px 18px calc(22px + var(--sab));box-shadow:0 -8px 30px rgba(0,0,0,.3);}
+.rs-sheet h3{font-family:'Fraunces Local','Fraunces',Georgia,serif;font-size:1.25rem;margin:0 0 2px;color:var(--maroon);}
+.rs-sheet h4{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:18px 0 6px;font-weight:700;}
+.rs-sheet .rs-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 0;border-top:1px solid var(--line);font-size:.92rem;line-height:1.35;}
+.rs-sheet .rs-row small{display:block;color:var(--ink-soft);font-size:.76rem;}
+.rs-sheet input[type=time]{font:inherit;padding:7px 10px;min-height:42px;border-radius:10px;border:1px solid var(--line);background:var(--ivory-dim);color:var(--ink);}
+.rs-sheet .rs-done{margin-top:18px;width:100%;}
 .rm-status{margin-top:8px;font-size:.76rem;line-height:1.4;color:var(--ink-soft);}
 </style>
 </head>
@@ -863,7 +872,9 @@ body{overflow-x:clip;max-width:100%;}
         <div class="theme-grid" id="theme-grid"></div>
         <div class="rm-box app-only-block" id="rm-box">
           <div class="theme-panel-title">Reminders</div>
-          <label class="rm-row"><span>Evening reminder at 7:30 PM for tomorrow&rsquo;s festival or vrat</span><input type="checkbox" class="rm-sw" id="rm-toggle" aria-label="Evening reminders"></label>
+          <label class="rm-row"><span>Festival and vrat reminders</span><input type="checkbox" class="rm-sw" id="rm-toggle" aria-label="Festival and vrat reminders"></label>
+          <div class="rm-sum" id="rm-sum"></div>
+          <button type="button" class="kv-mini" id="rm-custom">Customise reminders</button>
           <div class="rm-status" id="rm-status"></div>
         </div>
       </div>
@@ -4920,37 +4931,87 @@ body{overflow-x:clip;max-width:100%;}
   /* ===================== REMINDERS (Android app only) ===================== */
   // An evening notification (7:30 PM) for every day that is followed by a festival or vrat. Scheduled on the phone for the next 60 days
   // and refreshed whenever the app is opened or the place changes, so it keeps arriving even when the app is closed.
-  var RM_KEY = 'panchangReminders', RM_HOUR = 19, RM_MIN = 30, RM_DAYS = 60, RM_LAST = 0;
+  var RM_KEY = 'panchangReminders', RM_CFG = 'panchangRemindCfg', RM_DAYS = 60, RM_LAST = 0, RM_AM = [7, 0];
+  var RM_DEF = {time:'19:30', leads:{am:false, eve:true, d2:false, w1:false}, cats:{fest:true, ekadashi:true, pur:true, prad:false, sank:false}};
+  var RM_CATS = [['fest','Festivals','Diwali, Holi, Navratri, Janmashtami and the rest'],['ekadashi','Ekadashi','Twice a month'],['pur','Purnima and Amavasya','Full and new moon days'],['prad','Pradosh','Twice a month, evening vrat for Shiva'],['sank','Sankashti and Vinayaka Chaturthi','Monthly vrats for Ganesha']];
+  var RM_LEADS = [['am','Morning of the day (7:00 AM)',''],['eve','Evening before','At the reminder time below'],['d2','2 days before','At the reminder time below'],['w1','1 week before','Festivals only, to plan ahead']];
   function rmPlugin(){
     var c = window.Capacitor;
     try { if (c && c.isNativePlatform && c.isNativePlatform() && c.Plugins && c.Plugins.LocalNotifications) return c.Plugins.LocalNotifications; } catch(e){}
     return null;
   }
   function rmOn(){ try { var v = localStorage.getItem(RM_KEY); return v === null ? true : v === 'on'; } catch(e){ return true; } }
+  function rmCfg(){
+    var c = {time: RM_DEF.time, leads: Object.assign({}, RM_DEF.leads), cats: Object.assign({}, RM_DEF.cats)};
+    try { var j = JSON.parse(localStorage.getItem(RM_CFG) || 'null');
+      if (j){ if (/^\d\d:\d\d$/.test(j.time || '')) c.time = j.time; Object.assign(c.leads, j.leads || {}); Object.assign(c.cats, j.cats || {}); } } catch(e){}
+    return c;
+  }
+  function rmSave(c){ try { localStorage.setItem(RM_CFG, JSON.stringify(c)); } catch(e){} }
   function rmStatus(msg){ var el = document.getElementById('rm-status'); if (el) el.textContent = msg; }
-  function rmList(){
-    var out = [], now = new Date(), loc = selectedLoc(), i;
-    for (i = 0; i < RM_DAYS; i++){
-      var at = new Date(now.getFullYear(), now.getMonth(), now.getDate() + i, RM_HOUR, RM_MIN, 0);
-      if (at.getTime() <= now.getTime() + 60000) continue;
-      var t = new Date(at.getFullYear(), at.getMonth(), at.getDate() + 1), y = t.getFullYear(), m = t.getMonth() + 1, d = t.getDate(), names = [], notes = [];
-      festOnDay(y, m, d).forEach(function(f){ names.push(f[1]); notes.push(f[1] + (f[2] ? ' \u2014 ' + f[2] : '')); });
-      vratsOn(y, m, d, loc).forEach(function(v){ names.push(v.label); notes.push(v.label + (VRAT_NOTE[v.type] ? ' \u2014 ' + VRAT_NOTE[v.type] : '')); });
-      if (!names.length) continue;
-      out.push({
-        id: y*10000 + m*100 + d,
-        title: 'Tomorrow: ' + names[0] + (names.length > 1 ? ' + ' + (names.length - 1) + ' more' : ''),
-        body: WEEKDAYS[t.getDay()] + ', ' + d + ' ' + MONTHS[m-1].slice(0, 3) + (names.length > 1 ? ' \u00b7 ' + names.slice(1).join(', ') : ' \u00b7 ' + (notes[0].split(' \u2014 ')[1] || 'Panchang reminder')),
-        largeBody: WEEKDAYS[t.getDay()] + ', ' + d + ' ' + MONTHS[m-1] + '\n' + notes.join('\n'),
-        schedule: {at: at, allowWhileIdle: true},
-        smallIcon: 'ic_stat_lotus', iconColor: '#6E1423', channelId: 'panchang-reminders',
-        extra: {date: y + '-' + pad2(m) + '-' + pad2(d)}
-      });
-    }
+  function rmFmt12(min){ var h = Math.floor(min/60) % 24, mm = Math.round(min % 60); return ((h%12)||12) + ':' + (mm<10?'0':'') + mm + ' ' + (h >= 12 ? 'PM' : 'AM'); }
+  function rmSummary(){
+    var el = document.getElementById('rm-sum'); if (!el) return;
+    var c = rmCfg(), t = c.time.split(':'), when = [];
+    if (c.leads.am) when.push('morning of the day');
+    if (c.leads.eve) when.push('evening before at ' + rmFmt12(+t[0]*60 + +t[1]));
+    if (c.leads.d2) when.push('2 days before');
+    if (c.leads.w1) when.push('1 week before (festivals)');
+    var cats = RM_CATS.filter(function(x){ return c.cats[x[0]]; }).map(function(x){ return x[1]; });
+    el.textContent = (when.length && cats.length) ? cats.join(', ') + '. ' + (function(w){ return w.charAt(0).toUpperCase() + w.slice(1); })(when.join(', ')) + '.' : 'Nothing selected. Tap Customise to choose.';
+  }
+  function rmCat(type){ return {'Ekadashi':'ekadashi','Purnima':'pur','Amavasya':'pur','Pradosh Vrat':'prad','Sankashti Chaturthi':'sank','Vinayaka Chaturthi':'sank'}[type] || 'sank'; }
+  // what is happening on a day, in the categories the user chose, each with a useful key time
+  function rmItems(y, m, d, loc, cats){
+    var out = [], ss = null, mr;
+    function times(){ if (!ss){ ss = sunriseSunset(y, m, d, loc.lat, loc.lon, loc.tz); mr = moonriseLocalMin(y, m, d, loc.lat, loc.lon, loc.tz); } }
+    if (cats.fest) festOnDay(y, m, d).forEach(function(f){ out.push({cat:'fest', name:f[1], note:f[2] || ''}); });
+    vratsOn(y, m, d, loc).forEach(function(v){
+      var cat = rmCat(v.type); if (!cats[cat]) return;
+      var note = VRAT_NOTE[v.type] || '';
+      try {
+        times();
+        if (v.type === 'Ekadashi') note = 'Sunrise ' + rmFmt12(ss.sunriseMin) + '. Break the fast next morning after sunrise';
+        else if (v.type === 'Pradosh Vrat') note = 'Pradosh puja after sunset at ' + rmFmt12(ss.sunsetMin);
+        else if (v.type === 'Sankashti Chaturthi' || v.type === 'Purnima') { if (mr !== null && mr !== undefined) note = (v.type === 'Purnima' ? 'Full moon. ' : 'Fast broken after the ') + 'Moonrise ' + rmFmt12(mr); }
+      } catch(e){}
+      out.push({cat:cat, name:v.label, note:note});
+    });
     return out;
   }
-  function rmCancelAll(P){
-    return P.getPending().then(function(p){ return (p.notifications && p.notifications.length) ? P.cancel({notifications: p.notifications.map(function(n){ return {id: n.id}; })}) : null; });
+  function rmList(){
+    var out = [], now = new Date(), loc = selectedLoc(), cfg = rmCfg(), tm = cfg.time.split(':'), i;
+    var LEADS = [['am', 0, 3, 'Today: '], ['eve', 1, 0, 'Tomorrow: '], ['d2', 2, 1, 'In 2 days: '], ['w1', 7, 2, 'In 1 week: ']];
+    for (i = 0; i < RM_DAYS + 8; i++){
+      var T = new Date(now.getFullYear(), now.getMonth(), now.getDate() + i), y = T.getFullYear(), m = T.getMonth() + 1, d = T.getDate();
+      var all = null;
+      LEADS.forEach(function(L){
+        if (!cfg.leads[L[0]]) return;
+        var at = L[0] === 'am' ? new Date(y, m-1, d, RM_AM[0], RM_AM[1], 0) : new Date(y, m-1, d - L[1], +tm[0], +tm[1], 0);
+        if (at.getTime() <= now.getTime() + 60000 || at.getTime() > now.getTime() + RM_DAYS*864e5) return;
+        if (!all) all = rmItems(y, m, d, loc, cfg.cats);
+        var items = L[0] === 'w1' ? all.filter(function(x){ return x.cat === 'fest'; }) : all;
+        if (!items.length) return;
+        var names = items.map(function(x){ return x.name; }), when = WEEKDAYS[T.getDay()] + ', ' + d + ' ' + MONTHS[m-1].slice(0, 3);
+        out.push({
+          id: (y*10000 + m*100 + d)*10 + L[2],
+          title: L[3] + names[0] + (names.length > 1 ? ' + ' + (names.length - 1) + ' more' : ''),
+          body: when + ' \u00b7 ' + (names.length > 1 ? names.slice(1).join(', ') : (items[0].note || 'Panchang reminder')),
+          largeBody: when + '\n' + items.map(function(x){ return x.name + (x.note ? ' \u2014 ' + x.note : ''); }).join('\n'),
+          schedule: {at: at, allowWhileIdle: true},
+          smallIcon: 'ic_stat_lotus', iconColor: '#6E1423', channelId: 'panchang-reminders', actionTypeId: 'PANCHANG_REM',
+          extra: {date: y + '-' + pad2(m) + '-' + pad2(d), names: names[0] + (names.length > 1 ? ' + ' + (names.length - 1) + ' more' : '')}
+        });
+      });
+    }
+    out.sort(function(a, b){ return a.schedule.at - b.schedule.at; });
+    return out.slice(0, 120);
+  }
+  function rmCancelAll(P){   // a snoozed reminder (id ending in 9) is kept
+    return P.getPending().then(function(p){
+      var ids = (p.notifications || []).filter(function(n){ return n.id % 10 !== 9; }).map(function(n){ return {id: n.id}; });
+      return ids.length ? P.cancel({notifications: ids}) : null;
+    });
   }
   function rmSchedule(force){
     var P = rmPlugin();
@@ -4959,24 +5020,56 @@ body{overflow-x:clip;max-width:100%;}
     if (!force && Date.now() - RM_LAST < 6*3600*1000) return;
     P.checkPermissions().then(function(r){ return r.display === 'granted' ? r : P.requestPermissions(); }).then(function(r){
       if (r.display !== 'granted'){ rmStatus('Notifications are blocked. Allow them in Android Settings, Apps, Panchang, Notifications.'); return null; }
-      return P.createChannel({id: 'panchang-reminders', name: 'Festival and vrat reminders', description: 'An evening reminder for tomorrow\u2019s festival or vrat', importance: 4, visibility: 1}).catch(function(){})
+      return P.createChannel({id: 'panchang-reminders', name: 'Festival and vrat reminders', description: 'Reminders for festivals and vrats', importance: 4, visibility: 1}).catch(function(){})
+        .then(function(){ return P.registerActionTypes({types: [{id: 'PANCHANG_REM', actions: [{id: 'snooze', title: 'Remind me in the morning'}]}]}); }).catch(function(){})
         .then(function(){ return rmCancelAll(P); })
         .then(function(){
           var list = rmList(); RM_LAST = Date.now();
-          if (!list.length){ rmStatus('No festival or vrat in the next ' + RM_DAYS + ' days.'); return null; }
+          if (!list.length){ rmStatus('Nothing to remind in the next ' + RM_DAYS + ' days with these choices.'); return null; }
           return P.schedule({notifications: list}).then(function(){ rmStatus(list.length + ' reminders are set for the next ' + RM_DAYS + ' days.'); });
         });
     }).catch(function(){ rmStatus('Could not set the reminders.'); });
   }
+  function rmOpenSheet(){
+    var c = rmCfg(), ov = document.createElement('div'); ov.className = 'rs-ov';
+    function sw(id, on){ return '<input type="checkbox" class="rm-sw" data-k="' + id + '"' + (on ? ' checked' : '') + '>'; }
+    ov.innerHTML = '<div class="rs-sheet" role="dialog" aria-label="Reminder settings"><h3>Reminders</h3><p class="desc" style="margin:2px 0 0;">Choose what to be reminded about and when.</p>' +
+      '<h4>What</h4>' + RM_CATS.map(function(x){ return '<label class="rs-row"><span>' + x[1] + '<small>' + x[2] + '</small></span>' + sw('c:' + x[0], c.cats[x[0]]) + '</label>'; }).join('') +
+      '<h4>When</h4>' + RM_LEADS.map(function(x){ return '<label class="rs-row"><span>' + x[1] + (x[2] ? '<small>' + x[2] + '</small>' : '') + '</span>' + sw('l:' + x[0], c.leads[x[0]]) + '</label>'; }).join('') +
+      '<div class="rs-row"><span>Reminder time<small>For the evening before and 2 days before</small></span><input type="time" id="rs-time" value="' + c.time + '"></div>' +
+      '<button type="button" class="kv-primary rs-done">Done</button></div>';
+    document.body.appendChild(ov);
+    var timer = null;
+    function apply(){
+      var n = rmCfg();
+      [].forEach.call(ov.querySelectorAll('input[data-k]'), function(i){ var k = i.dataset.k.split(':'); (k[0] === 'c' ? n.cats : n.leads)[k[1]] = i.checked; });
+      var t = ov.querySelector('#rs-time').value; if (/^\d\d:\d\d$/.test(t)) n.time = t;
+      rmSave(n); rmSummary();
+      clearTimeout(timer); timer = setTimeout(function(){ rmSchedule(true); }, 500);
+    }
+    ov.addEventListener('change', apply);
+    function close(){ ov.remove(); }
+    ov.querySelector('.rs-done').addEventListener('click', close);
+    ov.addEventListener('click', function(e){ if (e.target === ov) close(); });
+  }
   (function(){
     var tg = document.getElementById('rm-toggle'); if (!tg) return;
     tg.checked = rmOn();
+    rmSummary();
+    document.getElementById('rm-custom').addEventListener('click', rmOpenSheet);
     tg.addEventListener('change', function(){ try { localStorage.setItem(RM_KEY, tg.checked ? 'on' : 'off'); } catch(e){} rmSchedule(true); });
     var P = rmPlugin();
     if (!P){ rmStatus('Reminders work in the Android app.'); return; }
     P.addListener('localNotificationActionPerformed', function(ev){   // tapping a reminder opens that day's Panchang
       var dk = ev && ev.notification && ev.notification.extra && ev.notification.extra.date; if (!dk) return;
-      var q = dk.split('-'); state.date = new Date(+q[0], +q[1] - 1, +q[2]); dateInput.value = fmtDateInput(state.date); renderAll(); switchTab('today'); window.scrollTo(0, 0);
+      var q = dk.split('-');
+      if (ev.actionId === 'snooze'){   // ask again at 7 AM on the day itself (or in 3 hours if that has passed)
+        var nm = ev.notification.extra.names || 'Festival or vrat', at = new Date(+q[0], +q[1] - 1, +q[2], RM_AM[0], RM_AM[1], 0);
+        if (at.getTime() <= Date.now() + 60000) at = new Date(Date.now() + 3*36e5);
+        P.schedule({notifications: [{id: (+q[0]*10000 + +q[1]*100 + +q[2])*10 + 9, title: 'Today: ' + nm, body: 'Your snoozed reminder', schedule: {at: at, allowWhileIdle: true}, smallIcon: 'ic_stat_lotus', iconColor: '#6E1423', channelId: 'panchang-reminders', extra: {date: dk, names: nm}}]}).catch(function(){});
+        return;
+      }
+       state.date = new Date(+q[0], +q[1] - 1, +q[2]); dateInput.value = fmtDateInput(state.date); renderAll(); switchTab('today'); window.scrollTo(0, 0);
     });
     document.getElementById('city-select').addEventListener('change', function(){ setTimeout(function(){ rmSchedule(true); }, 600); });   // vrat dates depend on the place
     document.addEventListener('visibilitychange', function(){ if (!document.hidden) rmSchedule(false); });
