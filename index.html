@@ -893,6 +893,22 @@ body{overflow-x:clip;max-width:100%;}
 .rs-sheet .rs-done{margin-top:18px;width:100%;}
   /* ===== TITHI SMRITI ===== */
   .ts-sec{position:relative;}
+  .ts-saved-h{display:flex;align-items:center;gap:8px;margin:0;font-family:'Fraunces','Fraunces Local',Georgia,serif;font-size:1.1rem;color:var(--maroon);}
+  .ts-saved-h[hidden]{display:none;}
+  .ts-saved-h .ts-count{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;padding:0 7px;border-radius:999px;background:var(--maroon);color:var(--ivory);font-size:.72rem;font-weight:700;letter-spacing:0;}
+  .cp-ov{z-index:1300;}   /* the city search can open from inside a popup sheet */
+  .ts-lrow{display:flex;align-items:center;gap:8px;margin:12px 0 5px;}
+  .ts-lrow .ts-l{margin:0;}
+  .ts-mib{width:28px;height:28px;padding:0;border-radius:50%;border:1px solid var(--gold);background:var(--ivory-dim);color:var(--maroon);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;}
+  .ts-mib svg{width:17px;height:17px;}
+  .ts-mib[aria-expanded="true"]{background:var(--maroon);color:var(--ivory);border-color:var(--maroon);}
+  .ts-mi{margin:0 0 10px;padding:10px 12px;border-radius:12px;border:1px dashed var(--gold);background:var(--ivory-dim);font-size:.84rem;line-height:1.5;}
+  .ts-mi[hidden]{display:none;}
+  .ts-mi p{margin:0 0 6px;}
+  .ts-mi h5{margin:10px 0 2px;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--maroon);}
+  .ts-mi ul{margin:0;padding-left:18px;}
+  .ts-mi li{margin:3px 0;}
+  .ts-mi .ts-mi-note{margin-top:10px;padding-top:8px;border-top:1px solid var(--line);}
   .ts-pp{font-size:.78rem;color:var(--ink-soft);margin-top:3px;}
   .ts-pp b{color:var(--maroon);font-weight:600;}
   .cal-cell .cal-ts{position:absolute;bottom:3px;right:3px;width:14px;height:14px;pointer-events:none;}
@@ -917,7 +933,7 @@ body{overflow-x:clip;max-width:100%;}
   .ts-steps li::before{counter-increment:st;content:counter(st);position:absolute;left:0;top:1px;width:24px;height:24px;border-radius:50%;background:var(--maroon);color:var(--ivory);font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;}
   .hm-card.ts-feature{grid-column:1 / -1;flex-direction:row;align-items:center;gap:14px;min-height:0;padding:14px 16px;background:linear-gradient(135deg,#3A0A14 0%,#6A1424 55%,#3A0A14 100%);border:1px solid #C98A1E;color:#FFF1D0;position:relative;overflow:hidden;box-shadow:0 6px 18px rgba(58,10,20,.28);}
   .hm-card.ts-feature::after{content:'';position:absolute;right:-30px;top:-30px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(255,210,122,.28),rgba(255,210,122,0) 70%);pointer-events:none;}
-  .hm-card.ts-feature .ts-hm-logo{width:60px;height:60px;flex:none;filter:drop-shadow(0 2px 6px rgba(0,0,0,.45));}
+  .hm-card.ts-feature .ts-hm-logo{width:62px;height:62px;flex:none;filter:drop-shadow(0 0 10px rgba(255,214,140,.45)) drop-shadow(0 2px 4px rgba(0,0,0,.35));}
   .hm-card.ts-feature .ts-hm-txt{display:flex;flex-direction:column;gap:3px;min-width:0;}
   .hm-card.ts-feature .hm-name{font-family:'Italiana','Fraunces Local',Georgia,serif;font-size:1.55rem;font-weight:400;letter-spacing:.07em;color:#F6D78B;line-height:1.05;}
   .hm-card.ts-feature .hm-sub{color:#EBD7B0;font-size:.8rem;line-height:1.35;}
@@ -930,6 +946,22 @@ body{overflow-x:clip;max-width:100%;}
   html:not([data-lang="en"]) h2.ts-title small{display:none;}
   html:not([data-lang="en"]) h2.ts-title{letter-spacing:0;font-size:1.9rem;}
   .ts-tag{margin:0;font-style:italic;color:var(--maroon);font-size:.95rem;}
+  /* Tithi Smriti page banner: a dark night-sky card so the page header stands apart in every theme */
+  .ts-sec .ts-hero{position:relative;overflow:hidden;gap:16px;padding:20px 66px 20px 18px;margin-bottom:14px;border-radius:18px;border:1px solid #C98A1E;
+    background:radial-gradient(90% 120% at 88% 0%,rgba(255,214,140,.22),rgba(255,214,140,0) 60%),linear-gradient(135deg,#1E1233 0%,#3F0F22 55%,#5E1120 100%);
+    box-shadow:0 10px 26px rgba(40,10,20,.25);}
+  .ts-sec .ts-hero::before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.8;
+    background:radial-gradient(1.2px 1.2px at 62% 22%,#FFE9B0,transparent),radial-gradient(1px 1px at 74% 70%,#FFE9B0,transparent),radial-gradient(1.4px 1.4px at 86% 40%,#FFE9B0,transparent),radial-gradient(1px 1px at 52% 80%,#FFE9B0,transparent),radial-gradient(1px 1px at 95% 85%,#FFE9B0,transparent);}
+  .ts-sec .ts-hero::after{content:'';position:absolute;right:-46px;bottom:-78px;width:210px;height:210px;border-radius:50%;box-shadow:inset -26px 12px 0 0 rgba(246,215,139,.13);pointer-events:none;}
+  .ts-sec .ts-hero > *{position:relative;z-index:1;}
+  .ts-sec .ts-logo{filter:drop-shadow(0 0 12px rgba(255,214,140,.45)) drop-shadow(0 3px 6px rgba(0,0,0,.4));}
+  .ts-sec h2.ts-title{color:#F6D78B;font-size:2.5rem;}
+  html:not([data-lang="en"]) .ts-sec h2.ts-title{font-size:2rem;}
+  .ts-sec h2.ts-title small{color:#E9C46A;}
+  .ts-sec .ts-tag{color:#EBD7B0;}
+  .ts-info{top:14px !important;right:14px !important;z-index:2;border-color:#C98A1E !important;background:rgba(255,236,190,.1) !important;color:#F6D78B !important;box-shadow:none !important;}
+  .ts-info:hover{background:rgba(255,236,190,.2) !important;}
+  @media (max-width:420px){.ts-sec .ts-hero{padding:16px 58px 16px 14px;gap:12px;}.ts-sec .ts-logo{width:64px;height:64px;}.ts-sec h2.ts-title{font-size:2rem;}}
   .ts-next{margin:14px 0 4px;padding:14px 16px;border-radius:14px;color:#FFF1D0;background:linear-gradient(135deg,#3A0A14,#6A1424 60%,#4A0F1C);border:1px solid #C98A1E;display:flex;gap:14px;align-items:center;}
   .ts-next[hidden]{display:none;}
   .ts-next .tn-num{flex:none;min-width:64px;text-align:center;padding:6px 8px;border-radius:12px;background:rgba(255,227,163,.12);border:1px solid rgba(233,196,106,.5);}
@@ -953,19 +985,51 @@ body{overflow-x:clip;max-width:100%;}
   .ts-tithi{margin-top:3px;font-size:.88rem;color:var(--maroon);font-style:italic;font-weight:600;}
   .ts-meta{font-size:.78rem;color:var(--ink-soft);margin-top:2px;}
   .ts-meta em{font-style:normal;font-weight:700;color:var(--gold);}
-  .ts-acts{grid-column:1 / -1;display:flex;gap:6px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:8px;}
-  .ts-acts button{font:inherit;font-size:.78rem;font-weight:600;min-height:36px;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:var(--ivory);color:var(--ink);cursor:pointer;}
-  .ts-acts button.del.armed{background:var(--bad);color:#fff;border-color:var(--bad);}
+  .ts-card{position:relative;}
+  .ts-card .ts-body{padding-right:34px;}
+  .ts-more{position:absolute;top:6px;right:6px;width:38px;height:38px;border:0;border-radius:50%;background:transparent;color:var(--ink-soft);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;}
+  .ts-more:hover,.ts-more[aria-expanded="true"]{background:color-mix(in srgb,var(--maroon) 10%,transparent);color:var(--maroon);}
+  .ts-more svg{width:20px;height:20px;fill:currentColor;}
+  .ts-menu{position:absolute;top:44px;right:8px;z-index:20;min-width:190px;padding:6px;border-radius:14px;background:var(--ivory);border:1px solid var(--line);box-shadow:0 10px 28px rgba(30,10,10,.22);display:flex;flex-direction:column;}
+  .ts-menu[hidden]{display:none;}
+  .ts-menu button{display:flex;align-items:center;gap:12px;font:inherit;font-size:.9rem;text-align:left;min-height:44px;padding:8px 12px;border:0;border-radius:10px;background:transparent;color:var(--ink);cursor:pointer;}
+  .ts-menu button:hover{background:var(--ivory-dim);}
+  .ts-menu button svg{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;color:var(--maroon);}
+  .ts-menu button.del{color:var(--bad);}
+  .ts-menu button.del svg{color:var(--bad);}
+  .ts-menu button.del.armed{background:var(--bad);color:#fff;}
+  .ts-menu button.del.armed svg{color:#fff;}
+  .ts-sheet .ts-err{display:block;color:var(--bad);font-size:.8rem;font-weight:600;margin-top:5px;}
+  .ts-sheet .ts-err[hidden]{display:none;}
+  .ts-sheet input.bad{border-color:var(--bad);box-shadow:0 0 0 2px color-mix(in srgb,var(--bad) 25%,transparent);}
   .ts-years{grid-column:1 / -1;font-size:.82rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:4px 14px;padding:6px 0 2px;}
   .ts-years div{display:flex;justify-content:space-between;gap:8px;border-bottom:1px dotted var(--line);padding:3px 0;}
   .ts-years b{color:var(--maroon);}
   .ts-years[hidden]{display:none;}
   .ts-empty{text-align:center;padding:26px 14px;border:1px dashed var(--gold);border-radius:14px;color:var(--ink-soft);font-size:.9rem;line-height:1.5;margin:12px 0;}
   .ts-empty svg{width:64px;height:64px;display:block;margin:0 auto 8px;opacity:.9;}
-  .ts-foot{font-size:.78rem;color:var(--ink-soft);line-height:1.5;margin-top:14px;}
+  .ts-foot{display:flex;gap:10px;align-items:flex-start;font-size:.8rem;color:var(--ink-soft);line-height:1.5;margin-top:16px;padding:10px 12px;border-radius:12px;background:color-mix(in srgb,var(--gold) 8%,transparent);}
+  .ts-foot svg{width:18px;height:18px;flex:none;margin-top:1px;fill:none;stroke:var(--gold);stroke-width:1.8;stroke-linecap:round;}
+  .ts-foot svg circle:last-child{fill:var(--gold);}
+  .ts-div{display:flex;align-items:center;gap:12px;margin:26px 0 18px;}
+  .ts-div span{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.7;}
+  .ts-div svg{width:22px;height:22px;fill:none;stroke:var(--gold);stroke-width:1.5;stroke-linejoin:round;}
+  .ts-saved{border:1px solid var(--line);border-radius:18px;padding:14px 14px 6px;background:color-mix(in srgb,var(--ivory) 70%,#fff);}
+  .ts-saved.empty{border:0;padding:0;background:none;}
+  @media (max-width:480px){.ts-saved{padding:12px 8px 4px;border-radius:16px;}.ts-saved .ts-card{padding:10px;gap:6px 10px;}.ts-saved .ts-when{width:50px;}}
+  .ts-meta em,.ts-meta span{white-space:nowrap;}
+  .ts-saved-top[hidden],.ts-chips[hidden]{display:none;}
+  .ts-saved-top{display:flex;align-items:center;justify-content:space-between;}
+  .ts-chips{display:flex;gap:6px;overflow-x:auto;padding:10px 0 4px;scrollbar-width:none;}
+  .ts-chips::-webkit-scrollbar{display:none;}
+  .ts-chips button{flex:none;font:inherit;font-size:.8rem;font-weight:600;min-height:34px;padding:4px 12px;border-radius:999px;border:1px solid var(--line);background:var(--ivory-dim);color:var(--ink-soft);cursor:pointer;display:inline-flex;align-items:center;gap:6px;}
+  .ts-chips button b{font-size:.7rem;font-weight:700;opacity:.75;}
+  .ts-chips button.on{background:var(--maroon);border-color:var(--maroon);color:var(--ivory);}
+  .ts-grp{display:flex;align-items:center;gap:8px;margin:14px 0 2px;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);}
+  .ts-grp::after{content:'';flex:1;height:1px;background:var(--line);}
   .ts-strip{display:flex;align-items:center;gap:10px;margin:12px 0 0;padding:10px 12px;border-radius:12px;color:#FFF1D0;background:linear-gradient(135deg,#3A0A14,#6A1424);border:1px solid #C98A1E;font-size:.88rem;line-height:1.35;cursor:pointer;}
   .ts-strip[hidden]{display:none;}
-  .ts-strip svg{width:34px;height:34px;flex:none;}
+  .ts-strip svg{width:36px;height:36px;flex:none;filter:drop-shadow(0 0 7px rgba(255,214,140,.45));}
   .ts-strip b{color:#F6D78B;}
   .ts-strip .sub{display:block;font-size:.74rem;color:#EBD7B0;font-style:italic;}
   .rs-sheet.ts-sheet{max-height:92vh;}
@@ -1006,9 +1070,9 @@ body{overflow-x:clip;max-width:100%;}
 <use href="#tsAPet" fill="url(#tsAP2)" transform="rotate(-62) scale(.9 .75)"/><use href="#tsAPet" fill="url(#tsAP2)" transform="rotate(62) scale(.9 .75)"/>
 <use href="#tsAPet" fill="url(#tsAP1)" transform="rotate(-32) scale(.95 .9)"/><use href="#tsAPet" fill="url(#tsAP1)" transform="rotate(32) scale(.95 .9)"/>
 <use href="#tsAPet" fill="url(#tsAG)" transform="scale(1 1)"/></g>
-<path d="M36 101 Q60 112 84 101" fill="none" stroke="#F2C65A" stroke-width="1.6" stroke-linecap="round"/></symbol></defs></svg>
+<path d="M36 101 Q60 112 84 101" fill="none" stroke="#F2C65A" stroke-width="1.6" stroke-linecap="round"/><rect x="1.2" y="1.2" width="117.6" height="117.6" rx="25" fill="none" stroke="url(#tsAG)" stroke-width="2.4"/></symbol></defs></svg>
 <nav id="appnav" aria-label="Main"><button data-go="home"><span class="an-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span>Home</button><button data-go="today"><span class="an-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>Panchang</button><button data-go="calendar"><span class="an-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>Calendar</button><button data-go="festivals"><span class="an-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.4 5.6 6 .6-4.5 4 1.4 6-5.3-3.2-5.3 3.2 1.4-6-4.5-4 6-.6z"/></svg></span>Festivals</button><button data-go="more"><span class="an-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span>More</button></nav>
-<div id="appmore"><button data-go="muhurat">Muhuratam</button><button data-go="horoscope">Jyotisham</button><button data-go="yantrani">Yantrāṇi</button><button data-go="about">About</button></div>
+<div id="appmore"><button data-go="muhurat">Muhuratam</button><button data-go="horoscope">Jyotisham</button><button data-go="yantrani">Yantrāṇi</button><button data-go="smriti">Tithi Smriti</button><button data-go="about">About</button></div>
 <button type="button" id="fest-fab" class="fab" aria-label="Search festivals" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
 <div id="lang-ov" hidden>
   <div id="lang-card" role="dialog" aria-modal="true" aria-label="Choose your language">
@@ -1029,7 +1093,7 @@ body{overflow-x:clip;max-width:100%;}
   </div>
 </div>
 <div id="appdrawer-ov"></div>
-<aside id="appdrawer" aria-label="Menu"><div class="dr-head"><div class="dr-brand">Panch<em>ā</em>ng</div><div class="dr-tag">daily almanac · sun, moon &amp; muhuratam</div></div><button data-go="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Home</button><button data-go="today"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>Panchang</button><button data-go="calendar"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendar</button><button data-go="festivals"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.4 5.6 6 .6-4.5 4 1.4 6-5.3-3.2-5.3 3.2 1.4-6-4.5-4 6-.6z"/></svg>Festivals</button><button data-go="muhurat"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Muhuratam</button><button data-go="horoscope"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>Jyotisham</button><button data-go="yantrani"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>Yantrāṇi</button><button data-go="about"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></svg>About</button><div class="dr-sep"></div><button data-go="theme"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg>Theme</button><button data-go="lang"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15 0 18M12 3c-2.5 2.7-2.5 15 0 18"/></svg>Language</button></aside>
+<aside id="appdrawer" aria-label="Menu"><div class="dr-head"><div class="dr-brand">Panch<em>ā</em>ng</div><div class="dr-tag">daily almanac · sun, moon &amp; muhuratam</div></div><button data-go="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Home</button><button data-go="today"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>Panchang</button><button data-go="calendar"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Calendar</button><button data-go="festivals"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.4 5.6 6 .6-4.5 4 1.4 6-5.3-3.2-5.3 3.2 1.4-6-4.5-4 6-.6z"/></svg>Festivals</button><button data-go="muhurat"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Muhuratam</button><button data-go="horoscope"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>Jyotisham</button><button data-go="yantrani"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>Yantrāṇi</button><button data-go="smriti"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c2 2.6 2.6 4.6 1.6 6.4-.4.7-1 1-1.6 1.1-.6-.1-1.2-.4-1.6-1.1C9.4 7.6 10 5.6 12 3z"/><path d="M5 13c1 4 4 6 7 6s6-2 7-6"/><path d="M3.5 13h17"/></svg>Tithi Smriti</button><button data-go="about"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></svg>About</button><div class="dr-sep"></div><button data-go="theme"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg>Theme</button><button data-go="lang"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15 0 18M12 3c-2.5 2.7-2.5 15 0 18"/></svg>Language</button></aside>
 
 <header class="site">
   <div class="wrap">
@@ -1050,6 +1114,7 @@ body{overflow-x:clip;max-width:100%;}
       <button data-tab="muhurat">Muhuratam</button>
       <button data-tab="horoscope">Jyotisham</button>
       <button data-tab="yantrani">Yantrāṇi</button>
+      <button data-tab="smriti">Tithi Smriti</button>
       <button data-tab="about">About</button>
     </nav>
     <div class="settings-wrap">
@@ -1086,7 +1151,7 @@ body{overflow-x:clip;max-width:100%;}
         <div class="hm-bless"><svg class="hm-gan" viewBox="0 0 120 120" role="img" aria-label="Lord Ganesha"><defs><radialGradient id="gg" cx="50%" cy="45%" r="60%"><stop offset="0" stop-color="#FFE3A3" stop-opacity=".9"/><stop offset="1" stop-color="#FFE3A3" stop-opacity="0"/></radialGradient><linearGradient id="gk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7D774"/><stop offset="1" stop-color="#C9961A"/></linearGradient></defs><circle cx="60" cy="60" r="58" fill="url(#gg)"/><ellipse cx="60" cy="112" rx="34" ry="18" fill="#F59A3C" stroke="#B85F12" stroke-width="2"/><path d="M30 100 Q60 124 90 100" fill="none" stroke="url(#gk)" stroke-width="5" stroke-linecap="round"/><ellipse cx="25" cy="58" rx="20" ry="27" fill="#F2A04A" stroke="#B85F12" stroke-width="2"/><ellipse cx="27" cy="58" rx="11" ry="18" fill="#F7B8A0"/><ellipse cx="95" cy="58" rx="20" ry="27" fill="#F2A04A" stroke="#B85F12" stroke-width="2"/><ellipse cx="93" cy="58" rx="11" ry="18" fill="#F7B8A0"/><ellipse cx="60" cy="58" rx="29" ry="31" fill="#F59A3C" stroke="#B85F12" stroke-width="2"/><path d="M38 36 L44 12 L53 22 L60 8 L67 22 L76 12 L82 36 Q60 28 38 36Z" fill="url(#gk)" stroke="#9A6F0C" stroke-width="2" stroke-linejoin="round"/><circle cx="60" cy="22" r="3.4" fill="#C62828"/><circle cx="46" cy="24" r="2" fill="#2E7D32"/><circle cx="74" cy="24" r="2" fill="#2E7D32"/><path d="M60 36 L60 46" stroke="#8B1A2B" stroke-width="3.5" stroke-linecap="round"/><circle cx="60" cy="49" r="1.8" fill="#8B1A2B"/><ellipse cx="49" cy="55" rx="3.6" ry="4.2" fill="#2B1B12"/><ellipse cx="71" cy="55" rx="3.6" ry="4.2" fill="#2B1B12"/><circle cx="50.2" cy="53.6" r="1.1" fill="#fff"/><circle cx="72.2" cy="53.6" r="1.1" fill="#fff"/><path d="M60 62 C61 80 58 92 50 99 C44 104 36 99 40 92" fill="none" stroke="#B85F12" stroke-width="17" stroke-linecap="round"/><path d="M60 62 C61 80 58 92 50 99 C44 104 36 99 40 92" fill="none" stroke="#F59A3C" stroke-width="13" stroke-linecap="round"/><path d="M60 68 C60 80 58 90 52 96" fill="none" stroke="#FFC27A" stroke-width="3" stroke-linecap="round" opacity=".7"/><path d="M72 74 C81 80 83 90 76 97" fill="none" stroke="#FFF3DC" stroke-width="6" stroke-linecap="round"/><path d="M72 74 C81 80 83 90 76 97" fill="none" stroke="#D9C9A8" stroke-width="1.2" stroke-linecap="round" transform="translate(1.6 0)"/></svg><div><b class="hm-translit">Shri Ganeshaya Namah</b><span lang="hi" data-nolang>श्री गणेशाय नमः</span><span>May every day bring you good luck and prosperity.</span></div></div>
         <div class="ts-strip" id="ts-home-strip" hidden></div>
         <div class="hm-grid" id="hm-grid">
-<button type="button" class="hm-card ts-feature" data-tab="yantrani" data-sub="tithismriti"><svg class="ts-hm-logo" viewBox="0 0 120 120" aria-hidden="true"><use href="#ts-logo"/></svg><span class="ts-hm-txt"><span class="hm-name">Tithi Smriti</span><span class="hm-sub">Shraddh, birthdays and vrats kept by tithi, with a reminder every year</span></span><span class="ts-new">New</span></button>
+<button type="button" class="hm-card ts-feature" data-tab="smriti"><svg class="ts-hm-logo" viewBox="0 0 120 120" aria-hidden="true"><use href="#ts-logo"/></svg><span class="ts-hm-txt"><span class="hm-name">Tithi Smriti</span><span class="hm-sub">Shraddh, birthdays and vrats kept by tithi, with a reminder every year</span></span><span class="ts-new">New</span></button>
     <button type="button" class="hm-card" data-tab="today"><span class="hm-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span><span class="hm-name">Dainik Panchang</span><span class="hm-sub">Today&rsquo;s tithi, nakshatra, yoga, karana and sunrise</span></button>
     <button type="button" class="hm-card" data-tab="calendar"><span class="hm-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><span class="hm-name">Calendar</span><span class="hm-sub">Month view with tithi, festivals and vrat dates</span></button>
     <button type="button" class="hm-card" data-tab="festivals"><span class="hm-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.4 5.6 6 .6-4.5 4 1.4 6-5.3-3.2-5.3 3.2 1.4-6-4.5-4 6-.6z"/></svg></span><span class="hm-name">Festivals</span><span class="hm-sub">Hindu festivals and observances across India</span></button>
@@ -1402,7 +1467,6 @@ body{overflow-x:clip;max-width:100%;}
         <p class="desc">Instruments and tools for daily practice. Choose one below.</p>
         <div class="subtabs" id="yantra-tabs" role="tablist">
           <button type="button" class="subtab active" data-sub="vedic-clock" role="tab" aria-selected="true">Vedic Clock</button>
-          <button type="button" class="subtab" data-sub="tithismriti" role="tab" aria-selected="false">Tithi Smriti</button>
           <button type="button" class="subtab" data-sub="moonsign" role="tab" aria-selected="false">Moon Sign</button>
           <button type="button" class="subtab" data-sub="match" role="tab" aria-selected="false">Kundali Match</button>
           <button type="button" class="subtab" data-sub="sankalp" role="tab" aria-selected="false">Sankalp Mantra</button>
@@ -1510,19 +1574,6 @@ body{overflow-x:clip;max-width:100%;}
       </section>
       </div>
 
-<div class="subpanel" id="sub-tithismriti">
-      <section class="block ts-sec">
-        <button type="button" class="ts-info" id="ts-info" aria-label="How Tithi Smriti helps" title="How Tithi Smriti helps"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><circle cx="12" cy="7.6" r=".6" fill="currentColor"/></svg></button>
-        <div class="ts-hero"><svg class="ts-logo" viewBox="0 0 120 120" role="img" aria-label="Tithi Smriti"><use href="#ts-logo"/></svg><div><h2 class="ts-title">Tithi Smriti<small data-nolang>तिथि स्मृति</small></h2><p class="ts-tag">Remember by the tithi, not the date</p></div></div>
-        <p class="desc">Shraddh, birthdays, anniversaries and vrats that return on the same tithi every year. Save one once and the app finds its date each year and reminds you.</p>
-        <div class="ts-next" id="ts-next" hidden></div>
-        <div class="ts-bar"><button type="button" class="kv-primary" id="ts-add">+ Add a tithi</button><button type="button" class="ts-ghost" id="ts-ics">Add to calendar</button></div>
-        <p class="ts-status" id="ts-status" hidden></p>
-        <div id="ts-list"></div>
-        <p class="ts-foot">Dates follow the place chosen on the Panchang tab and the month names are amanta or purnimanta as you pick. For shraddh and other rites, please confirm the date with your family priest.</p>
-      </section>
-      </div>
-
       <div class="subpanel" id="sub-grahachakra">
       <section class="block">
         <h2 class="gc-title">Graha Chakra<small>The sky around you</small></h2>
@@ -1589,9 +1640,9 @@ body{overflow-x:clip;max-width:100%;}
           <div class="mg-banner-caption">Vivaha Yoga &middot; Ashtakoota Guna Milan</div>
         </div>
         <div class="mg-grid"><div class="mg-card mg-card-g" id="mg-pg"></div><div class="mg-card mg-card-b" id="mg-pb"></div></div>
-        <div class="mg-edit" id="mg-edit" hidden>Editing <b id="mg-edit-t"></b> <button type="button" class="kv-mini" id="mg-edit-x">Stop editing</button></div>
-        <div class="mg-actions"><button type="button" class="kv-primary" id="mg-save">Save match</button><button type="button" class="kv-btn" id="mg-saveas" hidden>Save as new</button><button type="button" class="kv-btn" id="mg-pdf">Download PDF</button></div>
         <div id="mg-out"></div>
+        <div class="mg-edit" id="mg-edit" hidden>Editing <b id="mg-edit-t"></b> <button type="button" class="kv-mini" id="mg-edit-x">Stop editing</button></div>
+        <div class="mg-actions" style="margin-top:20px;"><button type="button" class="kv-primary" id="mg-save">Save match</button><button type="button" class="kv-btn" id="mg-saveas" hidden>Save as new</button><button type="button" class="kv-btn" id="mg-pdf">Download PDF</button></div>
         <div class="mg-saved-head-row"><h4 class="jy-h" style="margin:22px 0 0;">Saved matches</h4><div class="mg-sort-wrap"><label for="mg-sort" class="desc" style="font-size:.78rem;margin:0;">Sort</label><select id="mg-sort" class="mg-sort"><option value="recent">Most recent</option><option value="score">Highest score</option><option value="name">By name</option></select></div></div>
         <div id="mg-list"></div>
       </section>
@@ -1615,6 +1666,28 @@ body{overflow-x:clip;max-width:100%;}
       </section>
       </div>
 
+    </div>
+  </div>
+
+  <!-- TITHI SMRITI -->
+  <div class="panel" id="panel-smriti">
+    <div class="wrap">
+
+      <section class="block ts-sec" style="margin-top:28px;">
+        <button type="button" class="ts-info" id="ts-info" aria-label="How Tithi Smriti helps" title="How Tithi Smriti helps"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><circle cx="12" cy="7.6" r=".6" fill="currentColor"/></svg></button>
+        <div class="ts-hero"><svg class="ts-logo" viewBox="0 0 120 120" role="img" aria-label="Tithi Smriti"><use href="#ts-logo"/></svg><div><h2 class="ts-title">Tithi Smriti<small data-nolang>तिथि स्मृति</small></h2><p class="ts-tag">Remember by the tithi, not the date</p></div></div>
+        <p class="desc">Shraddh, birthdays, anniversaries and vrats that return on the same tithi every year. Save one once and the app finds its date each year and reminds you.</p>
+        <div class="ts-next" id="ts-next" hidden></div>
+        <div class="ts-bar"><button type="button" class="kv-primary" id="ts-add">+ Add a tithi</button><button type="button" class="ts-ghost" id="ts-ics">Add to calendar</button></div>
+        <p class="ts-status" id="ts-status" hidden></p>
+        <div class="ts-div" aria-hidden="true"><span></span><svg viewBox="0 0 24 24"><path d="M12 4c2.4 3 3 6 0 10-3-4-2.4-7 0-10z"/><path d="M12 14c-2-3-5-4-8-3.4 1 3.4 4.4 4.6 8 3.4z"/><path d="M12 14c2-3 5-4 8-3.4-1 3.4-4.4 4.6-8 3.4z"/></svg><span></span></div>
+        <div class="ts-saved" id="ts-saved">
+          <div class="ts-saved-top" id="ts-saved-top" hidden><h4 class="ts-saved-h"><span>Saved tithis</span> <span class="ts-count" id="ts-count"></span></h4></div>
+          <div class="ts-chips" id="ts-chips" role="tablist" aria-label="Filter by kind" hidden></div>
+          <div id="ts-list"></div>
+        </div>
+        <p class="ts-foot"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><circle cx="12" cy="7.6" r=".7"/></svg><span>Dates follow the place chosen on the Panchang tab and the month names are amanta or purnimanta as you pick. For shraddh and other rites, please confirm the date with your family priest.</span></p>
+      </section>
     </div>
   </div>
 
@@ -3821,7 +3894,7 @@ body{overflow-x:clip;max-width:100%;}
   (function(){ // app mode: bottom navigation
     var nav = document.getElementById('appnav'), more = document.getElementById('appmore');
     if (!nav || !more) return;
-    var MORE = ['muhurat', 'horoscope', 'yantrani', 'about'];
+    var MORE = ['muhurat', 'horoscope', 'yantrani', 'smriti', 'about'];
     window.syncAppNav = function(key){
       var inMore = MORE.indexOf(key) >= 0;
       [].forEach.call(document.querySelectorAll('#appdrawer button[data-go]'), function(b){ b.classList.toggle('on', b.dataset.go === key); });
@@ -3867,6 +3940,10 @@ body{overflow-x:clip;max-width:100%;}
     var cap = window.Capacitor, app = cap && cap.Plugins && cap.Plugins.App;
     if (!app || !app.addListener) return;
     app.addListener('backButton', function(){
+      var cpo = document.querySelector('.cp-ov .cp-close'); if (cpo){ cpo.click(); return; }   // the city search closes first
+      var sheets = document.querySelectorAll('.rs-ov');   // a popup sheet (Add a tithi, reminders, language...) closes first
+      if (sheets.length){ sheets[sheets.length - 1].remove(); return; }
+      if (window.tsMenusClose && window.tsMenusClose()) return;
       if (window.settingsClose && settingsClose()) return;
       if (window.festSearchClose && festSearchClose()) return;
       if (window.appDrawerClose && appDrawerClose()) return;
@@ -4280,12 +4357,12 @@ body{overflow-x:clip;max-width:100%;}
     16: vargaFn(16, function(r){ return [0, 4, 8][r % 3]; }), 20: vargaFn(20, function(r){ return [0, 8, 4][r % 3]; }),
     24: vargaFn(24, function(r){ return isOddSign(r) ? 4 : 3; }), 27: vargaFn(27, function(r){ return [0, 3, 6, 9][r % 4]; }), 30: d30Lon,
     40: vargaFn(40, function(r){ return isOddSign(r) ? 0 : 6; }), 45: vargaFn(45, function(r){ return [0, 4, 8][r % 3]; }), 60: vargaFn(60, function(r){ return r; })};
-  var DIVS = [[1,'Rashi','Overall life and body'],[2,'Hora','Wealth'],[3,'Drekkana','Siblings, courage'],[4,'Chaturthamsa','Property, fortune'],[5,'Panchamsa','Authority, fame, past merit'],
+  var DIVS = [[1,'Rashi','Overall life and body'],[0,'Bhav Chalit','Results of each house'],[2,'Hora','Wealth'],[3,'Drekkana','Siblings, courage'],[4,'Chaturthamsa','Property, fortune'],[5,'Panchamsa','Authority, fame, past merit'],
     [7,'Saptamsa','Children'],[9,'Navamsa','Marriage, inner strength'],[10,'Dasamsa','Career, status'],[12,'Dwadasamsa','Parents'],[16,'Shodasamsa','Vehicles, comforts'],
     [20,'Vimsamsa','Spiritual practice'],[24,'Chaturvimsamsa','Education'],[27,'Saptavimsamsa','Strengths and weaknesses'],[30,'Trimsamsa','Misfortunes'],
     [40,'Khavedamsa','Maternal lineage effects'],[45,'Akshavedamsa','Paternal lineage effects'],[60,'Shashtiamsa','Past-life karma, fine detail']];
   var DIV_KEYS = DIVS.map(function(x){ return x[0]; }), DIV_NAME = {};
-  DIVS.forEach(function(x){ DIV_NAME[x[0]] = 'D' + x[0] + ' (' + x[1] + ')'; });
+  DIVS.forEach(function(x){ DIV_NAME[x[0]] = x[0] === 0 ? 'Bhav Chalit' : 'D' + x[0] + ' (' + x[1] + ')'; });   // 0 = Bhav Chalit (equal houses), not a varga
   var DIV_EXTRA = {
     4: "D4 (Chaturthamsa) divides every sign into four parts of 7\u00b030\u2032, falling in the sign itself and the 4th, 7th and 10th from it. It is read for property, home and fortune.",
     7: "D7 (Saptamsa) divides every sign into seven parts of about 4\u00b017\u2032. Odd signs count from the sign itself and even signs from the 7th. It is read for children.",
@@ -4335,10 +4412,11 @@ body{overflow-x:clip;max-width:100%;}
       '<p class="desc" style="margin:10px 0 0;">' + (moved ? moved + (moved > 1 ? ' grahas move' : ' graha moves') + ' to a neighbouring house in the Bhav Chalit chart, which is read for the results of each house. ' : 'No graha changes house in the Bhav Chalit chart. ') + 'Equal-house method: each house spans 30\u00b0 with the Lagna degree at its centre.</p></section>';
   }
   function kundaliCharts(c){
+    if (kdDiv === 0) return '<div class="kc-grid"><div class="kc-card"><h3>Bhav Chalit chart</h3>' + chartSVG(kdStyle, 'lagna', bhavaChart(c)) + '<p class="desc" style="margin:6px 0 0;">' + chartNote(kdStyle, 'bhava') + '</p></div>' +
+      '<div class="kc-card"><h3>Lagna (ascendant) chart</h3>' + chartSVG(kdStyle, 'lagna', c) + '<p class="desc" style="margin:6px 0 0;">For comparison: the whole-sign birth chart (D1).</p></div></div>';
     var tag = kdDiv > 1 ? ' \u00b7 D' + kdDiv : '', cm = divChart(moonChartOf(c), kdDiv), cl = divChart(c, kdDiv);
     var h = '<div class="kc-grid"><div class="kc-card"><h3>Lagna (ascendant) chart' + tag + '</h3>' + chartSVG(kdStyle, 'lagna', cl) + '<p class="desc" style="margin:6px 0 0;">' + chartNote(kdStyle, 'lagna') + '</p></div>' +
       '<div class="kc-card"><h3>Moon chart (Chandra Lagna)' + tag + '</h3>' + chartSVG(kdStyle, 'lagna', cm) + '<p class="desc" style="margin:6px 0 0;">' + chartNote(kdStyle, 'moon') + '</p></div>';
-    if (kdDiv === 1) h += '<div class="kc-card"><h3>Bhav Chalit chart</h3>' + chartSVG(kdStyle, 'lagna', bhavaChart(c)) + '<p class="desc" style="margin:6px 0 0;">' + chartNote(kdStyle, 'bhava') + '</p></div>';
     return h + '</div>' + divNote();
   }
   function divNote(){
@@ -4352,7 +4430,7 @@ body{overflow-x:clip;max-width:100%;}
     return '';
   }
   function d5TableHTML(c){      // positions in the chosen divisional chart (D5 or D9)
-    if (kdDiv === 1) return '';
+    if (kdDiv === 1 || kdDiv === 0) return '';
     var d = divChart(c, kdDiv), nm = DIV_NAME[kdDiv], col = 'D' + kdDiv, vg = kdDiv === 9 ? 'Vargottama' : 'Same as D1';
     var h = '<section class="kd-sec"><h4 class="kd-sec-h">' + nm + ' positions</h4><div style="overflow-x:auto;"><table class="data"><tr><th>Graha</th><th>D1 R\u0101shi</th><th>' + col + ' R\u0101shi</th><th>' + col + ' house</th><th></th></tr>' +
       '<tr><td><strong>Lagna</strong></td><td>' + RASHI_INFO[c.asc.rashi][0] + '</td><td>' + RASHI_INFO[d.asc.rashi][0] + '</td><td>1</td><td>' + (c.asc.rashi === d.asc.rashi ? vg : '') + '</td></tr>';
@@ -4418,14 +4496,14 @@ body{overflow-x:clip;max-width:100%;}
     var h = '<section class="kd-sec"><h4 class="kd-sec-h">Summary</h4><p class="desc" style="margin:0 0 10px;">' + jyWhen(b) + '</p><div class="jy-chips" style="margin-bottom:0;">' + (act ? '<span class="jy-chip">Saved: <b>' + kvEsc(act.name) + '</b></span>' : '') +
       '<span class="jy-chip">Lagna <b>' + RASHI_INFO[c.asc.rashi][0] + '</b></span><span class="jy-chip">Moon sign <b>' + RASHI_INFO[moon.rashi][0] + '</b></span>' +
       '<span class="jy-chip">Sun sign <b>' + RASHI_INFO[sun.rashi][0] + '</b></span><span class="jy-chip">Nakshatra <b>' + mn + ' ' + moon.nak.pada + '</b></span></div></section>' +
-      '<section class="kd-sec"><h4 class="kd-sec-h">Charts' + (kdDiv > 1 ? ' \u00b7 ' + DIV_NAME[kdDiv] : '') + '</h4>' + kundaliCharts(c) + '</section>' +
+      '<section class="kd-sec"><h4 class="kd-sec-h">Charts' + (kdDiv !== 1 ? ' \u00b7 ' + DIV_NAME[kdDiv] : '') + '</h4>' + kundaliCharts(c) + '</section>' +
       '<section class="kd-sec"><h4 class="kd-sec-h">Planetary positions</h4><div style="overflow-x:auto;"><table class="data"><tr><th>Graha</th><th>R\u0101shi</th><th>Degree</th><th>Nakshatra</th><th>House</th></tr>' +
       '<tr><td><strong>Lagna</strong></td><td>' + RASHI_INFO[c.asc.rashi][0] + '</td><td>' + jyDM(c.asc.deg) + '</td><td>' + NAKSHATRAS[c.asc.nak.idx] + ' ' + c.asc.nak.pada + '</td><td>1</td></tr>';
     c.planets.forEach(function(p){
       h += '<tr><td><strong>' + p.name + '</strong>' + (p.retro && p.ab !== 'Ra' && p.ab !== 'Ke' ? ' (R)' : '') + '</td><td>' + RASHI_INFO[p.rashi][0] + '</td><td>' + jyDM(p.deg) + '</td><td>' + NAKSHATRAS[p.nak.idx] + ' ' + p.nak.pada + '</td><td>' + p.house + '</td></tr>';
     });
     kdSyncDiv();
-    out.innerHTML = h + '</table></div></section>' + (kdDiv === 1 ? bhavaTableHTML(c) : d5TableHTML(c)) + '<p class="desc" style="margin-top:10px;">Sidereal positions (Lahiri ayanamsa), whole-sign houses, mean Rahu\u2013Ketu. (R) = retrograde. Sun and Moon are accurate to arc-minutes; the planets to a few arc-minutes (Jupiter and Saturn up to about 0.1\u00b0). The time zone is the place\u2019s standard offset: for a birth during daylight saving time choose Custom and enter the offset in force then. Confirm important charts with an astrologer.</p>';
+    out.innerHTML = h + '</table></div></section>' + (kdDiv === 0 ? bhavaTableHTML(c) : d5TableHTML(c)) + '<p class="desc" style="margin-top:10px;">Sidereal positions (Lahiri ayanamsa), whole-sign houses, mean Rahu\u2013Ketu. (R) = retrograde. Sun and Moon are accurate to arc-minutes; the planets to a few arc-minutes (Jupiter and Saturn up to about 0.1\u00b0). The time zone is the place\u2019s standard offset: for a birth during daylight saving time choose Custom and enter the offset in force then. Confirm important charts with an astrologer.</p>';
   }
 
   // ---- Moon sign ----
@@ -4517,7 +4595,7 @@ body{overflow-x:clip;max-width:100%;}
       '<div class="kv-field"><label for="kvm-city">Birthplace</label><select id="kvm-city">' + opts + '</select></div>' +
       '<div class="kv-row" id="kvm-custom" hidden><div class="kv-field"><label>Latitude</label><input type="number" id="kvm-lat" step="0.01"></div><div class="kv-field"><label>Longitude</label><input type="number" id="kvm-lon" step="0.01"></div><div class="kv-field"><label>UTC offset</label><input type="number" id="kvm-tz" step="0.25"></div></div>' +
       '<div class="kv-row"><div class="kv-field"><label for="kvm-style">Chart style</label><select id="kvm-style">' + styleOpts + '</select></div>' +
-      '<div class="kv-field"><label for="kvm-div">Divisional chart</label><select id="kvm-div">' + DIVS.map(function(x){ return '<option value="' + x[0] + '">D' + x[0] + ' (' + x[1] + ')</option>'; }).join('') + '</select></div></div>' +
+      '<div class="kv-field"><label for="kvm-div">Divisional chart</label><select id="kvm-div">' + DIVS.map(function(x){ return '<option value="' + x[0] + '">' + DIV_NAME[x[0]] + '</option>'; }).join('') + '</select></div></div>' +
       '<p class="desc" style="margin:0 0 10px;">Calculation: Lahiri ayanamsa, whole-sign houses, mean Rahu\u2013Ketu. Saved on this device only.</p>' +
       '<div class="kv-err" id="kvm-form-err" hidden></div>' +
       '<div class="kv-actions"><button type="button" class="kv-btn" id="kvm-cancel">Cancel</button><button type="button" class="kv-btn primary" id="kvm-save">' + (editId ? 'Save changes' : 'Save') + '</button></div>');
@@ -5552,7 +5630,7 @@ body{overflow-x:clip;max-width:100%;}
   var TS_KEY = 'panchangTithiSmriti';
   var TS_TYPES = [['shraddh','Shraddh'],['birthday','Birthday'],['anniv','Anniversary'],['vrat','Vrat'],['other','Other']];
   var TS_REFS = [['apar','Afternoon (Aparahna), for shraddh'],['rise','Sunrise, for birthdays and vrats']];
-  var TS_CACHE = {}, TS_RECS = {}, TS_OPEN = {};
+  var TS_CACHE = {}, TS_RECS = {}, TS_OPEN = {}, TS_FILTER = 'all';
   function tsEsc(s){ return String(s == null ? '' : s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
   function tsLoad(){ try { var a = JSON.parse(localStorage.getItem(TS_KEY) || '[]'); return Array.isArray(a) ? a : []; } catch(e){ return []; } }
   function tsStore(a){ try { localStorage.setItem(TS_KEY, JSON.stringify(a)); } catch(e){} }
@@ -5633,27 +5711,47 @@ body{overflow-x:clip;max-width:100%;}
   }
   function tsTypeName(t){ var r = TS_TYPES.filter(function(x){ return x[0] === t; })[0]; return r ? r[1] : 'Other'; }
   function tsOpen(){
-    switchTab('yantrani');
-    var sb = document.querySelector('#yantra-tabs .subtab[data-sub="tithismriti"]'); if (sb) sb.click();
+    switchTab('smriti');
     window.scrollTo(0, 0);
   }
   function tsRender(){
     var list = document.getElementById('ts-list'); if (!list) return;
     var items = tsSorted(), nx = document.getElementById('ts-next');
     {
-      if (!items.length){
-        list.innerHTML = '<div class="ts-empty"><svg viewBox="0 0 120 120"><use href="#ts-logo"/></svg>No tithis saved yet.<br>Add a shraddh, a birthday or a vrat and the app will find its date every year.</div>';
-        nx.hidden = true;
-      } else {
-        list.innerHTML = items.map(function(it){
+      var box = document.getElementById('ts-saved'), top = document.getElementById('ts-saved-top'), chips = document.getElementById('ts-chips');
+      if (box) box.classList.toggle('empty', !items.length);
+      if (top){ top.hidden = !items.length; document.getElementById('ts-count').textContent = items.length; }
+      function card(it){
           var e = it.e, n = it.next, a = n ? n.split('-') : null, dd = n ? tsDays(n) : 0;
           return '<article class="ts-card' + (n && dd === 0 ? ' today' : '') + '" data-id="' + e.id + '">' +
             '<div class="ts-when">' + (n ? '<b>' + a[2] + '</b><span>' + MONTHS[+a[1] - 1].slice(0, 3) + '</span>' : '<b>&mdash;</b><span>&nbsp;</span>') + '</div>' +
             '<div class="ts-body"><h4>' + tsEsc(e.name) + '</h4><div><span class="ts-chip">' + tsTypeName(e.type) + '</span></div><div class="ts-tithi">' + tsLabelHtml(e) + '</div>' +
             '<div class="ts-meta">' + (n ? '<span>' + tsLong(n) + '</span> &middot; <em>' + tsIn(dd) + '</em>' : 'No date found in the coming years') + '</div>' + tsPitruLine(e) + '</div>' +
-            '<div class="ts-acts"><button type="button" data-a="day"' + (n ? '' : ' hidden') + '>View day</button><button type="button" data-a="years">Next years</button><button type="button" data-a="share">Share</button><button type="button" data-a="edit">Edit</button><button type="button" class="del" data-a="del">Delete</button></div>' +
+            '<button type="button" class="ts-more" data-a="menu" aria-label="Options" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="12" cy="19" r="1.8"/></svg></button>' +
+            '<div class="ts-menu" role="menu" hidden>' + (n ? '<button type="button" role="menuitem" data-a="day"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span>View day</span></button>' : '') +
+            '<button type="button" role="menuitem" data-a="years"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span>Next years</span></button>' +
+            '<button type="button" role="menuitem" data-a="share"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg><span>Share</span></button>' +
+            '<button type="button" role="menuitem" data-a="edit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg><span>Edit</span></button>' +
+            '<button type="button" role="menuitem" class="del" data-a="del"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg><span>Delete</span></button></div>' +
             '<div class="ts-years" hidden></div></article>';
-        }).join('');
+      }
+      if (!items.length){
+        if (chips) chips.hidden = true;
+        list.innerHTML = '<div class="ts-empty"><svg viewBox="0 0 120 120"><use href="#ts-logo"/></svg>No tithis saved yet.<br>Add a shraddh, a birthday or a vrat and the app will find its date every year.</div>';
+        nx.hidden = true;
+      } else {
+        // filter chips by kind, shown when more than one kind is saved
+        var kinds = TS_TYPES.filter(function(t){ return items.some(function(i){ return i.e.type === t[0]; }); });
+        if (TS_FILTER !== 'all' && !kinds.some(function(k){ return k[0] === TS_FILTER; })) TS_FILTER = 'all';
+        if (chips){
+          chips.hidden = kinds.length < 2;
+          chips.innerHTML = '<button type="button" data-f="all"' + (TS_FILTER === 'all' ? ' class="on"' : '') + '><span>All</span><b>' + items.length + '</b></button>' +
+            kinds.map(function(k){ var n = items.filter(function(i){ return i.e.type === k[0]; }).length; return '<button type="button" data-f="' + k[0] + '"' + (TS_FILTER === k[0] ? ' class="on"' : '') + '><span>' + k[1] + '</span><b>' + n + '</b></button>'; }).join('');
+        }
+        var shown = items.filter(function(i){ return TS_FILTER === 'all' || i.e.type === TS_FILTER; });
+        var soon = shown.filter(function(i){ return i.next && tsDays(i.next) <= 30; }), later = shown.filter(function(i){ return !(i.next && tsDays(i.next) <= 30); });
+        var both = soon.length && later.length;
+        list.innerHTML = (both ? '<div class="ts-grp">Within 30 days</div>' : '') + soon.map(card).join('') + (both ? '<div class="ts-grp">Later</div>' : '') + later.map(card).join('');
         var first = items.filter(function(i){ return i.next; })[0];
         if (first){
           var f = first.e, fd = tsDays(first.next), fa = first.next.split('-');
@@ -5696,18 +5794,24 @@ body{overflow-x:clip;max-width:100%;}
     var today = new Date(), dflt = (today.getFullYear() - 1) + '-' + pad2(today.getMonth() + 1) + '-' + pad2(today.getDate());
     var tithiOpts = []; for (var i = 1; i <= 15; i++) tithiOpts.push(i < 15 ? TITHI_NAMES[i - 1] : (pak ? 'Amavasya' : 'Purnima'));
     ov.innerHTML = '<div class="rs-sheet ts-sheet" role="dialog" aria-label="Tithi Smriti"><h3>' + (edit ? 'Edit tithi' : 'Add a tithi') + '</h3>' +
-      '<label class="ts-l" for="ts-name">Name</label><input type="text" id="ts-name" maxlength="60" placeholder="Dadi\u2019s shraddh" value="' + tsEsc(cur.name) + '" autocomplete="off">' +
       '<label class="ts-l">Kind</label><div class="ts-types" id="ts-types">' + TS_TYPES.map(function(x){ return '<button type="button" data-v="' + x[0] + '"' + (cur.type === x[0] ? ' class="on"' : '') + '>' + x[1] + '</button>'; }).join('') + '</div>' +
+      '<label class="ts-l" for="ts-name">Name</label><input type="text" id="ts-name" maxlength="60" placeholder="Dadi\u2019s birthday" value="' + tsEsc(cur.name) + '" autocomplete="off"><small class="ts-err" id="ts-nerr" hidden>This name is already saved. Please use a different name.</small>' +
       '<label class="ts-l">How do you know it?</label><div class="ts-seg" id="ts-mode"><button type="button" data-m="tithi" class="on">I know the tithi</button><button type="button" data-m="date">From an English date</button></div>' +
       '<div class="ts-find" id="ts-find" hidden><div class="ts-g2"><div><label class="ts-l" style="margin-top:0" for="ts-fd">Date</label><input type="date" id="ts-fd" value="' + dflt + '"></div><div><label class="ts-l" style="margin-top:0" for="ts-ft">Time (optional)</label><input type="time" id="ts-ft"></div></div>' +
-      '<label class="ts-l" for="ts-fp">Place of that day</label><select id="ts-fp"><option value="">Same as the app</option>' + CITIES.map(function(c, i){ return '<option value="' + i + '">' + c.name + '</option>'; }).join('') + '</select>' +
+      '<label class="ts-l" for="ts-fp-city">Place of that day</label><select id="ts-fp-city"><option value="">Same as the app</option>' + CITIES.map(function(c, i){ return '<option value="' + i + '">' + c.name + '</option>'; }).join('') + '</select>' +
       '<button type="button" class="ts-ghost" id="ts-findbtn" style="margin-top:8px;width:100%">Find the tithi</button><div class="res" id="ts-res"></div>' +
       '<small class="hint">For a death, the tithi at the time of passing decides the shraddh. Leave the time empty to use sunrise.</small></div>' +
       '<div class="ts-g3" style="margin-top:12px"><div><label class="ts-l" style="margin-top:0" for="ts-mo">Month</label><select id="ts-mo">' + opts(LUNAR_MONTHS, dispMo) + '</select></div>' +
       '<div><label class="ts-l" style="margin-top:0" for="ts-pk">Paksha</label><select id="ts-pk"><option value="0"' + (pak ? '' : ' selected') + '>Shukla</option><option value="1"' + (pak ? ' selected' : '') + '>Krishna</option></select></div>' +
       '<div><label class="ts-l" style="margin-top:0" for="ts-tn">Tithi</label><select id="ts-tn">' + opts(tithiOpts, tn - 1) + '</select></div></div>' +
-      '<label class="ts-l">Month names</label><div class="ts-seg" id="ts-sys"><button type="button" data-s="A"' + (cur.sys === 'A' ? ' class="on"' : '') + '>Amanta</button><button type="button" data-s="P"' + (cur.sys === 'P' ? ' class="on"' : '') + '>Purnimanta</button></div>' +
-      '<small class="hint">Amanta months end on the new moon (Maharashtra, Gujarat, South India). Purnimanta months end on the full moon (most of North India), so their Krishna paksha belongs to the next month name.</small>' +
+      '<div class="ts-lrow"><label class="ts-l">Month names</label><button type="button" class="ts-mib" id="ts-mib" aria-expanded="false" aria-label="About Amanta and Purnimanta" title="About Amanta and Purnimanta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><circle cx="12" cy="7.6" r=".6" fill="currentColor"/></svg></button></div><div class="ts-seg" id="ts-sys"><button type="button" data-s="A"' + (cur.sys === 'A' ? ' class="on"' : '') + '>Amanta</button><button type="button" data-s="P"' + (cur.sys === 'P' ? ' class="on"' : '') + '>Purnimanta</button></div>' +
+      '<div class="ts-mi" id="ts-mi" hidden>' +
+        '<p>The Amanta and Purnimanta systems are two traditions for counting Hindu lunar months (Chandramana Masa) across India.</p>' +
+        '<h5>Amanta</h5><ul><li><b>Definition:</b> the lunar month ends on Amavasya (new moon) and begins on the first day of Shukla Paksha (bright fortnight).</li>' +
+        '<li><b>Followed in:</b> South and West India, including Maharashtra, Gujarat, Karnataka, Andhra Pradesh, Telangana, Tamil Nadu, Kerala, Assam, West Bengal and Tripura.</li></ul>' +
+        '<h5>Purnimanta</h5><ul><li><b>Definition:</b> the lunar month ends on Purnima (full moon) and begins with Krishna Paksha (dark fortnight).</li>' +
+        '<li><b>Followed in:</b> North and East India, including Uttar Pradesh, Bihar, Rajasthan, Haryana, Punjab, Madhya Pradesh, Chhattisgarh, Jharkhand, Himachal Pradesh, Uttarakhand and Odisha.</li></ul>' +
+        '<p class="ts-mi-note"><b>What changes:</b> only the name of the Krishna Paksha. Shukla Paksha has the same month name in both. The Krishna Paksha takes the next month&rsquo;s name in Purnimanta, so <i>Bhadrapada Krishna Navami</i> (Amanta) and <i>Ashwina Krishna Navami</i> (Purnimanta) are the same day. Choose the system your family uses.</p></div>' +
       '<label class="ts-l" for="ts-ref">Day is marked by the tithi at</label><select id="ts-ref">' + TS_REFS.map(function(x, i){ return '<option value="' + x[0] + '"' + (cur.ref === x[0] ? ' selected' : '') + '>' + x[1] + '</option>'; }).join('') + '</select>' +
       '<label class="ts-l">Remind me</label>' +
       '<label class="ts-cb"><input type="checkbox" id="ts-lw"' + (cur.lead.wk ? ' checked' : '') + '>A week before</label>' +
@@ -5738,33 +5842,38 @@ body{overflow-x:clip;max-width:100%;}
       else if (b.id === 'ts-findbtn'){
         var v = $('ts-fd').value; if (!/^\d{4}-\d\d-\d\d$/.test(v)){ $('ts-res').textContent = 'Choose a date first.'; return; }
         var p = v.split('-'), Y = +p[0], M = +p[1], D = +p[2], tv = $('ts-ft').value, mins;
-        var fl = $('ts-fp').value === '' ? loc : CITIES[+$('ts-fp').value];   // the tithi of a past day depends on where it happened
+        var fl = $('ts-fp-city').value === '' ? loc : CITIES[+$('ts-fp-city').value];   // the tithi of a past day depends on where it happened
         if (/^\d\d:\d\d$/.test(tv)) mins = +tv.slice(0, 2) * 60 + +tv.slice(3, 5); else { try { mins = sunriseSunset(Y, M, D, fl.lat, fl.lon, fl.tz).sunriseMin; } catch(x){ mins = 360; } }
         var at = dateFromLocalMinutes(Y, M, D, mins, fl.tz), t = tithiNumAt(at), mo = lunarMonthAt(at), mi = LUNAR_MONTHS.indexOf(mo.name);
         var e = readEntry(); e.mo = mi; e.t = t; setTithi(e); preview();
         $('ts-res').innerHTML = '<span>That day\u2019s tithi:</span> <i>' + tsLabelHtml(e) + '</i>' + (e.t > 15 ? '<br><small><span>In the other naming</span>: <i>' + tsLabelHtml({mo: e.mo, t: e.t, sys: e.sys === 'P' ? 'A' : 'P'}) + '</i></small>' : '') + (mo.adhika ? '<br><small>It fell in an adhika month. The yearly date uses the regular month of this name.</small>' : '');
         if (!userRef && ov.querySelector('#ts-types .on').dataset.v === 'shraddh') $('ts-ref').value = 'apar';
       }
+      else if (b.id === 'ts-mib'){ var mi = $('ts-mi'); mi.hidden = !mi.hidden; b.setAttribute('aria-expanded', mi.hidden ? 'false' : 'true'); }
       else if (b.id === 'ts-cancel') ov.remove();
       else if (b.id === 'ts-save'){
-        var e2 = readEntry(); if (!e2.name) e2.name = tsTypeName(e2.type);
-        var all = tsLoad();
+        var e2 = readEntry(), all = tsLoad();
+        function taken(nm){ var k = nm.trim().toLowerCase().replace(/\s+/g, ' '); return all.some(function(x){ return x.id !== e2.id && String(x.name).trim().toLowerCase().replace(/\s+/g, ' ') === k; }); }
+        if (!e2.name){ var base = tsTypeName(e2.type), c = 2; e2.name = base; while (taken(e2.name)) e2.name = base + ' ' + c++; }   // an empty name gets the kind, numbered if needed
+        else if (taken(e2.name)){ $('ts-nerr').hidden = false; $('ts-name').classList.add('bad'); $('ts-name').focus(); try { $('ts-name').scrollIntoView({block: 'center'}); } catch(x){} return; }
         if (e2.id === undefined){ var used = {}; all.forEach(function(x){ used[x.id] = 1; }); var n = 0; while (used[n]) n++; if (n > 99){ jyToast('You can keep up to 100 tithis.'); return; } e2.id = n; all.push(e2); }
         else all = all.map(function(x){ return x.id === e2.id ? e2 : x; });
         tsStore(all); ov.remove(); tsRender(); jyToast('Saved'); rmSchedule(true);
       }
     });
     ov.addEventListener('change', function(ev){ if (ev.target.id === 'ts-pk') fixTithiNames(); if (ev.target.id === 'ts-ref') userRef = true; preview(); });
-    $('ts-name').addEventListener('input', function(){});
+    $('ts-name').addEventListener('input', function(){ $('ts-nerr').hidden = true; $('ts-name').classList.remove('bad'); });
     preview();
     setTimeout(function(){ if (!edit) $('ts-name').focus(); }, 60);
   }
   document.addEventListener('click', function(ev){
     var strip = ev.target.closest('.ts-strip'); if (strip){ tsOpen(); return; }
     var card = ev.target.closest('#ts-list .ts-card'), btn = ev.target.closest('#ts-list button[data-a]');
-    if (!card || !btn) return;
+    if (!btn || !card){ if (!ev.target.closest('.ts-menu')) tsMenusClose(); return; }
     var id = +card.dataset.id, all = tsLoad(), e = all.filter(function(x){ return x.id === id; })[0]; if (!e) return;
     var a = btn.dataset.a, loc = selectedLoc();
+    if (a === 'menu'){ var m = card.querySelector('.ts-menu'), was = !m.hidden; tsMenusClose(); if (!was){ m.hidden = false; btn.setAttribute('aria-expanded', 'true'); } return; }
+    if (a !== 'del') tsMenusClose();
     if (a === 'edit') tsSheet(e);
     else if (a === 'share') tsShare(e);
     else if (a === 'day'){
@@ -5778,11 +5887,18 @@ body{overflow-x:clip;max-width:100%;}
       box.hidden = false;
     }
     else if (a === 'del'){
-      if (!btn.classList.contains('armed')){ btn.classList.add('armed'); btn.textContent = 'Tap again to delete'; setTimeout(function(){ btn.classList.remove('armed'); btn.textContent = 'Delete'; }, 3000); return; }
+      var lb = btn.querySelector('span');
+      if (!btn.classList.contains('armed')){ btn.classList.add('armed'); lb.textContent = 'Tap again to delete'; setTimeout(function(){ btn.classList.remove('armed'); lb.textContent = 'Delete'; }, 3000); return; }
       tsStore(all.filter(function(x){ return x.id !== id; })); tsRender(); rmSchedule(true);
     }
   });
+  function tsMenusClose(){
+    [].forEach.call(document.querySelectorAll('#ts-list .ts-menu'), function(m){ m.hidden = true; });
+    [].forEach.call(document.querySelectorAll('#ts-list .ts-more'), function(b){ b.setAttribute('aria-expanded', 'false'); });
+  }
+  window.tsMenusClose = function(){ var open = document.querySelector('#ts-list .ts-menu:not([hidden])'); tsMenusClose(); return !!open; };
   document.getElementById('ts-add').addEventListener('click', function(){ tsSheet(null); });
+  document.getElementById('ts-chips').addEventListener('click', function(ev){ var b = ev.target.closest('button[data-f]'); if (!b) return; TS_FILTER = b.dataset.f; tsRender(); });
 
   // ---- calendar file (works on the web and in the app) ----
   function tsSaveText(text, name){
@@ -5903,11 +6019,11 @@ body{overflow-x:clip;max-width:100%;}
   // words the language tables do not carry yet
   (function(){
     var X = {
-      hi:{'Tithi Smriti':'तिथि स्मृति','Remember by the tithi, not the date':'तारीख़ से नहीं, तिथि से याद रखें','Add a tithi':'तिथि जोड़ें','+ Add a tithi':'+ तिथि जोड़ें','Edit tithi':'तिथि बदलें','Add to calendar':'कैलेंडर में जोड़ें','Name':'नाम','Kind':'प्रकार','Shraddh':'श्राद्ध','Birthday':'जन्मदिन','Anniversary':'वर्षगांठ','Vrat':'व्रत','Other':'अन्य','How do you know it?':'आप इसे कैसे जानते हैं?','I know the tithi':'मुझे तिथि पता है','From an English date':'अंग्रेज़ी तारीख़ से','Find the tithi':'तिथि खोजें','Time (optional)':'समय (वैकल्पिक)','Month':'मास','Paksha':'पक्ष','Tithi':'तिथि','Month names':'मास पद्धति','Amanta':'अमान्त','Purnimanta':'पूर्णिमान्त','Remind me':'मुझे याद दिलाएँ','A week before':'एक सप्ताह पहले','The evening before':'एक दिन पहले शाम को','Morning of the day':'उसी दिन सुबह','Save':'सहेजें','Cancel':'रद्द करें','Edit':'बदलें','Delete':'हटाएँ','Tap again to delete':'हटाने के लिए फिर दबाएँ','View day':'दिन देखें','Next years':'आने वाले वर्ष','Next':'अगला','Tomorrow':'कल','day':'दिन','days':'दिन','Saved':'सहेजा गया','No tithis saved yet.':'अभी कोई तिथि सहेजी नहीं है।','Day is marked by the tithi at':'दिन तय होता है इस समय की तिथि से','Afternoon (Aparahna), for shraddh':'दोपहर बाद (अपराह्न), श्राद्ध के लिए','Sunrise, for birthdays and vrats':'सूर्योदय, जन्मदिन और व्रत के लिए','Choose a date first.':'पहले तारीख़ चुनें।','@tsin':'%n दिन में','@tsago':'%n दिन पहले','Place of that day':'उस दिन का स्थान','Same as the app':'ऐप वाला ही','Also remind me in Pitru Paksha':'पितृ पक्ष में भी याद दिलाएँ','Pitru Paksha':'पितृ पक्ष','shraddh':'श्राद्ध','How Tithi Smriti helps':'यह कैसे काम आता है','Why Tithi Smriti':'तिथि स्मृति क्यों','Share with family':'परिवार से साझा करें','Got it':'समझ गया','In the other naming':'दूसरी पद्धति में','Shraddh, birthdays and vrats kept by tithi, with a reminder every year':'श्राद्ध, जन्मदिन और व्रत तिथि के अनुसार, हर साल रिमाइंडर के साथ','Shraddh, birthdays, anniversaries and vrats that return on the same tithi every year. Save one once and the app finds its date each year and reminds you.':'श्राद्ध, जन्मदिन, वर्षगांठ और व्रत जो हर साल उसी तिथि पर लौटते हैं। एक बार सहेजें, ऐप हर साल उसकी तारीख़ खोजकर आपको याद दिलाएगा।','New':'नया','Then':'फिर','That day\u2019s tithi:':'उस दिन की तिथि:','For a death, the tithi at the time of passing decides the shraddh. Leave the time empty to use sunrise.':'मृत्यु के लिए श्राद्ध उसी समय की तिथि से तय होता है। समय खाली छोड़ेंगे तो सूर्योदय लिया जाएगा।'},
-      mr:{'Tithi Smriti':'तिथी स्मृती','Remember by the tithi, not the date':'तारखेने नव्हे, तिथीने आठवण ठेवा','Add a tithi':'तिथी जोडा','+ Add a tithi':'+ तिथी जोडा','Edit tithi':'तिथी बदला','Add to calendar':'कॅलेंडरमध्ये जोडा','Name':'नाव','Kind':'प्रकार','Shraddh':'श्राद्ध','Birthday':'वाढदिवस','Anniversary':'वर्धापन दिन','Vrat':'व्रत','Other':'इतर','How do you know it?':'तुम्हाला ती कशी माहीत आहे?','I know the tithi':'मला तिथी माहीत आहे','From an English date':'इंग्रजी तारखेवरून','Find the tithi':'तिथी शोधा','Time (optional)':'वेळ (ऐच्छिक)','Month':'महिना','Paksha':'पक्ष','Tithi':'तिथी','Month names':'महिन्यांची पद्धत','Amanta':'अमान्त','Purnimanta':'पूर्णिमान्त','Remind me':'मला आठवण करा','A week before':'एक आठवडा आधी','The evening before':'आदल्या संध्याकाळी','Morning of the day':'त्याच दिवशी सकाळी','Save':'जतन करा','Cancel':'रद्द करा','Edit':'बदला','Delete':'हटवा','Tap again to delete':'हटवण्यासाठी पुन्हा दाबा','View day':'दिवस पहा','Next years':'पुढील वर्षे','Next':'पुढील','Tomorrow':'उद्या','day':'दिवस','days':'दिवस','Saved':'जतन केले','No tithis saved yet.':'अजून कोणतीही तिथी जतन केलेली नाही.','Day is marked by the tithi at':'दिवस या वेळच्या तिथीवरून ठरतो','Afternoon (Aparahna), for shraddh':'दुपारनंतर (अपराह्न), श्राद्धासाठी','Sunrise, for birthdays and vrats':'सूर्योदय, वाढदिवस व व्रतांसाठी','Choose a date first.':'आधी तारीख निवडा.','@tsin':'%n दिवसांत','@tsago':'%n दिवसांपूर्वी','Place of that day':'त्या दिवसाचे ठिकाण','Same as the app':'अॅपमधीलच','Also remind me in Pitru Paksha':'पितृपक्षातही आठवण करा','Pitru Paksha':'पितृपक्ष','shraddh':'श्राद्ध','How Tithi Smriti helps':'हे कसे उपयोगी आहे','Why Tithi Smriti':'तिथी स्मृती का','Share with family':'कुटुंबासोबत शेअर करा','Got it':'समजले','In the other naming':'दुसऱ्या पद्धतीत','Shraddh, birthdays and vrats kept by tithi, with a reminder every year':'श्राद्ध, वाढदिवस आणि व्रते तिथीनुसार, दरवर्षी आठवणीसह','Shraddh, birthdays, anniversaries and vrats that return on the same tithi every year. Save one once and the app finds its date each year and reminds you.':'श्राद्ध, वाढदिवस, वर्धापन दिन आणि व्रते जी दरवर्षी त्याच तिथीला येतात. एकदा जतन करा, अॅप दरवर्षी त्याची तारीख शोधून तुम्हाला आठवण करून देईल.','New':'नवीन','Then':'नंतर','That day\u2019s tithi:':'त्या दिवसाची तिथी:','For a death, the tithi at the time of passing decides the shraddh. Leave the time empty to use sunrise.':'मृत्यूसाठी श्राद्ध निधनाच्या वेळच्या तिथीने ठरते. वेळ रिकामी ठेवल्यास सूर्योदय घेतला जातो.'},
-      gu:{'Tithi Smriti':'તિથિ સ્મૃતિ','Remember by the tithi, not the date':'તારીખથી નહીં, તિથિથી યાદ રાખો','Add a tithi':'તિથિ ઉમેરો','+ Add a tithi':'+ તિથિ ઉમેરો','Edit tithi':'તિથિ બદલો','Add to calendar':'કૅલેન્ડરમાં ઉમેરો','Name':'નામ','Kind':'પ્રકાર','Shraddh':'શ્રાદ્ધ','Birthday':'જન્મદિવસ','Anniversary':'વર્ષગાંઠ','Vrat':'વ્રત','Other':'અન્ય','How do you know it?':'તમે તેને કેવી રીતે જાણો છો?','I know the tithi':'મને તિથિ ખબર છે','From an English date':'અંગ્રેજી તારીખ પરથી','Find the tithi':'તિથિ શોધો','Time (optional)':'સમય (વૈકલ્પિક)','Month':'માસ','Paksha':'પક્ષ','Tithi':'તિથિ','Month names':'માસ પદ્ધતિ','Amanta':'અમાંત','Purnimanta':'પૂર્ણિમાંત','Remind me':'મને યાદ અપાવો','A week before':'એક અઠવાડિયું પહેલાં','The evening before':'આગલી સાંજે','Morning of the day':'એ જ દિવસે સવારે','Save':'સાચવો','Cancel':'રદ કરો','Edit':'બદલો','Delete':'કાઢી નાખો','Tap again to delete':'કાઢવા માટે ફરી દબાવો','View day':'દિવસ જુઓ','Next years':'આવતાં વર્ષો','Next':'આગામી','Tomorrow':'આવતીકાલે','day':'દિવસ','days':'દિવસ','Saved':'સાચવ્યું','No tithis saved yet.':'હજી કોઈ તિથિ સાચવી નથી.','Day is marked by the tithi at':'દિવસ આ સમયની તિથિથી નક્કી થાય','Afternoon (Aparahna), for shraddh':'બપોર પછી (અપરાહ્ન), શ્રાદ્ધ માટે','Sunrise, for birthdays and vrats':'સૂર્યોદય, જન્મદિવસ અને વ્રત માટે','Choose a date first.':'પહેલાં તારીખ પસંદ કરો.','@tsin':'%n દિવસમાં','@tsago':'%n દિવસ પહેલાં','Place of that day':'તે દિવસનું સ્થળ','Same as the app':'ઍપ મુજબ જ','Also remind me in Pitru Paksha':'પિતૃ પક્ષમાં પણ યાદ અપાવો','Pitru Paksha':'પિતૃ પક્ષ','shraddh':'શ્રાદ્ધ','How Tithi Smriti helps':'આ કેવી રીતે ઉપયોગી છે','Why Tithi Smriti':'તિથિ સ્મૃતિ શા માટે','Share with family':'પરિવાર સાથે શેર કરો','Got it':'સમજાયું','In the other naming':'બીજી પદ્ધતિમાં','Shraddh, birthdays and vrats kept by tithi, with a reminder every year':'શ્રાદ્ધ, જન્મદિવસ અને વ્રત તિથિ પ્રમાણે, દર વર્ષે યાદ સાથે','Shraddh, birthdays, anniversaries and vrats that return on the same tithi every year. Save one once and the app finds its date each year and reminds you.':'શ્રાદ્ધ, જન્મદિવસ, વર્ષગાંઠ અને વ્રત જે દર વર્ષે એ જ તિથિએ આવે છે. એક વાર સાચવો, ઍપ દર વર્ષે તેની તારીખ શોધીને તમને યાદ અપાવશે.','New':'નવું','Then':'પછી','That day\u2019s tithi:':'તે દિવસની તિથિ:','For a death, the tithi at the time of passing decides the shraddh. Leave the time empty to use sunrise.':'મૃત્યુ માટે શ્રાદ્ધ નિધન સમયની તિથિથી નક્કી થાય છે. સમય ખાલી રાખશો તો સૂર્યોદય લેવાશે.'},
-      te:{'Tithi Smriti':'తిథి స్మృతి','Remember by the tithi, not the date':'తేదీతో కాదు, తిథితో గుర్తుంచుకోండి','Add a tithi':'తిథి చేర్చండి','+ Add a tithi':'+ తిథి చేర్చండి','Edit tithi':'తిథి మార్చండి','Add to calendar':'క్యాలెండర్‌లో చేర్చండి','Name':'పేరు','Kind':'రకం','Shraddh':'శ్రాద్ధం','Birthday':'పుట్టినరోజు','Anniversary':'వార్షికోత్సవం','Vrat':'వ్రతం','Other':'ఇతర','How do you know it?':'మీకు ఇది ఎలా తెలుసు?','I know the tithi':'నాకు తిథి తెలుసు','From an English date':'ఇంగ్లీష్ తేదీ నుండి','Find the tithi':'తిథిని కనుగొనండి','Time (optional)':'సమయం (ఐచ్ఛికం)','Month':'మాసం','Paksha':'పక్షం','Tithi':'తిథి','Month names':'మాస పద్ధతి','Amanta':'అమాంత','Purnimanta':'పూర్ణిమాంత','Remind me':'నాకు గుర్తు చేయండి','A week before':'ఒక వారం ముందు','The evening before':'ముందు రోజు సాయంత్రం','Morning of the day':'ఆ రోజు ఉదయం','Save':'సేవ్ చేయండి','Cancel':'రద్దు చేయండి','Edit':'మార్చండి','Delete':'తొలగించండి','Tap again to delete':'తొలగించడానికి మళ్ళీ నొక్కండి','View day':'రోజు చూడండి','Next years':'రాబోయే సంవత్సరాలు','Next':'తదుపరి','Tomorrow':'రేపు','day':'రోజు','days':'రోజులు','Saved':'సేవ్ అయింది','No tithis saved yet.':'ఇంకా ఏ తిథీ సేవ్ చేయలేదు.','Day is marked by the tithi at':'ఈ సమయంలోని తిథితో రోజు నిర్ణయం','Afternoon (Aparahna), for shraddh':'మధ్యాహ్నం తర్వాత (అపరాహ్ణం), శ్రాద్ధానికి','Sunrise, for birthdays and vrats':'సూర్యోదయం, పుట్టినరోజులు మరియు వ్రతాలకు','Choose a date first.':'ముందుగా తేదీని ఎంచుకోండి.','@tsin':'%n రోజుల్లో','@tsago':'%n రోజుల క్రితం','Place of that day':'ఆ రోజు ప్రదేశం','Same as the app':'యాప్‌లోనిదే','Also remind me in Pitru Paksha':'పితృ పక్షంలో కూడా గుర్తు చేయండి','Pitru Paksha':'పితృ పక్షం','shraddh':'శ్రాద్ధం','How Tithi Smriti helps':'ఇది ఎలా ఉపయోగపడుతుంది','Why Tithi Smriti':'తిథి స్మృతి ఎందుకు','Share with family':'కుటుంబంతో పంచుకోండి','Got it':'అర్థమైంది','In the other naming':'ఇతర పద్ధతిలో','Shraddh, birthdays and vrats kept by tithi, with a reminder every year':'శ్రాద్ధం, పుట్టినరోజులు, వ్రతాలు తిథి ప్రకారం, ప్రతి సంవత్సరం రిమైండర్‌తో','Shraddh, birthdays, anniversaries and vrats that return on the same tithi every year. Save one once and the app finds its date each year and reminds you.':'శ్రాద్ధం, పుట్టినరోజులు, వార్షికోత్సవాలు, వ్రతాలు ప్రతి సంవత్సరం అదే తిథిన వస్తాయి. ఒకసారి సేవ్ చేయండి, యాప్ ప్రతి సంవత్సరం తేదీని కనుగొని మీకు గుర్తు చేస్తుంది.','New':'కొత్త','Then':'తర్వాత','That day\u2019s tithi:':'ఆ రోజు తిథి:','For a death, the tithi at the time of passing decides the shraddh. Leave the time empty to use sunrise.':'మరణం విషయంలో మరణించిన సమయంలోని తిథి శ్రాద్ధాన్ని నిర్ణయిస్తుంది. సమయం ఖాళీగా వదిలితే సూర్యోదయం తీసుకుంటాం.'},
-      kn:{'Tithi Smriti':'ತಿಥಿ ಸ್ಮೃತಿ','Remember by the tithi, not the date':'ದಿನಾಂಕದಿಂದಲ್ಲ, ತಿಥಿಯಿಂದ ನೆನಪಿಡಿ','Add a tithi':'ತಿಥಿ ಸೇರಿಸಿ','+ Add a tithi':'+ ತಿಥಿ ಸೇರಿಸಿ','Edit tithi':'ತಿಥಿ ಬದಲಿಸಿ','Add to calendar':'ಕ್ಯಾಲೆಂಡರ್‌ಗೆ ಸೇರಿಸಿ','Name':'ಹೆಸರು','Kind':'ವಿಧ','Shraddh':'ಶ್ರಾದ್ಧ','Birthday':'ಹುಟ್ಟುಹಬ್ಬ','Anniversary':'ವಾರ್ಷಿಕೋತ್ಸವ','Vrat':'ವ್ರತ','Other':'ಇತರೆ','How do you know it?':'ನಿಮಗೆ ಇದು ಹೇಗೆ ಗೊತ್ತು?','I know the tithi':'ನನಗೆ ತಿಥಿ ಗೊತ್ತು','From an English date':'ಇಂಗ್ಲಿಷ್ ದಿನಾಂಕದಿಂದ','Find the tithi':'ತಿಥಿ ಹುಡುಕಿ','Time (optional)':'ಸಮಯ (ಐಚ್ಛಿಕ)','Month':'ಮಾಸ','Paksha':'ಪಕ್ಷ','Tithi':'ತಿಥಿ','Month names':'ಮಾಸ ಪದ್ಧತಿ','Amanta':'ಅಮಾಂತ','Purnimanta':'ಪೂರ್ಣಿಮಾಂತ','Remind me':'ನನಗೆ ನೆನಪಿಸಿ','A week before':'ಒಂದು ವಾರ ಮೊದಲು','The evening before':'ಹಿಂದಿನ ಸಂಜೆ','Morning of the day':'ಆ ದಿನ ಬೆಳಿಗ್ಗೆ','Save':'ಉಳಿಸಿ','Cancel':'ರದ್ದುಮಾಡಿ','Edit':'ಬದಲಿಸಿ','Delete':'ಅಳಿಸಿ','Tap again to delete':'ಅಳಿಸಲು ಮತ್ತೆ ಒತ್ತಿ','View day':'ದಿನ ನೋಡಿ','Next years':'ಮುಂದಿನ ವರ್ಷಗಳು','Next':'ಮುಂದಿನ','Tomorrow':'ನಾಳೆ','day':'ದಿನ','days':'ದಿನಗಳು','Saved':'ಉಳಿಸಲಾಗಿದೆ','No tithis saved yet.':'ಇನ್ನೂ ಯಾವುದೇ ತಿಥಿ ಉಳಿಸಿಲ್ಲ.','Day is marked by the tithi at':'ಈ ಸಮಯದ ತಿಥಿಯಿಂದ ದಿನ ನಿರ್ಧಾರ','Afternoon (Aparahna), for shraddh':'ಮಧ್ಯಾಹ್ನದ ನಂತರ (ಅಪರಾಹ್ಣ), ಶ್ರಾದ್ಧಕ್ಕೆ','Sunrise, for birthdays and vrats':'ಸೂರ್ಯೋದಯ, ಹುಟ್ಟುಹಬ್ಬ ಮತ್ತು ವ್ರತಗಳಿಗೆ','Choose a date first.':'ಮೊದಲು ದಿನಾಂಕ ಆಯ್ಕೆಮಾಡಿ.','@tsin':'%n ದಿನಗಳಲ್ಲಿ','@tsago':'%n ದಿನಗಳ ಹಿಂದೆ','Place of that day':'ಆ ದಿನದ ಸ್ಥಳ','Same as the app':'ಆ್ಯಪ್‌ನಲ್ಲಿರುವುದೇ','Also remind me in Pitru Paksha':'ಪಿತೃ ಪಕ್ಷದಲ್ಲೂ ನೆನಪಿಸಿ','Pitru Paksha':'ಪಿತೃ ಪಕ್ಷ','shraddh':'ಶ್ರಾದ್ಧ','How Tithi Smriti helps':'ಇದು ಹೇಗೆ ಉಪಯುಕ್ತ','Why Tithi Smriti':'ತಿಥಿ ಸ್ಮೃತಿ ಏಕೆ','Share with family':'ಕುಟುಂಬದೊಂದಿಗೆ ಹಂಚಿಕೊಳ್ಳಿ','Got it':'ಅರ್ಥವಾಯಿತು','In the other naming':'ಇನ್ನೊಂದು ಪದ್ಧತಿಯಲ್ಲಿ','Shraddh, birthdays and vrats kept by tithi, with a reminder every year':'ಶ್ರಾದ್ಧ, ಹುಟ್ಟುಹಬ್ಬ, ವ್ರತಗಳು ತಿಥಿಯ ಪ್ರಕಾರ, ಪ್ರತಿ ವರ್ಷ ರಿಮೈಂಡರ್‌ನೊಂದಿಗೆ','Shraddh, birthdays, anniversaries and vrats that return on the same tithi every year. Save one once and the app finds its date each year and reminds you.':'ಶ್ರಾದ್ಧ, ಹುಟ್ಟುಹಬ್ಬ, ವಾರ್ಷಿಕೋತ್ಸವ, ವ್ರತಗಳು ಪ್ರತಿ ವರ್ಷ ಅದೇ ತಿಥಿಯಂದು ಬರುತ್ತವೆ. ಒಮ್ಮೆ ಉಳಿಸಿ, ಆ್ಯಪ್ ಪ್ರತಿ ವರ್ಷ ದಿನಾಂಕ ಹುಡುಕಿ ನಿಮಗೆ ನೆನಪಿಸುತ್ತದೆ.','New':'ಹೊಸದು','Then':'ನಂತರ','That day\u2019s tithi:':'ಆ ದಿನದ ತಿಥಿ:','For a death, the tithi at the time of passing decides the shraddh. Leave the time empty to use sunrise.':'ಮರಣದ ವಿಷಯದಲ್ಲಿ ನಿಧನದ ಸಮಯದ ತಿಥಿ ಶ್ರಾದ್ಧವನ್ನು ನಿರ್ಧರಿಸುತ್ತದೆ. ಸಮಯ ಖಾಲಿ ಬಿಟ್ಟರೆ ಸೂರ್ಯೋದಯ ಬಳಸಲಾಗುತ್ತದೆ.'}
+      hi:{'Tithi Smriti':'तिथि स्मृति','Remember by the tithi, not the date':'तारीख़ से नहीं, तिथि से याद रखें','Add a tithi':'तिथि जोड़ें','+ Add a tithi':'+ तिथि जोड़ें','Edit tithi':'तिथि बदलें','Add to calendar':'कैलेंडर में जोड़ें','Name':'नाम','Kind':'प्रकार','Shraddh':'श्राद्ध','Birthday':'जन्मदिन','Anniversary':'वर्षगांठ','Vrat':'व्रत','Other':'अन्य','How do you know it?':'आप इसे कैसे जानते हैं?','I know the tithi':'मुझे तिथि पता है','From an English date':'अंग्रेज़ी तारीख़ से','Find the tithi':'तिथि खोजें','Time (optional)':'समय (वैकल्पिक)','Month':'मास','Paksha':'पक्ष','Tithi':'तिथि','Month names':'मास पद्धति','Amanta':'अमान्त','Purnimanta':'पूर्णिमान्त','Remind me':'मुझे याद दिलाएँ','A week before':'एक सप्ताह पहले','The evening before':'एक दिन पहले शाम को','Morning of the day':'उसी दिन सुबह','Save':'सहेजें','Cancel':'रद्द करें','Edit':'बदलें','Delete':'हटाएँ','Tap again to delete':'हटाने के लिए फिर दबाएँ','View day':'दिन देखें','Next years':'आने वाले वर्ष','Next':'अगला','Tomorrow':'कल','day':'दिन','days':'दिन','Saved':'सहेजा गया','No tithis saved yet.':'अभी कोई तिथि सहेजी नहीं है।','Day is marked by the tithi at':'दिन तय होता है इस समय की तिथि से','Afternoon (Aparahna), for shraddh':'दोपहर बाद (अपराह्न), श्राद्ध के लिए','Sunrise, for birthdays and vrats':'सूर्योदय, जन्मदिन और व्रत के लिए','Choose a date first.':'पहले तारीख़ चुनें।','@tsin':'%n दिन में','@tsago':'%n दिन पहले','Within 30 days':'30 दिनों के भीतर','Later':'बाद में','All':'सभी','Saved tithis':'सहेजी गई तिथियाँ','Options':'विकल्प','This name is already saved. Please use a different name.':'यह नाम पहले से सहेजा है। कृपया कोई दूसरा नाम रखें।','Place of that day':'उस दिन का स्थान','Same as the app':'ऐप वाला ही','Also remind me in Pitru Paksha':'पितृ पक्ष में भी याद दिलाएँ','Pitru Paksha':'पितृ पक्ष','shraddh':'श्राद्ध','How Tithi Smriti helps':'यह कैसे काम आता है','Why Tithi Smriti':'तिथि स्मृति क्यों','Share with family':'परिवार से साझा करें','Got it':'समझ गया','In the other naming':'दूसरी पद्धति में','Shraddh, birthdays and vrats kept by tithi, with a reminder every year':'श्राद्ध, जन्मदिन और व्रत तिथि के अनुसार, हर साल रिमाइंडर के साथ','Shraddh, birthdays, anniversaries and vrats that return on the same tithi every year. Save one once and the app finds its date each year and reminds you.':'श्राद्ध, जन्मदिन, वर्षगांठ और व्रत जो हर साल उसी तिथि पर लौटते हैं। एक बार सहेजें, ऐप हर साल उसकी तारीख़ खोजकर आपको याद दिलाएगा।','New':'नया','Then':'फिर','That day\u2019s tithi:':'उस दिन की तिथि:','For a death, the tithi at the time of passing decides the shraddh. Leave the time empty to use sunrise.':'मृत्यु के लिए श्राद्ध उसी समय की तिथि से तय होता है। समय खाली छोड़ेंगे तो सूर्योदय लिया जाएगा।'},
+      mr:{'Tithi Smriti':'तिथी स्मृती','Remember by the tithi, not the date':'तारखेने नव्हे, तिथीने आठवण ठेवा','Add a tithi':'तिथी जोडा','+ Add a tithi':'+ तिथी जोडा','Edit tithi':'तिथी बदला','Add to calendar':'कॅलेंडरमध्ये जोडा','Name':'नाव','Kind':'प्रकार','Shraddh':'श्राद्ध','Birthday':'वाढदिवस','Anniversary':'वर्धापन दिन','Vrat':'व्रत','Other':'इतर','How do you know it?':'तुम्हाला ती कशी माहीत आहे?','I know the tithi':'मला तिथी माहीत आहे','From an English date':'इंग्रजी तारखेवरून','Find the tithi':'तिथी शोधा','Time (optional)':'वेळ (ऐच्छिक)','Month':'महिना','Paksha':'पक्ष','Tithi':'तिथी','Month names':'महिन्यांची पद्धत','Amanta':'अमान्त','Purnimanta':'पूर्णिमान्त','Remind me':'मला आठवण करा','A week before':'एक आठवडा आधी','The evening before':'आदल्या संध्याकाळी','Morning of the day':'त्याच दिवशी सकाळी','Save':'जतन करा','Cancel':'रद्द करा','Edit':'बदला','Delete':'हटवा','Tap again to delete':'हटवण्यासाठी पुन्हा दाबा','View day':'दिवस पहा','Next years':'पुढील वर्षे','Next':'पुढील','Tomorrow':'उद्या','day':'दिवस','days':'दिवस','Saved':'जतन केले','No tithis saved yet.':'अजून कोणतीही तिथी जतन केलेली नाही.','Day is marked by the tithi at':'दिवस या वेळच्या तिथीवरून ठरतो','Afternoon (Aparahna), for shraddh':'दुपारनंतर (अपराह्न), श्राद्धासाठी','Sunrise, for birthdays and vrats':'सूर्योदय, वाढदिवस व व्रतांसाठी','Choose a date first.':'आधी तारीख निवडा.','@tsin':'%n दिवसांत','@tsago':'%n दिवसांपूर्वी','Within 30 days':'30 दिवसांच्या आत','Later':'नंतर','All':'सर्व','Saved tithis':'जतन केलेल्या तिथी','Options':'पर्याय','This name is already saved. Please use a different name.':'हे नाव आधीच जतन केले आहे. कृपया वेगळे नाव द्या.','Place of that day':'त्या दिवसाचे ठिकाण','Same as the app':'अॅपमधीलच','Also remind me in Pitru Paksha':'पितृपक्षातही आठवण करा','Pitru Paksha':'पितृपक्ष','shraddh':'श्राद्ध','How Tithi Smriti helps':'हे कसे उपयोगी आहे','Why Tithi Smriti':'तिथी स्मृती का','Share with family':'कुटुंबासोबत शेअर करा','Got it':'समजले','In the other naming':'दुसऱ्या पद्धतीत','Shraddh, birthdays and vrats kept by tithi, with a reminder every year':'श्राद्ध, वाढदिवस आणि व्रते तिथीनुसार, दरवर्षी आठवणीसह','Shraddh, birthdays, anniversaries and vrats that return on the same tithi every year. Save one once and the app finds its date each year and reminds you.':'श्राद्ध, वाढदिवस, वर्धापन दिन आणि व्रते जी दरवर्षी त्याच तिथीला येतात. एकदा जतन करा, अॅप दरवर्षी त्याची तारीख शोधून तुम्हाला आठवण करून देईल.','New':'नवीन','Then':'नंतर','That day\u2019s tithi:':'त्या दिवसाची तिथी:','For a death, the tithi at the time of passing decides the shraddh. Leave the time empty to use sunrise.':'मृत्यूसाठी श्राद्ध निधनाच्या वेळच्या तिथीने ठरते. वेळ रिकामी ठेवल्यास सूर्योदय घेतला जातो.'},
+      gu:{'Tithi Smriti':'તિથિ સ્મૃતિ','Remember by the tithi, not the date':'તારીખથી નહીં, તિથિથી યાદ રાખો','Add a tithi':'તિથિ ઉમેરો','+ Add a tithi':'+ તિથિ ઉમેરો','Edit tithi':'તિથિ બદલો','Add to calendar':'કૅલેન્ડરમાં ઉમેરો','Name':'નામ','Kind':'પ્રકાર','Shraddh':'શ્રાદ્ધ','Birthday':'જન્મદિવસ','Anniversary':'વર્ષગાંઠ','Vrat':'વ્રત','Other':'અન્ય','How do you know it?':'તમે તેને કેવી રીતે જાણો છો?','I know the tithi':'મને તિથિ ખબર છે','From an English date':'અંગ્રેજી તારીખ પરથી','Find the tithi':'તિથિ શોધો','Time (optional)':'સમય (વૈકલ્પિક)','Month':'માસ','Paksha':'પક્ષ','Tithi':'તિથિ','Month names':'માસ પદ્ધતિ','Amanta':'અમાંત','Purnimanta':'પૂર્ણિમાંત','Remind me':'મને યાદ અપાવો','A week before':'એક અઠવાડિયું પહેલાં','The evening before':'આગલી સાંજે','Morning of the day':'એ જ દિવસે સવારે','Save':'સાચવો','Cancel':'રદ કરો','Edit':'બદલો','Delete':'કાઢી નાખો','Tap again to delete':'કાઢવા માટે ફરી દબાવો','View day':'દિવસ જુઓ','Next years':'આવતાં વર્ષો','Next':'આગામી','Tomorrow':'આવતીકાલે','day':'દિવસ','days':'દિવસ','Saved':'સાચવ્યું','No tithis saved yet.':'હજી કોઈ તિથિ સાચવી નથી.','Day is marked by the tithi at':'દિવસ આ સમયની તિથિથી નક્કી થાય','Afternoon (Aparahna), for shraddh':'બપોર પછી (અપરાહ્ન), શ્રાદ્ધ માટે','Sunrise, for birthdays and vrats':'સૂર્યોદય, જન્મદિવસ અને વ્રત માટે','Choose a date first.':'પહેલાં તારીખ પસંદ કરો.','@tsin':'%n દિવસમાં','@tsago':'%n દિવસ પહેલાં','Within 30 days':'30 દિવસમાં','Later':'પછી','All':'બધા','Saved tithis':'સાચવેલી તિથિઓ','Options':'વિકલ્પો','This name is already saved. Please use a different name.':'આ નામ પહેલેથી સાચવેલું છે. કૃપા કરી બીજું નામ આપો.','Place of that day':'તે દિવસનું સ્થળ','Same as the app':'ઍપ મુજબ જ','Also remind me in Pitru Paksha':'પિતૃ પક્ષમાં પણ યાદ અપાવો','Pitru Paksha':'પિતૃ પક્ષ','shraddh':'શ્રાદ્ધ','How Tithi Smriti helps':'આ કેવી રીતે ઉપયોગી છે','Why Tithi Smriti':'તિથિ સ્મૃતિ શા માટે','Share with family':'પરિવાર સાથે શેર કરો','Got it':'સમજાયું','In the other naming':'બીજી પદ્ધતિમાં','Shraddh, birthdays and vrats kept by tithi, with a reminder every year':'શ્રાદ્ધ, જન્મદિવસ અને વ્રત તિથિ પ્રમાણે, દર વર્ષે યાદ સાથે','Shraddh, birthdays, anniversaries and vrats that return on the same tithi every year. Save one once and the app finds its date each year and reminds you.':'શ્રાદ્ધ, જન્મદિવસ, વર્ષગાંઠ અને વ્રત જે દર વર્ષે એ જ તિથિએ આવે છે. એક વાર સાચવો, ઍપ દર વર્ષે તેની તારીખ શોધીને તમને યાદ અપાવશે.','New':'નવું','Then':'પછી','That day\u2019s tithi:':'તે દિવસની તિથિ:','For a death, the tithi at the time of passing decides the shraddh. Leave the time empty to use sunrise.':'મૃત્યુ માટે શ્રાદ્ધ નિધન સમયની તિથિથી નક્કી થાય છે. સમય ખાલી રાખશો તો સૂર્યોદય લેવાશે.'},
+      te:{'Tithi Smriti':'తిథి స్మృతి','Remember by the tithi, not the date':'తేదీతో కాదు, తిథితో గుర్తుంచుకోండి','Add a tithi':'తిథి చేర్చండి','+ Add a tithi':'+ తిథి చేర్చండి','Edit tithi':'తిథి మార్చండి','Add to calendar':'క్యాలెండర్‌లో చేర్చండి','Name':'పేరు','Kind':'రకం','Shraddh':'శ్రాద్ధం','Birthday':'పుట్టినరోజు','Anniversary':'వార్షికోత్సవం','Vrat':'వ్రతం','Other':'ఇతర','How do you know it?':'మీకు ఇది ఎలా తెలుసు?','I know the tithi':'నాకు తిథి తెలుసు','From an English date':'ఇంగ్లీష్ తేదీ నుండి','Find the tithi':'తిథిని కనుగొనండి','Time (optional)':'సమయం (ఐచ్ఛికం)','Month':'మాసం','Paksha':'పక్షం','Tithi':'తిథి','Month names':'మాస పద్ధతి','Amanta':'అమాంత','Purnimanta':'పూర్ణిమాంత','Remind me':'నాకు గుర్తు చేయండి','A week before':'ఒక వారం ముందు','The evening before':'ముందు రోజు సాయంత్రం','Morning of the day':'ఆ రోజు ఉదయం','Save':'సేవ్ చేయండి','Cancel':'రద్దు చేయండి','Edit':'మార్చండి','Delete':'తొలగించండి','Tap again to delete':'తొలగించడానికి మళ్ళీ నొక్కండి','View day':'రోజు చూడండి','Next years':'రాబోయే సంవత్సరాలు','Next':'తదుపరి','Tomorrow':'రేపు','day':'రోజు','days':'రోజులు','Saved':'సేవ్ అయింది','No tithis saved yet.':'ఇంకా ఏ తిథీ సేవ్ చేయలేదు.','Day is marked by the tithi at':'ఈ సమయంలోని తిథితో రోజు నిర్ణయం','Afternoon (Aparahna), for shraddh':'మధ్యాహ్నం తర్వాత (అపరాహ్ణం), శ్రాద్ధానికి','Sunrise, for birthdays and vrats':'సూర్యోదయం, పుట్టినరోజులు మరియు వ్రతాలకు','Choose a date first.':'ముందుగా తేదీని ఎంచుకోండి.','@tsin':'%n రోజుల్లో','@tsago':'%n రోజుల క్రితం','Within 30 days':'30 రోజుల్లోపు','Later':'తర్వాత','All':'అన్నీ','Saved tithis':'సేవ్ చేసిన తిథులు','Options':'ఎంపికలు','This name is already saved. Please use a different name.':'ఈ పేరు ఇప్పటికే సేవ్ అయింది. దయచేసి వేరే పేరు ఇవ్వండి.','Place of that day':'ఆ రోజు ప్రదేశం','Same as the app':'యాప్‌లోనిదే','Also remind me in Pitru Paksha':'పితృ పక్షంలో కూడా గుర్తు చేయండి','Pitru Paksha':'పితృ పక్షం','shraddh':'శ్రాద్ధం','How Tithi Smriti helps':'ఇది ఎలా ఉపయోగపడుతుంది','Why Tithi Smriti':'తిథి స్మృతి ఎందుకు','Share with family':'కుటుంబంతో పంచుకోండి','Got it':'అర్థమైంది','In the other naming':'ఇతర పద్ధతిలో','Shraddh, birthdays and vrats kept by tithi, with a reminder every year':'శ్రాద్ధం, పుట్టినరోజులు, వ్రతాలు తిథి ప్రకారం, ప్రతి సంవత్సరం రిమైండర్‌తో','Shraddh, birthdays, anniversaries and vrats that return on the same tithi every year. Save one once and the app finds its date each year and reminds you.':'శ్రాద్ధం, పుట్టినరోజులు, వార్షికోత్సవాలు, వ్రతాలు ప్రతి సంవత్సరం అదే తిథిన వస్తాయి. ఒకసారి సేవ్ చేయండి, యాప్ ప్రతి సంవత్సరం తేదీని కనుగొని మీకు గుర్తు చేస్తుంది.','New':'కొత్త','Then':'తర్వాత','That day\u2019s tithi:':'ఆ రోజు తిథి:','For a death, the tithi at the time of passing decides the shraddh. Leave the time empty to use sunrise.':'మరణం విషయంలో మరణించిన సమయంలోని తిథి శ్రాద్ధాన్ని నిర్ణయిస్తుంది. సమయం ఖాళీగా వదిలితే సూర్యోదయం తీసుకుంటాం.'},
+      kn:{'Tithi Smriti':'ತಿಥಿ ಸ್ಮೃತಿ','Remember by the tithi, not the date':'ದಿನಾಂಕದಿಂದಲ್ಲ, ತಿಥಿಯಿಂದ ನೆನಪಿಡಿ','Add a tithi':'ತಿಥಿ ಸೇರಿಸಿ','+ Add a tithi':'+ ತಿಥಿ ಸೇರಿಸಿ','Edit tithi':'ತಿಥಿ ಬದಲಿಸಿ','Add to calendar':'ಕ್ಯಾಲೆಂಡರ್‌ಗೆ ಸೇರಿಸಿ','Name':'ಹೆಸರು','Kind':'ವಿಧ','Shraddh':'ಶ್ರಾದ್ಧ','Birthday':'ಹುಟ್ಟುಹಬ್ಬ','Anniversary':'ವಾರ್ಷಿಕೋತ್ಸವ','Vrat':'ವ್ರತ','Other':'ಇತರೆ','How do you know it?':'ನಿಮಗೆ ಇದು ಹೇಗೆ ಗೊತ್ತು?','I know the tithi':'ನನಗೆ ತಿಥಿ ಗೊತ್ತು','From an English date':'ಇಂಗ್ಲಿಷ್ ದಿನಾಂಕದಿಂದ','Find the tithi':'ತಿಥಿ ಹುಡುಕಿ','Time (optional)':'ಸಮಯ (ಐಚ್ಛಿಕ)','Month':'ಮಾಸ','Paksha':'ಪಕ್ಷ','Tithi':'ತಿಥಿ','Month names':'ಮಾಸ ಪದ್ಧತಿ','Amanta':'ಅಮಾಂತ','Purnimanta':'ಪೂರ್ಣಿಮಾಂತ','Remind me':'ನನಗೆ ನೆನಪಿಸಿ','A week before':'ಒಂದು ವಾರ ಮೊದಲು','The evening before':'ಹಿಂದಿನ ಸಂಜೆ','Morning of the day':'ಆ ದಿನ ಬೆಳಿಗ್ಗೆ','Save':'ಉಳಿಸಿ','Cancel':'ರದ್ದುಮಾಡಿ','Edit':'ಬದಲಿಸಿ','Delete':'ಅಳಿಸಿ','Tap again to delete':'ಅಳಿಸಲು ಮತ್ತೆ ಒತ್ತಿ','View day':'ದಿನ ನೋಡಿ','Next years':'ಮುಂದಿನ ವರ್ಷಗಳು','Next':'ಮುಂದಿನ','Tomorrow':'ನಾಳೆ','day':'ದಿನ','days':'ದಿನಗಳು','Saved':'ಉಳಿಸಲಾಗಿದೆ','No tithis saved yet.':'ಇನ್ನೂ ಯಾವುದೇ ತಿಥಿ ಉಳಿಸಿಲ್ಲ.','Day is marked by the tithi at':'ಈ ಸಮಯದ ತಿಥಿಯಿಂದ ದಿನ ನಿರ್ಧಾರ','Afternoon (Aparahna), for shraddh':'ಮಧ್ಯಾಹ್ನದ ನಂತರ (ಅಪರಾಹ್ಣ), ಶ್ರಾದ್ಧಕ್ಕೆ','Sunrise, for birthdays and vrats':'ಸೂರ್ಯೋದಯ, ಹುಟ್ಟುಹಬ್ಬ ಮತ್ತು ವ್ರತಗಳಿಗೆ','Choose a date first.':'ಮೊದಲು ದಿನಾಂಕ ಆಯ್ಕೆಮಾಡಿ.','@tsin':'%n ದಿನಗಳಲ್ಲಿ','@tsago':'%n ದಿನಗಳ ಹಿಂದೆ','Within 30 days':'30 ದಿನಗಳೊಳಗೆ','Later':'ನಂತರ','All':'ಎಲ್ಲಾ','Saved tithis':'ಉಳಿಸಿದ ತಿಥಿಗಳು','Options':'ಆಯ್ಕೆಗಳು','This name is already saved. Please use a different name.':'ಈ ಹೆಸರು ಈಗಾಗಲೇ ಉಳಿಸಲಾಗಿದೆ. ದಯವಿಟ್ಟು ಬೇರೆ ಹೆಸರು ನೀಡಿ.','Place of that day':'ಆ ದಿನದ ಸ್ಥಳ','Same as the app':'ಆ್ಯಪ್‌ನಲ್ಲಿರುವುದೇ','Also remind me in Pitru Paksha':'ಪಿತೃ ಪಕ್ಷದಲ್ಲೂ ನೆನಪಿಸಿ','Pitru Paksha':'ಪಿತೃ ಪಕ್ಷ','shraddh':'ಶ್ರಾದ್ಧ','How Tithi Smriti helps':'ಇದು ಹೇಗೆ ಉಪಯುಕ್ತ','Why Tithi Smriti':'ತಿಥಿ ಸ್ಮೃತಿ ಏಕೆ','Share with family':'ಕುಟುಂಬದೊಂದಿಗೆ ಹಂಚಿಕೊಳ್ಳಿ','Got it':'ಅರ್ಥವಾಯಿತು','In the other naming':'ಇನ್ನೊಂದು ಪದ್ಧತಿಯಲ್ಲಿ','Shraddh, birthdays and vrats kept by tithi, with a reminder every year':'ಶ್ರಾದ್ಧ, ಹುಟ್ಟುಹಬ್ಬ, ವ್ರತಗಳು ತಿಥಿಯ ಪ್ರಕಾರ, ಪ್ರತಿ ವರ್ಷ ರಿಮೈಂಡರ್‌ನೊಂದಿಗೆ','Shraddh, birthdays, anniversaries and vrats that return on the same tithi every year. Save one once and the app finds its date each year and reminds you.':'ಶ್ರಾದ್ಧ, ಹುಟ್ಟುಹಬ್ಬ, ವಾರ್ಷಿಕೋತ್ಸವ, ವ್ರತಗಳು ಪ್ರತಿ ವರ್ಷ ಅದೇ ತಿಥಿಯಂದು ಬರುತ್ತವೆ. ಒಮ್ಮೆ ಉಳಿಸಿ, ಆ್ಯಪ್ ಪ್ರತಿ ವರ್ಷ ದಿನಾಂಕ ಹುಡುಕಿ ನಿಮಗೆ ನೆನಪಿಸುತ್ತದೆ.','New':'ಹೊಸದು','Then':'ನಂತರ','That day\u2019s tithi:':'ಆ ದಿನದ ತಿಥಿ:','For a death, the tithi at the time of passing decides the shraddh. Leave the time empty to use sunrise.':'ಮರಣದ ವಿಷಯದಲ್ಲಿ ನಿಧನದ ಸಮಯದ ತಿಥಿ ಶ್ರಾದ್ಧವನ್ನು ನಿರ್ಧರಿಸುತ್ತದೆ. ಸಮಯ ಖಾಲಿ ಬಿಟ್ಟರೆ ಸೂರ್ಯೋದಯ ಬಳಸಲಾಗುತ್ತದೆ.'}
     };
     Object.keys(X).forEach(function(l){ if (!DICT[l]) return; Object.keys(X[l]).forEach(function(k){ if (DICT[l][k] === undefined) DICT[l][k] = X[l][k]; }); });
     LANG_RULES.push([/^In (\d+) days$/, function(m, w, d){ var s = FX(d, '@tsin', ''); return s ? s.replace('%n', m[1]) : m[0]; }]);
@@ -6036,7 +6152,7 @@ body{overflow-x:clip;max-width:100%;}
       document.querySelectorAll('#kd-style .subtab').forEach(function(x){ var on = x.dataset.style === kdStyle; x.classList.toggle('active', on); x.setAttribute('aria-selected', on ? 'true' : 'false'); });
     }
     var kds = jyEl('kd-div-sel');
-    kds.innerHTML = DIVS.map(function(x){ return '<option value="' + x[0] + '">D' + x[0] + ' \u00b7 ' + x[1] + ' \u2014 ' + x[2] + '</option>'; }).join('');
+    kds.innerHTML = DIVS.map(function(x){ return '<option value="' + x[0] + '">' + (x[0] === 0 ? x[1] : 'D' + x[0] + ' \u00b7 ' + x[1]) + ' \u2014 ' + x[2] + '</option>'; }).join('');
     kds.addEventListener('change', function(){ var v = +kds.value; if (DIV_KEYS.indexOf(v) < 0) return; kdDiv = v; renderKundali(); });
     kdSyncDiv();
     jyEl('kd-style').addEventListener('click', function(e){
