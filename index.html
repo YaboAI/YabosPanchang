@@ -518,6 +518,19 @@
   }
   .muh-datebar-date{font-family:'Fraunces','Fraunces Local',Georgia,serif;font-weight:600;font-size:1.2rem;color:var(--maroon);}
   .muh-datebar-sub{font-size:.85rem;color:var(--ink-soft);}
+  .muh-datebar{display:block;touch-action:pan-y;}
+  .muh-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+  .muh-mid{flex:1;min-width:0;text-align:center;}
+  .muh-mid .muh-datebar-date{font-size:1.08rem;line-height:1.25;}
+  .muh-arrow{flex:none;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--ivory);color:var(--maroon);font-size:1.5rem;line-height:1;cursor:pointer;display:grid;place-items:center;padding:0 0 3px;}
+  .muh-arrow:active{background:var(--ivory-dim);}
+  .muh-rel{display:inline-block;margin-top:4px;padding:2px 11px;border-radius:999px;background:var(--maroon);color:#FBF3E7;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;}
+  .muh-rel:empty{display:none;}
+  .muh-datebar .muh-datebar-sub{text-align:center;margin-top:8px;}
+  .muh-tools{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:10px;flex-wrap:wrap;}
+  .muh-pick{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;color:var(--ink-soft);}
+  .muh-pick input{font:inherit;padding:6px 8px;border:1px solid var(--line);border-radius:10px;background:var(--ivory);color:var(--ink);}
+  .muh-today{border:0;border-radius:999px;background:var(--maroon);color:#FBF3E7;font:inherit;font-weight:600;font-size:.85rem;padding:7px 16px;cursor:pointer;}
 
   section.block{margin-bottom:40px;}
   section.block h2{
@@ -633,6 +646,30 @@
   .up-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px;}
   .up-card{display:flex;align-items:center;gap:14px;text-align:left;font:inherit;color:inherit;background:var(--ivory-dim);border:1px solid var(--line);border-radius:14px;padding:12px 14px;cursor:pointer;}
   .up-card:hover{border-color:var(--maroon);}
+
+  /* ---------- Moonrise highlight ---------- */
+  .mr-l{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;}
+  .mr-tag{display:inline-flex;align-items:center;gap:7px;}
+  .mr-tag .mr-l{color:var(--ink-soft);}
+  .mr-tag b,.mr-big{font-family:'Fraunces','Fraunces Local',Georgia,serif;font-style:italic;font-weight:800;letter-spacing:.01em;}
+  .mr-tag b{color:var(--maroon);font-size:1.08rem;}
+  .mr-tag svg,.moon-hl svg{width:18px;height:18px;flex:none;}
+  .fl-moon{margin-top:5px;}
+  .city-auto{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:10px 0 0;padding:8px 12px;border-radius:12px;background:var(--ivory-dim);border:1px solid var(--line);font-size:.85rem;color:var(--ink-soft);}
+  .city-auto button{border:0;background:transparent;font-size:1.2rem;line-height:1;color:var(--ink-soft);cursor:pointer;padding:2px 6px;}
+  .cp-grp{position:sticky;top:0;z-index:1;padding:8px 14px 6px;font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--maroon);background:var(--ivory);border-bottom:1px solid var(--line);}
+  .up-date .mr-tag{margin-left:4px;}
+  .moon-hl{display:inline-flex;align-items:center;gap:10px;margin-top:16px;padding:8px 18px 8px 12px;border-radius:999px;background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.04));border:1px solid rgba(216,184,120,.65);box-shadow:0 0 22px rgba(244,235,208,.14),inset 0 0 12px rgba(244,235,208,.06);color:#F4EBD0;}
+  .moon-hl:empty{display:none;}
+  .moon-hl svg{width:26px;height:26px;filter:drop-shadow(0 0 7px rgba(244,235,208,.75));}
+  .moon-hl .mr-l{color:#D8B878;}
+  .moon-hl .mr-big{font-size:1.45rem;line-height:1;text-shadow:0 0 16px rgba(244,235,208,.5);}
+  .moon-hl .mr-none{font-size:.85rem;color:#E9D9BE;}
+  .fs-moon{display:flex;align-items:center;gap:14px;margin:14px 0 16px;padding:14px 18px;border-radius:16px;background:linear-gradient(135deg,#2A0E16,#561A28);color:#F4EBD0;border:1px solid #C9A25C;box-shadow:0 6px 22px rgba(60,10,20,.28);}
+  .fs-moon svg{width:46px;height:46px;flex:none;filter:drop-shadow(0 0 9px rgba(244,235,208,.7));}
+  .fs-moon .mr-l{color:#D8B878;}
+  .fs-moon .mr-big{display:block;font-size:2.1rem;line-height:1.05;margin:2px 0;text-shadow:0 0 18px rgba(244,235,208,.5);}
+  .fs-moon .mr-sub{font-size:.8rem;color:#E9D9BE;line-height:1.35;}
   .up-days{flex:0 0 auto;text-align:center;min-width:56px;}
   .up-days b{display:block;font-family:'Fraunces','Fraunces Local',Georgia,serif;font-size:1.8rem;line-height:1;color:var(--maroon);}
   .up-days span{font-size:.64rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);}
@@ -893,6 +930,19 @@ body{overflow-x:clip;max-width:100%;}
 .rs-sheet .rs-done{margin-top:18px;width:100%;}
   /* ===== TITHI SMRITI ===== */
   .ts-sec{position:relative;}
+  .kd-fab svg{stroke-width:1.9;}
+  .kdp-sheet .kdp-q{width:100%;box-sizing:border-box;font:inherit;padding:9px 12px;min-height:44px;border-radius:12px;border:1px solid var(--line);background:var(--ivory-dim);color:var(--ink);margin-bottom:8px;}
+  .kdp-list{display:flex;flex-direction:column;gap:6px;}
+  .kdp-row{display:flex;align-items:center;gap:12px;width:100%;text-align:left;font:inherit;padding:10px 12px;min-height:58px;border-radius:14px;border:1px solid var(--line);background:var(--ivory-dim);color:var(--ink);cursor:pointer;}
+  .kdp-row:hover{border-color:var(--gold);}
+  .kdp-row.cur{border-color:var(--maroon);box-shadow:0 0 0 1px var(--maroon) inset;}
+  .kdp-av{flex:none;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;color:var(--ivory);background:linear-gradient(135deg,var(--maroon),var(--gold));}
+  .kdp-tx{flex:1;min-width:0;display:flex;flex-direction:column;}
+  .kdp-tx b{font-family:'Fraunces','Fraunces Local',Georgia,serif;font-size:1rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .kdp-tx small{font-size:.78rem;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .kdp-go{width:18px;height:18px;flex:none;fill:none;stroke:var(--ink-soft);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+  .kdp-on{flex:none;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--maroon);}
+  .kdp-empty{text-align:center;padding:22px 10px;color:var(--ink-soft);font-size:.9rem;line-height:1.5;border:1px dashed var(--gold);border-radius:14px;margin-top:8px;}
   .ts-saved-h{display:flex;align-items:center;gap:8px;margin:0;font-family:'Fraunces','Fraunces Local',Georgia,serif;font-size:1.1rem;color:var(--maroon);}
   .ts-saved-h[hidden]{display:none;}
   .ts-saved-h .ts-count{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;padding:0 7px;border-radius:999px;background:var(--maroon);color:var(--ivory);font-size:.72rem;font-weight:700;letter-spacing:0;}
@@ -1073,6 +1123,7 @@ body{overflow-x:clip;max-width:100%;}
 <path d="M36 101 Q60 112 84 101" fill="none" stroke="#F2C65A" stroke-width="1.6" stroke-linecap="round"/><rect x="1.2" y="1.2" width="117.6" height="117.6" rx="25" fill="none" stroke="url(#tsAG)" stroke-width="2.4"/></symbol></defs></svg>
 <nav id="appnav" aria-label="Main"><button data-go="home"><span class="an-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span>Home</button><button data-go="today"><span class="an-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>Panchang</button><button data-go="calendar"><span class="an-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>Calendar</button><button data-go="festivals"><span class="an-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.4 5.6 6 .6-4.5 4 1.4 6-5.3-3.2-5.3 3.2 1.4-6-4.5-4 6-.6z"/></svg></span>Festivals</button><button data-go="more"><span class="an-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span>More</button></nav>
 <div id="appmore"><button data-go="muhurat">Muhuratam</button><button data-go="horoscope">Jyotisham</button><button data-go="yantrani">Yantrāṇi</button><button data-go="smriti">Tithi Smriti</button><button data-go="about">About</button></div>
+<button type="button" id="kd-fab" class="fab kd-fab" aria-label="Open a saved Kundali" title="Open a saved Kundali" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="3"/><path d="M12 10v-1.2M12 17.2V16M15 13h1.2M7.8 13H9"/></svg></button>
 <button type="button" id="fest-fab" class="fab" aria-label="Search festivals" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
 <div id="lang-ov" hidden>
   <div id="lang-card" role="dialog" aria-modal="true" aria-label="Choose your language">
@@ -1184,6 +1235,7 @@ body{overflow-x:clip;max-width:100%;}
           <div class="hero-fig"><div class="lbl">Tithi</div><div class="val" id="h-tithi">—</div></div>
           <div class="hero-fig"><div class="lbl">Nakshatra</div><div class="val" id="h-nak">—</div></div>
         </div>
+        <div class="moon-hl" id="h-moon"></div>
         <div id="h-fest"></div>
       </div>
     </div>
@@ -1284,6 +1336,7 @@ body{overflow-x:clip;max-width:100%;}
           <div class="hero-fig"><div class="lbl">Tithi</div><div class="val" id="c-tithi">—</div></div>
           <div class="hero-fig"><div class="lbl">Nakshatra</div><div class="val" id="c-nak">—</div></div>
         </div>
+        <div class="moon-hl" id="c-moon"></div>
         <div id="c-fest"></div>
       </div>
     </div>
@@ -1323,9 +1376,14 @@ body{overflow-x:clip;max-width:100%;}
   <div class="panel" id="panel-muhurat">
     <div class="wrap">
       <section class="block pg-head"><h2>Muhuratam</h2><p class="desc">Auspicious and inauspicious times of the day for your place.</p></section>
-      <div class="muh-datebar" style="margin-top:14px;">
-        <div class="muh-datebar-date" id="muh-date-title">—</div>
+      <div class="muh-datebar" id="muh-datebar" style="margin-top:14px;">
+        <div class="muh-nav">
+          <button type="button" class="muh-arrow" id="muh-prev" aria-label="Previous day">‹</button>
+          <div class="muh-mid"><div class="muh-datebar-date" id="muh-date-title">—</div><span class="muh-rel" id="muh-rel"></span></div>
+          <button type="button" class="muh-arrow" id="muh-next" aria-label="Next day">›</button>
+        </div>
         <div class="muh-datebar-sub" id="muh-date-sub">—</div>
+        <div class="muh-tools"><label class="muh-pick"><span>Date</span><input type="date" id="muh-date-in" aria-label="Choose a date"></label><button type="button" class="muh-today" id="muh-today" hidden>Today</button></div>
       </div>
 
       <section class="block">
@@ -1421,8 +1479,7 @@ body{overflow-x:clip;max-width:100%;}
 
       <div class="subpanel" id="sub-dasha">
       <section class="block">
-        <h2>Vimshottari Dasha</h2>
-        <p class="desc">The 120-year planetary period system, worked out from the Moon’s nakshatra at birth: Mahadasha, Antardasha and Pratyantar.</p>
+        <div class="kd-banner"><svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="#E7C978" stroke-width="1.6" stroke-linecap="round"><circle cx="24" cy="24" r="21"/><circle cx="24" cy="24" r="14" stroke-dasharray="7.3 2"/><path d="M24 24V12M24 24l8 5"/></g><circle cx="24" cy="24" r="2.6" fill="#E7C978"/><circle cx="24" cy="3" r="2" fill="#E7C978"/></svg><div><b>Vimshottari Dasha</b><span>The 120-year planetary period system, worked out from the Moon’s nakshatra at birth: Mahadasha, Antardasha and Pratyantar.</span></div></div>
         <div class="jy-form">
           <label>Date <input type="date" id="ds-date"></label>
           <label>Time <input type="time" id="ds-time"></label>
@@ -1440,8 +1497,7 @@ body{overflow-x:clip;max-width:100%;}
 
       <div class="subpanel" id="sub-gochar">
       <section class="block">
-        <h2>Gochar · Planetary Transits</h2>
-        <p class="desc">Where the planets are and when they change sign or turn retrograde. Pick any date.</p>
+        <div class="kd-banner"><svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="#E7C978" stroke-width="1.4"><ellipse cx="24" cy="24" rx="21" ry="9" transform="rotate(-20 24 24)"/><ellipse cx="24" cy="24" rx="14" ry="5.5" transform="rotate(-20 24 24)"/></g><circle cx="24" cy="24" r="4.5" fill="#E7C978"/><circle cx="43" cy="17" r="2.6" fill="#E7C978"/><circle cx="12" cy="29" r="2" fill="#E7C978"/><circle cx="6" cy="31" r="1.6" fill="none" stroke="#E7C978" stroke-width="1.2"/></svg><div><b>Gochar · Planetary Transits</b><span>Where the planets are and when they change sign or turn retrograde. Pick any date.</span></div></div>
         <div class="jy-form"><label>Date <input type="date" id="gc-date"></label><button type="button" class="jy-now" id="gc-now">Today</button></div>
         <div id="gc-out"></div>
       </section>
@@ -2069,11 +2125,156 @@ body{overflow-x:clip;max-width:100%;}
     {name:"Warangal, Telangana", lat:17.97, lon:79.60, tz:5.5},
     {name:"Yamunanagar, Haryana", lat:30.13, lon:77.27, tz:5.5},
     {name:"Zirakpur, Punjab", lat:30.64, lon:76.82, tz:5.5},
-    {name:"New York, USA", lat:40.7128, lon:-74.0060, tz:-5},
-    {name:"Houston, USA", lat:29.7604, lon:-95.3698, tz:-6},
-    {name:"London, UK", lat:51.5074, lon:-0.1278, tz:0},
-    {name:"Singapore", lat:1.3521, lon:103.8198, tz:8},
-    {name:"Sydney, Australia", lat:-33.8688, lon:151.2093, tz:11}
+    {name:"New York, New York, USA", lat:40.71, lon:-74.01, tz:"America/New_York"},
+    {name:"Edison, New Jersey, USA", lat:40.52, lon:-74.41, tz:"America/New_York"},
+    {name:"Jersey City, New Jersey, USA", lat:40.73, lon:-74.08, tz:"America/New_York"},
+    {name:"Newark, New Jersey, USA", lat:40.74, lon:-74.17, tz:"America/New_York"},
+    {name:"Philadelphia, Pennsylvania, USA", lat:39.95, lon:-75.17, tz:"America/New_York"},
+    {name:"Pittsburgh, Pennsylvania, USA", lat:40.44, lon:-80.0, tz:"America/New_York"},
+    {name:"Boston, Massachusetts, USA", lat:42.36, lon:-71.06, tz:"America/New_York"},
+    {name:"Washington, D.C., USA", lat:38.91, lon:-77.04, tz:"America/New_York"},
+    {name:"Baltimore, Maryland, USA", lat:39.29, lon:-76.61, tz:"America/New_York"},
+    {name:"Charlotte, North Carolina, USA", lat:35.23, lon:-80.84, tz:"America/New_York"},
+    {name:"Raleigh, North Carolina, USA", lat:35.78, lon:-78.64, tz:"America/New_York"},
+    {name:"Atlanta, Georgia, USA", lat:33.75, lon:-84.39, tz:"America/New_York"},
+    {name:"Orlando, Florida, USA", lat:28.54, lon:-81.38, tz:"America/New_York"},
+    {name:"Tampa, Florida, USA", lat:27.95, lon:-82.46, tz:"America/New_York"},
+    {name:"Miami, Florida, USA", lat:25.76, lon:-80.19, tz:"America/New_York"},
+    {name:"Detroit, Michigan, USA", lat:42.33, lon:-83.05, tz:"America/New_York"},
+    {name:"Columbus, Ohio, USA", lat:39.96, lon:-83.0, tz:"America/New_York"},
+    {name:"Cleveland, Ohio, USA", lat:41.5, lon:-81.69, tz:"America/New_York"},
+    {name:"Indianapolis, Indiana, USA", lat:39.77, lon:-86.16, tz:"America/Indiana/Indianapolis"},
+    {name:"Chicago, Illinois, USA", lat:41.88, lon:-87.63, tz:"America/Chicago"},
+    {name:"Houston, Texas, USA", lat:29.76, lon:-95.37, tz:"America/Chicago"},
+    {name:"Dallas, Texas, USA", lat:32.78, lon:-96.8, tz:"America/Chicago"},
+    {name:"Austin, Texas, USA", lat:30.27, lon:-97.74, tz:"America/Chicago"},
+    {name:"Minneapolis, Minnesota, USA", lat:44.98, lon:-93.27, tz:"America/Chicago"},
+    {name:"St. Louis, Missouri, USA", lat:38.63, lon:-90.2, tz:"America/Chicago"},
+    {name:"Kansas City, Missouri, USA", lat:39.1, lon:-94.58, tz:"America/Chicago"},
+    {name:"Nashville, Tennessee, USA", lat:36.16, lon:-86.78, tz:"America/Chicago"},
+    {name:"Denver, Colorado, USA", lat:39.74, lon:-104.99, tz:"America/Denver"},
+    {name:"Salt Lake City, Utah, USA", lat:40.76, lon:-111.89, tz:"America/Denver"},
+    {name:"Phoenix, Arizona, USA", lat:33.45, lon:-112.07, tz:"America/Phoenix"},
+    {name:"Los Angeles, California, USA", lat:34.05, lon:-118.24, tz:"America/Los_Angeles"},
+    {name:"San Diego, California, USA", lat:32.72, lon:-117.16, tz:"America/Los_Angeles"},
+    {name:"San Jose, California, USA", lat:37.34, lon:-121.89, tz:"America/Los_Angeles"},
+    {name:"Fremont, California, USA", lat:37.55, lon:-121.99, tz:"America/Los_Angeles"},
+    {name:"San Francisco, California, USA", lat:37.77, lon:-122.42, tz:"America/Los_Angeles"},
+    {name:"Las Vegas, Nevada, USA", lat:36.17, lon:-115.14, tz:"America/Los_Angeles"},
+    {name:"Seattle, Washington, USA", lat:47.61, lon:-122.33, tz:"America/Los_Angeles"},
+    {name:"Portland, Oregon, USA", lat:45.52, lon:-122.68, tz:"America/Los_Angeles"},
+    {name:"Anchorage, Alaska, USA", lat:61.22, lon:-149.9, tz:"America/Anchorage"},
+    {name:"Honolulu, Hawaii, USA", lat:21.31, lon:-157.86, tz:"Pacific/Honolulu"},
+    {name:"Toronto, Ontario, Canada", lat:43.65, lon:-79.38, tz:"America/Toronto"},
+    {name:"Mississauga, Ontario, Canada", lat:43.59, lon:-79.64, tz:"America/Toronto"},
+    {name:"Brampton, Ontario, Canada", lat:43.73, lon:-79.76, tz:"America/Toronto"},
+    {name:"Ottawa, Ontario, Canada", lat:45.42, lon:-75.7, tz:"America/Toronto"},
+    {name:"Montreal, Quebec, Canada", lat:45.5, lon:-73.57, tz:"America/Toronto"},
+    {name:"Calgary, Alberta, Canada", lat:51.05, lon:-114.07, tz:"America/Edmonton"},
+    {name:"Edmonton, Alberta, Canada", lat:53.55, lon:-113.49, tz:"America/Edmonton"},
+    {name:"Vancouver, British Columbia, Canada", lat:49.28, lon:-123.12, tz:"America/Vancouver"},
+    {name:"Surrey, British Columbia, Canada", lat:49.19, lon:-122.85, tz:"America/Vancouver"},
+    {name:"Winnipeg, Manitoba, Canada", lat:49.9, lon:-97.14, tz:"America/Winnipeg"},
+    {name:"Saskatoon, Saskatchewan, Canada", lat:52.13, lon:-106.67, tz:"America/Regina"},
+    {name:"Halifax, Nova Scotia, Canada", lat:44.65, lon:-63.58, tz:"America/Halifax"},
+    {name:"London, England, UK", lat:51.51, lon:-0.13, tz:"Europe/London"},
+    {name:"Leicester, England, UK", lat:52.64, lon:-1.13, tz:"Europe/London"},
+    {name:"Birmingham, England, UK", lat:52.49, lon:-1.89, tz:"Europe/London"},
+    {name:"Manchester, England, UK", lat:53.48, lon:-2.24, tz:"Europe/London"},
+    {name:"Leeds, England, UK", lat:53.8, lon:-1.55, tz:"Europe/London"},
+    {name:"Bradford, England, UK", lat:53.79, lon:-1.75, tz:"Europe/London"},
+    {name:"Slough, England, UK", lat:51.51, lon:-0.59, tz:"Europe/London"},
+    {name:"Coventry, England, UK", lat:52.41, lon:-1.51, tz:"Europe/London"},
+    {name:"Nottingham, England, UK", lat:52.95, lon:-1.15, tz:"Europe/London"},
+    {name:"Bristol, England, UK", lat:51.45, lon:-2.59, tz:"Europe/London"},
+    {name:"Reading, England, UK", lat:51.45, lon:-0.97, tz:"Europe/London"},
+    {name:"Newcastle, England, UK", lat:54.98, lon:-1.62, tz:"Europe/London"},
+    {name:"Sheffield, England, UK", lat:53.38, lon:-1.47, tz:"Europe/London"},
+    {name:"Liverpool, England, UK", lat:53.41, lon:-2.99, tz:"Europe/London"},
+    {name:"Wolverhampton, England, UK", lat:52.59, lon:-2.13, tz:"Europe/London"},
+    {name:"Milton Keynes, England, UK", lat:52.04, lon:-0.76, tz:"Europe/London"},
+    {name:"Luton, England, UK", lat:51.88, lon:-0.42, tz:"Europe/London"},
+    {name:"Glasgow, Scotland, UK", lat:55.86, lon:-4.25, tz:"Europe/London"},
+    {name:"Edinburgh, Scotland, UK", lat:55.95, lon:-3.19, tz:"Europe/London"},
+    {name:"Cardiff, Wales, UK", lat:51.48, lon:-3.18, tz:"Europe/London"},
+    {name:"Belfast, Northern Ireland, UK", lat:54.6, lon:-5.93, tz:"Europe/London"},
+    {name:"Dublin, Ireland", lat:53.35, lon:-6.26, tz:"Europe/Dublin"},
+    {name:"Sydney, New South Wales, Australia", lat:-33.87, lon:151.21, tz:"Australia/Sydney"},
+    {name:"Canberra, ACT, Australia", lat:-35.28, lon:149.13, tz:"Australia/Sydney"},
+    {name:"Melbourne, Victoria, Australia", lat:-37.81, lon:144.96, tz:"Australia/Melbourne"},
+    {name:"Brisbane, Queensland, Australia", lat:-27.47, lon:153.03, tz:"Australia/Brisbane"},
+    {name:"Gold Coast, Queensland, Australia", lat:-28.02, lon:153.4, tz:"Australia/Brisbane"},
+    {name:"Perth, Western Australia, Australia", lat:-31.95, lon:115.86, tz:"Australia/Perth"},
+    {name:"Adelaide, South Australia, Australia", lat:-34.93, lon:138.6, tz:"Australia/Adelaide"},
+    {name:"Hobart, Tasmania, Australia", lat:-42.88, lon:147.33, tz:"Australia/Hobart"},
+    {name:"Darwin, Northern Territory, Australia", lat:-12.46, lon:130.84, tz:"Australia/Darwin"},
+    {name:"Auckland, New Zealand", lat:-36.85, lon:174.76, tz:"Pacific/Auckland"},
+    {name:"Wellington, New Zealand", lat:-41.29, lon:174.78, tz:"Pacific/Auckland"},
+    {name:"Christchurch, New Zealand", lat:-43.53, lon:172.64, tz:"Pacific/Auckland"},
+    {name:"Suva, Fiji", lat:-18.14, lon:178.44, tz:"Pacific/Fiji"},
+    {name:"Singapore", lat:1.35, lon:103.82, tz:"Asia/Singapore"},
+    {name:"Kuala Lumpur, Malaysia", lat:3.14, lon:101.69, tz:"Asia/Kuala_Lumpur"},
+    {name:"Penang, Malaysia", lat:5.41, lon:100.33, tz:"Asia/Kuala_Lumpur"},
+    {name:"Johor Bahru, Malaysia", lat:1.49, lon:103.74, tz:"Asia/Kuala_Lumpur"},
+    {name:"Bangkok, Thailand", lat:13.76, lon:100.5, tz:"Asia/Bangkok"},
+    {name:"Jakarta, Indonesia", lat:-6.21, lon:106.85, tz:"Asia/Jakarta"},
+    {name:"Denpasar (Bali), Indonesia", lat:-8.65, lon:115.22, tz:"Asia/Makassar"},
+    {name:"Hong Kong", lat:22.32, lon:114.17, tz:"Asia/Hong_Kong"},
+    {name:"Tokyo, Japan", lat:35.68, lon:139.69, tz:"Asia/Tokyo"},
+    {name:"Seoul, South Korea", lat:37.57, lon:126.98, tz:"Asia/Seoul"},
+    {name:"Colombo, Sri Lanka", lat:6.93, lon:79.86, tz:"Asia/Colombo"},
+    {name:"Kathmandu, Nepal", lat:27.72, lon:85.32, tz:"Asia/Kathmandu"},
+    {name:"Dhaka, Bangladesh", lat:23.81, lon:90.41, tz:"Asia/Dhaka"},
+    {name:"Karachi, Pakistan", lat:24.86, lon:67.01, tz:"Asia/Karachi"},
+    {name:"Thimphu, Bhutan", lat:27.47, lon:89.64, tz:"Asia/Thimphu"},
+    {name:"Dubai, UAE", lat:25.2, lon:55.27, tz:"Asia/Dubai"},
+    {name:"Abu Dhabi, UAE", lat:24.45, lon:54.38, tz:"Asia/Dubai"},
+    {name:"Sharjah, UAE", lat:25.35, lon:55.39, tz:"Asia/Dubai"},
+    {name:"Doha, Qatar", lat:25.29, lon:51.53, tz:"Asia/Qatar"},
+    {name:"Manama, Bahrain", lat:26.23, lon:50.59, tz:"Asia/Bahrain"},
+    {name:"Kuwait City, Kuwait", lat:29.38, lon:47.99, tz:"Asia/Kuwait"},
+    {name:"Muscat, Oman", lat:23.59, lon:58.41, tz:"Asia/Muscat"},
+    {name:"Riyadh, Saudi Arabia", lat:24.71, lon:46.68, tz:"Asia/Riyadh"},
+    {name:"Jeddah, Saudi Arabia", lat:21.49, lon:39.19, tz:"Asia/Riyadh"},
+    {name:"Dammam, Saudi Arabia", lat:26.43, lon:50.1, tz:"Asia/Riyadh"},
+    {name:"Amsterdam, Netherlands", lat:52.37, lon:4.9, tz:"Europe/Amsterdam"},
+    {name:"Rotterdam, Netherlands", lat:51.92, lon:4.48, tz:"Europe/Amsterdam"},
+    {name:"The Hague, Netherlands", lat:52.08, lon:4.31, tz:"Europe/Amsterdam"},
+    {name:"Frankfurt, Germany", lat:50.11, lon:8.68, tz:"Europe/Berlin"},
+    {name:"Munich, Germany", lat:48.14, lon:11.58, tz:"Europe/Berlin"},
+    {name:"Berlin, Germany", lat:52.52, lon:13.4, tz:"Europe/Berlin"},
+    {name:"Hamburg, Germany", lat:53.55, lon:9.99, tz:"Europe/Berlin"},
+    {name:"D\u00fcsseldorf, Germany", lat:51.23, lon:6.78, tz:"Europe/Berlin"},
+    {name:"Stuttgart, Germany", lat:48.78, lon:9.18, tz:"Europe/Berlin"},
+    {name:"Cologne, Germany", lat:50.94, lon:6.96, tz:"Europe/Berlin"},
+    {name:"Paris, France", lat:48.86, lon:2.35, tz:"Europe/Paris"},
+    {name:"Brussels, Belgium", lat:50.85, lon:4.35, tz:"Europe/Brussels"},
+    {name:"Zurich, Switzerland", lat:47.38, lon:8.54, tz:"Europe/Zurich"},
+    {name:"Geneva, Switzerland", lat:46.2, lon:6.14, tz:"Europe/Zurich"},
+    {name:"Vienna, Austria", lat:48.21, lon:16.37, tz:"Europe/Vienna"},
+    {name:"Rome, Italy", lat:41.9, lon:12.5, tz:"Europe/Rome"},
+    {name:"Milan, Italy", lat:45.46, lon:9.19, tz:"Europe/Rome"},
+    {name:"Madrid, Spain", lat:40.42, lon:-3.7, tz:"Europe/Madrid"},
+    {name:"Barcelona, Spain", lat:41.39, lon:2.17, tz:"Europe/Madrid"},
+    {name:"Lisbon, Portugal", lat:38.72, lon:-9.14, tz:"Europe/Lisbon"},
+    {name:"Stockholm, Sweden", lat:59.33, lon:18.07, tz:"Europe/Stockholm"},
+    {name:"Copenhagen, Denmark", lat:55.68, lon:12.57, tz:"Europe/Copenhagen"},
+    {name:"Oslo, Norway", lat:59.91, lon:10.75, tz:"Europe/Oslo"},
+    {name:"Helsinki, Finland", lat:60.17, lon:24.94, tz:"Europe/Helsinki"},
+    {name:"Warsaw, Poland", lat:52.23, lon:21.01, tz:"Europe/Warsaw"},
+    {name:"Prague, Czechia", lat:50.08, lon:14.44, tz:"Europe/Prague"},
+    {name:"Budapest, Hungary", lat:47.5, lon:19.04, tz:"Europe/Budapest"},
+    {name:"Athens, Greece", lat:37.98, lon:23.73, tz:"Europe/Athens"},
+    {name:"Luxembourg", lat:49.61, lon:6.13, tz:"Europe/Luxembourg"},
+    {name:"Nairobi, Kenya", lat:-1.29, lon:36.82, tz:"Africa/Nairobi"},
+    {name:"Dar es Salaam, Tanzania", lat:-6.79, lon:39.21, tz:"Africa/Dar_es_Salaam"},
+    {name:"Johannesburg, South Africa", lat:-26.2, lon:28.05, tz:"Africa/Johannesburg"},
+    {name:"Durban, South Africa", lat:-29.86, lon:31.02, tz:"Africa/Johannesburg"},
+    {name:"Cape Town, South Africa", lat:-33.92, lon:18.42, tz:"Africa/Johannesburg"},
+    {name:"Port Louis, Mauritius", lat:-20.16, lon:57.5, tz:"Indian/Mauritius"},
+    {name:"Port of Spain, Trinidad and Tobago", lat:10.65, lon:-61.51, tz:"America/Port_of_Spain"},
+    {name:"Georgetown, Guyana", lat:6.8, lon:-58.16, tz:"America/Guyana"},
+    {name:"Paramaribo, Suriname", lat:5.85, lon:-55.2, tz:"America/Paramaribo"}
   ];
 
   // eclipses are not computed: only the 2026 ones are listed
@@ -2231,7 +2432,7 @@ body{overflow-x:clip;max-width:100%;}
     for (k = 1; k < 60; k++){ if (inR(t0 + k*step)) break; }
     lo = t0 + (k-1)*step; hi = t0 + k*step;
     for (var i = 0; i < 20; i++){ var mid = (lo+hi)/2; if (inR(mid)) hi = mid; else lo = mid; }
-    var ld = new Date(hi + loc.tz*36e5), mins = ld.getUTCHours()*60 + ld.getUTCMinutes();
+    var ld = new Date(utcToLocal(hi, loc.tz)), mins = ld.getUTCHours()*60 + ld.getUTCMinutes();
     var yy = ld.getUTCFullYear(), mm = ld.getUTCMonth()+1, dd = ld.getUTCDate();
     if (mins > sunriseSunset(yy, mm, dd, loc.lat, loc.lon, loc.tz).sunsetMin) ld = new Date(Date.UTC(yy, mm-1, dd+1));
     else ld = new Date(Date.UTC(yy, mm-1, dd));
@@ -2266,7 +2467,7 @@ body{overflow-x:clip;max-width:100%;}
           // Bhadra (Vishti karana) = first half of Purnima: not used for Holika Dahan / rakhi
           var w = tithiSpan(15, refDate(rec, 'rise'));
           var bEnd = w.start === null ? 0 : (w.start + w.end)/2;
-          var local = (bEnd/6e4 + loc.tz*60) - Date.UTC(rec.y, rec.m-1, rec.d)/6e4; // minutes after local midnight of day i
+          var local = (bEnd/6e4 + offAtUTC(loc.tz, bEnd)*60) - Date.UTC(rec.y, rec.m-1, rec.d)/6e4; // minutes after local midnight of day i
           if (r[0] === 'Holika Dahan' && local > refMinutes(rec, 'mid') + 90) k = i + 1;
           if (r[0] === 'Raksha Bandhan' && local > rec.ss.sunsetMin && refT(recs[i+1], 'rise') === 15) k = i + 1;
         }
@@ -2343,7 +2544,7 @@ body{overflow-x:clip;max-width:100%;}
   function niceKey(key){ var p = key.split('-'); return (+p[2]) + ' ' + MONTHS[+p[1]-1].slice(0,3); }
   function keyWeekday(key){ var p = key.split('-'); return new Date(Date.UTC(+p[0], +p[1]-1, +p[2])).getUTCDay(); }
   function fmtMs(ms, loc, baseKey){
-    var ld = new Date(ms + loc.tz*36e5), mins = ld.getUTCHours()*60 + ld.getUTCMinutes();
+    var ld = new Date(utcToLocal(ms, loc.tz)), mins = ld.getUTCHours()*60 + ld.getUTCMinutes();
     var key = ld.getUTCFullYear()+'-'+pad2(ld.getUTCMonth()+1)+'-'+pad2(ld.getUTCDate());
     return minToHM(mins) + (key !== baseKey ? ' (' + niceKey(key) + ')' : '');
   }
@@ -2552,11 +2753,52 @@ body{overflow-x:clip;max-width:100%;}
     return null;
   }
 
+
+  /* ---------- Moonrise display helpers ---------- */
+  var MOON_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 14.6A8.6 8.6 0 1 1 9.4 3.8a7.1 7.1 0 0 0 10.8 10.8z" fill="#F4EBD0" stroke="#D8B878" stroke-width="1"/></svg>';
+  var MOON_SVG_DARK = MOON_SVG.replace(/#F4EBD0/, '#C9A25C').replace(/#D8B878/, '#8B5A1E');
+  function isKarva(name){ return /karva/i.test(name || ''); }
+  function moonTagHTML(y, m, d, loc){
+    var mr = moonriseLocalMin(y, m, d, loc.lat, loc.lon, loc.tz);
+    return mr === null ? '' : '<span class="mr-tag">' + MOON_SVG_DARK + '<span class="mr-l">Moonrise</span><b>' + minToHM(mr) + '</b></span>';
+  }
+  function setMoonChip(id, y, m, d, loc){
+    var el = document.getElementById(id); if (!el) return;
+    var mr = moonriseLocalMin(y, m, d, loc.lat, loc.lon, loc.tz);
+    el.innerHTML = MOON_SVG + '<span class="mr-l">Moonrise</span>' + (mr === null ? '<span class="mr-none">No moonrise on this date</span>' : '<span class="mr-big">' + minToHM(mr) + '</span>');
+  }
+
   function sunMoonLongitudes(dateUTCNoon){
     var JD = toJulianDay(dateUTCNoon);
     var T = (JD - 2451545.0)/36525.0;
     return { sun: sunLongitude(T), moon: moonLongitude(T) };
   }
+
+  /* ---------- Time zones: a place may carry an IANA zone name (daylight saving applied) instead of a fixed offset ---------- */
+  var TZ_CACHE = {}, TZ_FMT = {};
+  function zoneOffsetAtUTC(zone, ms){
+    var hk = zone + '|' + Math.floor(ms/9e5), c = TZ_CACHE[hk];
+    if (c !== undefined) return c;
+    var f = TZ_FMT[zone];
+    if (!f){
+      try { f = TZ_FMT[zone] = new Intl.DateTimeFormat('en-US', {timeZone: zone, hourCycle: 'h23', year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric'}); }
+      catch(e){ return (TZ_CACHE[hk] = 0); }
+    }
+    var parts = f.formatToParts(new Date(ms)), o = {}, i;
+    for (i = 0; i < parts.length; i++) if (parts[i].type !== 'literal') o[parts[i].type] = +parts[i].value;
+    var asUTC = Date.UTC(o.year, o.month - 1, o.day, o.hour === 24 ? 0 : o.hour, o.minute, o.second);
+    return (TZ_CACHE[hk] = (asUTC - Math.floor(ms/1000)*1000)/36e5);
+  }
+  function offAtUTC(tz, ms){ return typeof tz === 'string' ? zoneOffsetAtUTC(tz, ms) : tz; }
+  // localMs is a wall-clock time written as a UTC timestamp
+  function offAtLocal(tz, localMs){
+    if (typeof tz !== 'string') return tz;
+    var o = zoneOffsetAtUTC(tz, localMs);
+    return zoneOffsetAtUTC(tz, localMs - o*36e5);
+  }
+  function utcToLocal(ms, tz){ return ms + offAtUTC(tz, ms)*36e5; }
+  function localToUTC(localMs, tz){ return localMs - offAtLocal(tz, localMs)*36e5; }
+  function tzNumber(tz){ return typeof tz === 'string' ? zoneOffsetAtUTC(tz, Date.now()) : tz; }
 
   // NOAA simplified sunrise/sunset. date: {year,month(1-12),day}, lat/lon in deg, tz in hours
   function sunriseSunset(year, month, day, lat, lon, tz){
@@ -2584,8 +2826,9 @@ body{overflow-x:clip;max-width:100%;}
     }
     var r1 = calc(N, 6);
     var r2 = calc(N, 18);
-    var sunriseLocalMin = r1.sunrise + tz*60;
-    var sunsetLocalMin  = r2.sunset + tz*60;
+    var tzh = offAtLocal(tz, Date.UTC(year, month-1, day, 12, 0, 0));
+    var sunriseLocalMin = r1.sunrise + tzh*60;
+    var sunsetLocalMin  = r2.sunset + tzh*60;
     return { sunriseMin: sunriseLocalMin, sunsetMin: sunsetLocalMin };
   }
 
@@ -2667,7 +2910,7 @@ body{overflow-x:clip;max-width:100%;}
 
   /* ===================== TIMELINE HELPERS ===================== */
   function dateFromLocalMinutes(year, month, day, localMin, tz){
-    var utcMin = localMin - tz*60;
+    var utcMin = localMin - offAtLocal(tz, Date.UTC(year, month-1, day, 0, Math.round(localMin), 0))*60;
     return new Date(Date.UTC(year, month-1, day, 0, Math.round(utcMin), 0));
   }
 
@@ -2741,7 +2984,7 @@ body{overflow-x:clip;max-width:100%;}
 
   function hmLocal(date, tz){
     var utcMin = date.getUTCHours()*60 + date.getUTCMinutes();
-    return minToHM(utcMin + tz*60);
+    return minToHM(utcMin + offAtUTC(tz, date.getTime())*60);
   }
 
   function renderTimeline(p, loc, year, month, day){
@@ -2834,7 +3077,7 @@ body{overflow-x:clip;max-width:100%;}
   // a ghati's real-world length therefore varies slightly with the season.
   function vedicNow(loc){
     var nowUTC = new Date();
-    var shifted = new Date(nowUTC.getTime() + loc.tz*3600000);
+    var shifted = new Date(utcToLocal(nowUTC.getTime(), loc.tz));
     var locY = shifted.getUTCFullYear(), locM = shifted.getUTCMonth()+1, locD = shifted.getUTCDate();
     var locMin = shifted.getUTCHours()*60 + shifted.getUTCMinutes() + shifted.getUTCSeconds()/60;
 
@@ -2925,6 +3168,7 @@ body{overflow-x:clip;max-width:100%;}
     document.getElementById('h-sub').textContent = MONTHS[m-1] + ' ' + y + ' · ' + p.purnimantaMonth;
     document.getElementById('h-sunrise').innerHTML = minToHM(p.sunriseMin);
     document.getElementById('h-sunset').innerHTML = minToHM(p.sunsetMin);
+    setMoonChip('h-moon', y, m, day, loc);
     document.getElementById('h-tithi').innerHTML = p.pakshaTithiNum + ', ' + p.tithiName + '<small>' + p.paksha + '</small>';
     document.getElementById('h-nak').innerHTML = p.nakshatra + '<small>Pada ' + p.nakPada + '</small>';
 
@@ -2944,6 +3188,7 @@ body{overflow-x:clip;max-width:100%;}
     var markRows = [
       ["Sunrise", minToHM(p.sunriseMin)],
       ["Sunset", minToHM(p.sunsetMin)],
+      ["Moonrise", (function(){ var mr = moonriseLocalMin(y, m, day, loc.lat, loc.lon, loc.tz); return mr === null ? 'No moonrise on this date' : '<strong>' + minToHM(mr) + '</strong>'; })()],
       ["Day length", (((p.sunsetMin-p.sunriseMin)/60).toFixed(2)) + ' hrs'],
       ["Location", loc.name]
     ];
@@ -2974,6 +3219,12 @@ body{overflow-x:clip;max-width:100%;}
     var todayDateLabel = day+' '+MONTHS[m-1].slice(0,3)+' '+y;
 
     document.getElementById('muh-date-title').textContent = p.weekday + ', ' + todayDateLabel;
+    (function(){   // Today / Tomorrow chip, date field and the Today button follow the shared date
+      var n = new Date(), diff = Math.round((Date.UTC(y, m-1, day) - Date.UTC(n.getFullYear(), n.getMonth(), n.getDate()))/864e5), rel = document.getElementById('muh-rel');
+      rel.textContent = diff === 0 ? 'Today' : diff === 1 ? 'Tomorrow' : diff === -1 ? 'Yesterday' : diff > 0 ? 'In ' + diff + ' days' : (-diff) + ' days ago';
+      document.getElementById('muh-today').hidden = diff === 0;
+      document.getElementById('muh-date-in').value = fmtDateInput(state.date);
+    })();
     document.getElementById('muh-date-sub').textContent = loc.name + ' · windows below run from ' + todayDateLabel + '\u2019s sunrise to ' + nextDateLabel + '\u2019s sunrise';
     document.getElementById('chog-day-title').textContent = 'Day — ' + todayDateLabel;
     document.getElementById('chog-night-title').textContent = 'Night — into ' + nextDateLabel;
@@ -3017,6 +3268,7 @@ body{overflow-x:clip;max-width:100%;}
     document.getElementById('c-sub').textContent = MONTHS[m-1] + ' ' + y + ' · ' + p.purnimantaMonth;
     document.getElementById('c-sunrise').innerHTML = minToHM(p.sunriseMin);
     document.getElementById('c-sunset').innerHTML = minToHM(p.sunsetMin);
+    setMoonChip('c-moon', y, m, dd, loc);
     document.getElementById('c-tithi').innerHTML = p.pakshaTithiNum + ', ' + p.tithiName + '<small>' + p.paksha + '</small>';
     document.getElementById('c-nak').innerHTML = p.nakshatra + '<small>Pada ' + p.nakPada + '</small>';
     renderBanner(y, m, dd, loc, 'c-fest');
@@ -3435,7 +3687,7 @@ body{overflow-x:clip;max-width:100%;}
   }
   var sheetOv = document.createElement('div');
   sheetOv.className = 'sheet-ov'; sheetOv.hidden = true;
-  sheetOv.innerHTML = `<div class='sheet' role='dialog' aria-modal='true' aria-labelledby='fs-title'><button type='button' class='sheet-close' id='fs-close' aria-label='Close'>×</button><div class='sheet-head'><div class='sheet-ico' id='fs-ico'></div><div><div class='sheet-kicker'>Festival</div><h3 id='fs-title'></h3><div class='sheet-date' id='fs-date'></div></div></div><p id='fs-text'></p><div id='fs-more'></div><table class='data'><tbody id='fs-rows'></tbody></table><div id='fs-extra'></div></div>`;
+  sheetOv.innerHTML = `<div class='sheet' role='dialog' aria-modal='true' aria-labelledby='fs-title'><button type='button' class='sheet-close' id='fs-close' aria-label='Close'>×</button><div class='sheet-head'><div class='sheet-ico' id='fs-ico'></div><div><div class='sheet-kicker'>Festival</div><h3 id='fs-title'></h3><div class='sheet-date' id='fs-date'></div></div></div><div id='fs-moon'></div><p id='fs-text'></p><div id='fs-more'></div><table class='data'><tbody id='fs-rows'></tbody></table><div id='fs-extra'></div></div>`;
   document.body.appendChild(sheetOv);
   var fsOpen = false, fsPushed = false;
   function hideFest(){ sheetOv.hidden = true; document.body.style.overflow = ''; fsOpen = false; }
@@ -3483,6 +3735,12 @@ body{overflow-x:clip;max-width:100%;}
     document.getElementById('fs-rows').parentNode.style.display = '';
     var nk = navKindOf(f[1]);
     document.getElementById('fs-extra').innerHTML = nk ? '<button type="button" class="nv-link" data-nav="' + nk + '|' + y + '|' + (f.id === undefined ? '' : f.id) + '">Navratri ' + y + ': dates, Devi, colours &amp; puja vidhi \u203a</button>' : '';
+    var fm = document.getElementById('fs-moon');
+    if (isKarva(f[1])){
+      var mr0 = moonriseLocalMin(y, m, d, loc.lat, loc.lon, loc.tz);
+      fm.className = 'fs-moon';
+      fm.innerHTML = MOON_SVG + '<div><span class="mr-l">Moonrise</span><span class="mr-big">' + (mr0 === null ? '\u2014' : minToHM(mr0)) + '</span><div class="mr-sub">' + loc.name + '. Break the fast only after sighting the Moon. Hills, buildings and haze can delay the sighting by a few minutes.</div></div>';
+    } else { fm.className = ''; fm.innerHTML = ''; }
     showSheet();
   }
   sheetOv.addEventListener('click', function(e){ if (e.target === sheetOv) closeFest(); });
@@ -3517,7 +3775,7 @@ body{overflow-x:clip;max-width:100%;}
     var key = y+'-'+pad2(m)+'-'+pad2(d), cards = [], tag = isToday ? 'Today \u00b7 ' : d + ' ' + MONTHS[m-1].slice(0,3) + ' \u00b7 ';
     festOnDay(y, m, d).forEach(function(f){
       var i = f.id, info = festInfo(f[1]);
-      cards.push('<button type="button" class="up-card up-today" data-fi="'+i+'"><div class="up-ico"><svg viewBox="0 0 64 64" aria-hidden="true">'+ICONS[info ? info[1] : 'diya']+'</svg></div><div><div class="up-name">'+f[1]+'</div><div class="up-date">'+f[2]+'</div><div class="up-more">'+tag+'Tap for details \u203a</div></div></button>');
+      cards.push('<button type="button" class="up-card up-today" data-fi="'+i+'"><div class="up-ico"><svg viewBox="0 0 64 64" aria-hidden="true">'+ICONS[info ? info[1] : 'diya']+'</svg></div><div><div class="up-name">'+f[1]+'</div><div class="up-date">'+f[2]+'</div>'+(isKarva(f[1]) ? '<div class="up-date">'+moonTagHTML(+f[0].slice(0,4), +f[0].slice(5,7), +f[0].slice(8,10), selectedLoc())+'</div>' : '')+'<div class="up-more">'+tag+'Tap for details \u203a</div></div></button>');
     });
     var nFest = cards.length;
     VRAT_CARDS = [];
@@ -3649,7 +3907,7 @@ body{overflow-x:clip;max-width:100%;}
       (fmap[key] || []).forEach(function(f){
         var nxt = (f.id === nextId);
         rows += '<div class="fest-row fl-row' + (nxt ? ' next' : '') + '" data-fi="' + f.id + '" tabindex="0" role="button">' +
-          '<div class="fl-main"><div class="fl-name">' + f[1] + (nxt ? '<span class="fl-chip">' + (days === 0 ? 'Today' : 'Next \u00b7 in ' + days + ' day' + (days === 1 ? '' : 's')) + '</span>' : '') + '</div><div class="fl-note">' + f[2] + '</div></div>' +
+          '<div class="fl-main"><div class="fl-name">' + f[1] + (nxt ? '<span class="fl-chip">' + (days === 0 ? 'Today' : 'Next \u00b7 in ' + days + ' day' + (days === 1 ? '' : 's')) + '</span>' : '') + '</div><div class="fl-note">' + f[2] + '</div>' + (isKarva(f[1]) ? '<div class="fl-moon">' + moonTagHTML(+key.slice(0,4), +key.slice(5,7), +key.slice(8,10), selectedLoc()) + '</div>' : '') + '</div>' +
           '<div class="fl-go" aria-hidden="true">\u203a</div></div>';
       });
       var fnames = (fmap[key] || []).map(function(f){ return f[1].toLowerCase(); }).join(' | ');
@@ -3881,6 +4139,7 @@ body{overflow-x:clip;max-width:100%;}
     window.scrollTo(0, 0);
     if (window.festSearchClose) festSearchClose();
     var fabEl = document.getElementById('fest-fab'); if (fabEl) fabEl.hidden = (key !== 'festivals');
+    if (window.kdFabSync) kdFabSync();
     if (key === 'festivals') requestAnimationFrame(function(){ centerFest(false); });
     try { btn.scrollIntoView({inline:'center', block:'nearest', behavior:'smooth'}); } catch(e){}
     try { if (dir && navigator.vibrate) navigator.vibrate(8); } catch(e){}
@@ -3970,7 +4229,7 @@ body{overflow-x:clip;max-width:100%;}
       target = e.target; sx = t.clientX; sy = t.clientY; st = Date.now();
       // ignore: multi-touch, the screen edges (system back gesture), form fields, open card, theme panel, Home date header (swipes there change the day)
       ok = e.touches.length === 1 && sx > 24 && sx < window.innerWidth - 24 &&
-           !target.closest('input,select,textarea,.sheet-ov,.cp-ov,.theme-panel,#appdrawer,#panel-today .hero,#panel-calendar .hero') && !sideways(target);
+           !target.closest('input,select,textarea,.sheet-ov,.cp-ov,.theme-panel,#appdrawer,#panel-today .hero,#panel-calendar .hero,#muh-datebar') && !sideways(target);
     }, {passive:true});
     document.addEventListener('touchend', function(e){
       if (!ok) return;
@@ -3994,7 +4253,27 @@ body{overflow-x:clip;max-width:100%;}
   customOpt.value = 'custom'; customOpt.textContent = 'Custom (lat/lon)';
   citySelect.appendChild(customOpt);
 
+  // remember the chosen place; on a first run abroad, start from the city that matches the phone's time zone
+  var CITY_KEY = 'panchangCity';
+  (function(){
+    var saved = null, idx = -1, auto = '';
+    try { saved = localStorage.getItem(CITY_KEY); } catch(e){}
+    if (saved){ CITIES.forEach(function(c, i){ if (idx < 0 && c.name === saved) idx = i; }); }
+    else {
+      var dz = ''; try { dz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch(e){}
+      if (dz && dz !== 'Asia/Kolkata' && dz !== 'Asia/Calcutta'){ CITIES.forEach(function(c, i){ if (idx < 0 && c.tz === dz) { idx = i; auto = c.name; } }); }
+    }
+    if (idx > -1){ state.city = CITIES[idx]; citySelect.value = idx; }
+    if (auto){
+      var n = document.createElement('div'); n.id = 'city-auto'; n.className = 'city-auto';
+      n.innerHTML = '<span>Place set to <b>' + auto.split(',')[0] + '</b> from your phone\u2019s time zone. Tap Location to choose your own city.</span><button type="button" aria-label="Dismiss">\u00d7</button>';
+      var bar = document.querySelector('.loc-bar'); if (bar && bar.parentNode) bar.parentNode.insertBefore(n, bar.nextSibling);
+      n.querySelector('button').addEventListener('click', function(){ n.remove(); });
+    }
+  })();
   citySelect.addEventListener('change', function(){
+    var an = document.getElementById('city-auto'); if (an) an.remove();
+    try { if (citySelect.value !== 'custom') localStorage.setItem(CITY_KEY, CITIES[parseInt(citySelect.value, 10)].name); } catch(e){}
     if (citySelect.value === 'custom'){
       state.custom = true;
       document.getElementById('custom-loc-fields').style.display = 'inline-flex';
@@ -4225,7 +4504,7 @@ body{overflow-x:clip;max-width:100%;}
   }
   // fill date and time with the current moment, expressed in the chosen place's time zone
   function jyNow(p){
-    var loc = jyLoc(p) || CITIES[0], t = new Date(Date.now() + loc.tz*36e5);
+    var loc = jyLoc(p) || CITIES[0], t = new Date(utcToLocal(Date.now(), loc.tz));
     jyEl(p+'-date').value = t.getUTCFullYear()+'-'+pad2(t.getUTCMonth()+1)+'-'+pad2(t.getUTCDate());
     jyEl(p+'-time').value = pad2(t.getUTCHours())+':'+pad2(t.getUTCMinutes());
   }
@@ -4233,13 +4512,13 @@ body{overflow-x:clip;max-width:100%;}
     var loc = jyLoc(p), ds = jyEl(p+'-date').value, ts = jyEl(p+'-time').value;
     if (!loc || !ds || !ts) return null;
     var d = ds.split('-'), t = ts.split(':'), y = +d[0], mo = +d[1], da = +d[2], hh = +t[0], mi = +t[1];
-    return {y:y, m:mo, d:da, hh:hh, mi:mi, loc:loc, utcMs: Date.UTC(y, mo-1, da, hh, mi) - loc.tz*36e5};
+    return {y:y, m:mo, d:da, hh:hh, mi:mi, loc:loc, utcMs: localToUTC(Date.UTC(y, mo-1, da, hh, mi), loc.tz)};
   }
   function jyDM(deg){ var d = Math.floor(deg), m = Math.floor((deg - d)*60); return d + '\u00b0' + pad2(m) + '\u2032'; }
-  function jyTz(tz){ var a = Math.abs(tz), h = Math.floor(a), m = Math.round((a - h)*60); return 'UTC' + (tz < 0 ? '\u2212' : '+') + h + (m ? ':' + pad2(m) : ''); }
-  function jyWhen(b){ return b.d + ' ' + MONTHS[b.m-1].slice(0,3) + ' ' + b.y + ', ' + pad2(b.hh) + ':' + pad2(b.mi) + ' \u00b7 ' + b.loc.name + ' (' + jyTz(b.loc.tz) + ')'; }
+  function jyTz(tz){ tz = tzNumber(tz); var a = Math.abs(tz), h = Math.floor(a), m = Math.round((a - h)*60); return 'UTC' + (tz < 0 ? '\u2212' : '+') + h + (m ? ':' + pad2(m) : ''); }
+  function jyWhen(b){ return b.d + ' ' + MONTHS[b.m-1].slice(0,3) + ' ' + b.y + ', ' + pad2(b.hh) + ':' + pad2(b.mi) + ' \u00b7 ' + b.loc.name + ' (' + jyTz(offAtUTC(b.loc.tz, b.utcMs)) + (typeof b.loc.tz === 'string' ? ', time zone for that date applied' : '') + ')'; }
   function jyFmt(ms, loc){
-    var t = new Date(ms + loc.tz*36e5);
+    var t = new Date(utcToLocal(ms, loc.tz));
     return t.getUTCDate() + ' ' + MONTHS[t.getUTCMonth()].slice(0,3) + ', ' + pad2(t.getUTCHours()) + ':' + pad2(t.getUTCMinutes());
   }
   function jyMsg(txt){ return '<p class="desc">' + txt + '</p>'; }
@@ -4438,9 +4717,9 @@ body{overflow-x:clip;max-width:100%;}
     return h + '</table></div></section>';
   }
 
-  function jyDate(ms, tz){ var t = new Date(ms + tz*36e5); return t.getUTCDate() + ' ' + MONTHS[t.getUTCMonth()].slice(0,3) + ' ' + t.getUTCFullYear(); }
+  function jyDate(ms, tz){ var t = new Date(utcToLocal(ms, tz)); return t.getUTCDate() + ' ' + MONTHS[t.getUTCMonth()].slice(0,3) + ' ' + t.getUTCFullYear(); }
   var DASHA_CTX = null;   // {dz, b, run} of the dasha currently shown
-  function jyDT(ms, tz){ var t = new Date(ms + tz*36e5); return jyDate(ms, tz) + ', ' + pad2(t.getUTCHours()) + ':' + pad2(t.getUTCMinutes()); }
+  function jyDT(ms, tz){ var t = new Date(utcToLocal(ms, tz)); return jyDate(ms, tz) + ', ' + pad2(t.getUTCHours()) + ':' + pad2(t.getUTCMinutes()); }
   // Pratyantardashas of one Antardasha (opened on demand)
   function pdListHTML(mi, ai){
     var C = DASHA_CTX, ad = C.dz.list[mi].ads[ai], tz = C.b.loc.tz, run = C.run, h = '';
@@ -4493,7 +4772,7 @@ body{overflow-x:clip;max-width:100%;}
     if (b.y < 1800 || b.y > 2050){ out.innerHTML = jyMsg('Charts are available for the years 1800 to 2050.'); return; }
     var c = computeChart(b.utcMs, b.loc.lat, b.loc.lon), sun = c.planets[0], moon = c.planets[1], mn = NAKSHATRAS[moon.nak.idx];
     var act = JY_ACTIVE ? kvFind(JY_ACTIVE) : null;
-    var h = '<section class="kd-sec"><h4 class="kd-sec-h">Summary</h4><p class="desc" style="margin:0 0 10px;">' + jyWhen(b) + '</p><div class="jy-chips" style="margin-bottom:0;">' + (act ? '<span class="jy-chip">Saved: <b>' + kvEsc(act.name) + '</b></span>' : '') +
+    var h = '<section class="kd-sec"><h4 class="kd-sec-h">Summary</h4><p class="desc" style="margin:0 0 10px;">' + jyWhen(b) + '</p><div class="jy-chips" style="margin-bottom:0;">' + (act ? '<span class="jy-chip">Name <b>' + kvEsc(act.name) + '</b></span>' : '') +
       '<span class="jy-chip">Lagna <b>' + RASHI_INFO[c.asc.rashi][0] + '</b></span><span class="jy-chip">Moon sign <b>' + RASHI_INFO[moon.rashi][0] + '</b></span>' +
       '<span class="jy-chip">Sun sign <b>' + RASHI_INFO[sun.rashi][0] + '</b></span><span class="jy-chip">Nakshatra <b>' + mn + ' ' + moon.nak.pada + '</b></span></div></section>' +
       '<section class="kd-sec"><h4 class="kd-sec-h">Charts' + (kdDiv !== 1 ? ' \u00b7 ' + DIV_NAME[kdDiv] : '') + '</h4>' + kundaliCharts(c) + '</section>' +
@@ -4503,7 +4782,7 @@ body{overflow-x:clip;max-width:100%;}
       h += '<tr><td><strong>' + p.name + '</strong>' + (p.retro && p.ab !== 'Ra' && p.ab !== 'Ke' ? ' (R)' : '') + '</td><td>' + RASHI_INFO[p.rashi][0] + '</td><td>' + jyDM(p.deg) + '</td><td>' + NAKSHATRAS[p.nak.idx] + ' ' + p.nak.pada + '</td><td>' + p.house + '</td></tr>';
     });
     kdSyncDiv();
-    out.innerHTML = h + '</table></div></section>' + (kdDiv === 0 ? bhavaTableHTML(c) : d5TableHTML(c)) + '<p class="desc" style="margin-top:10px;">Sidereal positions (Lahiri ayanamsa), whole-sign houses, mean Rahu\u2013Ketu. (R) = retrograde. Sun and Moon are accurate to arc-minutes; the planets to a few arc-minutes (Jupiter and Saturn up to about 0.1\u00b0). The time zone is the place\u2019s standard offset: for a birth during daylight saving time choose Custom and enter the offset in force then. Confirm important charts with an astrologer.</p>';
+    out.innerHTML = h + '</table></div></section>' + (kdDiv === 0 ? bhavaTableHTML(c) : d5TableHTML(c)) + '<p class="desc" style="margin-top:10px;">Sidereal positions (Lahiri ayanamsa), whole-sign houses, mean Rahu\u2013Ketu. (R) = retrograde. Sun and Moon are accurate to arc-minutes; the planets to a few arc-minutes (Jupiter and Saturn up to about 0.1\u00b0). The time zone follows the place and the birth date, so daylight saving is applied automatically for places outside India. For a Custom place, enter the offset in force at birth. Confirm important charts with an astrologer.</p>';
   }
 
   // ---- Moon sign ----
@@ -4527,7 +4806,7 @@ body{overflow-x:clip;max-width:100%;}
       row('Janma Tithi', (tn <= 15 ? 'Shukla ' : 'Krishna ') + tname) +
       row('Moon in this R\u0101shi', (span.start ? 'from ' + jyFmt(span.start, b.loc) : '\u2014') + (span.end ? ' to ' + jyFmt(span.end, b.loc) : '')) +
       '</tbody></table>' + (near ? '<p class="desc" style="margin-top:10px;"><strong>The Moon is close to a sign change at this time.</strong> Please confirm the birth time before relying on this Rashi.</p>' : '') +
-      '<p class="desc" style="margin-top:10px;">Moon sign by the sidereal (Lahiri) zodiac, as used in Vedic astrology. The Moon changes sign about every 2\u00bd days, so the exact time matters. The time zone is the place\u2019s standard offset (use Custom for daylight saving).</p>';
+      '<p class="desc" style="margin-top:10px;">Moon sign by the sidereal (Lahiri) zodiac, as used in Vedic astrology. The Moon changes sign about every 2\u00bd days, so the exact time matters. The time zone follows the place and the date, so daylight saving is applied automatically. For a Custom place, enter the offset in force then.</p>';
   }
 
   function renderDasha(){
@@ -4541,8 +4820,18 @@ body{overflow-x:clip;max-width:100%;}
   /* ===================== SAVED KUNDALIS ===================== */
   var KV_KEY = 'panchangSavedKundalis', KV_MEM = [], JY_ACTIVE = null, jyModalOpen = false, jyModalEl = null, kvToastEl = null, kvToastTimer = null;
   function kvEsc(s){ return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  var LEGACY_PLACES = {'New York, USA':'New York, New York, USA', 'Houston, USA':'Houston, Texas, USA', 'London, UK':'London, England, UK', 'Singapore':'Singapore', 'Sydney, Australia':'Sydney, New South Wales, Australia'};
+  function legacyPlace(p){   // places saved before time zones were added carried a fixed offset: use the city's zone so daylight saving is right
+    try {
+      if (p && typeof p.tz === 'number' && LEGACY_PLACES[p.name]){
+        var nm = LEGACY_PLACES[p.name];
+        for (var i = 0; i < CITIES.length; i++) if (CITIES[i].name === nm){ p.name = nm; p.lat = CITIES[i].lat; p.lon = CITIES[i].lon; p.tz = CITIES[i].tz; break; }
+      }
+    } catch(e){}
+    return p;
+  }
   function kvLoad(){
-    try { var s = localStorage.getItem(KV_KEY), a = s ? JSON.parse(s) : []; return Array.isArray(a) ? a : []; } catch(e){ return KV_MEM; }
+    try { var s = localStorage.getItem(KV_KEY), a = s ? JSON.parse(s) : []; if (!Array.isArray(a)) return []; a.forEach(function(r){ if (r && r.birth) legacyPlace(r.birth.place); }); return a; } catch(e){ return KV_MEM; }
   }
   function kvStore(list){ KV_MEM = list; try { localStorage.setItem(KV_KEY, JSON.stringify(list)); return true; } catch(e){ return false; } }
   function kvId(){
@@ -4603,7 +4892,7 @@ body{overflow-x:clip;max-width:100%;}
     jyEl('kvm-name').value = init.name; jyEl('kvm-date').value = init.date; jyEl('kvm-time').value = init.time;
     jyEl('kvm-city').value = idx >= 0 ? String(idx) : 'custom';
     jyEl('kvm-custom').hidden = idx >= 0;
-    if (idx < 0){ jyEl('kvm-lat').value = init.place.lat; jyEl('kvm-lon').value = init.place.lon; jyEl('kvm-tz').value = init.place.tz; }
+    if (idx < 0){ jyEl('kvm-lat').value = init.place.lat; jyEl('kvm-lon').value = init.place.lon; jyEl('kvm-tz').value = tzNumber(init.place.tz); }
     jyEl('kvm-style').value = init.style; jyEl('kvm-div').value = String(init.div);
     jyEl('kvm-city').addEventListener('change', function(){ jyEl('kvm-custom').hidden = (jyEl('kvm-city').value !== 'custom'); });
     jyEl('kvm-x').addEventListener('click', jyCloseModal); jyEl('kvm-cancel').addEventListener('click', jyCloseModal);
@@ -4652,6 +4941,7 @@ body{overflow-x:clip;max-width:100%;}
   function jySwitchSub(key){
     document.querySelectorAll('#jyo-tabs .subtab').forEach(function(x){ x.classList.toggle('active', x.dataset.sub === key); x.setAttribute('aria-selected', x.dataset.sub === key ? 'true' : 'false'); });
     document.querySelectorAll('#panel-horoscope .subpanel').forEach(function(p){ p.classList.toggle('active', p.id === 'sub-' + key); });
+    if (window.kdFabSync) kdFabSync();
   }
   function jySyncKdButtons(){
     document.querySelectorAll('#kd-style .subtab').forEach(function(x){ var on = x.dataset.style === kdStyle; x.classList.toggle('active', on); x.setAttribute('aria-selected', on ? 'true' : 'false'); });
@@ -4665,7 +4955,7 @@ body{overflow-x:clip;max-width:100%;}
     jyEl('kd-date').value = r.birth.date; jyEl('kd-time').value = r.birth.time;
     jyEl('kd-city').value = idx >= 0 ? String(idx) : 'custom';
     jyEl('kd-custom').hidden = idx >= 0;
-    if (idx < 0){ jyEl('kd-lat').value = p.lat; jyEl('kd-lon').value = p.lon; jyEl('kd-tz').value = p.tz; }
+    if (idx < 0){ jyEl('kd-lat').value = p.lat; jyEl('kd-lon').value = p.lon; jyEl('kd-tz').value = tzNumber(p.tz); }
     if (KD_STYLES.indexOf(r.settings.style) > -1) kdStyle = r.settings.style;
     kdDiv = DIV_KEYS.indexOf(r.settings.div) > -1 ? r.settings.div : 1;
     try { localStorage.setItem('kdStyle', kdStyle); } catch(e){}
@@ -4747,7 +5037,7 @@ body{overflow-x:clip;max-width:100%;}
       var isToday = sd.getFullYear() === now.getFullYear() && sd.getMonth() === now.getMonth() && sd.getDate() === now.getDate();
       var Y, M, D, inst;
       if (isToday){
-        var L = new Date(now.getTime() + loc.tz * 3600000);
+        var L = new Date(utcToLocal(now.getTime(), loc.tz));
         Y = L.getUTCFullYear(); M = L.getUTCMonth() + 1; D = L.getUTCDate(); inst = now;
       } else {
         Y = sd.getFullYear(); M = sd.getMonth() + 1; D = sd.getDate();
@@ -4817,7 +5107,7 @@ body{overflow-x:clip;max-width:100%;}
       var host = document.getElementById('sk-out'); if (!host) return;
       var c = calc(); c.nakshatraEn = NAKSHATRAS[c.nak];
       var t = text(c, mode); last = { dv: partsToText(t.dvP), en: partsToText(t.enP) };
-      var lt = new Date(c.inst.getTime() + c.loc.tz * 3600000);
+      var lt = new Date(utcToLocal(c.inst.getTime(), c.loc.tz));
       var whenTxt = c.isToday ? lt.toLocaleString('en-IN', { timeZone: 'UTC', day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true }) + ' (now)' : lt.toLocaleString('en-IN', { timeZone: 'UTC', day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true }) + ' (sunrise of the selected date)';
       var chips = [['Samvatsara', t.samEn + ' · ' + t.samDv], [trad === 'north' ? 'Vikram Samvat' : 'Shaka Samvat', trad === 'north' ? c.sam.vs : c.sam.shaka], ['Ayana', c.uttar ? 'Uttarayana' : 'Dakshinayana'], ['Ritu', c.ritu], ['Masa', (c.adhika ? 'Adhika ' : '') + c.masa], ['Paksha', c.paksha], ['Tithi', c.tithiName], ['Vara', WEEKDAYS[c.wd]], ['Nakshatra', NAKSHATRAS[c.nak]], ['Yoga', YOGAS[c.yoga]], ['Karana', c.kar]];
       var infoSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></svg>';
@@ -4894,11 +5184,11 @@ body{overflow-x:clip;max-width:100%;}
     function deg(l){ var r = Math.floor(l/30), d = l - r*30, w = Math.floor(d), m = Math.floor((d-w)*60); return w + '°' + (m<10?'0':'') + m + '′'; }
     function fmtTime(m){ var h = Math.floor(m/60), mm = m%60, ap = h >= 12 ? 'PM' : 'AM'; return ((h%12)||12) + ':' + (mm<10?'0':'') + mm + ' ' + ap; }
     // local calendar day number (days since 1970) of "today" at the saved place
-    function baseDay(loc){ return Math.floor((Date.now() + loc.tz*36e5)/864e5); }
+    function baseDay(loc){ return Math.floor(utcToLocal(Date.now(), loc.tz)/864e5); }
     function dayInfo(dn){ var d = new Date(dn*864e5); return {y:d.getUTCFullYear(), m:d.getUTCMonth(), d:d.getUTCDate()}; }
     function fmtDay(dn){ var o = dayInfo(dn); return o.d + ' ' + MONTHS[o.m] + ' ' + o.y; }
     function isoDay(dn){ var o = dayInfo(dn); return o.y + '-' + (o.m<9?'0':'') + (o.m+1) + '-' + (o.d<10?'0':'') + o.d; }
-    function msOf(loc, dn, min){ return dn*864e5 + min*6e4 - loc.tz*36e5; }
+    function msOf(loc, dn, min){ return localToUTC(dn*864e5 + min*6e4, loc.tz); }
     function lonsAt(ms){ return PL.map(function(p){ return gcLon(p.e, ms); }); }
     function retroAt(i, ms){ return i === 7 || i === 8 ? true : (i === 0 || i === 1) ? false : gcDir(PL[i].e, ms) < 0; }
     function ascAt(ms, loc){ var d = new Date(ms); return ascendantSid(toJulianDay(d), loc.lat, loc.lon, ayanamsa(d)); }
@@ -5033,12 +5323,12 @@ body{overflow-x:clip;max-width:100%;}
     }
     function init(){
       if (st.inited || !$('gc-wheel')) return; st.inited = true;
-      var now = new Date(), loc = selectedLoc(), loc0 = (now.getTime() + loc.tz*36e5);
+      var now = new Date(), loc = selectedLoc(), loc0 = utcToLocal(now.getTime(), loc.tz);
       st.min = Math.floor((loc0 % 864e5)/6e4);
       $('gc-prev').addEventListener('click', function(){ stop(); setOff(st.off - (+$('gc-step').value)); });
       $('gc-next').addEventListener('click', function(){ stop(); setOff(st.off + (+$('gc-step').value)); });
       $('gc-today').addEventListener('click', function(){
-        stop(); var l = selectedLoc(); st.off = 0; st.min = Math.floor(((Date.now() + l.tz*36e5) % 864e5)/6e4); render();
+        stop(); var l = selectedLoc(); st.off = 0; st.min = Math.floor((utcToLocal(Date.now(), l.tz) % 864e5)/6e4); render();
       });
       $('gc-play').addEventListener('click', play);
       $('gc-speed').addEventListener('change', function(){ if (st.playing){ stop(); play(); } });
@@ -5176,7 +5466,7 @@ body{overflow-x:clip;max-width:100%;}
     jyEl(p+'-name').value = r.name || ''; jyEl(p+'-date').value = r.date; jyEl(p+'-time').value = r.time;
     jyEl(p+'-city').value = idx >= 0 ? String(idx) : 'custom';
     jyEl(p+'-custom').hidden = idx >= 0;
-    if (idx < 0){ jyEl(p+'-lat').value = pl.lat; jyEl(p+'-lon').value = pl.lon; jyEl(p+'-tz').value = pl.tz; }
+    if (idx < 0){ jyEl(p+'-lat').value = pl.lat; jyEl(p+'-lon').value = pl.lon; jyEl(p+'-tz').value = tzNumber(pl.tz); }
   }
   function mgRecordOf(p){
     var l = jyLoc(p);
@@ -5189,12 +5479,12 @@ body{overflow-x:clip;max-width:100%;}
     });
   }
   // ---- saved matches ----
-  function mgLoadAll(){ try { var s = localStorage.getItem(MG_KEY), a = s ? JSON.parse(s) : []; return Array.isArray(a) ? a : []; } catch(e){ return MG_MEM; } }
+  function mgLoadAll(){ try { var s = localStorage.getItem(MG_KEY), a = s ? JSON.parse(s) : []; if (!Array.isArray(a)) return []; a.forEach(function(r){ if (r){ if (r.g) legacyPlace(r.g.place); if (r.b) legacyPlace(r.b.place); } }); return a; } catch(e){ return MG_MEM; } }
   function mgStore(list){ MG_MEM = list; try { localStorage.setItem(MG_KEY, JSON.stringify(list)); return true; } catch(e){ return false; } }
   function mgFind(id){ return mgLoadAll().filter(function(r){ return r.id === id; })[0] || null; }
   function mgSig(r){ function s(x){ return x.date + '|' + x.time + '|' + (+x.place.lat).toFixed(3) + ',' + (+x.place.lon).toFixed(3) + ',' + x.place.tz + '|' + x.name.toLowerCase(); } return s(r.g) + '#' + s(r.b); }
   function mgScoreOf(r){
-    function mk(x){ var loc = x.place, ds = x.date.split('-'), ts = x.time.split(':'), ms = Date.UTC(+ds[0], +ds[1]-1, +ds[2], +ts[0], +ts[1]) - loc.tz*36e5, c = computeChart(ms, loc.lat, loc.lon), m = c.planets[1]; return {rashi: m.rashi, nak: m.nak, lon: m.lon}; }
+    function mk(x){ var loc = x.place, ds = x.date.split('-'), ts = x.time.split(':'), ms = localToUTC(Date.UTC(+ds[0], +ds[1]-1, +ds[2], +ts[0], +ts[1]), loc.tz), c = computeChart(ms, loc.lat, loc.lon), m = c.planets[1]; return {rashi: m.rashi, nak: m.nak, lon: m.lon}; }
     try { var t = 0; mgKoots(mk(r.g), mk(r.b)).koots.forEach(function(x){ t += x.got; }); return t; } catch(e){ return null; }
   }
   function mgCommit(title, editId){
@@ -5478,9 +5768,9 @@ body{overflow-x:clip;max-width:100%;}
   // An evening notification (7:30 PM) for every day that is followed by a festival or vrat. Scheduled on the phone for the next 60 days
   // and refreshed whenever the app is opened or the place changes, so it keeps arriving even when the app is closed.
   var RM_KEY = 'panchangReminders', RM_CFG = 'panchangRemindCfg', RM_DAYS = 60, RM_LAST = 0, RM_AM = [7, 0];
-  var RM_DEF = {time:'19:30', leads:{am:false, eve:true, d2:false, w1:false}, cats:{fest:true, ekadashi:true, pur:true, prad:false, sank:false}};
+  var RM_DEF = {time:'19:30', leads:{am:false, eve:true, d2:false, w1:false, moon:true}, cats:{fest:true, ekadashi:true, pur:true, prad:false, sank:false}};
   var RM_CATS = [['fest','Festivals','Diwali, Holi, Navratri, Janmashtami and the rest'],['ekadashi','Ekadashi','Twice a month'],['pur','Purnima and Amavasya','Full and new moon days'],['prad','Pradosh','Twice a month, evening vrat for Shiva'],['sank','Sankashti and Vinayaka Chaturthi','Monthly vrats for Ganesha']];
-  var RM_LEADS = [['am','Morning of the day (7:00 AM)',''],['eve','Evening before','At the reminder time below'],['d2','2 days before','At the reminder time below'],['w1','1 week before','Festivals only, to plan ahead']];
+  var RM_LEADS = [['am','Morning of the day (7:00 AM)',''],['eve','Evening before','At the reminder time below'],['d2','2 days before','At the reminder time below'],['w1','1 week before','Festivals only, to plan ahead'],['moon','At moonrise','Karva Chauth and Sankashti: an alert when the Moon rises, to break the fast']];
   function rmPlugin(){
     var c = window.Capacitor;
     try { if (c && c.isNativePlatform && c.isNativePlatform() && c.Plugins && c.Plugins.LocalNotifications) return c.Plugins.LocalNotifications; } catch(e){}
@@ -5503,6 +5793,7 @@ body{overflow-x:clip;max-width:100%;}
     if (c.leads.eve) when.push('evening before at ' + rmFmt12(+t[0]*60 + +t[1]));
     if (c.leads.d2) when.push('2 days before');
     if (c.leads.w1) when.push('1 week before (festivals)');
+    if (c.leads.moon) when.push('at moonrise (Karva Chauth, Sankashti)');
     var cats = RM_CATS.filter(function(x){ return c.cats[x[0]]; }).map(function(x){ return x[1]; });
     el.textContent = (when.length && cats.length) ? cats.join(', ') + '. ' + (function(w){ return w.charAt(0).toUpperCase() + w.slice(1); })(when.join(', ')) + '.' : 'Nothing selected. Tap Customise to choose.';
   }
@@ -5511,7 +5802,11 @@ body{overflow-x:clip;max-width:100%;}
   function rmItems(y, m, d, loc, cats){
     var out = [], ss = null, mr;
     function times(){ if (!ss){ ss = sunriseSunset(y, m, d, loc.lat, loc.lon, loc.tz); mr = moonriseLocalMin(y, m, d, loc.lat, loc.lon, loc.tz); } }
-    if (cats.fest) festOnDay(y, m, d).forEach(function(f){ out.push({cat:'fest', name:f[1], note:f[2] || ''}); });
+    if (cats.fest) festOnDay(y, m, d).forEach(function(f){
+      var nt = f[2] || '', kv = isKarva(f[1]);
+      if (kv){ try { times(); if (mr !== null && mr !== undefined) nt = 'Moonrise ' + rmFmt12(mr) + (nt ? '. ' + nt : ''); } catch(e){} }
+      out.push({cat:'fest', name:f[1], note:nt, moon:kv});
+    });
     vratsOn(y, m, d, loc).forEach(function(v){
       var cat = rmCat(v.type); if (!cats[cat]) return;
       var note = VRAT_NOTE[v.type] || '';
@@ -5521,7 +5816,7 @@ body{overflow-x:clip;max-width:100%;}
         else if (v.type === 'Pradosh Vrat') note = 'Pradosh puja after sunset at ' + rmFmt12(ss.sunsetMin);
         else if (v.type === 'Sankashti Chaturthi' || v.type === 'Purnima') { if (mr !== null && mr !== undefined) note = (v.type === 'Purnima' ? 'Full moon. ' : 'Fast broken after the ') + 'Moonrise ' + rmFmt12(mr); }
       } catch(e){}
-      out.push({cat:cat, name:v.label, note:note});
+      out.push({cat:cat, name:v.label, note:note, moon:(v.type === 'Sankashti Chaturthi')});
     });
     return out;
   }
@@ -5549,6 +5844,30 @@ body{overflow-x:clip;max-width:100%;}
           extra: {date: y + '-' + pad2(m) + '-' + pad2(d), names: names[0] + (names.length > 1 ? ' + ' + (names.length - 1) + ' more' : '')}
         });
       });
+      if (cfg.leads.moon){   // an alert at the moment the Moon rises, to break the fast
+        try {
+          if (!all) all = rmItems(y, m, d, loc, cfg.cats);
+          var mi = all.filter(function(x){ return x.moon; });
+          if (mi.length){
+            var mrm = moonriseLocalMin(y, m, d, loc.lat, loc.lon, loc.tz);
+            if (mrm !== null){
+              var mat = dateFromLocalMinutes(y, m, d, mrm, loc.tz);
+              if (mat.getTime() > now.getTime() + 60000 && mat.getTime() <= now.getTime() + RM_DAYS*864e5){
+                var mn = mi.map(function(x){ return x.name; }).join(' + '), mt = rmFmt12(mrm);
+                out.push({
+                  id: (y*10000 + m*100 + d)*10 + 4,
+                  title: 'Moonrise now: ' + mn,
+                  body: 'The Moon rises at ' + mt + ' in ' + loc.name + '. Look for it, then break your fast.',
+                  largeBody: 'The Moon rises at ' + mt + ' in ' + loc.name + '.\nHills, buildings and haze can delay the sighting by a few minutes. Break your fast only after you have seen the Moon.',
+                  schedule: {at: mat, allowWhileIdle: true},
+                  smallIcon: 'ic_stat_lotus', iconColor: '#6E1423', channelId: 'panchang-reminders',
+                  extra: {date: y + '-' + pad2(m) + '-' + pad2(d), names: mn}
+                });
+              }
+            }
+          }
+        } catch(e){}
+      }
     }
     try { out = out.concat(tsNotifs(now, cfg)); } catch(e){}
     out.sort(function(a, b){ return a.schedule.at - b.schedule.at; });
@@ -5623,6 +5942,43 @@ body{overflow-x:clip;max-width:100%;}
     document.addEventListener('visibilitychange', function(){ if (!document.hidden) rmSchedule(false); });
     setTimeout(function(){ rmSchedule(true); }, 2500);
   })();
+
+
+  /* ---- Kundali: floating button to open a saved Kundali ---- */
+  window.kdFabSync = function(){
+    var f = document.getElementById('kd-fab'), sp = document.getElementById('sub-kundali'); if (!f || !sp) return;
+    var on = false; try { on = currentTab() === 'horoscope' && sp.classList.contains('active'); } catch(e){}
+    f.hidden = !on;
+  };
+  function kdOpenSheet(){
+    if (document.querySelector('.rs-ov.kd-pick')) return;
+    if (window.settingsClose) settingsClose();
+    var list = kvLoad().slice().sort(function(a, b){ return a.name.localeCompare(b.name); });
+    var ov = document.createElement('div'); ov.className = 'rs-ov kd-pick';
+    function rows(q){
+      q = (q || '').trim().toLowerCase();
+      var r = list.filter(function(x){ return !q || x.name.toLowerCase().indexOf(q) > -1 || (x.birth.place.name || '').toLowerCase().indexOf(q) > -1; });
+      if (!r.length) return '<div class="kdp-empty">No match.</div>';
+      return r.map(function(x){
+        var ini = x.name.trim().split(/\s+/).map(function(w){ return w.charAt(0); }).join('').slice(0, 2).toUpperCase() || '?';
+        return '<button type="button" class="kdp-row' + (x.id === JY_ACTIVE ? ' cur' : '') + '" data-id="' + kvEsc(x.id) + '"><span class="kdp-av" data-nolang>' + kvEsc(ini) + '</span><span class="kdp-tx"><b data-nolang>' + kvEsc(x.name) + '</b><small>' + kvBirthText(x) + ' · ' + kvEsc((x.birth.place.name || '').split(',')[0]) + '</small></span>' + (x.id === JY_ACTIVE ? '<span class="kdp-on">Open</span>' : '<svg class="kdp-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>') + '</button>';
+      }).join('');
+    }
+    ov.innerHTML = '<div class="rs-sheet kdp-sheet" role="dialog" aria-label="Saved Kundalis"><h3>Saved Kundalis</h3>' +
+      (list.length ? '<p class="desc" style="margin:2px 0 10px;">Tap a name to open its Kundali.</p>' + (list.length > 5 ? '<input type="search" class="kdp-q" placeholder="Search by name or place" autocomplete="off">' : '') + '<div class="kdp-list">' + rows('') + '</div>'
+        : '<div class="kdp-empty">No saved Kundalis yet.<br>Enter birth details and tap <b>Save Kundali</b> to keep one here.</div>') +
+      '<button type="button" class="ts-ghost rs-done" style="width:100%;margin-top:14px;">Close</button></div>';
+    document.body.appendChild(ov);
+    var q = ov.querySelector('.kdp-q'); if (q) q.addEventListener('input', function(){ ov.querySelector('.kdp-list').innerHTML = rows(q.value); });
+    ov.addEventListener('click', function(ev){
+      if (ev.target === ov || ev.target.closest('.rs-done')){ ov.remove(); return; }
+      var r = ev.target.closest('.kdp-row'); if (!r) return;
+      ov.remove(); kvOpenProfile(r.dataset.id);
+      var k = kvFind(r.dataset.id); if (k) jyToast('Opened ' + k.name);
+    });
+  }
+  document.getElementById('kd-fab').addEventListener('click', kdOpenSheet);
+  kdFabSync();
 
   /* ===================== TITHI SMRITI ===================== */
   // Observances kept by lunar date (shraddh, birthdays, vrats). Each saved item is a lunar month, a paksha and a tithi; the Gregorian day
@@ -6019,11 +6375,11 @@ body{overflow-x:clip;max-width:100%;}
   // words the language tables do not carry yet
   (function(){
     var X = {
-      hi:{'Tithi Smriti':'तिथि स्मृति','Remember by the tithi, not the date':'तारीख़ से नहीं, तिथि से याद रखें','Add a tithi':'तिथि जोड़ें','+ Add a tithi':'+ तिथि जोड़ें','Edit tithi':'तिथि बदलें','Add to calendar':'कैलेंडर में जोड़ें','Name':'नाम','Kind':'प्रकार','Shraddh':'श्राद्ध','Birthday':'जन्मदिन','Anniversary':'वर्षगांठ','Vrat':'व्रत','Other':'अन्य','How do you know it?':'आप इसे कैसे जानते हैं?','I know the tithi':'मुझे तिथि पता है','From an English date':'अंग्रेज़ी तारीख़ से','Find the tithi':'तिथि खोजें','Time (optional)':'समय (वैकल्पिक)','Month':'मास','Paksha':'पक्ष','Tithi':'तिथि','Month names':'मास पद्धति','Amanta':'अमान्त','Purnimanta':'पूर्णिमान्त','Remind me':'मुझे याद दिलाएँ','A week before':'एक सप्ताह पहले','The evening before':'एक दिन पहले शाम को','Morning of the day':'उसी दिन सुबह','Save':'सहेजें','Cancel':'रद्द करें','Edit':'बदलें','Delete':'हटाएँ','Tap again to delete':'हटाने के लिए फिर दबाएँ','View day':'दिन देखें','Next years':'आने वाले वर्ष','Next':'अगला','Tomorrow':'कल','day':'दिन','days':'दिन','Saved':'सहेजा गया','No tithis saved yet.':'अभी कोई तिथि सहेजी नहीं है।','Day is marked by the tithi at':'दिन तय होता है इस समय की तिथि से','Afternoon (Aparahna), for shraddh':'दोपहर बाद (अपराह्न), श्राद्ध के लिए','Sunrise, for birthdays and vrats':'सूर्योदय, जन्मदिन और व्रत के लिए','Choose a date first.':'पहले तारीख़ चुनें।','@tsin':'%n दिन में','@tsago':'%n दिन पहले','Within 30 days':'30 दिनों के भीतर','Later':'बाद में','All':'सभी','Saved tithis':'सहेजी गई तिथियाँ','Options':'विकल्प','This name is already saved. Please use a different name.':'यह नाम पहले से सहेजा है। कृपया कोई दूसरा नाम रखें।','Place of that day':'उस दिन का स्थान','Same as the app':'ऐप वाला ही','Also remind me in Pitru Paksha':'पितृ पक्ष में भी याद दिलाएँ','Pitru Paksha':'पितृ पक्ष','shraddh':'श्राद्ध','How Tithi Smriti helps':'यह कैसे काम आता है','Why Tithi Smriti':'तिथि स्मृति क्यों','Share with family':'परिवार से साझा करें','Got it':'समझ गया','In the other naming':'दूसरी पद्धति में','Shraddh, birthdays and vrats kept by tithi, with a reminder every year':'श्राद्ध, जन्मदिन और व्रत तिथि के अनुसार, हर साल रिमाइंडर के साथ','Shraddh, birthdays, anniversaries and vrats that return on the same tithi every year. Save one once and the app finds its date each year and reminds you.':'श्राद्ध, जन्मदिन, वर्षगांठ और व्रत जो हर साल उसी तिथि पर लौटते हैं। एक बार सहेजें, ऐप हर साल उसकी तारीख़ खोजकर आपको याद दिलाएगा।','New':'नया','Then':'फिर','That day\u2019s tithi:':'उस दिन की तिथि:','For a death, the tithi at the time of passing decides the shraddh. Leave the time empty to use sunrise.':'मृत्यु के लिए श्राद्ध उसी समय की तिथि से तय होता है। समय खाली छोड़ेंगे तो सूर्योदय लिया जाएगा।'},
-      mr:{'Tithi Smriti':'तिथी स्मृती','Remember by the tithi, not the date':'तारखेने नव्हे, तिथीने आठवण ठेवा','Add a tithi':'तिथी जोडा','+ Add a tithi':'+ तिथी जोडा','Edit tithi':'तिथी बदला','Add to calendar':'कॅलेंडरमध्ये जोडा','Name':'नाव','Kind':'प्रकार','Shraddh':'श्राद्ध','Birthday':'वाढदिवस','Anniversary':'वर्धापन दिन','Vrat':'व्रत','Other':'इतर','How do you know it?':'तुम्हाला ती कशी माहीत आहे?','I know the tithi':'मला तिथी माहीत आहे','From an English date':'इंग्रजी तारखेवरून','Find the tithi':'तिथी शोधा','Time (optional)':'वेळ (ऐच्छिक)','Month':'महिना','Paksha':'पक्ष','Tithi':'तिथी','Month names':'महिन्यांची पद्धत','Amanta':'अमान्त','Purnimanta':'पूर्णिमान्त','Remind me':'मला आठवण करा','A week before':'एक आठवडा आधी','The evening before':'आदल्या संध्याकाळी','Morning of the day':'त्याच दिवशी सकाळी','Save':'जतन करा','Cancel':'रद्द करा','Edit':'बदला','Delete':'हटवा','Tap again to delete':'हटवण्यासाठी पुन्हा दाबा','View day':'दिवस पहा','Next years':'पुढील वर्षे','Next':'पुढील','Tomorrow':'उद्या','day':'दिवस','days':'दिवस','Saved':'जतन केले','No tithis saved yet.':'अजून कोणतीही तिथी जतन केलेली नाही.','Day is marked by the tithi at':'दिवस या वेळच्या तिथीवरून ठरतो','Afternoon (Aparahna), for shraddh':'दुपारनंतर (अपराह्न), श्राद्धासाठी','Sunrise, for birthdays and vrats':'सूर्योदय, वाढदिवस व व्रतांसाठी','Choose a date first.':'आधी तारीख निवडा.','@tsin':'%n दिवसांत','@tsago':'%n दिवसांपूर्वी','Within 30 days':'30 दिवसांच्या आत','Later':'नंतर','All':'सर्व','Saved tithis':'जतन केलेल्या तिथी','Options':'पर्याय','This name is already saved. Please use a different name.':'हे नाव आधीच जतन केले आहे. कृपया वेगळे नाव द्या.','Place of that day':'त्या दिवसाचे ठिकाण','Same as the app':'अॅपमधीलच','Also remind me in Pitru Paksha':'पितृपक्षातही आठवण करा','Pitru Paksha':'पितृपक्ष','shraddh':'श्राद्ध','How Tithi Smriti helps':'हे कसे उपयोगी आहे','Why Tithi Smriti':'तिथी स्मृती का','Share with family':'कुटुंबासोबत शेअर करा','Got it':'समजले','In the other naming':'दुसऱ्या पद्धतीत','Shraddh, birthdays and vrats kept by tithi, with a reminder every year':'श्राद्ध, वाढदिवस आणि व्रते तिथीनुसार, दरवर्षी आठवणीसह','Shraddh, birthdays, anniversaries and vrats that return on the same tithi every year. Save one once and the app finds its date each year and reminds you.':'श्राद्ध, वाढदिवस, वर्धापन दिन आणि व्रते जी दरवर्षी त्याच तिथीला येतात. एकदा जतन करा, अॅप दरवर्षी त्याची तारीख शोधून तुम्हाला आठवण करून देईल.','New':'नवीन','Then':'नंतर','That day\u2019s tithi:':'त्या दिवसाची तिथी:','For a death, the tithi at the time of passing decides the shraddh. Leave the time empty to use sunrise.':'मृत्यूसाठी श्राद्ध निधनाच्या वेळच्या तिथीने ठरते. वेळ रिकामी ठेवल्यास सूर्योदय घेतला जातो.'},
-      gu:{'Tithi Smriti':'તિથિ સ્મૃતિ','Remember by the tithi, not the date':'તારીખથી નહીં, તિથિથી યાદ રાખો','Add a tithi':'તિથિ ઉમેરો','+ Add a tithi':'+ તિથિ ઉમેરો','Edit tithi':'તિથિ બદલો','Add to calendar':'કૅલેન્ડરમાં ઉમેરો','Name':'નામ','Kind':'પ્રકાર','Shraddh':'શ્રાદ્ધ','Birthday':'જન્મદિવસ','Anniversary':'વર્ષગાંઠ','Vrat':'વ્રત','Other':'અન્ય','How do you know it?':'તમે તેને કેવી રીતે જાણો છો?','I know the tithi':'મને તિથિ ખબર છે','From an English date':'અંગ્રેજી તારીખ પરથી','Find the tithi':'તિથિ શોધો','Time (optional)':'સમય (વૈકલ્પિક)','Month':'માસ','Paksha':'પક્ષ','Tithi':'તિથિ','Month names':'માસ પદ્ધતિ','Amanta':'અમાંત','Purnimanta':'પૂર્ણિમાંત','Remind me':'મને યાદ અપાવો','A week before':'એક અઠવાડિયું પહેલાં','The evening before':'આગલી સાંજે','Morning of the day':'એ જ દિવસે સવારે','Save':'સાચવો','Cancel':'રદ કરો','Edit':'બદલો','Delete':'કાઢી નાખો','Tap again to delete':'કાઢવા માટે ફરી દબાવો','View day':'દિવસ જુઓ','Next years':'આવતાં વર્ષો','Next':'આગામી','Tomorrow':'આવતીકાલે','day':'દિવસ','days':'દિવસ','Saved':'સાચવ્યું','No tithis saved yet.':'હજી કોઈ તિથિ સાચવી નથી.','Day is marked by the tithi at':'દિવસ આ સમયની તિથિથી નક્કી થાય','Afternoon (Aparahna), for shraddh':'બપોર પછી (અપરાહ્ન), શ્રાદ્ધ માટે','Sunrise, for birthdays and vrats':'સૂર્યોદય, જન્મદિવસ અને વ્રત માટે','Choose a date first.':'પહેલાં તારીખ પસંદ કરો.','@tsin':'%n દિવસમાં','@tsago':'%n દિવસ પહેલાં','Within 30 days':'30 દિવસમાં','Later':'પછી','All':'બધા','Saved tithis':'સાચવેલી તિથિઓ','Options':'વિકલ્પો','This name is already saved. Please use a different name.':'આ નામ પહેલેથી સાચવેલું છે. કૃપા કરી બીજું નામ આપો.','Place of that day':'તે દિવસનું સ્થળ','Same as the app':'ઍપ મુજબ જ','Also remind me in Pitru Paksha':'પિતૃ પક્ષમાં પણ યાદ અપાવો','Pitru Paksha':'પિતૃ પક્ષ','shraddh':'શ્રાદ્ધ','How Tithi Smriti helps':'આ કેવી રીતે ઉપયોગી છે','Why Tithi Smriti':'તિથિ સ્મૃતિ શા માટે','Share with family':'પરિવાર સાથે શેર કરો','Got it':'સમજાયું','In the other naming':'બીજી પદ્ધતિમાં','Shraddh, birthdays and vrats kept by tithi, with a reminder every year':'શ્રાદ્ધ, જન્મદિવસ અને વ્રત તિથિ પ્રમાણે, દર વર્ષે યાદ સાથે','Shraddh, birthdays, anniversaries and vrats that return on the same tithi every year. Save one once and the app finds its date each year and reminds you.':'શ્રાદ્ધ, જન્મદિવસ, વર્ષગાંઠ અને વ્રત જે દર વર્ષે એ જ તિથિએ આવે છે. એક વાર સાચવો, ઍપ દર વર્ષે તેની તારીખ શોધીને તમને યાદ અપાવશે.','New':'નવું','Then':'પછી','That day\u2019s tithi:':'તે દિવસની તિથિ:','For a death, the tithi at the time of passing decides the shraddh. Leave the time empty to use sunrise.':'મૃત્યુ માટે શ્રાદ્ધ નિધન સમયની તિથિથી નક્કી થાય છે. સમય ખાલી રાખશો તો સૂર્યોદય લેવાશે.'},
-      te:{'Tithi Smriti':'తిథి స్మృతి','Remember by the tithi, not the date':'తేదీతో కాదు, తిథితో గుర్తుంచుకోండి','Add a tithi':'తిథి చేర్చండి','+ Add a tithi':'+ తిథి చేర్చండి','Edit tithi':'తిథి మార్చండి','Add to calendar':'క్యాలెండర్‌లో చేర్చండి','Name':'పేరు','Kind':'రకం','Shraddh':'శ్రాద్ధం','Birthday':'పుట్టినరోజు','Anniversary':'వార్షికోత్సవం','Vrat':'వ్రతం','Other':'ఇతర','How do you know it?':'మీకు ఇది ఎలా తెలుసు?','I know the tithi':'నాకు తిథి తెలుసు','From an English date':'ఇంగ్లీష్ తేదీ నుండి','Find the tithi':'తిథిని కనుగొనండి','Time (optional)':'సమయం (ఐచ్ఛికం)','Month':'మాసం','Paksha':'పక్షం','Tithi':'తిథి','Month names':'మాస పద్ధతి','Amanta':'అమాంత','Purnimanta':'పూర్ణిమాంత','Remind me':'నాకు గుర్తు చేయండి','A week before':'ఒక వారం ముందు','The evening before':'ముందు రోజు సాయంత్రం','Morning of the day':'ఆ రోజు ఉదయం','Save':'సేవ్ చేయండి','Cancel':'రద్దు చేయండి','Edit':'మార్చండి','Delete':'తొలగించండి','Tap again to delete':'తొలగించడానికి మళ్ళీ నొక్కండి','View day':'రోజు చూడండి','Next years':'రాబోయే సంవత్సరాలు','Next':'తదుపరి','Tomorrow':'రేపు','day':'రోజు','days':'రోజులు','Saved':'సేవ్ అయింది','No tithis saved yet.':'ఇంకా ఏ తిథీ సేవ్ చేయలేదు.','Day is marked by the tithi at':'ఈ సమయంలోని తిథితో రోజు నిర్ణయం','Afternoon (Aparahna), for shraddh':'మధ్యాహ్నం తర్వాత (అపరాహ్ణం), శ్రాద్ధానికి','Sunrise, for birthdays and vrats':'సూర్యోదయం, పుట్టినరోజులు మరియు వ్రతాలకు','Choose a date first.':'ముందుగా తేదీని ఎంచుకోండి.','@tsin':'%n రోజుల్లో','@tsago':'%n రోజుల క్రితం','Within 30 days':'30 రోజుల్లోపు','Later':'తర్వాత','All':'అన్నీ','Saved tithis':'సేవ్ చేసిన తిథులు','Options':'ఎంపికలు','This name is already saved. Please use a different name.':'ఈ పేరు ఇప్పటికే సేవ్ అయింది. దయచేసి వేరే పేరు ఇవ్వండి.','Place of that day':'ఆ రోజు ప్రదేశం','Same as the app':'యాప్‌లోనిదే','Also remind me in Pitru Paksha':'పితృ పక్షంలో కూడా గుర్తు చేయండి','Pitru Paksha':'పితృ పక్షం','shraddh':'శ్రాద్ధం','How Tithi Smriti helps':'ఇది ఎలా ఉపయోగపడుతుంది','Why Tithi Smriti':'తిథి స్మృతి ఎందుకు','Share with family':'కుటుంబంతో పంచుకోండి','Got it':'అర్థమైంది','In the other naming':'ఇతర పద్ధతిలో','Shraddh, birthdays and vrats kept by tithi, with a reminder every year':'శ్రాద్ధం, పుట్టినరోజులు, వ్రతాలు తిథి ప్రకారం, ప్రతి సంవత్సరం రిమైండర్‌తో','Shraddh, birthdays, anniversaries and vrats that return on the same tithi every year. Save one once and the app finds its date each year and reminds you.':'శ్రాద్ధం, పుట్టినరోజులు, వార్షికోత్సవాలు, వ్రతాలు ప్రతి సంవత్సరం అదే తిథిన వస్తాయి. ఒకసారి సేవ్ చేయండి, యాప్ ప్రతి సంవత్సరం తేదీని కనుగొని మీకు గుర్తు చేస్తుంది.','New':'కొత్త','Then':'తర్వాత','That day\u2019s tithi:':'ఆ రోజు తిథి:','For a death, the tithi at the time of passing decides the shraddh. Leave the time empty to use sunrise.':'మరణం విషయంలో మరణించిన సమయంలోని తిథి శ్రాద్ధాన్ని నిర్ణయిస్తుంది. సమయం ఖాళీగా వదిలితే సూర్యోదయం తీసుకుంటాం.'},
-      kn:{'Tithi Smriti':'ತಿಥಿ ಸ್ಮೃತಿ','Remember by the tithi, not the date':'ದಿನಾಂಕದಿಂದಲ್ಲ, ತಿಥಿಯಿಂದ ನೆನಪಿಡಿ','Add a tithi':'ತಿಥಿ ಸೇರಿಸಿ','+ Add a tithi':'+ ತಿಥಿ ಸೇರಿಸಿ','Edit tithi':'ತಿಥಿ ಬದಲಿಸಿ','Add to calendar':'ಕ್ಯಾಲೆಂಡರ್‌ಗೆ ಸೇರಿಸಿ','Name':'ಹೆಸರು','Kind':'ವಿಧ','Shraddh':'ಶ್ರಾದ್ಧ','Birthday':'ಹುಟ್ಟುಹಬ್ಬ','Anniversary':'ವಾರ್ಷಿಕೋತ್ಸವ','Vrat':'ವ್ರತ','Other':'ಇತರೆ','How do you know it?':'ನಿಮಗೆ ಇದು ಹೇಗೆ ಗೊತ್ತು?','I know the tithi':'ನನಗೆ ತಿಥಿ ಗೊತ್ತು','From an English date':'ಇಂಗ್ಲಿಷ್ ದಿನಾಂಕದಿಂದ','Find the tithi':'ತಿಥಿ ಹುಡುಕಿ','Time (optional)':'ಸಮಯ (ಐಚ್ಛಿಕ)','Month':'ಮಾಸ','Paksha':'ಪಕ್ಷ','Tithi':'ತಿಥಿ','Month names':'ಮಾಸ ಪದ್ಧತಿ','Amanta':'ಅಮಾಂತ','Purnimanta':'ಪೂರ್ಣಿಮಾಂತ','Remind me':'ನನಗೆ ನೆನಪಿಸಿ','A week before':'ಒಂದು ವಾರ ಮೊದಲು','The evening before':'ಹಿಂದಿನ ಸಂಜೆ','Morning of the day':'ಆ ದಿನ ಬೆಳಿಗ್ಗೆ','Save':'ಉಳಿಸಿ','Cancel':'ರದ್ದುಮಾಡಿ','Edit':'ಬದಲಿಸಿ','Delete':'ಅಳಿಸಿ','Tap again to delete':'ಅಳಿಸಲು ಮತ್ತೆ ಒತ್ತಿ','View day':'ದಿನ ನೋಡಿ','Next years':'ಮುಂದಿನ ವರ್ಷಗಳು','Next':'ಮುಂದಿನ','Tomorrow':'ನಾಳೆ','day':'ದಿನ','days':'ದಿನಗಳು','Saved':'ಉಳಿಸಲಾಗಿದೆ','No tithis saved yet.':'ಇನ್ನೂ ಯಾವುದೇ ತಿಥಿ ಉಳಿಸಿಲ್ಲ.','Day is marked by the tithi at':'ಈ ಸಮಯದ ತಿಥಿಯಿಂದ ದಿನ ನಿರ್ಧಾರ','Afternoon (Aparahna), for shraddh':'ಮಧ್ಯಾಹ್ನದ ನಂತರ (ಅಪರಾಹ್ಣ), ಶ್ರಾದ್ಧಕ್ಕೆ','Sunrise, for birthdays and vrats':'ಸೂರ್ಯೋದಯ, ಹುಟ್ಟುಹಬ್ಬ ಮತ್ತು ವ್ರತಗಳಿಗೆ','Choose a date first.':'ಮೊದಲು ದಿನಾಂಕ ಆಯ್ಕೆಮಾಡಿ.','@tsin':'%n ದಿನಗಳಲ್ಲಿ','@tsago':'%n ದಿನಗಳ ಹಿಂದೆ','Within 30 days':'30 ದಿನಗಳೊಳಗೆ','Later':'ನಂತರ','All':'ಎಲ್ಲಾ','Saved tithis':'ಉಳಿಸಿದ ತಿಥಿಗಳು','Options':'ಆಯ್ಕೆಗಳು','This name is already saved. Please use a different name.':'ಈ ಹೆಸರು ಈಗಾಗಲೇ ಉಳಿಸಲಾಗಿದೆ. ದಯವಿಟ್ಟು ಬೇರೆ ಹೆಸರು ನೀಡಿ.','Place of that day':'ಆ ದಿನದ ಸ್ಥಳ','Same as the app':'ಆ್ಯಪ್‌ನಲ್ಲಿರುವುದೇ','Also remind me in Pitru Paksha':'ಪಿತೃ ಪಕ್ಷದಲ್ಲೂ ನೆನಪಿಸಿ','Pitru Paksha':'ಪಿತೃ ಪಕ್ಷ','shraddh':'ಶ್ರಾದ್ಧ','How Tithi Smriti helps':'ಇದು ಹೇಗೆ ಉಪಯುಕ್ತ','Why Tithi Smriti':'ತಿಥಿ ಸ್ಮೃತಿ ಏಕೆ','Share with family':'ಕುಟುಂಬದೊಂದಿಗೆ ಹಂಚಿಕೊಳ್ಳಿ','Got it':'ಅರ್ಥವಾಯಿತು','In the other naming':'ಇನ್ನೊಂದು ಪದ್ಧತಿಯಲ್ಲಿ','Shraddh, birthdays and vrats kept by tithi, with a reminder every year':'ಶ್ರಾದ್ಧ, ಹುಟ್ಟುಹಬ್ಬ, ವ್ರತಗಳು ತಿಥಿಯ ಪ್ರಕಾರ, ಪ್ರತಿ ವರ್ಷ ರಿಮೈಂಡರ್‌ನೊಂದಿಗೆ','Shraddh, birthdays, anniversaries and vrats that return on the same tithi every year. Save one once and the app finds its date each year and reminds you.':'ಶ್ರಾದ್ಧ, ಹುಟ್ಟುಹಬ್ಬ, ವಾರ್ಷಿಕೋತ್ಸವ, ವ್ರತಗಳು ಪ್ರತಿ ವರ್ಷ ಅದೇ ತಿಥಿಯಂದು ಬರುತ್ತವೆ. ಒಮ್ಮೆ ಉಳಿಸಿ, ಆ್ಯಪ್ ಪ್ರತಿ ವರ್ಷ ದಿನಾಂಕ ಹುಡುಕಿ ನಿಮಗೆ ನೆನಪಿಸುತ್ತದೆ.','New':'ಹೊಸದು','Then':'ನಂತರ','That day\u2019s tithi:':'ಆ ದಿನದ ತಿಥಿ:','For a death, the tithi at the time of passing decides the shraddh. Leave the time empty to use sunrise.':'ಮರಣದ ವಿಷಯದಲ್ಲಿ ನಿಧನದ ಸಮಯದ ತಿಥಿ ಶ್ರಾದ್ಧವನ್ನು ನಿರ್ಧರಿಸುತ್ತದೆ. ಸಮಯ ಖಾಲಿ ಬಿಟ್ಟರೆ ಸೂರ್ಯೋದಯ ಬಳಸಲಾಗುತ್ತದೆ.'}
+      hi:{'Tithi Smriti':'तिथि स्मृति','Remember by the tithi, not the date':'तारीख़ से नहीं, तिथि से याद रखें','Add a tithi':'तिथि जोड़ें','+ Add a tithi':'+ तिथि जोड़ें','Edit tithi':'तिथि बदलें','Add to calendar':'कैलेंडर में जोड़ें','Name':'नाम','Kind':'प्रकार','Shraddh':'श्राद्ध','Birthday':'जन्मदिन','Anniversary':'वर्षगांठ','Vrat':'व्रत','Other':'अन्य','How do you know it?':'आप इसे कैसे जानते हैं?','I know the tithi':'मुझे तिथि पता है','From an English date':'अंग्रेज़ी तारीख़ से','Find the tithi':'तिथि खोजें','Time (optional)':'समय (वैकल्पिक)','Month':'मास','Paksha':'पक्ष','Tithi':'तिथि','Month names':'मास पद्धति','Amanta':'अमान्त','Purnimanta':'पूर्णिमान्त','Remind me':'मुझे याद दिलाएँ','A week before':'एक सप्ताह पहले','The evening before':'एक दिन पहले शाम को','Morning of the day':'उसी दिन सुबह','Save':'सहेजें','Cancel':'रद्द करें','Edit':'बदलें','Delete':'हटाएँ','Tap again to delete':'हटाने के लिए फिर दबाएँ','View day':'दिन देखें','Next years':'आने वाले वर्ष','Next':'अगला','Tomorrow':'कल','day':'दिन','days':'दिन','Saved':'सहेजा गया','No tithis saved yet.':'अभी कोई तिथि सहेजी नहीं है।','Day is marked by the tithi at':'दिन तय होता है इस समय की तिथि से','Afternoon (Aparahna), for shraddh':'दोपहर बाद (अपराह्न), श्राद्ध के लिए','Sunrise, for birthdays and vrats':'सूर्योदय, जन्मदिन और व्रत के लिए','Choose a date first.':'पहले तारीख़ चुनें।','@tsin':'%n दिन में','@tsago':'%n दिन पहले','Tomorrow':'आने वाला कल','Yesterday':'बीता हुआ कल','Date':'तारीख़','Moonrise':'चंद्रोदय','No moonrise on this date':'इस तारीख़ को चंद्रोदय नहीं','Open a saved Kundali':'सहेजी गई कुंडली खोलें','Saved Kundalis':'सहेजी गई कुंडलियाँ','Tap a name to open its Kundali.':'कुंडली खोलने के लिए नाम पर टैप करें।','Search by name or place':'नाम या स्थान से खोजें','No saved Kundalis yet.':'अभी कोई कुंडली सहेजी नहीं है।','Close':'बंद करें','Name':'नाम','Within 30 days':'30 दिनों के भीतर','Later':'बाद में','All':'सभी','Saved tithis':'सहेजी गई तिथियाँ','Options':'विकल्प','This name is already saved. Please use a different name.':'यह नाम पहले से सहेजा है। कृपया कोई दूसरा नाम रखें।','Place of that day':'उस दिन का स्थान','Same as the app':'ऐप वाला ही','Also remind me in Pitru Paksha':'पितृ पक्ष में भी याद दिलाएँ','Pitru Paksha':'पितृ पक्ष','shraddh':'श्राद्ध','How Tithi Smriti helps':'यह कैसे काम आता है','Why Tithi Smriti':'तिथि स्मृति क्यों','Share with family':'परिवार से साझा करें','Got it':'समझ गया','In the other naming':'दूसरी पद्धति में','Shraddh, birthdays and vrats kept by tithi, with a reminder every year':'श्राद्ध, जन्मदिन और व्रत तिथि के अनुसार, हर साल रिमाइंडर के साथ','Shraddh, birthdays, anniversaries and vrats that return on the same tithi every year. Save one once and the app finds its date each year and reminds you.':'श्राद्ध, जन्मदिन, वर्षगांठ और व्रत जो हर साल उसी तिथि पर लौटते हैं। एक बार सहेजें, ऐप हर साल उसकी तारीख़ खोजकर आपको याद दिलाएगा।','New':'नया','Then':'फिर','That day\u2019s tithi:':'उस दिन की तिथि:','For a death, the tithi at the time of passing decides the shraddh. Leave the time empty to use sunrise.':'मृत्यु के लिए श्राद्ध उसी समय की तिथि से तय होता है। समय खाली छोड़ेंगे तो सूर्योदय लिया जाएगा।'},
+      mr:{'Tithi Smriti':'तिथी स्मृती','Remember by the tithi, not the date':'तारखेने नव्हे, तिथीने आठवण ठेवा','Add a tithi':'तिथी जोडा','+ Add a tithi':'+ तिथी जोडा','Edit tithi':'तिथी बदला','Add to calendar':'कॅलेंडरमध्ये जोडा','Name':'नाव','Kind':'प्रकार','Shraddh':'श्राद्ध','Birthday':'वाढदिवस','Anniversary':'वर्धापन दिन','Vrat':'व्रत','Other':'इतर','How do you know it?':'तुम्हाला ती कशी माहीत आहे?','I know the tithi':'मला तिथी माहीत आहे','From an English date':'इंग्रजी तारखेवरून','Find the tithi':'तिथी शोधा','Time (optional)':'वेळ (ऐच्छिक)','Month':'महिना','Paksha':'पक्ष','Tithi':'तिथी','Month names':'महिन्यांची पद्धत','Amanta':'अमान्त','Purnimanta':'पूर्णिमान्त','Remind me':'मला आठवण करा','A week before':'एक आठवडा आधी','The evening before':'आदल्या संध्याकाळी','Morning of the day':'त्याच दिवशी सकाळी','Save':'जतन करा','Cancel':'रद्द करा','Edit':'बदला','Delete':'हटवा','Tap again to delete':'हटवण्यासाठी पुन्हा दाबा','View day':'दिवस पहा','Next years':'पुढील वर्षे','Next':'पुढील','Tomorrow':'उद्या','day':'दिवस','days':'दिवस','Saved':'जतन केले','No tithis saved yet.':'अजून कोणतीही तिथी जतन केलेली नाही.','Day is marked by the tithi at':'दिवस या वेळच्या तिथीवरून ठरतो','Afternoon (Aparahna), for shraddh':'दुपारनंतर (अपराह्न), श्राद्धासाठी','Sunrise, for birthdays and vrats':'सूर्योदय, वाढदिवस व व्रतांसाठी','Choose a date first.':'आधी तारीख निवडा.','@tsin':'%n दिवसांत','@tsago':'%n दिवसांपूर्वी','Tomorrow':'उद्या','Yesterday':'काल','Date':'तारीख','Moonrise':'चंद्रोदय','No moonrise on this date':'या तारखेला चंद्रोदय नाही','Open a saved Kundali':'जतन केलेली कुंडली उघडा','Saved Kundalis':'जतन केलेल्या कुंडल्या','Tap a name to open its Kundali.':'कुंडली उघडण्यासाठी नावावर टॅप करा.','Search by name or place':'नाव किंवा ठिकाणाने शोधा','No saved Kundalis yet.':'अजून कोणतीही कुंडली जतन केलेली नाही.','Close':'बंद करा','Name':'नाव','Within 30 days':'30 दिवसांच्या आत','Later':'नंतर','All':'सर्व','Saved tithis':'जतन केलेल्या तिथी','Options':'पर्याय','This name is already saved. Please use a different name.':'हे नाव आधीच जतन केले आहे. कृपया वेगळे नाव द्या.','Place of that day':'त्या दिवसाचे ठिकाण','Same as the app':'अॅपमधीलच','Also remind me in Pitru Paksha':'पितृपक्षातही आठवण करा','Pitru Paksha':'पितृपक्ष','shraddh':'श्राद्ध','How Tithi Smriti helps':'हे कसे उपयोगी आहे','Why Tithi Smriti':'तिथी स्मृती का','Share with family':'कुटुंबासोबत शेअर करा','Got it':'समजले','In the other naming':'दुसऱ्या पद्धतीत','Shraddh, birthdays and vrats kept by tithi, with a reminder every year':'श्राद्ध, वाढदिवस आणि व्रते तिथीनुसार, दरवर्षी आठवणीसह','Shraddh, birthdays, anniversaries and vrats that return on the same tithi every year. Save one once and the app finds its date each year and reminds you.':'श्राद्ध, वाढदिवस, वर्धापन दिन आणि व्रते जी दरवर्षी त्याच तिथीला येतात. एकदा जतन करा, अॅप दरवर्षी त्याची तारीख शोधून तुम्हाला आठवण करून देईल.','New':'नवीन','Then':'नंतर','That day\u2019s tithi:':'त्या दिवसाची तिथी:','For a death, the tithi at the time of passing decides the shraddh. Leave the time empty to use sunrise.':'मृत्यूसाठी श्राद्ध निधनाच्या वेळच्या तिथीने ठरते. वेळ रिकामी ठेवल्यास सूर्योदय घेतला जातो.'},
+      gu:{'Tithi Smriti':'તિથિ સ્મૃતિ','Remember by the tithi, not the date':'તારીખથી નહીં, તિથિથી યાદ રાખો','Add a tithi':'તિથિ ઉમેરો','+ Add a tithi':'+ તિથિ ઉમેરો','Edit tithi':'તિથિ બદલો','Add to calendar':'કૅલેન્ડરમાં ઉમેરો','Name':'નામ','Kind':'પ્રકાર','Shraddh':'શ્રાદ્ધ','Birthday':'જન્મદિવસ','Anniversary':'વર્ષગાંઠ','Vrat':'વ્રત','Other':'અન્ય','How do you know it?':'તમે તેને કેવી રીતે જાણો છો?','I know the tithi':'મને તિથિ ખબર છે','From an English date':'અંગ્રેજી તારીખ પરથી','Find the tithi':'તિથિ શોધો','Time (optional)':'સમય (વૈકલ્પિક)','Month':'માસ','Paksha':'પક્ષ','Tithi':'તિથિ','Month names':'માસ પદ્ધતિ','Amanta':'અમાંત','Purnimanta':'પૂર્ણિમાંત','Remind me':'મને યાદ અપાવો','A week before':'એક અઠવાડિયું પહેલાં','The evening before':'આગલી સાંજે','Morning of the day':'એ જ દિવસે સવારે','Save':'સાચવો','Cancel':'રદ કરો','Edit':'બદલો','Delete':'કાઢી નાખો','Tap again to delete':'કાઢવા માટે ફરી દબાવો','View day':'દિવસ જુઓ','Next years':'આવતાં વર્ષો','Next':'આગામી','Tomorrow':'આવતીકાલે','day':'દિવસ','days':'દિવસ','Saved':'સાચવ્યું','No tithis saved yet.':'હજી કોઈ તિથિ સાચવી નથી.','Day is marked by the tithi at':'દિવસ આ સમયની તિથિથી નક્કી થાય','Afternoon (Aparahna), for shraddh':'બપોર પછી (અપરાહ્ન), શ્રાદ્ધ માટે','Sunrise, for birthdays and vrats':'સૂર્યોદય, જન્મદિવસ અને વ્રત માટે','Choose a date first.':'પહેલાં તારીખ પસંદ કરો.','@tsin':'%n દિવસમાં','@tsago':'%n દિવસ પહેલાં','Tomorrow':'આવતીકાલ','Yesterday':'ગઈકાલ','Date':'તારીખ','Moonrise':'ચંદ્રોદય','No moonrise on this date':'આ તારીખે ચંદ્રોદય નથી','Open a saved Kundali':'સાચવેલી કુંડળી ખોલો','Saved Kundalis':'સાચવેલી કુંડળીઓ','Tap a name to open its Kundali.':'કુંડળી ખોલવા નામ પર ટૅપ કરો.','Search by name or place':'નામ અથવા સ્થળથી શોધો','No saved Kundalis yet.':'હજી કોઈ કુંડળી સાચવી નથી.','Close':'બંધ કરો','Name':'નામ','Within 30 days':'30 દિવસમાં','Later':'પછી','All':'બધા','Saved tithis':'સાચવેલી તિથિઓ','Options':'વિકલ્પો','This name is already saved. Please use a different name.':'આ નામ પહેલેથી સાચવેલું છે. કૃપા કરી બીજું નામ આપો.','Place of that day':'તે દિવસનું સ્થળ','Same as the app':'ઍપ મુજબ જ','Also remind me in Pitru Paksha':'પિતૃ પક્ષમાં પણ યાદ અપાવો','Pitru Paksha':'પિતૃ પક્ષ','shraddh':'શ્રાદ્ધ','How Tithi Smriti helps':'આ કેવી રીતે ઉપયોગી છે','Why Tithi Smriti':'તિથિ સ્મૃતિ શા માટે','Share with family':'પરિવાર સાથે શેર કરો','Got it':'સમજાયું','In the other naming':'બીજી પદ્ધતિમાં','Shraddh, birthdays and vrats kept by tithi, with a reminder every year':'શ્રાદ્ધ, જન્મદિવસ અને વ્રત તિથિ પ્રમાણે, દર વર્ષે યાદ સાથે','Shraddh, birthdays, anniversaries and vrats that return on the same tithi every year. Save one once and the app finds its date each year and reminds you.':'શ્રાદ્ધ, જન્મદિવસ, વર્ષગાંઠ અને વ્રત જે દર વર્ષે એ જ તિથિએ આવે છે. એક વાર સાચવો, ઍપ દર વર્ષે તેની તારીખ શોધીને તમને યાદ અપાવશે.','New':'નવું','Then':'પછી','That day\u2019s tithi:':'તે દિવસની તિથિ:','For a death, the tithi at the time of passing decides the shraddh. Leave the time empty to use sunrise.':'મૃત્યુ માટે શ્રાદ્ધ નિધન સમયની તિથિથી નક્કી થાય છે. સમય ખાલી રાખશો તો સૂર્યોદય લેવાશે.'},
+      te:{'Tithi Smriti':'తిథి స్మృతి','Remember by the tithi, not the date':'తేదీతో కాదు, తిథితో గుర్తుంచుకోండి','Add a tithi':'తిథి చేర్చండి','+ Add a tithi':'+ తిథి చేర్చండి','Edit tithi':'తిథి మార్చండి','Add to calendar':'క్యాలెండర్‌లో చేర్చండి','Name':'పేరు','Kind':'రకం','Shraddh':'శ్రాద్ధం','Birthday':'పుట్టినరోజు','Anniversary':'వార్షికోత్సవం','Vrat':'వ్రతం','Other':'ఇతర','How do you know it?':'మీకు ఇది ఎలా తెలుసు?','I know the tithi':'నాకు తిథి తెలుసు','From an English date':'ఇంగ్లీష్ తేదీ నుండి','Find the tithi':'తిథిని కనుగొనండి','Time (optional)':'సమయం (ఐచ్ఛికం)','Month':'మాసం','Paksha':'పక్షం','Tithi':'తిథి','Month names':'మాస పద్ధతి','Amanta':'అమాంత','Purnimanta':'పూర్ణిమాంత','Remind me':'నాకు గుర్తు చేయండి','A week before':'ఒక వారం ముందు','The evening before':'ముందు రోజు సాయంత్రం','Morning of the day':'ఆ రోజు ఉదయం','Save':'సేవ్ చేయండి','Cancel':'రద్దు చేయండి','Edit':'మార్చండి','Delete':'తొలగించండి','Tap again to delete':'తొలగించడానికి మళ్ళీ నొక్కండి','View day':'రోజు చూడండి','Next years':'రాబోయే సంవత్సరాలు','Next':'తదుపరి','Tomorrow':'రేపు','day':'రోజు','days':'రోజులు','Saved':'సేవ్ అయింది','No tithis saved yet.':'ఇంకా ఏ తిథీ సేవ్ చేయలేదు.','Day is marked by the tithi at':'ఈ సమయంలోని తిథితో రోజు నిర్ణయం','Afternoon (Aparahna), for shraddh':'మధ్యాహ్నం తర్వాత (అపరాహ్ణం), శ్రాద్ధానికి','Sunrise, for birthdays and vrats':'సూర్యోదయం, పుట్టినరోజులు మరియు వ్రతాలకు','Choose a date first.':'ముందుగా తేదీని ఎంచుకోండి.','@tsin':'%n రోజుల్లో','@tsago':'%n రోజుల క్రితం','Tomorrow':'రేపు','Yesterday':'నిన్న','Date':'తేదీ','Moonrise':'చంద్రోదయం','No moonrise on this date':'ఈ తేదీన చంద్రోదయం లేదు','Open a saved Kundali':'సేవ్ చేసిన కుండలి తెరవండి','Saved Kundalis':'సేవ్ చేసిన కుండలులు','Tap a name to open its Kundali.':'కుండలి తెరవడానికి పేరుపై నొక్కండి.','Search by name or place':'పేరు లేదా ప్రదేశంతో వెతకండి','No saved Kundalis yet.':'ఇంకా ఏ కుండలీ సేవ్ చేయలేదు.','Close':'మూసివేయండి','Name':'పేరు','Within 30 days':'30 రోజుల్లోపు','Later':'తర్వాత','All':'అన్నీ','Saved tithis':'సేవ్ చేసిన తిథులు','Options':'ఎంపికలు','This name is already saved. Please use a different name.':'ఈ పేరు ఇప్పటికే సేవ్ అయింది. దయచేసి వేరే పేరు ఇవ్వండి.','Place of that day':'ఆ రోజు ప్రదేశం','Same as the app':'యాప్‌లోనిదే','Also remind me in Pitru Paksha':'పితృ పక్షంలో కూడా గుర్తు చేయండి','Pitru Paksha':'పితృ పక్షం','shraddh':'శ్రాద్ధం','How Tithi Smriti helps':'ఇది ఎలా ఉపయోగపడుతుంది','Why Tithi Smriti':'తిథి స్మృతి ఎందుకు','Share with family':'కుటుంబంతో పంచుకోండి','Got it':'అర్థమైంది','In the other naming':'ఇతర పద్ధతిలో','Shraddh, birthdays and vrats kept by tithi, with a reminder every year':'శ్రాద్ధం, పుట్టినరోజులు, వ్రతాలు తిథి ప్రకారం, ప్రతి సంవత్సరం రిమైండర్‌తో','Shraddh, birthdays, anniversaries and vrats that return on the same tithi every year. Save one once and the app finds its date each year and reminds you.':'శ్రాద్ధం, పుట్టినరోజులు, వార్షికోత్సవాలు, వ్రతాలు ప్రతి సంవత్సరం అదే తిథిన వస్తాయి. ఒకసారి సేవ్ చేయండి, యాప్ ప్రతి సంవత్సరం తేదీని కనుగొని మీకు గుర్తు చేస్తుంది.','New':'కొత్త','Then':'తర్వాత','That day\u2019s tithi:':'ఆ రోజు తిథి:','For a death, the tithi at the time of passing decides the shraddh. Leave the time empty to use sunrise.':'మరణం విషయంలో మరణించిన సమయంలోని తిథి శ్రాద్ధాన్ని నిర్ణయిస్తుంది. సమయం ఖాళీగా వదిలితే సూర్యోదయం తీసుకుంటాం.'},
+      kn:{'Tithi Smriti':'ತಿಥಿ ಸ್ಮೃತಿ','Remember by the tithi, not the date':'ದಿನಾಂಕದಿಂದಲ್ಲ, ತಿಥಿಯಿಂದ ನೆನಪಿಡಿ','Add a tithi':'ತಿಥಿ ಸೇರಿಸಿ','+ Add a tithi':'+ ತಿಥಿ ಸೇರಿಸಿ','Edit tithi':'ತಿಥಿ ಬದಲಿಸಿ','Add to calendar':'ಕ್ಯಾಲೆಂಡರ್‌ಗೆ ಸೇರಿಸಿ','Name':'ಹೆಸರು','Kind':'ವಿಧ','Shraddh':'ಶ್ರಾದ್ಧ','Birthday':'ಹುಟ್ಟುಹಬ್ಬ','Anniversary':'ವಾರ್ಷಿಕೋತ್ಸವ','Vrat':'ವ್ರತ','Other':'ಇತರೆ','How do you know it?':'ನಿಮಗೆ ಇದು ಹೇಗೆ ಗೊತ್ತು?','I know the tithi':'ನನಗೆ ತಿಥಿ ಗೊತ್ತು','From an English date':'ಇಂಗ್ಲಿಷ್ ದಿನಾಂಕದಿಂದ','Find the tithi':'ತಿಥಿ ಹುಡುಕಿ','Time (optional)':'ಸಮಯ (ಐಚ್ಛಿಕ)','Month':'ಮಾಸ','Paksha':'ಪಕ್ಷ','Tithi':'ತಿಥಿ','Month names':'ಮಾಸ ಪದ್ಧತಿ','Amanta':'ಅಮಾಂತ','Purnimanta':'ಪೂರ್ಣಿಮಾಂತ','Remind me':'ನನಗೆ ನೆನಪಿಸಿ','A week before':'ಒಂದು ವಾರ ಮೊದಲು','The evening before':'ಹಿಂದಿನ ಸಂಜೆ','Morning of the day':'ಆ ದಿನ ಬೆಳಿಗ್ಗೆ','Save':'ಉಳಿಸಿ','Cancel':'ರದ್ದುಮಾಡಿ','Edit':'ಬದಲಿಸಿ','Delete':'ಅಳಿಸಿ','Tap again to delete':'ಅಳಿಸಲು ಮತ್ತೆ ಒತ್ತಿ','View day':'ದಿನ ನೋಡಿ','Next years':'ಮುಂದಿನ ವರ್ಷಗಳು','Next':'ಮುಂದಿನ','Tomorrow':'ನಾಳೆ','day':'ದಿನ','days':'ದಿನಗಳು','Saved':'ಉಳಿಸಲಾಗಿದೆ','No tithis saved yet.':'ಇನ್ನೂ ಯಾವುದೇ ತಿಥಿ ಉಳಿಸಿಲ್ಲ.','Day is marked by the tithi at':'ಈ ಸಮಯದ ತಿಥಿಯಿಂದ ದಿನ ನಿರ್ಧಾರ','Afternoon (Aparahna), for shraddh':'ಮಧ್ಯಾಹ್ನದ ನಂತರ (ಅಪರಾಹ್ಣ), ಶ್ರಾದ್ಧಕ್ಕೆ','Sunrise, for birthdays and vrats':'ಸೂರ್ಯೋದಯ, ಹುಟ್ಟುಹಬ್ಬ ಮತ್ತು ವ್ರತಗಳಿಗೆ','Choose a date first.':'ಮೊದಲು ದಿನಾಂಕ ಆಯ್ಕೆಮಾಡಿ.','@tsin':'%n ದಿನಗಳಲ್ಲಿ','@tsago':'%n ದಿನಗಳ ಹಿಂದೆ','Tomorrow':'ನಾಳೆ','Yesterday':'ನಿನ್ನೆ','Date':'ದಿನಾಂಕ','Moonrise':'ಚಂದ್ರೋದಯ','No moonrise on this date':'ಈ ದಿನ ಚಂದ್ರೋದಯ ಇಲ್ಲ','Open a saved Kundali':'ಉಳಿಸಿದ ಕುಂಡಲಿ ತೆರೆಯಿರಿ','Saved Kundalis':'ಉಳಿಸಿದ ಕುಂಡಲಿಗಳು','Tap a name to open its Kundali.':'ಕುಂಡಲಿ ತೆರೆಯಲು ಹೆಸರಿನ ಮೇಲೆ ಒತ್ತಿ.','Search by name or place':'ಹೆಸರು ಅಥವಾ ಸ್ಥಳದಿಂದ ಹುಡುಕಿ','No saved Kundalis yet.':'ಇನ್ನೂ ಯಾವುದೇ ಕುಂಡಲಿ ಉಳಿಸಿಲ್ಲ.','Close':'ಮುಚ್ಚಿ','Name':'ಹೆಸರು','Within 30 days':'30 ದಿನಗಳೊಳಗೆ','Later':'ನಂತರ','All':'ಎಲ್ಲಾ','Saved tithis':'ಉಳಿಸಿದ ತಿಥಿಗಳು','Options':'ಆಯ್ಕೆಗಳು','This name is already saved. Please use a different name.':'ಈ ಹೆಸರು ಈಗಾಗಲೇ ಉಳಿಸಲಾಗಿದೆ. ದಯವಿಟ್ಟು ಬೇರೆ ಹೆಸರು ನೀಡಿ.','Place of that day':'ಆ ದಿನದ ಸ್ಥಳ','Same as the app':'ಆ್ಯಪ್‌ನಲ್ಲಿರುವುದೇ','Also remind me in Pitru Paksha':'ಪಿತೃ ಪಕ್ಷದಲ್ಲೂ ನೆನಪಿಸಿ','Pitru Paksha':'ಪಿತೃ ಪಕ್ಷ','shraddh':'ಶ್ರಾದ್ಧ','How Tithi Smriti helps':'ಇದು ಹೇಗೆ ಉಪಯುಕ್ತ','Why Tithi Smriti':'ತಿಥಿ ಸ್ಮೃತಿ ಏಕೆ','Share with family':'ಕುಟುಂಬದೊಂದಿಗೆ ಹಂಚಿಕೊಳ್ಳಿ','Got it':'ಅರ್ಥವಾಯಿತು','In the other naming':'ಇನ್ನೊಂದು ಪದ್ಧತಿಯಲ್ಲಿ','Shraddh, birthdays and vrats kept by tithi, with a reminder every year':'ಶ್ರಾದ್ಧ, ಹುಟ್ಟುಹಬ್ಬ, ವ್ರತಗಳು ತಿಥಿಯ ಪ್ರಕಾರ, ಪ್ರತಿ ವರ್ಷ ರಿಮೈಂಡರ್‌ನೊಂದಿಗೆ','Shraddh, birthdays, anniversaries and vrats that return on the same tithi every year. Save one once and the app finds its date each year and reminds you.':'ಶ್ರಾದ್ಧ, ಹುಟ್ಟುಹಬ್ಬ, ವಾರ್ಷಿಕೋತ್ಸವ, ವ್ರತಗಳು ಪ್ರತಿ ವರ್ಷ ಅದೇ ತಿಥಿಯಂದು ಬರುತ್ತವೆ. ಒಮ್ಮೆ ಉಳಿಸಿ, ಆ್ಯಪ್ ಪ್ರತಿ ವರ್ಷ ದಿನಾಂಕ ಹುಡುಕಿ ನಿಮಗೆ ನೆನಪಿಸುತ್ತದೆ.','New':'ಹೊಸದು','Then':'ನಂತರ','That day\u2019s tithi:':'ಆ ದಿನದ ತಿಥಿ:','For a death, the tithi at the time of passing decides the shraddh. Leave the time empty to use sunrise.':'ಮರಣದ ವಿಷಯದಲ್ಲಿ ನಿಧನದ ಸಮಯದ ತಿಥಿ ಶ್ರಾದ್ಧವನ್ನು ನಿರ್ಧರಿಸುತ್ತದೆ. ಸಮಯ ಖಾಲಿ ಬಿಟ್ಟರೆ ಸೂರ್ಯೋದಯ ಬಳಸಲಾಗುತ್ತದೆ.'}
     };
     Object.keys(X).forEach(function(l){ if (!DICT[l]) return; Object.keys(X[l]).forEach(function(k){ if (DICT[l][k] === undefined) DICT[l][k] = X[l][k]; }); });
     LANG_RULES.push([/^In (\d+) days$/, function(m, w, d){ var s = FX(d, '@tsin', ''); return s ? s.replace('%n', m[1]) : m[0]; }]);
@@ -6084,7 +6440,7 @@ body{overflow-x:clip;max-width:100%;}
     var p = ds.split('-'), y = +p[0];
     if (y < 1800 || y > 2049){ out.innerHTML = jyMsg('Transits are available for the years 1800 to 2049.'); return; }
     // 12:00 in the chosen time zone on that date
-    var ms = Date.UTC(y, +p[1] - 1, +p[2], 12, 0) - tz*36e5, h = '', left = Math.max(0, Math.floor((Date.UTC(2050, 11, 31) - ms)/864e5));
+    var ms = localToUTC(Date.UTC(y, +p[1] - 1, +p[2], 12, 0), tz), h = '', left = Math.max(0, Math.floor((Date.UTC(2050, 11, 31) - ms)/864e5));
     h += '<div class="gc-sec"><h4 class="jy-h">Planets on ' + (+p[2]) + ' ' + MONTHS[+p[1]-1].slice(0,3) + ' ' + y + '</h4><div style="overflow-x:auto;"><table class="data"><tr><th>Graha</th><th>R\u0101shi</th><th>Degree</th><th>Nakshatra</th><th>Motion</th><th>Next sign change</th></tr>';
     GC_PLANETS.forEach(function(n){
       var l = gcLon(n, ms), r = Math.floor(l/30), nk = nakOf(l), dr = gcDir(n, ms), nxt = null;
@@ -6113,7 +6469,7 @@ body{overflow-x:clip;max-width:100%;}
     out.innerHTML = h + '<p class="desc" style="margin-top:10px;">Sidereal positions (Lahiri ayanamsa), mean Rahu\u2013Ketu. Times are in ' + selectedLoc().name + ' time. Dates are approximate: the Sun, Moon, Mercury, Venus and Mars are good to within hours; Jupiter to about a day; Saturn and the turns of the slow planets to a few days.</p>';
   }
   function gcToday(){
-    var tz = selectedLoc().tz, t = new Date(Date.now() + tz*36e5);
+    var tz = selectedLoc().tz, t = new Date(utcToLocal(Date.now(), tz));
     jyEl('gc-date').value = t.getUTCFullYear() + '-' + pad2(t.getUTCMonth()+1) + '-' + pad2(t.getUTCDate());
   }
 
@@ -6128,6 +6484,7 @@ body{overflow-x:clip;max-width:100%;}
       if (!b) return;
       document.querySelectorAll('#jyo-tabs .subtab').forEach(function(x){ x.classList.toggle('active', x === b); x.setAttribute('aria-selected', x === b ? 'true' : 'false'); });
       document.querySelectorAll('#panel-horoscope .subpanel').forEach(function(p){ p.classList.toggle('active', p.id === 'sub-' + b.dataset.sub); });
+      if (window.kdFabSync) kdFabSync();
     });
     ['kd','ms','ds'].forEach(function(p){
       var sel = jyEl(p+'-city'), draw = (p === 'kd') ? renderKundali : (p === 'ms' ? renderMoonSign : renderDasha);
@@ -6215,6 +6572,22 @@ body{overflow-x:clip;max-width:100%;}
   document.getElementById('day-next').addEventListener('click', function(){ shiftDay(1); });
   document.getElementById('c-day-prev').addEventListener('click', function(){ shiftDay(-1); });
   document.getElementById('c-day-next').addEventListener('click', function(){ shiftDay(1); });
+  document.getElementById('muh-prev').addEventListener('click', function(){ shiftDay(-1); });
+  document.getElementById('muh-next').addEventListener('click', function(){ shiftDay(1); });
+  document.getElementById('muh-today').addEventListener('click', function(){ document.getElementById('go-btn').click(); });
+  document.getElementById('muh-date-in').addEventListener('change', function(){
+    var v = this.value; if (!/^\d{4}-\d\d-\d\d$/.test(v)) return;
+    dateInput.value = v; dateInput.dispatchEvent(new Event('change', {bubbles: true}));
+  });
+  (function(){ // swipe the Muhuratam date bar for the previous/next day
+    var h = document.getElementById('muh-datebar'), sx = 0, sy = 0;
+    h.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, {passive:true});
+    h.addEventListener('touchend', function(e){
+      if (e.target.closest && e.target.closest('input')) return;
+      var t = e.changedTouches[0], dx = t.clientX - sx, dy = t.clientY - sy;
+      if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) shiftDay(dx < 0 ? 1 : -1);
+    }, {passive:true});
+  })();
   (function(){ // swipe the Calendar header for the previous/next day, same as Home
     var h = document.querySelector('#panel-calendar .hero'), sx = 0, sy = 0;
     h.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, {passive:true});
@@ -6372,6 +6745,10 @@ body{overflow-x:clip;max-width:100%;}
   (function(){
     var SEL = 'select#city-select, select[id$="-city"]';
     var ov = null, lastFocus = null;
+    function cityAlias(l){
+      var t = String(l).split(',').pop().trim().toLowerCase(), A = {'usa':'united states america us','uk':'united kingdom britain england gb','uae':'united arab emirates emirates','czechia':'czech republic','netherlands':'holland','canada':'ca','india':'bharat'};
+      return A[t] || '';
+    }
     function norm(t){ return String(t).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); }
     function close(){ if (!ov) return; document.removeEventListener('keydown', onKey, true); ov.remove(); ov = null; document.body.style.overflow = ''; if (lastFocus && lastFocus.focus) { try { lastFocus.focus({preventScroll:true}); } catch(e){} } }
     function onKey(e){ if (e.key === 'Escape'){ e.preventDefault(); e.stopPropagation(); close(); } }
@@ -6379,9 +6756,9 @@ body{overflow-x:clip;max-width:100%;}
     function open(sel){
       if (ov) return;
       lastFocus = sel;
-      var opts = [].map.call(sel.options, function(o){ return { value: o.value, label: o.textContent, key: norm(o.textContent), custom: o.value === 'custom' }; }).filter(function(o){ return o.label; });
+      var opts = [].map.call(sel.options, function(o){ return { value: o.value, label: o.textContent, key: norm(o.textContent + ' ' + cityAlias(o.textContent)), custom: o.value === 'custom', abroad: !!(CITIES[+o.value] && typeof CITIES[+o.value].tz === 'string') }; }).filter(function(o){ return o.label; });
       ov = document.createElement('div'); ov.className = 'cp-ov';
-      ov.innerHTML = '<div class="cp-sheet" role="dialog" aria-modal="true" aria-label="Choose a place"><div class="cp-head"><input class="cp-search" type="search" inputmode="search" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Search city or state" aria-label="Search city or state"><button type="button" class="cp-close" aria-label="Close">\u00d7</button></div><div class="cp-list" role="listbox"></div></div>';
+      ov.innerHTML = '<div class="cp-sheet" role="dialog" aria-modal="true" aria-label="Choose a place"><div class="cp-head"><input class="cp-search" type="search" inputmode="search" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Search city, state or country" aria-label="Search city, state or country"><button type="button" class="cp-close" aria-label="Close">\u00d7</button></div><div class="cp-list" role="listbox"></div></div>';
       document.body.appendChild(ov); document.body.style.overflow = 'hidden';
       var input = ov.querySelector('.cp-search'), list = ov.querySelector('.cp-list');
       function draw(){
@@ -6391,9 +6768,11 @@ body{overflow-x:clip;max-width:100%;}
           if (!q || o.key.indexOf(q) > -1) rows.push(o);
         });
         if (q) rows.sort(function(a, b){ var ia = a.key.indexOf(q) === 0 ? 0 : 1, ib = b.key.indexOf(q) === 0 ? 0 : 1; return ia - ib; });
+        var seenAbroad = false, haveIn = rows.some(function(o){ return !o.abroad; });
         var html = rows.map(function(o){
-          var parts = o.label.split(','), nm = parts[0].trim(), st = parts.slice(1).join(',').trim();
-          return '<button type="button" class="cp-item' + (o.value === sel.value ? ' cur' : '') + '" role="option" data-v="' + esc(o.value) + '"><span>' + esc(nm) + '</span><span class="cp-state">' + esc(st) + '</span></button>';
+          var parts = o.label.split(','), nm = parts[0].trim(), st = parts.slice(1).join(',').trim(), hd = '';
+          if (!q && o.abroad && !seenAbroad){ seenAbroad = true; hd = '<div class="cp-grp">Outside India</div>'; }
+          return hd + '<button type="button" class="cp-item' + (o.value === sel.value ? ' cur' : '') + '" role="option" data-v="' + esc(o.value) + '"><span>' + esc(nm) + '</span><span class="cp-state">' + esc(st) + '</span></button>';
         }).join('');
         var cu = opts.filter(function(o){ return o.custom; })[0];
         if (cu) html += '<button type="button" class="cp-item cp-custom" data-v="custom"><span>' + esc(cu.label) + '</span></button>';
