@@ -659,12 +659,6 @@
   .city-auto button{border:0;background:transparent;font-size:1.2rem;line-height:1;color:var(--ink-soft);cursor:pointer;padding:2px 6px;}
   .cp-grp{position:sticky;top:0;z-index:1;padding:8px 14px 6px;font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--maroon);background:var(--ivory);border-bottom:1px solid var(--line);}
   .up-date .mr-tag{margin-left:4px;}
-  .moon-hl{display:inline-flex;align-items:center;gap:10px;margin-top:16px;padding:8px 18px 8px 12px;border-radius:999px;background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.04));border:1px solid rgba(216,184,120,.65);box-shadow:0 0 22px rgba(244,235,208,.14),inset 0 0 12px rgba(244,235,208,.06);color:#F4EBD0;}
-  .moon-hl:empty{display:none;}
-  .moon-hl svg{width:26px;height:26px;filter:drop-shadow(0 0 7px rgba(244,235,208,.75));}
-  .moon-hl .mr-l{color:#D8B878;}
-  .moon-hl .mr-big{font-size:1.45rem;line-height:1;text-shadow:0 0 16px rgba(244,235,208,.5);}
-  .moon-hl .mr-none{font-size:.85rem;color:#E9D9BE;}
   .fs-moon{display:flex;align-items:center;gap:14px;margin:14px 0 16px;padding:14px 18px;border-radius:16px;background:linear-gradient(135deg,#2A0E16,#561A28);color:#F4EBD0;border:1px solid #C9A25C;box-shadow:0 6px 22px rgba(60,10,20,.28);}
   .fs-moon svg{width:46px;height:46px;flex:none;filter:drop-shadow(0 0 9px rgba(244,235,208,.7));}
   .fs-moon .mr-l{color:#D8B878;}
@@ -1235,7 +1229,6 @@ body{overflow-x:clip;max-width:100%;}
           <div class="hero-fig"><div class="lbl">Tithi</div><div class="val" id="h-tithi">—</div></div>
           <div class="hero-fig"><div class="lbl">Nakshatra</div><div class="val" id="h-nak">—</div></div>
         </div>
-        <div class="moon-hl" id="h-moon"></div>
         <div id="h-fest"></div>
       </div>
     </div>
@@ -1336,7 +1329,6 @@ body{overflow-x:clip;max-width:100%;}
           <div class="hero-fig"><div class="lbl">Tithi</div><div class="val" id="c-tithi">—</div></div>
           <div class="hero-fig"><div class="lbl">Nakshatra</div><div class="val" id="c-nak">—</div></div>
         </div>
-        <div class="moon-hl" id="c-moon"></div>
         <div id="c-fest"></div>
       </div>
     </div>
@@ -1752,10 +1744,12 @@ body{overflow-x:clip;max-width:100%;}
       <section class="block" style="margin-top:28px;">
         <h2>About this almanac</h2>
         <div class="about-copy">
-          <p>This site computes a simplified Hindu panchang — sunrise and sunset, tithi, nakshatra, yoga, karana, and the traditional muhurat windows — directly in your browser from your chosen date and location.</p>
+          <p>This site computes a simplified Hindu panchang — sunrise and sunset, tithi, nakshatra, yoga, karana, and the traditional muhurat windows — directly in your browser from your chosen date and location, in India or abroad.</p>
           <h3>How the numbers are made</h3>
-          <p>Sun and moon positions come from the Meeus analytical series (the full 60-term lunar longitude series with eccentricity, solar and nutation corrections, plus the Sun's equation of centre and aberration). The Moon is good to a few arcseconds and the Sun to roughly 30–40 arcseconds, which places tithi, nakshatra, yoga and karana boundaries within a few minutes of a full ephemeris. Tithi, nakshatra, yoga and karana are those prevailing at local sunrise, as in standard panchangs; Sankashti Chaturthi uses a computed moonrise. Sunrise and sunset use the standard NOAA solar-position formula for your latitude and longitude. Nakshatra, which is measured against the sidereal zodiac, uses the Lahiri (Chitrapaksha) ayanamsa from the standard precession formula.</p>
+          <p>Sun and moon positions come from the Meeus analytical series (the full 60-term lunar longitude series with eccentricity, solar and nutation corrections, plus the Sun's equation of centre and aberration). The Moon is good to a few arcseconds and the Sun to roughly 30–40 arcseconds, which places tithi, nakshatra, yoga and karana boundaries within a few minutes of a full ephemeris. Tithi, nakshatra, yoga and karana are those prevailing at local sunrise, as in standard panchangs; Moonrise is computed for your place and shown for every day, and it sets the timing for Sankashti Chaturthi and Karva Chauth. Sunrise and sunset use the standard NOAA solar-position formula for your latitude and longitude. Nakshatra, which is measured against the sidereal zodiac, uses the Lahiri (Chitrapaksha) ayanamsa from the standard precession formula.</p>
           <p>Rahu Kalam, Yamaganda and Gulika Kalam divide the sunrise-to-sunset period into eight parts and apply the commonly used weekday assignment. Choghadiya follows the standard weekday-keyed sequence for day and night periods.</p>
+          <h3>Places outside India</h3>
+          <p>Cities in the USA, Canada, the UK, Europe, Australia, Singapore, the Gulf and elsewhere use their real time zone, so daylight saving is applied automatically for the date you are viewing, including for a Kundali birthplace. Tithis and festivals are worked out for the selected city, so a festival can fall a day earlier or later than in India.</p>
           <h3>Where it's weaker</h3>
           <p>Right at a tithi, nakshatra or karana boundary — when the transition happens within a few minutes of the moment you're checking — this simplified model can land on the wrong side of the line. For anything time-critical (a wedding muhurat, a ritual start time), cross-check against a full-precision panchang or a knowledgeable priest.</p>
         </div>
@@ -2762,11 +2756,6 @@ body{overflow-x:clip;max-width:100%;}
     var mr = moonriseLocalMin(y, m, d, loc.lat, loc.lon, loc.tz);
     return mr === null ? '' : '<span class="mr-tag">' + MOON_SVG_DARK + '<span class="mr-l">Moonrise</span><b>' + minToHM(mr) + '</b></span>';
   }
-  function setMoonChip(id, y, m, d, loc){
-    var el = document.getElementById(id); if (!el) return;
-    var mr = moonriseLocalMin(y, m, d, loc.lat, loc.lon, loc.tz);
-    el.innerHTML = MOON_SVG + '<span class="mr-l">Moonrise</span>' + (mr === null ? '<span class="mr-none">No moonrise on this date</span>' : '<span class="mr-big">' + minToHM(mr) + '</span>');
-  }
 
   function sunMoonLongitudes(dateUTCNoon){
     var JD = toJulianDay(dateUTCNoon);
@@ -3168,7 +3157,6 @@ body{overflow-x:clip;max-width:100%;}
     document.getElementById('h-sub').textContent = MONTHS[m-1] + ' ' + y + ' · ' + p.purnimantaMonth;
     document.getElementById('h-sunrise').innerHTML = minToHM(p.sunriseMin);
     document.getElementById('h-sunset').innerHTML = minToHM(p.sunsetMin);
-    setMoonChip('h-moon', y, m, day, loc);
     document.getElementById('h-tithi').innerHTML = p.pakshaTithiNum + ', ' + p.tithiName + '<small>' + p.paksha + '</small>';
     document.getElementById('h-nak').innerHTML = p.nakshatra + '<small>Pada ' + p.nakPada + '</small>';
 
@@ -3188,7 +3176,7 @@ body{overflow-x:clip;max-width:100%;}
     var markRows = [
       ["Sunrise", minToHM(p.sunriseMin)],
       ["Sunset", minToHM(p.sunsetMin)],
-      ["Moonrise", (function(){ var mr = moonriseLocalMin(y, m, day, loc.lat, loc.lon, loc.tz); return mr === null ? 'No moonrise on this date' : '<strong>' + minToHM(mr) + '</strong>'; })()],
+      ["Moonrise", (function(){ var mr = moonriseLocalMin(y, m, day, loc.lat, loc.lon, loc.tz); return mr === null ? 'No moonrise on this date' : minToHM(mr); })()],
       ["Day length", (((p.sunsetMin-p.sunriseMin)/60).toFixed(2)) + ' hrs'],
       ["Location", loc.name]
     ];
@@ -3268,7 +3256,6 @@ body{overflow-x:clip;max-width:100%;}
     document.getElementById('c-sub').textContent = MONTHS[m-1] + ' ' + y + ' · ' + p.purnimantaMonth;
     document.getElementById('c-sunrise').innerHTML = minToHM(p.sunriseMin);
     document.getElementById('c-sunset').innerHTML = minToHM(p.sunsetMin);
-    setMoonChip('c-moon', y, m, dd, loc);
     document.getElementById('c-tithi').innerHTML = p.pakshaTithiNum + ', ' + p.tithiName + '<small>' + p.paksha + '</small>';
     document.getElementById('c-nak').innerHTML = p.nakshatra + '<small>Pada ' + p.nakPada + '</small>';
     renderBanner(y, m, dd, loc, 'c-fest');
